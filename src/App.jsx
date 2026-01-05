@@ -1,5 +1,44 @@
 import { useState, useEffect, useRef } from 'react'
 
+// --- Device Ring Component ---
+// Creates a 3D rotating orbital ring of device images
+const DeviceRing = () => {
+  const devices = [
+    { src: '/Trackpad.jpeg', alt: 'Magic Trackpad', delay: 0 },
+    { src: '/Keyboard.jpeg', alt: 'Magic Keyboard', delay: 1 },
+    { src: '/Mouse.jpeg', alt: 'Magic Mouse', delay: 2 },
+    { src: '/Trackpad.jpeg', alt: 'Magic Trackpad', delay: 3 },
+    { src: '/Keyboard.jpeg', alt: 'Magic Keyboard', delay: 4 },
+    { src: '/Mouse.jpeg', alt: 'Magic Mouse', delay: 5 },
+  ]
+
+  return (
+    <div className="device-ring-container">
+      <div className="device-ring">
+        {devices.map((device, index) => {
+          const angle = (index / devices.length) * 360
+          return (
+            <div
+              key={index}
+              className="device-item"
+              style={{
+                '--angle': `${angle}deg`,
+                '--delay': `${index * -3.33}s`,
+              }}
+            >
+              <img
+                src={device.src}
+                alt={device.alt}
+                className="device-image"
+              />
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
 // --- Custom Hook for Scroll Progress ---
 // Only tracks progress within the animation container (400vh)
 const useScrollProgress = () => {
@@ -266,18 +305,28 @@ export default function App() {
         {/* Text Scroll Layer */}
         <div className="absolute top-0 left-0 w-full pointer-events-none z-10">
 
-          {/* Section 1: Hero */}
-          <div className="h-screen flex flex-col justify-center items-center px-6">
-            <div className="inline-block px-4 py-2 rounded-full border border-ink/10 bg-cream/90 backdrop-blur-sm mb-8 text-sm font-medium tracking-wide pointer-events-auto">
-              For Mac power users
+          {/* Section 1: Hero with Device Ring */}
+          <div className="h-screen flex flex-col justify-center items-center px-6 relative">
+            {/* Rotating Device Ring - Behind Text */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <DeviceRing />
             </div>
-            <h1 className="text-manifesto mb-6">
-              Your Magic devices<br />
-              <span className="italic">shouldn't</span> be tethered.
-            </h1>
-            <p className="text-lg md:text-xl text-muted max-w-md text-center font-light">
-              One click to switch your keyboard, trackpad, and mouse between Macs.
-            </p>
+
+            {/* Hero Content - On Top */}
+            <div className="relative z-10">
+              <div className="flex justify-center mb-8">
+                <div className="inline-block px-4 py-2 rounded-full border border-ink/10 bg-cream/90 backdrop-blur-sm text-sm font-medium tracking-wide pointer-events-auto">
+                  For Mac power users
+                </div>
+              </div>
+              <h1 className="text-manifesto mb-6">
+                Your Magic devices<br />
+                <span className="italic">shouldn't</span> be tethered.
+              </h1>
+              <p className="text-lg md:text-xl text-muted max-w-md text-center font-light mx-auto">
+                One click to switch your keyboard, trackpad, and mouse between Macs.
+              </p>
+            </div>
           </div>
 
           {/* Section 2: The Problem */}
