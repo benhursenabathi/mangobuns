@@ -1,7 +1,8 @@
-import { useState, useEffect, useRef, useLayoutEffect } from 'react'
+import { useState, useEffect, useRef, useLayoutEffect, Suspense } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin'
+import Trackpad3D from './components/Trackpad3D'
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin)
@@ -100,13 +101,14 @@ const MacDevice = ({ type = 'macbook', className = '' }) => {
 }
 
 // --- Magic Trackpad Component for Animation ---
+// Now using the 3D GLB model instead of 2D image
 const AnimatedTrackpad = ({ className = '' }) => (
   <div className={`trackpad-animated ${className}`}>
-    <img
-      src="/Trackpad.jpeg"
-      alt="Magic Trackpad"
-      className="w-full h-full object-cover rounded-xl shadow-2xl"
-    />
+    <Suspense fallback={
+      <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 rounded-xl animate-pulse" />
+    }>
+      <Trackpad3D />
+    </Suspense>
   </div>
 )
 
@@ -164,13 +166,16 @@ export default function App() {
 
       // Set initial state
       gsap.set([macA, macB], { opacity: 0, y: 30 })
+      // Position trackpad at start of path using motionPath
       gsap.set(trackpad, {
-        x: posA.x,
-        y: posA.y,
-        xPercent: -50,
-        yPercent: -50,
+        motionPath: {
+          path: pathString,
+          alignOrigin: [0.5, 0.5],
+          start: 0,
+          end: 0,
+        },
         opacity: 0,
-        scale: 0.8
+        scale: 1
       })
 
       // Create the main timeline
@@ -201,12 +206,11 @@ export default function App() {
       // Phase 2: Fade in trackpad at Mac A (15% - 25%)
       .to(trackpad, {
         opacity: 1,
-        scale: 1,
         duration: 0.1,
         ease: 'power2.out'
       }, '+=0.02')
 
-      // Phase 3: Animate trackpad along path (25% - 85%)
+      // Phase 3: Animate trackpad along path - smooth float without rotation (25% - 85%)
       .to(trackpad, {
         motionPath: {
           path: pathString,
@@ -217,9 +221,9 @@ export default function App() {
         ease: 'power1.inOut',
       }, '+=0.02')
 
-      // Phase 4: Settle trackpad at Mac B (85% - 100%)
+      // Phase 4: Subtle settle at Mac B (85% - 100%)
       .to(trackpad, {
-        scale: 0.9,
+        scale: 0.95,
         duration: 0.1,
         ease: 'power2.out'
       })
@@ -289,6 +293,9 @@ export default function App() {
         <div
           ref={stickyContainerRef}
           className="sticky top-0 h-screen w-full overflow-hidden"
+          style={{
+            background: 'radial-gradient(ellipse 120% 80% at 50% 40%, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.06) 50%, rgba(0,0,0,0.02) 100%)',
+          }}
         >
 
           {/* SVG for the motion path - uses screen coordinates */}
@@ -301,7 +308,7 @@ export default function App() {
               ref={pathRef}
               d="M 0,0 C 0,0 0,0 0,0"
               fill="none"
-              stroke="rgba(0,0,0,0.1)"
+              stroke="rgba(0,0,0,0.15)"
               strokeWidth="2"
               strokeDasharray="8 6"
               strokeLinecap="round"
@@ -339,10 +346,10 @@ export default function App() {
             </div>
           </div>
 
-          {/* Animated Trackpad - positioned absolutely, will be moved by GSAP */}
+          {/* Animated 3D Trackpad - positioned absolutely, will be moved by GSAP */}
           <div
             ref={trackpadRef}
-            className="absolute w-16 h-12 md:w-24 md:h-16 z-20 will-change-transform"
+            className="absolute w-48 h-40 md:w-72 md:h-56 lg:w-96 lg:h-72 z-20 will-change-transform"
             style={{ top: 0, left: 0 }}
           >
             <AnimatedTrackpad />

@@ -200,17 +200,25 @@
   width: 100%;
   height: 100%;
   border-radius: 12px;
-  overflow: hidden;
-  box-shadow:
-    0 25px 50px -12px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(255, 255, 255, 0.1);
+  overflow: visible;
   transition: box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
 }
 
 .trackpad-animated img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* 3D Trackpad container styling */
+.trackpad-3d-container {
+  transform-style: preserve-3d;
+}
+
+.trackpad-3d-container canvas {
+  border-radius: 12px;
 }
 
 /* Motion path styling */
