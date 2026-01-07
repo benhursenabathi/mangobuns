@@ -7,6 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { TextLoop } from "@/components/ui/text-loop"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -313,8 +314,14 @@ const HeroContent = ({ isReady }) => {
         </div>
       </div>
       <h1 ref={headingRef} className="text-manifesto mb-6" style={{ opacity: 0 }}>
-        One keyboard.<br />
-        <span className="italic">Every</span> Mac.
+        One{' '}
+        <TextLoop interval={2.5} className="inline-block">
+          <span>keyboard</span>
+          <span>mouse</span>
+          <span>trackpad</span>
+        </TextLoop>
+        .<br />
+        <span className="italic">For every</span> Mac.
       </h1>
       <p
         ref={subheadingRef}
