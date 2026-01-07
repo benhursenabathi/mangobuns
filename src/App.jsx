@@ -328,7 +328,7 @@ const HeroContent = ({ isReady }) => {
         className="text-lg md:text-xl text-muted max-w-md text-center font-light mx-auto mb-12"
         style={{ opacity: 0 }}
       >
-        One click to switch your keyboard, trackpad, and mouse between Macs.
+        One click to switch your keyboard, trackpad, and mouse between Macs that are in the same network.
       </p>
 
       {/* Scroll indicator */}
