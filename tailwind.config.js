@@ -14,10 +14,13 @@ export default {
         'cream': '#FFFDF7',
         'ink': '#1a1a1a',
         'muted': '#8a8a8a',
+        'border': 'rgba(26, 26, 26, 0.1)',
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',
         'pulse-subtle': 'pulse-subtle 3s ease-in-out infinite',
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
       keyframes: {
         'float': {
@@ -27,6 +30,14 @@ export default {
         'pulse-subtle': {
           '0%, 100%': { opacity: 0.6 },
           '50%': { opacity: 1 },
+        },
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
     },
