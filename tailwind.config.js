@@ -11,10 +11,10 @@ export default {
         'sans': ['Geist', 'system-ui', 'sans-serif'],
       },
       colors: {
-        'cream': '#FFFDF7',
+        'cream': '#FFFFFF',
         'ink': '#1a1a1a',
-        'muted': '#8a8a8a',
-        'border': 'rgba(26, 26, 26, 0.1)',
+        'muted': '#6b6b6b',
+        'border': 'rgba(26, 26, 26, 0.08)',
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',
