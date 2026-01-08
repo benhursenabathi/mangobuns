@@ -9,8 +9,6 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  // For GitHub Pages deployment, set base to your repo name
-  // e.g., base: '/switchy-landing-page/'
-  // Or leave as '/' for custom domain
-  base: '/',
+  // Deploy to /switchy/ subfolder on mangobuns.com
+  base: '/switchy/',
 })

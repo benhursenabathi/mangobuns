@@ -4,6 +4,7 @@ node_modules
 # Build output
 dist
 dist-ssr
+deploy-dist
 *.local
 
 # Editor directories and files
