@@ -168,7 +168,7 @@ const ParallaxHeroImages = ({ onDevicesReady }) => {
         }}
       >
         <img
-          src="/Keyboard_transparent.png"
+          src={`${import.meta.env.BASE_URL}Keyboard_transparent.png`}
           alt="Magic Keyboard"
           className="w-full h-auto"
           style={{
@@ -190,7 +190,7 @@ const ParallaxHeroImages = ({ onDevicesReady }) => {
         }}
       >
         <img
-          src="/Trackpad_transparent.png"
+          src={`${import.meta.env.BASE_URL}Trackpad_transparent.png`}
           alt="Magic Trackpad"
           className="w-full h-auto"
           style={{
@@ -212,7 +212,7 @@ const ParallaxHeroImages = ({ onDevicesReady }) => {
         }}
       >
         <img
-          src="/Mouse_transparent.png"
+          src={`${import.meta.env.BASE_URL}Mouse_transparent.png`}
           alt="Magic Mouse"
           className="w-full h-auto"
           style={{
@@ -385,7 +385,7 @@ export default function App() {
           <ScrollFadeSection delay={0.05}>
             <div className="relative rounded-2xl md:rounded-3xl overflow-hidden bg-[#f5f4f1] shadow-[0_8px_30px_rgb(0,0,0,0.08)]">
               <img
-                src="/how-it-works.gif"
+                src={`${import.meta.env.BASE_URL}how-it-works.gif`}
                 alt="Switchy demonstration - switching Magic devices between Macs"
                 className="w-full h-auto"
               />
