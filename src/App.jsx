@@ -8,6 +8,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { TextLoop } from "@/components/ui/text-loop"
+import { FeaturesSectionWithHoverEffects } from "@/components/ui/feature-section-with-hover-effects"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -391,6 +392,26 @@ export default function App() {
               />
             </div>
           </ScrollFadeSection>
+        </div>
+      </section>
+
+      {/* ============================================
+          SECTION 2.5: FEATURES
+          ============================================ */}
+      <section className="py-24 md:py-32 px-6 bg-cream">
+        <div className="max-w-5xl mx-auto">
+          {/* Section Header */}
+          <ScrollFadeSection className="text-center mb-8 md:mb-12">
+            <div className="text-[10px] font-mono tracking-[0.25em] text-muted mb-4 uppercase">
+              Why Switchy
+            </div>
+            <h2 className="font-serif text-3xl md:text-5xl italic">
+              Built for simplicity
+            </h2>
+          </ScrollFadeSection>
+
+          {/* Features Grid - has its own staggered scroll animations */}
+          <FeaturesSectionWithHoverEffects />
         </div>
       </section>
 
