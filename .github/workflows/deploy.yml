@@ -47,8 +47,8 @@ jobs:
           # Move built Vite app to /switchy/ subfolder
           cp -r dist/* deploy-dist/switchy/
 
-          # Copy appcast template
-          cp switchy/appcast-template.xml deploy-dist/switchy/appcast.xml
+          # Copy appcast
+          cp switchy/appcast.xml deploy-dist/switchy/appcast.xml
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
