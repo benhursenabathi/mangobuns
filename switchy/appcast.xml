@@ -9,20 +9,21 @@
     <!-- Add new versions above this line -->
     <item>
       <title>Version 1.1.0</title>
-      <sparkle:version>2</sparkle:version>
+      <sparkle:version>3</sparkle:version>
       <sparkle:shortVersionString>1.1.0</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-      <pubDate>Fri, 10 Jan 2026 12:00:00 +0000</pubDate>
+      <pubDate>Fri, 10 Jan 2026 14:00:00 +0000</pubDate>
       <enclosure
-        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.0/Switchy-1.1.0.dmg"
-        sparkle:edSignature="LjqGvs8j3ouAzxCz/JjtLS/EPF0Htc4ZxPAGszKLcRzJnBjfNVBy3y9uiPYH+x4PT7H7w1Iyxp3soZz+a/cHBw=="
-        length="4238600"
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.0-build3/Switchy-1.1.0.dmg"
+        sparkle:edSignature="PG7xT6dFStJKDWoM9UzdEjdhAK/jh3+Ok387ON1w1dSjyJN9OJ7Q/Kz2LoylG/5S3hEYqhenZBpbTx2mVlXACA=="
+        length="4232642"
         type="application/octet-stream"/>
       <description><![CDATA[
         <h2>What's New in 1.1.0</h2>
         <ul>
           <li>Notification improvements</li>
           <li>Improved device discovery during menu bar icon open</li>
+          <li>Automatic update checks every 4 hours</li>
         </ul>
       ]]></description>
     </item>
