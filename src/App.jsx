@@ -382,14 +382,18 @@ export default function App() {
             </h2>
           </ScrollFadeSection>
 
-          {/* GIF Container */}
+          {/* Video Container */}
           <ScrollFadeSection delay={0.05}>
             <div className="relative rounded-2xl md:rounded-3xl overflow-hidden bg-[#f5f4f1] shadow-[0_8px_30px_rgb(0,0,0,0.08)]">
-              <img
-                src={`${import.meta.env.BASE_URL}how-it-works.gif`}
-                alt="Switchy demonstration - switching Magic devices between Macs"
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
                 className="w-full h-auto"
-              />
+              >
+                <source src={`${import.meta.env.BASE_URL}Macbook A.mp4`} type="video/mp4" />
+              </video>
             </div>
           </ScrollFadeSection>
         </div>
