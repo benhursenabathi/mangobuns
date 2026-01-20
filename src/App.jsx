@@ -47,7 +47,7 @@ const Navbar = ({ isReady }) => {
       <div className="max-w-screen-xl mx-auto px-6 flex justify-between items-center">
         <div className="font-serif text-2xl tracking-tight">Switchy</div>
         <button className="text-sm font-medium px-5 py-2.5 bg-ink text-cream rounded-full hover:bg-ink/80 transition-colors duration-200">
-          Get Switchy — $14.99
+          Get Switchy — $9.99
         </button>
       </div>
     </nav>
@@ -506,7 +506,7 @@ export default function App() {
               </p>
               <div className="flex justify-center">
                 <button className="bg-cream text-ink px-8 py-4 rounded-full font-semibold hover:bg-cream/90 transition-colors duration-200">
-                  Get Switchy — $14.99
+                  Get Switchy — $9.99
                 </button>
               </div>
             </div>
@@ -515,7 +515,7 @@ export default function App() {
           {/* Footer */}
           <ScrollFadeSection className="mt-12 text-center">
             <p className="text-muted/60 text-xs">
-              © 2025 Switchy. Not affiliated with Apple Inc.
+              © 2026 Mangobuns.
             </p>
           </ScrollFadeSection>
 
