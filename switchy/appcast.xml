@@ -8,6 +8,30 @@
 
     <!-- Add new versions above this line -->
     <item>
+      <title>Version 1.1.1 (build 5)</title>
+      <sparkle:version>5</sparkle:version>
+      <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Wed, 22 Jan 2026 09:00:00 +0000</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.1-build5/Switchy-1.1.1.dmg"
+        sparkle:edSignature="+7HOc8dGbOh6K5IBy6GRdSG2cW3DUm9iT6Q+At2ABLEKRhjDDrpEib6dxaZbTiQRUo9QY146ldgMPoD8yxwdCA=="
+        length="4323230"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's New in 1.1.1 (build 5)</h2>
+        <h3>Wake-on-LAN Improvements</h3>
+        <ul>
+          <li><strong>Faster wake times</strong>: Proactive WOL fires immediately when menu opens</li>
+          <li><strong>Accurate errors</strong>: Shows real error cause instead of generic "Couldn't wake"</li>
+          <li><strong>Smarter detection</strong>: No false "Sleeping" labels during discovery</li>
+          <li><strong>No WOL spam</strong>: 60-second cooldown prevents duplicate wake attempts</li>
+          <li><strong>Smoother UI</strong>: No more flicker when rapidly opening/closing menu</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.1</title>
       <sparkle:version>4</sparkle:version>
       <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
