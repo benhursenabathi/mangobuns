@@ -8,6 +8,28 @@
 
     <!-- Add new versions above this line -->
     <item>
+      <title>Version 1.1.1 (build 6)</title>
+      <sparkle:version>6</sparkle:version>
+      <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Thu, 23 Jan 2026 15:30:00 +0000</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.1-build6/Switchy-1.1.1.dmg"
+        sparkle:edSignature="k49LmPraRYvcBqdQ0d/V5XxmFf0ZMV+YxcG+xB+HX6TYzZ7hfNSturRfIcVhQZMBrOKjNChX169jcG8LkDv7CA=="
+        length="4343693"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's New in 1.1.1 (build 6)</h2>
+        <h3>Reliability Improvements</h3>
+        <ul>
+          <li><strong>Zombie peer detection</strong>: Better handling of stale device connections</li>
+          <li><strong>Partial sleep fixes</strong>: Improved detection when devices enter low-power states</li>
+          <li><strong>Faster failure detection</strong>: Reduced timing for identifying unresponsive peers</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.1 (build 5)</title>
       <sparkle:version>5</sparkle:version>
       <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
