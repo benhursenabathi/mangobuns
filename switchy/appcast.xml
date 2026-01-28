@@ -8,6 +8,28 @@
 
     <!-- Add new versions above this line -->
     <item>
+      <title>Version 1.1.1 (build 7)</title>
+      <sparkle:version>7</sparkle:version>
+      <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Tue, 28 Jan 2026 22:46:00 +0000</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.1-build7/Switchy-1.1.1.dmg"
+        sparkle:edSignature="SSDYz5acvK9FNGrO1yh0bjP5WtDhDbClk3j/p1zEauYeUQ7plosf7ZyJm5aO0SPg9tciSPP2xxu47++28rv4Bw=="
+        length="4343590"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's New in 1.1.1 (build 7)</h2>
+        <h3>Network Robustness</h3>
+        <ul>
+          <li><strong>Improved discovery timing</strong>: Increased wait times for more reliable device detection</li>
+          <li><strong>Fixed Bonjour race condition</strong>: Resolved browser initialization timing issue</li>
+          <li><strong>Better WOL offline detection</strong>: More accurate sleep/offline state identification</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.1 (build 6)</title>
       <sparkle:version>6</sparkle:version>
       <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
