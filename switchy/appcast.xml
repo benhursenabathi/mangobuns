@@ -8,6 +8,30 @@
 
     <!-- Add new versions above this line -->
     <item>
+      <title>Version 1.1.1 (build 8)</title>
+      <sparkle:version>8</sparkle:version>
+      <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Fri, 30 Jan 2026 16:07:56 +0000</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.1-build8/Switchy-1.1.1.dmg"
+        sparkle:edSignature="B29QZoO6D0UJZBQzMAAMGwtiZA3fyHLiFrHXubPjSa7w8Nu09ZmHYz+ADS0ZOVvpGmxpZ+r+zotiiRm35uS4BQ=="
+        length="4386831"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's New in 1.1.1 (build 8)</h2>
+        <h3>Faster Error Feedback</h3>
+        <ul>
+          <li><strong>Reduced error wait times</strong>: Worst-case error display reduced from 57s to 25-35s through parallel operations</li>
+          <li><strong>Parallel WOL + acquire</strong>: Wake-on-LAN now runs simultaneously with device requests (saves 10-15s)</li>
+          <li><strong>Smarter zombie detection</strong>: Probes discovered peers as hints for earlier zombie recovery</li>
+          <li><strong>Better status feedback</strong>: More granular progress messages during device switching</li>
+          <li><strong>Background health monitoring</strong>: Advisory-only peer health checks for improved reliability</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.1 (build 7)</title>
       <sparkle:version>7</sparkle:version>
       <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
