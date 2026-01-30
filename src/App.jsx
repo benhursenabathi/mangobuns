@@ -461,7 +461,7 @@ export default function App() {
                     What devices are supported?
                   </AccordionTrigger>
                   <AccordionContent className="text-muted leading-relaxed">
-                    Switchy supports all Apple Magic accessories: Magic Keyboard, Magic Keyboard with Touch ID, Magic Trackpad, and Magic Mouse. Both Intel and Apple Silicon Macs are fully supported.
+                    Switchy supports all Apple Magic accessories: Magic Keyboard, Magic Keyboard with Touch ID, Magic Trackpad, and Magic Mouse. Compatible with all Macs running macOS 14.0 (Sonoma) and above.
                   </AccordionContent>
                 </AccordionItem>
 
