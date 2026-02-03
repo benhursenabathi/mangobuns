@@ -8,6 +8,30 @@
 
     <!-- Add new versions above this line -->
     <item>
+      <title>Version 1.1.1 (build 9)</title>
+      <sparkle:version>9</sparkle:version>
+      <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Tue, 03 Feb 2026 21:56:23 +0000</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.1-build9/Switchy-1.1.1.dmg"
+        sparkle:edSignature="XlfazKGL3em89l48T62adStSRX1wNBV6YBpU7VavZ4RQRF4uENnUzOUlvSBDGiL3iZyJR6cQouNp1EVcbld9Bg=="
+        length="4411826"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's New in 1.1.1 (build 9)</h2>
+        <h3>Smarter Network Awareness</h3>
+        <ul>
+          <li><strong>Subnet-aware Wake-on-LAN</strong>: WOL only offered when peer is on the same network</li>
+          <li><strong>New "Sleeping Devices" section</strong>: Clear separation of wakeable devices in menu</li>
+          <li><strong>New "Out of Network" section</strong>: Guidance when Macs are on different networks</li>
+          <li><strong>Better batch connect</strong>: Zero-release protection and partial success handling</li>
+          <li><strong>Reduced false negatives</strong>: Enhanced Bluetooth ownership checks during state transitions</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.1 (build 8)</title>
       <sparkle:version>8</sparkle:version>
       <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
