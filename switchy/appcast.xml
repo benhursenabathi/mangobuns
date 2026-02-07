@@ -8,6 +8,28 @@
 
     <!-- Add new versions above this line -->
     <item>
+      <title>Version 1.1.1 (build 11)</title>
+      <sparkle:version>11</sparkle:version>
+      <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Sat, 07 Feb 2026 15:00:09 +0000</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.1-build11/Switchy-1.1.1.dmg"
+        sparkle:edSignature="TYJKPeHWa50TSUhOGdazl8uQRN7/xmWjp8SCKXpB+BTa/kJGJ/pU0LxPQDhkjEfgsL8disLcKBG7Ye/libT5Ag=="
+        length="4475055"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's New in 1.1.1 (build 11)</h2>
+        <h3>WOL & Connect-All Reliability</h3>
+        <ul>
+          <li><strong>Hardened Wake-on-LAN</strong>: More reliable peer waking with improved diagnostics</li>
+          <li><strong>Fixed connect-all flow</strong>: Resolved retry failures and first-attempt issues when connecting all devices</li>
+          <li><strong>Better error recovery</strong>: Connect-all now ensures initial connection succeeds before proceeding</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.1 (build 10)</title>
       <sparkle:version>10</sparkle:version>
       <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
