@@ -46,9 +46,9 @@ const Navbar = ({ isReady }) => {
     >
       <div className="max-w-screen-xl mx-auto px-6 flex justify-between items-center">
         <div className="font-serif text-2xl tracking-tight">Switchy</div>
-        <button className="text-sm font-medium px-5 py-2.5 bg-ink text-cream rounded-full hover:bg-ink/80 transition-colors duration-200">
+        <a href="https://mangobuns.lemonsqueezy.com/checkout/buy/68fb31f9-8ae3-45db-bcc3-b7e49bec2817" className="text-sm font-medium px-5 py-2.5 bg-ink text-cream rounded-full hover:bg-ink/80 transition-colors duration-200">
           Get Switchy — $9.99
-        </button>
+        </a>
       </div>
     </nav>
   )
@@ -505,9 +505,9 @@ export default function App() {
                 One menu bar app. All your Magic accessories. Every Mac you own.
               </p>
               <div className="flex justify-center">
-                <button className="bg-cream text-ink px-8 py-4 rounded-full font-semibold hover:bg-cream/90 transition-colors duration-200">
+                <a href="https://mangobuns.lemonsqueezy.com/checkout/buy/68fb31f9-8ae3-45db-bcc3-b7e49bec2817" className="bg-cream text-ink px-8 py-4 rounded-full font-semibold hover:bg-cream/90 transition-colors duration-200">
                   Get Switchy — $9.99
-                </button>
+                </a>
               </div>
             </div>
           </ScrollFadeSection>
