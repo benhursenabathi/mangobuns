@@ -8,15 +8,15 @@
 
     <!-- Add new versions above this line -->
     <item>
-      <title>Version 1.1.2 (build 1)</title>
-      <sparkle:version>1</sparkle:version>
+      <title>Version 1.1.2 (build 12)</title>
+      <sparkle:version>12</sparkle:version>
       <sparkle:shortVersionString>1.1.2</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-      <pubDate>Sat, 07 Feb 2026 15:39:54 +0000</pubDate>
+      <pubDate>Sat, 07 Feb 2026 15:45:00 +0000</pubDate>
       <enclosure
-        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.2-build1/Switchy-1.1.2.dmg"
-        sparkle:edSignature="sbBfu5GwbZ4+auSiqvRFt+waNzXfk23RRmIZBE4BlzOq6f2HnmLKMX6DvGXfmKT1ZhFkO9N5jdcC+538xhXVAw=="
-        length="4300764"
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.2-build12/Switchy-1.1.2.dmg"
+        sparkle:edSignature="esKRhS9BUkHGAN8A15tOoAp2AoGc3t+z+uqVWTzQOK1fr5ubCtyTQsEpKadcb0iOx0gNcrkLDraiM5rLbd+GAA=="
+        length="4300785"
         type="application/octet-stream"/>
       <description><![CDATA[
         <h2>What's New in 1.1.2</h2>
