@@ -8,6 +8,27 @@
 
     <!-- Add new versions above this line -->
     <item>
+      <title>Version 1.1.2 (build 1)</title>
+      <sparkle:version>1</sparkle:version>
+      <sparkle:shortVersionString>1.1.2</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Sat, 07 Feb 2026 15:39:54 +0000</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.2-build1/Switchy-1.1.2.dmg"
+        sparkle:edSignature="sbBfu5GwbZ4+auSiqvRFt+waNzXfk23RRmIZBE4BlzOq6f2HnmLKMX6DvGXfmKT1ZhFkO9N5jdcC+538xhXVAw=="
+        length="4300764"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's New in 1.1.2</h2>
+        <ul>
+          <li><strong>Removed Wake-on-LAN</strong>: WOL support removed for reliability; wake and unlock the other Mac manually before connecting</li>
+          <li><strong>Cleaned up About pane</strong>: Removed social links for a cleaner settings UI</li>
+          <li><strong>Connect-all reliability</strong>: Fixed retry failures and first-attempt issues when connecting all devices</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.1 (build 11)</title>
       <sparkle:version>11</sparkle:version>
       <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
