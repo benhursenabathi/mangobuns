@@ -1,0 +1,12 @@
+# Switchy Landing Page - Robots.txt
+# https://benhursenabathi.github.io/mangobuns/
+
+# Allow all crawlers to access everything
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://benhursenabathi.github.io/mangobuns/sitemap.xml
+
+# Crawl delay (optional, be nice to servers)
+Crawl-delay: 1
