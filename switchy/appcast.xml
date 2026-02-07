@@ -8,6 +8,30 @@
 
     <!-- Add new versions above this line -->
     <item>
+      <title>Version 1.1.1 (build 10)</title>
+      <sparkle:version>10</sparkle:version>
+      <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Sat, 07 Feb 2026 09:42:41 +0000</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.1-build10/Switchy-1.1.1.dmg"
+        sparkle:edSignature="z2SlH3+4XeWD8+EMPXT56eno+l6FOQmvQOzRb38Y1z9rzyo89AWqKZdGzXQqyGHEvhs3hEdByqIplXGUCW0JAg=="
+        length="4423967"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's New in 1.1.1 (build 10)</h2>
+        <h3>Bluetooth Reliability</h3>
+        <ul>
+          <li><strong>Retry logic for release operations</strong>: Unpair, disconnect, and power-off now retry once on failure for more reliable device handoffs</li>
+          <li><strong>Connection verification</strong>: Dual-probe verification (with retries) confirms devices are actually connected or disconnected after operations</li>
+          <li><strong>Separated single/batch power-on tracking</strong>: Single-device and batch flows no longer cancel each other's Bluetooth power-on timers</li>
+          <li><strong>Adaptive batch timeouts</strong>: Fallback delays now scale with number of released devices for better multi-device reliability</li>
+          <li><strong>Stale task protection</strong>: Token-based guards prevent outdated fallback tasks from firing unexpectedly</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.1 (build 9)</title>
       <sparkle:version>9</sparkle:version>
       <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
