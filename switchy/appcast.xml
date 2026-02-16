@@ -8,6 +8,28 @@
 
     <!-- Add new versions above this line -->
     <item>
+      <title>Version 1.1.2 (build 13)</title>
+      <sparkle:version>13</sparkle:version>
+      <sparkle:shortVersionString>1.1.2</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Mon, 16 Feb 2026 11:24:02 +0000</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.2-build13/Switchy-1.1.2.dmg"
+        sparkle:edSignature="c+tBS7OMrovdmXOmPY6bR6UEp0DkqxvDvMVsrHnbz0sQFhi4ZWsHkB5xvImBYWCddDjdwxlk4Lo0qXSNoaoeAQ=="
+        length="4314711"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's New in 1.1.2 (build 13)</h2>
+        <ul>
+          <li><strong>Auto-recovery</strong>: Switchy now silently retries once when a peer is reachable but didn't respond, reducing unnecessary error panels</li>
+          <li><strong>Smarter error panels</strong>: Three distinct messages depending on what's wrong — Mac asleep, Mac still waking up, or device not connected</li>
+          <li><strong>Targeted acquire</strong>: Requests now target the expected peer directly instead of broadcasting to all peers</li>
+          <li><strong>Better diagnostics</strong>: Correlation IDs in logs for easier troubleshooting</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.2 (build 12)</title>
       <sparkle:version>12</sparkle:version>
       <sparkle:shortVersionString>1.1.2</sparkle:shortVersionString>
