@@ -8,6 +8,29 @@
 
     <!-- Add new versions above this line -->
     <item>
+      <title>Version 1.1.2 (build 14)</title>
+      <sparkle:version>14</sparkle:version>
+      <sparkle:shortVersionString>1.1.2</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Wed, 18 Feb 2026 18:36:40 +0000</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.2-build14/Switchy-1.1.2.dmg"
+        sparkle:edSignature="m+8S1LhlEgJUoz/mEhG64OGkh9iLHb62AIVxGOXSL2Nx2FgySlx4qo8PY6ji5ojh0k3+34bB08itD5ayYWnMCQ=="
+        length="4331470"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's New in 1.1.2 (build 14)</h2>
+        <ul>
+          <li><strong>Connect Here Now</strong>: New option to pair a device directly on this Mac when the other Mac is offline or sleeping</li>
+          <li><strong>Manual release</strong>: Release a connected device from the menu bar to hand it off to another Mac</li>
+          <li><strong>Broader acquire recovery</strong>: Falls back to all discovered peers when the expected peer is unreachable</li>
+          <li><strong>Faster wake recovery</strong>: Preserves peer history across sleep for quicker reconnection</li>
+          <li><strong>Smarter retry logic</strong>: Only forces peer refresh when discovery isn't already active</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.2 (build 13)</title>
       <sparkle:version>13</sparkle:version>
       <sparkle:shortVersionString>1.1.2</sparkle:shortVersionString>
