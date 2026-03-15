@@ -6,6 +6,30 @@
     <description>Switchy app updates</description>
     <language>en</language>
 
+    <item>
+      <title>Version 1.1.3 (build 16)</title>
+      <sparkle:version>16</sparkle:version>
+      <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Sun, 15 Mar 2026 08:34:32 +0000</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.3-build16/Switchy-1.1.3.dmg"
+        sparkle:edSignature="Pp+bHha7XRjWs7REsYYk/gy+eQaN+3C54/FjUnVSVyqIqBABZtSwYawpGECfAvGW0hMxRMPF0HR0hhDTElCOCQ=="
+        length="4509338"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's New in 1.1.3 (build 16)</h2>
+        <ul>
+          <li><strong>Faster switching</strong>: Speed optimizations across connection, retry, and Bluetooth pairing flows</li>
+          <li><strong>Parallel Bluetooth connect</strong>: Orphaned devices now reconnect in parallel for significantly faster batch connections</li>
+          <li><strong>Stale key cleanup</strong>: Clears outdated Bluetooth keys to prevent ghost connection failures</li>
+          <li><strong>Smarter retries</strong>: Faster retry logic with improved connection time for saves</li>
+          <li><strong>Production hardening</strong>: Code review fixes for improved stability and reliability</li>
+          <li><strong>Zscaler compatibility</strong>: Uses active connections when Zscaler is present</li>
+        </ul>
+      ]]></description>
+    </item>
+
     <!-- Add new versions above this line -->
     <item>
       <title>Version 1.1.2 (build 15)</title>
