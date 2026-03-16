@@ -7,6 +7,27 @@
     <language>en</language>
 
     <item>
+      <title>Version 1.1.3 (build 17)</title>
+      <sparkle:version>17</sparkle:version>
+      <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Mon, 16 Mar 2026 22:47:41 +0000</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.3-build17/Switchy-1.1.3.dmg"
+        sparkle:edSignature="MfqeVldwF0sIzs/CfTI0FWjjShZJUl5ew4DACxoO0YaRKkwDqrJ5MMYOQFCsWQhT0142DZtk03YOz4VoslsOAw=="
+        length="4591765"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's New in 1.1.3 (build 17)</h2>
+        <ul>
+          <li><strong>Faster batch switching</strong>: Pre-flight power cycle clears stale controller state before acquiring, eliminating per-device retry delays</li>
+          <li><strong>Reduced failed connections</strong>: Stale pairing keys are cleared upfront so devices don't waste time on doomed connect-first attempts</li>
+          <li><strong>Batch reliability</strong>: Single-attempt acquire per device prevents power cycles that would kill previously connected devices</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.3 (build 16)</title>
       <sparkle:version>16</sparkle:version>
       <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
