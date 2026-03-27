@@ -7,6 +7,28 @@
     <language>en</language>
 
     <item>
+      <title>Version 1.1.3 (build 23)</title>
+      <sparkle:version>23</sparkle:version>
+      <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Fri, 27 Mar 2026 16:44:31 +0000</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.3-build23/Switchy-1.1.3.dmg"
+        sparkle:edSignature="O/tGL59TnO6xSRDFXWZpIlrnHA6t8nwKk7pkD34oCiDib5s0pqDVG6BtxnMXA/gU8hoVc1vUwQDYeMZFd2/JDg=="
+        length="4469445"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's New in 1.1.3 (build 23)</h2>
+        <ul>
+          <li><strong>Fix: Wake race condition</strong>: "Connect all" no longer appears when a peer Mac just woke from sleep but its devices haven't reconnected yet — prevents failed switches that brick devices</li>
+          <li><strong>Pre-validation</strong>: Switchy now verifies devices are actually available on the peer before starting a batch switch</li>
+          <li><strong>Wake stabilization</strong>: After waking from sleep, Switchy automatically re-checks and broadcasts device states to peers in the background</li>
+          <li><strong>Double-tap protection</strong>: Rapidly clicking "Connect all" no longer triggers duplicate operations</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.3 (build 22)</title>
       <sparkle:version>22</sparkle:version>
       <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
