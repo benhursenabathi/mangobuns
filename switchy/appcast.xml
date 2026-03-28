@@ -7,6 +7,25 @@
     <language>en</language>
 
     <item>
+      <title>Version 1.1.3 (build 24)</title>
+      <sparkle:version>24</sparkle:version>
+      <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Sat, 28 Mar 2026 10:52:39 +0000</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.3-build24/Switchy-1.1.3.dmg"
+        sparkle:edSignature="dX9d0LHsGh3AK+Oq/uGdF0NZII/O/zisCwqoiAzZP3A7z8GWpMt+cO5AisAOZ3n2VWCgDiNfYsL3AtXA2QY3Ag=="
+        length="4483457"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's New in 1.1.3 (build 24)</h2>
+        <ul>
+          <li><strong>Batch connect reliability</strong>: Increased Phase 2 connect timeout for freshly paired devices — eliminates false timeouts during HID negotiation</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.3 (build 23)</title>
       <sparkle:version>23</sparkle:version>
       <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
