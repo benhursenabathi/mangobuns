@@ -7,6 +7,26 @@
     <language>en</language>
 
     <item>
+      <title>Version 1.1.3 (build 25)</title>
+      <sparkle:version>25</sparkle:version>
+      <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Fri, 03 Apr 2026 21:32:17 +0000</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.3-build25/Switchy-1.1.3.dmg"
+        sparkle:edSignature="qofaEFmXlwrR+dSPgygfWjutNjjXwhX6PLg/eusv22ZQ4EOlrDilK/4Njxi46B1YmVnJTVw9Cggf11pLLQMSCg=="
+        length="4499600"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's New in 1.1.3 (build 25)</h2>
+        <ul>
+          <li><strong>Smart device filtering</strong>: Device scan now shows Apple Magic devices first, with non-Magic devices tucked into a "Show all" disclosure</li>
+          <li><strong>Refresh button</strong>: Re-scan paired devices in-place without re-triggering the full scan flow</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.3 (build 24)</title>
       <sparkle:version>24</sparkle:version>
       <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
