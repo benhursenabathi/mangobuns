@@ -504,12 +504,9 @@ export default function App() {
               <p className="text-cream/60 mb-8 max-w-md mx-auto">
                 One menu bar app. All your Magic accessories. Every Mac you own.
               </p>
-              <div className="flex flex-col items-center gap-3">
+              <div className="flex justify-center">
                 <a href="https://mangobuns.lemonsqueezy.com/checkout/buy/68fb31f9-8ae3-45db-bcc3-b7e49bec2817" className="bg-cream text-ink px-8 py-4 rounded-full font-semibold hover:bg-cream/90 transition-colors duration-200">
                   Get Switchy — $9.99
-                </a>
-                <a href="/switchy/privacy/" className="text-cream/40 text-xs hover:text-cream/60 transition-colors duration-200">
-                  Privacy Policy
                 </a>
               </div>
             </div>
