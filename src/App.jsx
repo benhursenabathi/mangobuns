@@ -517,8 +517,13 @@ export default function App() {
 
           {/* Footer */}
           <ScrollFadeSection className="mt-12 text-center">
+            <div className="flex justify-center gap-4 mb-3 text-xs">
+              <a href="/switchy/compare/" className="text-muted/50 hover:text-muted/80 transition-colors duration-200 underline underline-offset-2">Compare</a>
+              <a href="/switchy/blog/how-to-switch-magic-keyboard-between-macs/" className="text-muted/50 hover:text-muted/80 transition-colors duration-200 underline underline-offset-2">Blog</a>
+              <a href="/switchy/privacy/" className="text-muted/50 hover:text-muted/80 transition-colors duration-200 underline underline-offset-2">Privacy</a>
+            </div>
             <p className="text-muted/60 text-xs">
-              © 2026 Mangobuns. <a href="/switchy/privacy/" className="hover:text-muted/80 transition-colors duration-200 underline underline-offset-2">Privacy</a>
+              © 2026 Mangobuns.
             </p>
           </ScrollFadeSection>
 
