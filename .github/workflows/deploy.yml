@@ -43,6 +43,9 @@ jobs:
           cp public-root/CNAME deploy-dist/
           cp public-root/.nojekyll deploy-dist/
           cp public-root/index.html deploy-dist/
+          cp public-root/robots.txt deploy-dist/
+          cp public-root/sitemap.xml deploy-dist/
+          cp public-root/google7a8a921fc93f98b8.html deploy-dist/
 
           # Move built Vite app to /switchy/ subfolder
           cp -r dist/* deploy-dist/switchy/

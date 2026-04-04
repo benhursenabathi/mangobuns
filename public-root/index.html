@@ -2,11 +2,113 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0;url=/switchy/">
-  <title>Mangobuns</title>
-  <link rel="canonical" href="/switchy/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mangobuns — Mac Utilities That Just Work</title>
+  <meta name="description" content="Mangobuns builds simple, powerful utilities for Mac power users. Starting with Switchy — switch your Magic Keyboard, Trackpad, and Mouse between Macs with one click.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://mangobuns.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mangobuns.com/">
+  <meta property="og:title" content="Mangobuns — Mac Utilities That Just Work">
+  <meta property="og:description" content="Simple, powerful utilities for Mac power users.">
+  <meta property="og:image" content="https://mangobuns.com/switchy/icon_512x512.png">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/switchy/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Geist', -apple-system, sans-serif;
+      background: #FAF9F6;
+      color: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .container { max-width: 640px; text-align: center; }
+    .brand {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.5rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 3rem;
+      opacity: 0.4;
+    }
+    .product-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 1.25rem;
+      padding: 2.5rem 2rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .product-card:hover {
+      border-color: rgba(0,0,0,0.15);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .product-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+      margin: 0 auto 1.25rem;
+    }
+    .product-name {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.75rem;
+      font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+    .product-desc {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .product-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: #1a1a1a;
+      color: #FAF9F6;
+    }
+    footer {
+      margin-top: 3rem;
+      font-size: 0.75rem;
+      color: rgba(0,0,0,0.3);
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Mangobuns",
+    "url": "https://mangobuns.com",
+    "description": "Mac utilities that just work."
+  }
+  </script>
 </head>
 <body>
-  <p>Redirecting to <a href="/switchy/">Switchy</a>...</p>
+  <div class="container">
+    <div class="brand">mangobuns</div>
+    <a href="/switchy/" class="product-card">
+      <img src="/switchy/icon_512x512.png" alt="Switchy app icon" class="product-icon">
+      <h1 class="product-name">Switchy</h1>
+      <p class="product-desc">Switch your Magic Keyboard, Trackpad, and Mouse between Macs with a single click. No more System Settings. No more unpairing.</p>
+      <span class="product-badge">macOS 14.0+</span>
+    </a>
+  </div>
+  <footer>&copy; 2026 Mangobuns</footer>
 </body>
 </html>
