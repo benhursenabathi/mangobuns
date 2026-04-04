@@ -7,6 +7,25 @@
     <language>en</language>
 
     <item>
+      <title>Version 1.1.3 (build 26)</title>
+      <sparkle:version>26</sparkle:version>
+      <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Sat, 04 Apr 2026 06:59:58 +0000</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.3-build26/Switchy-1.1.3.dmg"
+        sparkle:edSignature="xIu5L463Yg4FBhnQulnn/O1adpY/ILGQGE6bCqQe2ID3KDAOLrHqylPR5VP4JW+XburbnsnqJRn465tge2LIDA=="
+        length="4499247"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's New in 1.1.3 (build 26)</h2>
+        <ul>
+          <li><strong>UI polish</strong>: Simplified device scan layout with inline refresh and cleaner disclosure for non-Magic devices</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.3 (build 25)</title>
       <sparkle:version>25</sparkle:version>
       <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
