@@ -7,6 +7,25 @@
     <language>en</language>
 
     <item>
+      <title>Version 1.1.3 (build 29)</title>
+      <sparkle:version>29</sparkle:version>
+      <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Thu, 16 Apr 2026 22:26:58 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.3-build29/Switchy-1.1.3.dmg"
+        sparkle:edSignature="k8So/o1i5s/k/qrPv8UoCAsxnbf+MGrc1j347Vd3nu0pea6WOS2uRjhhDuVm2beCVjbo4wcHpglb5k7z/FfnCA=="
+        length="4513895"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's New in 1.1.3 (build 29)</h2>
+        <ul>
+          <li><strong>Cold-start device status</strong>: Devices no longer show as "Unavailable" when reopening Switchy after being away — they now correctly appear as "Available" while syncing with your other Mac</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.3 (build 28)</title>
       <sparkle:version>28</sparkle:version>
       <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
