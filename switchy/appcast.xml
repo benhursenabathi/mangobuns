@@ -7,6 +7,25 @@
     <language>en</language>
 
     <item>
+      <title>Version 1.1.3 (build 31)</title>
+      <sparkle:version>31</sparkle:version>
+      <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Fri, 17 Apr 2026 12:28:52 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.3-build31/Switchy-1.1.3.dmg"
+        sparkle:edSignature="MPchMUu934J5nQS5k7lc7kj8dGzQ6k5Xz8TCWUyAABN/19rrS17h1Kz0vGHHB6OO+PH1CHCIkWkDuTujrWw6AA=="
+        length="4514428"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's New in 1.1.3 (build 31)</h2>
+        <ul>
+          <li><strong>3-device batch reliability</strong>: Added a 1.5s settle between Phase 2 connects so HID profile negotiation on one device finishes before the next device's connection starts. Prevents false-negative connect failures when switching 3 devices (trackpad + mouse + keyboard) at once.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.3 (build 30)</title>
       <sparkle:version>30</sparkle:version>
       <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
