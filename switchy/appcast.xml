@@ -7,6 +7,26 @@
     <language>en</language>
 
     <item>
+      <title>Version 1.1.3 (build 32)</title>
+      <sparkle:version>32</sparkle:version>
+      <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Sun, 19 Apr 2026 14:07:35 +0000</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.3-build32/Switchy-1.1.3.dmg"
+        sparkle:edSignature="bpv8ipzFokXCS6InnL6yN3RGVLHvO/85BqbAJzqHT3Ls4nLja/OMpXjWq4uKMlVUaSJHpdueZYV1bGqfODEMCQ=="
+        length="4518667"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's New in 1.1.3 (build 32)</h2>
+        <ul>
+          <li><strong>Clearer batch-connect error messages</strong>: When "Connect all" partially fails, the error dialog now shows the correct recovery action based on where the device actually is — no more misleading "Power off/on device" text when the peer Mac is still known.</li>
+          <li><strong>Diagnostic logging for batch-connect timing</strong>: Added visibility into Phase 2 connect latency, HID profile readiness, and total batch wall-clock time. Helps diagnose any remaining intermittent reliability issues via Console.app with evidence rather than guesswork.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.3 (build 31)</title>
       <sparkle:version>31</sparkle:version>
       <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
