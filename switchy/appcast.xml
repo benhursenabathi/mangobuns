@@ -7,6 +7,27 @@
     <language>en</language>
 
     <item>
+      <title>Version 1.1.3 (build 35)</title>
+      <sparkle:version>35</sparkle:version>
+      <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Tue, 21 Apr 2026 13:55:31 +0000</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.3-build35/Switchy-1.1.3.dmg"
+        sparkle:edSignature="jdG8VCrlmWPOanT1yS69nvCyeyPIOsX7qfC80xbwm6KTsqrXjtCPRAMUdcWAJ4gXIHpFKQGFJt3PSroqJNLyDw=="
+        length="4521646"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's New in 1.1.3 (build 35)</h2>
+        <ul>
+          <li><strong>Fixes the "D1 pair fails with 0x02" bug in batch connect</strong>: After each device is paired in Phase 1, the app now explicitly closes the leftover Bluetooth link before pairing the next device. This prevents the controller-level contention that was causing the second device to intermittently fail with "No Connection" errors.</li>
+          <li>Scales to 3-device batches (e.g. Mouse + Trackpad + Keyboard).</li>
+        </ul>
+        <p><em>Root cause identified from build 34 diagnostic logs. See <a href="https://github.com/benhursenabathi/Switchy/blob/main/plans/prd-batch-connect-acl-contention.md">PRD</a> for full details.</em></p>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.3 (build 34)</title>
       <sparkle:version>34</sparkle:version>
       <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
