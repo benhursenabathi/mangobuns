@@ -7,6 +7,26 @@
     <language>en</language>
 
     <item>
+      <title>Version 1.1.3 (build 36)</title>
+      <sparkle:version>36</sparkle:version>
+      <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Tue, 21 Apr 2026 16:18:06 +0000</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.3-build36/Switchy-1.1.3.dmg"
+        sparkle:edSignature="rT5PZdEh/B0ixMNlj7uuMf1v8pesJz2GEdY1YgCRSPdifG5yRHTS7Rhmkf1OivmJUJ0Tl3TJQbq8hsImqNlwAw=="
+        length="4524460"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Build 36</h2>
+        <ul>
+          <li>Batch Connect: if a device fails to pair on the first attempt, Switchy now retries once after 2.5 seconds before moving on. Addresses the intermittent "0x02 No Connection" error that occasionally hit the second device in multi-device batches.</li>
+        </ul>
+        <p>Successful batches are unchanged. Failing pairs now take up to 2.5 seconds longer before surfacing the unavailable-device panel.</p>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.3 (build 35)</title>
       <sparkle:version>35</sparkle:version>
       <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
