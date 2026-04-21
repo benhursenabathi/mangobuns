@@ -7,6 +7,27 @@
     <language>en</language>
 
     <item>
+      <title>Version 1.1.3 (build 37)</title>
+      <sparkle:version>37</sparkle:version>
+      <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Tue, 21 Apr 2026 19:58:42 +0000</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.3-build37/Switchy-1.1.3.dmg"
+        sparkle:edSignature="zYXFH93/k4LgohA9pjXLs2GJQ7IAYa+zPfrHIrR3ocgyDD7uW/gB0cg4ly4BoKyn82kmcHtKy3WuiGXz9V+ODA=="
+        length="4548464"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's New in 1.1.3 (build 37)</h2>
+        <ul>
+          <li><strong>Sequential single-device switching: first device stays connected when the second one fails.</strong> Switchy now detects when another tracked device is already locally connected and suppresses the destructive Bluetooth power-cycle retry that was orphaning the surviving device.</li>
+          <li>Single-device release now uses the same auth-rejection window as batch release, so released devices are more likely to be pair-ready on the acquiring Mac.</li>
+        </ul>
+        <p><em>Baseline hardening for the shared primary D1 failure. Isolates a D1 failure to just D1 and brings single-device release semantics into parity with batch.</em></p>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.3 (build 36)</title>
       <sparkle:version>36</sparkle:version>
       <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
