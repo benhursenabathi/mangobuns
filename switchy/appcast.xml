@@ -7,6 +7,25 @@
     <language>en</language>
 
     <item>
+      <title>Version 1.1.3 (build 39)</title>
+      <sparkle:version>39</sparkle:version>
+      <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Wed, 22 Apr 2026 16:19:09 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.3-build39/Switchy-1.1.3.dmg"
+        sparkle:edSignature="jJfvlpmVlSEaGRW44JhoNr7sadJn3oi+Ppe/xyBfz90WEyCaX0fpryuPT7uFDtokValNTJryQ4rI6hg7VfkSDw=="
+        length="4551252"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Build 39</h2>
+        <ul>
+          <li><strong>Pair gate between D0 and D1.</strong> Switchy now waits for D0 to reach a pair-ready state before attempting D1 in batch connect, preventing D1 failures caused by residual D0 connection state.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.3 (build 38)</title>
       <sparkle:version>38</sparkle:version>
       <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
