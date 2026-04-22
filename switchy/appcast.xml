@@ -7,6 +7,25 @@
     <language>en</language>
 
     <item>
+      <title>Version 1.1.3 (build 38)</title>
+      <sparkle:version>38</sparkle:version>
+      <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Wed, 22 Apr 2026 13:12:15 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.3-build38/Switchy-1.1.3.dmg"
+        sparkle:edSignature="jfpFU+qp4YsoT9mFK/j9WqKt2HYcRFK07iPsbgvTS24GyWxBUSOhvYUfWoeQjXUQjCJWU36f9e2Bg+4B4ifhCw=="
+        length="4548766"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Build 38</h2>
+        <ul>
+          <li>Diagnostic instrumentation: detailed structured logging for fresh-pair operations (pre-pair state snapshot and post-failure diagnostics for both single and batch flows). No behavior changes.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.3 (build 37)</title>
       <sparkle:version>37</sparkle:version>
       <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
