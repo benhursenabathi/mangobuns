@@ -7,6 +7,27 @@
     <language>en</language>
 
     <item>
+      <title>Version 1.1.3 (build 41)</title>
+      <sparkle:version>41</sparkle:version>
+      <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Thu, 30 Apr 2026 09:05:00 +0000</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.3-build41/Switchy-1.1.3.dmg"
+        sparkle:edSignature="cWQzdNZdLBzSUAcHmgcQxxkKJfvNG/zkqjn3rx2QKeDpOc8n4f+ndwdyHAI5aYofkQNSgdrF7KF47qtcnMGEAQ=="
+        length="4915095"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Build 41</h2>
+        <ul>
+          <li>More reliable when switching a second device right after a first. Switchy now briefly pauses any already-connected tracked device that could interfere with pairing the new one, gives the new device a clean window to pair, then automatically reconnects the paused device.</li>
+          <li>"Connect all" batches now apply the same handoff between each device, so the second and third devices are as reliable as the first.</li>
+          <li>Smarter retry on the specific "no connection" pairing failure that occasionally hit follow-up switches — Switchy runs one targeted reset-and-retry instead of giving up.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.3 (build 40)</title>
       <sparkle:version>40</sparkle:version>
       <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
