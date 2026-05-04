@@ -7,6 +7,37 @@
     <language>en</language>
 
     <item>
+      <title>Beta 1.1.3 (build 46)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>46</sparkle:version>
+      <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Mon, 04 May 2026 20:24:10 +0000</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.3-build46/Switchy-Beta-1.1.3-build46.dmg"
+        sparkle:edSignature="P8lEiWtZ5GvkGxIANGZW/ENpuj6pKVfxzm+IvJuLNr+PmhCLmhgzcS/vfVcrienNj4O12ZfEHjTUBzGzsDvDBA=="
+        length="4848381"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 46 — atomic batch acquire</h2>
+        <p><strong>For developer testing only.</strong> Public users will not see this update.</p>
+        <h3>What changed</h3>
+        <ul>
+          <li>Replaced the two-phase batch acquire (pair-all → connect-all) with an <strong>atomic per-device acquire</strong>: each released device is paired AND connected to stable local ownership before the next one starts.</li>
+          <li>Field testing showed the previous shape could orphan D1 — freshly paired devices stayed disconnected through Phase 1, and the later Phase 2 connect occasionally collapsed because the controller was still settling. Reliability now wins over batch speed.</li>
+          <li>Recovery on a failed paired-device connect no longer escalates to a full re-acquire; it resets the in-progress flag and surfaces the failure cleanly.</li>
+          <li>Removed <code>phase2StartSettle</code> (no longer applicable). Inter-device settle is now a single value applied between atomic transactions.</li>
+        </ul>
+        <h3>What to test</h3>
+        <ul>
+          <li>Batch connect with 2+ devices: confirm both devices end up connected — D1 should no longer orphan in the failure modes you saw on previous betas.</li>
+          <li>Total time will be longer (we wait for D0 to fully settle before starting D1). Confirm it still feels acceptable.</li>
+          <li>Failure path: if the first device's atomic acquire fails, confirm Switchy moves on cleanly instead of stalling, and that the second device still gets a fair attempt.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.3 (build 45)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>45</sparkle:version>
