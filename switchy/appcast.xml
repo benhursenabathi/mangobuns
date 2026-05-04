@@ -7,6 +7,36 @@
     <language>en</language>
 
     <item>
+      <title>Beta 1.1.3 (build 45)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>45</sparkle:version>
+      <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Mon, 04 May 2026 19:44:06 +0000</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.3-build45/Switchy-Beta-1.1.3-build45.dmg"
+        sparkle:edSignature="86JDSRw633GtgsA1E6RaiMqazLyxEpfuGLLxzNdZUtFG/yQYOaV9cIvQnvoHgAqeVJ5l+6C0K+lBdn6k1aeBDw=="
+        length="4862025"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 45 — post-connect settle gate</h2>
+        <p><strong>For developer testing only.</strong> Public users will not see this update.</p>
+        <h3>What changed</h3>
+        <ul>
+          <li>Added a "settle gate" after a fresh local connect: Switchy now waits for the device to remain locally connected for at least 1 continuous second (with two positive probes, timeout 5s) before promoting to success and starting the next batch/sequential operation.</li>
+          <li>Targets the rare second-device failure shape where Switchy moved on while D0's HID negotiation was still stabilizing.</li>
+          <li>Probe logic refactored into a single helper (<code>probeLocalConnection</code>); settle timing made injectable for tests via <code>PostConnectSettleTiming</code>.</li>
+        </ul>
+        <h3>What to test</h3>
+        <ul>
+          <li>Batch connect with 2+ devices: confirm no regression on speed and that the second device no longer occasionally fails to settle.</li>
+          <li>Sequential one-tap connects: should feel essentially unchanged (≤1s extra after each connect in the worst case).</li>
+          <li>Edge case: a device that connects then immediately drops — verify the gate resets correctly and we don't false-promote.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.3 (build 44)</title>
       <sparkle:version>44</sparkle:version>
       <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
