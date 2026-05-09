@@ -7,6 +7,37 @@
     <language>en</language>
 
     <item>
+      <title>Beta 1.1.3 (build 47)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>47</sparkle:version>
+      <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Sat, 09 May 2026 21:23:32 +0000</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.3-build47/Switchy-Beta-1.1.3-build47.dmg"
+        sparkle:edSignature="VKC8PpXQbeAsHpKr4aLCISRglsJHskLLYwuMS2SGT54PpSiqTsOgOx6646LwD2mhD2XncawP/TUFs4K0YNAcDg=="
+        length="4849972"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 47 — channels actually work now</h2>
+        <p><strong>For developer testing only.</strong> Public users will not see this update.</p>
+        <h3>Why a manual install was required</h3>
+        <p>Sparkle 2.x ignores the <code>SUAllowedChannels</code> Info.plist key unless an <code>SPUUpdaterDelegate</code> implements <code>allowedChannels(for:)</code>. Builds 45 and 46 had the Info.plist key but no delegate, so Sparkle treated <em>allowedChannels</em> as an empty set and silently rejected every <code>&lt;sparkle:channel&gt;beta&lt;/sparkle:channel&gt;</code> item — falling back to the newest untagged item (build 44) and showing "you're up to date".</p>
+        <h3>What changed</h3>
+        <ul>
+          <li>Added <code>SPUUpdaterDelegate</code> conformance to <code>SparkleUpdaterController</code> with <code>allowedChannels(for:)</code> that reads <code>SUAllowedChannels</code> from <code>Info.plist</code>.</li>
+          <li>Stable Switchy: no <code>SUAllowedChannels</code> key → returns empty set → only sees untagged items (unchanged).</li>
+          <li>Switchy Beta: <code>SUAllowedChannels=["beta"]</code> → returns <code>{"beta"}</code> → sees beta-tagged items + untagged stable items.</li>
+        </ul>
+        <h3>What to test</h3>
+        <ul>
+          <li>After installing this build manually, future <code>/switchy-build-beta</code> runs should auto-update Switchy Beta within the Sparkle check interval (or via Check for Updates...).</li>
+          <li>The previously shipped behavior changes (post-connect settle gate from build 45, atomic batch acquire from build 46) are also in this build — so this is your active reliability test build.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.3 (build 46)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>46</sparkle:version>
