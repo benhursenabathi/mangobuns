@@ -7,6 +7,39 @@
     <language>en</language>
 
     <item>
+      <title>Beta 1.1.3 (build 49)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>49</sparkle:version>
+      <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Sat, 23 May 2026 14:25:46 +0000</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.3-build49/Switchy-Beta-1.1.3-build49.dmg"
+        sparkle:edSignature="BfkE8EJtrq1SRjQJ3s1EGf/KzBTAshUrNXzEg+TBtWZRUi/kVdei4sMIzkOxFT4Nzqb6pDEcWpbVkzmvjaXqDg=="
+        length="4879036"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 49 — stale-unavailable reconcile</h2>
+        <p><strong>For developer testing only.</strong> Public users will not see this update.</p>
+        <h3>What changed</h3>
+        <ul>
+          <li><strong>Out-of-band reconnect detection:</strong> If you connect a Magic device through System Settings → Bluetooth (bypassing Switchy), opening the Switchy menu now detects the connected device and moves it from "Unavailable Devices" to "Connected Devices" automatically.</li>
+          <li><strong>Destructive click prevention:</strong> Clicking a device row that Switchy incorrectly shows as unavailable (but macOS already has connected) now silently reconciles instead of running the acquire flow — the unpair/re-pair recovery path is unreachable when the device is actually working.</li>
+          <li><strong>Notification cleanup:</strong> "Device Unavailable" banners in Notification Center are dismissed automatically when reconciliation detects the device is locally connected.</li>
+          <li><strong>Reentrancy guards:</strong> The acquire precheck and inverse menu pass re-validate operation locks after await suspension points to prevent race conditions between rapid user clicks and background reconciliation.</li>
+          <li>New <code>NetworkBroadcasting</code> / <code>UserNotificationCenterRemoving</code> test seams; 12 new test cases covering the reconcile path.</li>
+        </ul>
+        <h3>What to test</h3>
+        <ul>
+          <li><strong>The reproduction case:</strong> Magic Trackpad connected to another Mac (no Switchy, lid closed) → connect it through System Settings on this Mac → open Switchy menu → device should appear under Connected Devices, not Unavailable.</li>
+          <li><strong>Stale panel click:</strong> If you manage to click a stale Unavailable row before the menu refreshes, Retry should confirm the connection, NOT unpair the device.</li>
+          <li><strong>No regression on normal switches:</strong> One-tap and batch switches with actual peer Macs should behave identically to build 48.</li>
+          <li><strong>Notification Center:</strong> After a device becomes unavailable (peer goes offline) and then you reconnect it through System Settings, the "Device Unavailable" banner should disappear from Notification Center.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.3 (build 48)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>48</sparkle:version>
