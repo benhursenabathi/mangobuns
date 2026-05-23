@@ -7,6 +7,40 @@
     <language>en</language>
 
     <item>
+      <title>Beta 1.1.3 (build 48)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>48</sparkle:version>
+      <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Sat, 23 May 2026 11:44:15 +0000</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.3-build48/Switchy-Beta-1.1.3-build48.dmg"
+        sparkle:edSignature="SJ0VGnzHJIvSY0+mk16QGTLarDjm3JIE9+rI9uxU+123mLn6448a7AqrET4C25WfTHiBpbl1uDIh+x8iuQazBQ=="
+        length="4858664"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 48 — usable HID connection verification</h2>
+        <p><strong>For developer testing only.</strong> Public users will not see this update.</p>
+        <h3>What changed</h3>
+        <ul>
+          <li>Switchy no longer marks a Magic device as connected on Bluetooth-link success alone. A second <strong>HID-readiness</strong> gate runs after the existing connected probe before promoting the UI to connected.</li>
+          <li>Bluetooth-only success is now treated as <em>provisional</em>, not final — so the false-positive case (Trackpad shows connected in Switchy, but macOS Bluetooth menu disagrees and the pointer doesn't move) should be eliminated.</li>
+          <li>For orphaned devices last known to belong to another Mac, Switchy now prefers a clean fresh pair over reusing stale local pairing keys.</li>
+          <li>Connection-success decision centralized so single and batch flows can't drift apart.</li>
+          <li>New <code>BluetoothManaging</code> protocol seam; verifier is testable without real hardware (new InteractionLockTests coverage).</li>
+          <li>Logs now distinguish Bluetooth-link success from HID-ready success.</li>
+        </ul>
+        <h3>What to test</h3>
+        <ul>
+          <li><strong>The original false-positive case:</strong> Magic Trackpad owned by MacBook A → power-cycle → switch to MacBook B → open MacBook A → power-cycle again → retry. Switchy on MacBook A should now NOT show success unless the Trackpad actually moves the pointer.</li>
+          <li>Normal one-tap switches: should feel essentially unchanged for already-usable devices.</li>
+          <li>Batch connect with 2+ devices: confirm no regression on the reliability you got from build 46/47.</li>
+          <li>Failed HID-ready connections: confirm the UI stays recoverable (no stuck false checkmark) and the retry path works.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.3 (build 47)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>47</sparkle:version>
