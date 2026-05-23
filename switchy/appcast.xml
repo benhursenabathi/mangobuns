@@ -7,6 +7,35 @@
     <language>en</language>
 
     <item>
+      <title>Beta 1.1.3 (build 50)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>50</sparkle:version>
+      <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Sat, 23 May 2026 16:39:12 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.3-build50/Switchy-Beta-1.1.3-build50.dmg"
+        sparkle:edSignature="5xINvar8npSxQuiagvVzeUToqKCnBnotij21Syuu8wVdWTEa7q9fBOANFwYrhtMaaksCaDyEd7DC4j5pKtAhDA=="
+        length="4878820"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 50 — fix info-connected-without-battery classification</h2>
+        <p><strong>For developer testing only.</strong></p>
+        <h3>What changed</h3>
+        <ul>
+          <li><strong>Fix: trackpad disconnects immediately after acquire.</strong> <code>classifyProbe</code> treated <code>info.isConnected == true</code> with no battery as a ghost (<code>bluetoothConnectedOnly</code>). blueutil doesn't expose battery for Magic Trackpad even when it's working. The settle gate always timed out, then <code>clearStaleLocalPairing</code> unpaired the working device. Fix: <code>info.isConnected == true</code> is now sufficient for <code>usableConnected</code> — battery is optional.</li>
+          <li><strong>Fix: menu still shows "Unavailable" after manual System Settings pairing.</strong> Same root cause — the inverse reconcile pass got <code>bluetoothConnectedOnly</code> from the settle gate and refused to reconcile.</li>
+          <li>Updated <code>ConnectionQuality</code> doc comments and added 4 regression tests covering info-connected-without-battery for both acquire and inverse reconcile paths.</li>
+        </ul>
+        <h3>What to test</h3>
+        <ul>
+          <li>Connect Magic Trackpad via System Settings → open Switchy menu → should show as Connected (not Unavailable).</li>
+          <li>Click an unavailable device → Retry → should connect and stay connected (not disconnect after a few seconds).</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.3 (build 49)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>49</sparkle:version>
