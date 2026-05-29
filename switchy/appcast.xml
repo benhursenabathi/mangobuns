@@ -7,6 +7,37 @@
     <language>en</language>
 
     <item>
+      <title>Beta 1.1.3 (build 51)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>51</sparkle:version>
+      <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Fri, 29 May 2026 16:14:57 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.3-build51/Switchy-Beta-1.1.3-build51.dmg"
+        sparkle:edSignature="STzpan65LHeEFZN4OXsy+7CUEglXFA8ETpmc0HbCjc6u/xT1UA/UyGhilYMbD441F77+W2ZaM5xukyylb+sCCQ=="
+        length="4882430"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 51 — D1 second-device pairing reliability + diagnostics</h2>
+        <p><strong>For developer testing only.</strong> Targets the intermittent second-device (D1) pair failure (0x02 / SSP 719) in batch "connect all" and immediate sequential switching.</p>
+        <h3>What changed</h3>
+        <ul>
+          <li><strong>Serialized all blueutil execution.</strong> Every controller command (pair/connect/unpair/probe/info) now runs through one serial queue, so a stray probe can't land inside another device's SSP handshake — the suspected concurrent-controller-contention race. In the normal serial acquire flow this adds zero delay.</li>
+          <li><strong>Gated the ownership-conflict verifier.</strong> Its hardware-probe no longer fires while any acquire/batch is in progress (was un-gated, could fire a blueutil probe mid-pair).</li>
+          <li><strong>Recovery no longer destroys a good bond on a probe error.</strong> A failed <code>isPaired</code> probe used to be read as "not paired" and triggered a destructive full re-pair on a still-bonded device (re-introducing 719). It now only re-pairs on a definite negative; any uncertainty preserves the bond.</li>
+          <li><strong>New <code>[BT-SERIAL]</code> diagnostic logging.</strong> Each blueutil logs how long it queued behind another and how long it ran + exit status — so a failure capture can prove whether anything overlapped D1's <code>--pair</code>.</li>
+        </ul>
+        <h3>What to test</h3>
+        <ul>
+          <li>From a second Mac, "Connect All" with 2 devices (Mouse + Trackpad) repeatedly — watch whether the second device still fails intermittently.</li>
+          <li>Sequential: switch D0, then immediately switch D1 — same watch.</li>
+          <li>If a failure occurs, capture logs: <code>/usr/bin/log stream --predicate 'subsystem == "com.switchy"' --info</code> and look at the <code>[BT-SERIAL]</code> lines around the failing <code>--pair</code> (queued ~0ms + nothing overlapping = serialization is clean → cause is release-side/device-readiness, not contention).</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.3 (build 50)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>50</sparkle:version>
