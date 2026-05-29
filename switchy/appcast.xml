@@ -7,6 +7,28 @@
     <language>en</language>
 
     <item>
+      <title>Version 1.1.4 (build 52)</title>
+      <sparkle:version>52</sparkle:version>
+      <sparkle:shortVersionString>1.1.4</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Fri, 29 May 2026 16:53:43 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.4-build52/Switchy-1.1.4.dmg"
+        sparkle:edSignature="CBzhQhDLfgURwobxTHD8lBDlf+uhcGsGPVuM7RNxGmw0krQ3fsS5RbjoqRSt2i7DRnt1xky64eJx93+inKvdAQ=="
+        length="4882233"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's New in 1.1.4</h2>
+        <ul>
+          <li><strong>Much more reliable multi-device switching.</strong> "Connect All" and back-to-back device switches no longer intermittently fail on the second device.</li>
+          <li><strong>Out-of-band detection.</strong> Devices connected through System Settings → Bluetooth are now correctly shown as connected instead of "Unavailable".</li>
+          <li><strong>Magic Trackpad fix.</strong> Resolved a case where a Trackpad could disconnect or show as unavailable right after connecting.</li>
+          <li>Additional Bluetooth connection stability improvements.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.3 (build 51)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>51</sparkle:version>
