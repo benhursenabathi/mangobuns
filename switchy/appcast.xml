@@ -833,6 +833,32 @@
 
     <!-- Add new versions above this line -->
     <item>
+      <title>Beta 1.1.4 (build 53)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>53</sparkle:version>
+      <sparkle:shortVersionString>1.1.4</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Wed, 17 Jun 2026 16:41:41 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.4-build53/Switchy-Beta-1.1.4-build53.dmg"
+        sparkle:edSignature="0k+QwSj4sNmMzX9eO2J0qR9SApvTgE3QFEGK+vKh/8N/9ExtNWXZOh3AOIreIObJGW6yFzMhBsydqeihK50eCQ=="
+        length="4928139"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 53 — second-device orphan fix</h2>
+        <p>Tester focus: batch / multi-device handoff. Connect-all from one Mac to another, especially the <strong>second</strong> device in a batch — that was the one that intermittently orphaned (0x02/719). Watch for any device that fails to pair, gets actively rejected, or re-attaches to the releasing Mac mid-handoff.</p>
+        <ul>
+          <li><strong>Root cause fixed</strong>: the releasing Mac's power-on and the acquiring Mac's pair-gate were both anchored to the same 15s instant, so the second fresh pair began exactly as the releasing radio returned. Now event-driven instead of time-tuned.</li>
+          <li><strong>New pairPhaseComplete signal</strong>: the acquiring Mac tells the releasing Mac when its pair-critical window ends (on success and final failure), routed through the existing early power-on accounting.</li>
+          <li><strong>Single-release fallback</strong> demoted to a 45s safety net with a unit-tested invariant that it exceeds the acquiring side's worst-case fresh-pair window.</li>
+          <li><strong>releasesInProgress guard</strong>: collateral reconnection can no longer --connect a device a release handler currently owns.</li>
+          <li><strong>runBlueutil</strong>: a queued command that timed out or was cancelled can no longer execute later (no zombie execution); queue-wait excluded from the timeout budget, separate 30s queue-wait ceiling.</li>
+        </ul>
+        <p><em>Known risk: timing changes touch the batch handoff path directly — exercise repeated back-to-back batch switches.</em></p>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.2 (build 15)</title>
       <sparkle:version>15</sparkle:version>
       <sparkle:shortVersionString>1.1.2</sparkle:shortVersionString>
