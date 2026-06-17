@@ -7,6 +7,35 @@
     <language>en</language>
 
     <item>
+      <title>Beta 1.1.4 (build 54)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>54</sparkle:version>
+      <sparkle:shortVersionString>1.1.4</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Wed, 17 Jun 2026 20:43:46 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.4-build54/Switchy-Beta-1.1.4-build54.dmg"
+        sparkle:edSignature="n0FTygJBUwQaorXn1iEVSUrKPN0aGsDbw725TIC5MLDkVi07oo2dXfwTfwMtMw1W7KNTbXhu8KNlrqR2LxcBCg=="
+        length="4942706"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 54 — batch second-device pairing: clean-controller recovery</h2>
+        <p><strong>For developer testing only.</strong> New root cause + fix for the intermittent second-device <code>0x02/719</code> orphan in batch "connect all".</p>
+        <h3>What changed</h3>
+        <ul>
+          <li><strong>Root cause (fresh capture):</strong> a fresh <code>--pair</code> reliably succeeds on a freshly power-cycled <em>clean</em> controller and intermittently fails on a <em>dirty</em> one (a sibling already bonded+connected). The first device is reliable only because the pre-flight power cycle hands it a clean controller; the second never gets that — and long idle waits don't help because the connected sibling keeps the controller dirty.</li>
+          <li><strong>Clean-controller recovery:</strong> on a second-device <code>0x02</code>, Switchy now power-cycles once, re-pairs the failed device first on the clean controller, then reconnects the surviving device(s). Cascade-safe (survivors always reconnected) and bounded to one cycle. Replaces the old 1.5s retry that re-paired on the still-dirty controller.</li>
+          <li><strong>Hardening:</strong> reference-counted release guard (fixes a same-device overlapping-release race) and a <code>[PAIR DIAG] controller=clean|dirty</code> log before every fresh pair.</li>
+        </ul>
+        <h3>What to test</h3>
+        <ul>
+          <li>From a second Mac, "Connect All" with 2 devices (Mouse + Trackpad) repeatedly. The second device should now self-heal instead of orphaning — you should NOT see the "device unavailable" panel.</li>
+          <li>If a failure occurs, capture both logs (Phase-9 §13): <code>log stream --predicate 'process == "bluetoothd"'</code> and <code>log stream --predicate 'subsystem == "com.switchy"'</code>. Look for <code>controller=dirty</code> before the failing <code>--pair</code>, then <code>Recovery power cycle</code> → <code>Clean-controller re-pair</code> → survivor reconnect.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.4 (build 52)</title>
       <sparkle:version>52</sparkle:version>
       <sparkle:shortVersionString>1.1.4</sparkle:shortVersionString>
