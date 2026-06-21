@@ -7,6 +7,38 @@
     <language>en</language>
 
     <item>
+      <title>Beta 1.1.4 (build 55)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>55</sparkle:version>
+      <sparkle:shortVersionString>1.1.4</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Sun, 21 Jun 2026 12:58:25 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.4-build55/Switchy-Beta-1.1.4-build55.dmg"
+        sparkle:edSignature="VTY+OTUU7TQ1ZPT20XR7i4Esf8iqcAKQAPdUy+EBlZg+E9Rp2hY2QtnzRgEF6i9KWfenCffOGKR7VsDRkP5ACw=="
+        length="4944828"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 55 — 0x02/719 recovery: disconnect-based + single-device path</h2>
+        <p><strong>For developer testing only.</strong> Reworks the second-device <code>0x02/719</code> recovery and extends it to the single-device acquire path.</p>
+        <h3>What changed</h3>
+        <ul>
+          <li><strong>Root-cause theory updated.</strong> The <code>0x02/719</code> is now understood as a <em>device-side</em> SSP abort (device withholds user-confirmation after the IO-Capability exchange), INDEPENDENT of the acquiring controller's clean/dirty state. HCI proof: an identical abort on a 0-ACL controller (<code>~/btd-fail</code> 2026-06-21). Replaces the build-54 "clean controller" theory.</li>
+          <li><strong>Disconnect-based recovery replaces power-cycle.</strong> Recovery now tears down survivor ACL links via <code>--disconnect</code> (radio stays on → no auto-reconnect wall, no keyboard/input drop), re-pairs the failed device, reconnects survivors via connect-only (bonds survive <code>--disconnect</code>), then ONE delayed isolated retry before the panel. Replaces build 54's power-cycle approach.</li>
+          <li><strong>Single-device path now recovers before the panel.</strong> Recovery is extracted into a shared <code>recoverFailedDevices</code> helper used by BOTH batch and single acquire paths. A single-device <code>0x02</code>/no-connection failure now gets disconnect-based recovery BEFORE the "device unavailable" panel — if recovery succeeds, the panel is skipped entirely.</li>
+          <li><strong>Probe hardening.</strong> <code>isPairedOrNil</code> now retries with backoff (2 attempts, 200ms) before returning inconclusive; exposed as internal for unit testing.</li>
+        </ul>
+        <h3>What to test</h3>
+        <ul>
+          <li><strong>Single-device acquire</strong> from a peer that fails with <code>0x02</code> — should now self-heal instead of showing the panel. This is the new path in build 55.</li>
+          <li><strong>Batch "Connect All" with 2 devices</strong> — second-device <code>0x02</code> should still self-heal (same behavior as build 54, now via the shared helper).</li>
+          <li><strong>No input drop during recovery</strong> — radio stays on throughout (unlike build 54's power cycle). Verify no keyboard/mouse stutter when a sibling is disconnected/reconnected around the re-pair.</li>
+          <li><strong>If a failure occurs</strong>, capture both logs: <code>log stream --predicate 'process == "bluetoothd"'</code> and <code>log stream --predicate 'subsystem == "com.switchy"'</code>. Look for <code>[PAIR DIAG] recovery controller=...</code> before sibling disconnect → <code>Recovery re-pair</code> → sibling reconnect → optional <code>delayed isolated retry</code>.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.4 (build 54)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>54</sparkle:version>
