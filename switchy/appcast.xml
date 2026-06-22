@@ -9,6 +9,42 @@
     <!-- Add new versions above this line -->
 
     <item>
+      <title>Beta 1.1.4 (build 57)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>57</sparkle:version>
+      <sparkle:shortVersionString>1.1.4</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Mon, 22 Jun 2026 21:29:14 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.4-build57/Switchy-Beta-1.1.4-build57.dmg"
+        sparkle:edSignature="xZrcBm1AelPzEHQhMZTw08yK/5y2OuBA5EaCbu/eI863eTQb+GgMnEIplPIeco1e3hBABLYPIbLqjKRw7bpCBg=="
+        length="4959720"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 57 — Multi-Device Connect is now opt-in (Beta-gated) + error panel cleanup</h2>
+        <p><strong>For developer testing only.</strong> Gates the unreliable batch "Connect all" flow behind an off-by-default Settings toggle and simplifies the unavailable-device panel.</p>
+        <h3>What changed</h3>
+        <ul>
+          <li><strong>Multi-Device Connect is now opt-in.</strong> Added a <code>multiDeviceConnectEnabled</code> preference (OFF by default) in Settings → General, tagged <em>Beta</em>. The "Connect all from [Mac]" menu section and the <code>connectAllFromPeer</code> entry point are now gated behind this toggle. Rationale: batch connect is unreliable — a second device can fail with <code>0x02</code> due to Bluetooth/SSP hardware limitations outside Switchy's control. When off, users connect devices one at a time (the reliable path).</li>
+          <li><strong>Unavailable-device panel simplified.</strong> Removed the contextual "keep awake" education label that named the peer Mac (<code>shouldShowKeepAwakeEducation</code>, <code>educationLabel</code>). The retry button now always sits directly below the description — no more conditional layout branching.</li>
+          <li><strong>Settings divider fix.</strong> The "Device Discovery Alerts" row now renders with a divider for consistent spacing.</li>
+        </ul>
+        <h3>What to test</h3>
+        <ul>
+          <li><strong>Toggle OFF by default:</strong> On a fresh install (or after clearing <code>multiDeviceConnectEnabled</code> from UserDefaults), "Connect all from [Mac]" should NOT appear in the menu even when a peer has multiple available devices. Single-device connect should work as before.</li>
+          <li><strong>Toggle ON:</strong> Enable "Multi-Device Connect" in Settings → General. The "Connect all from [Mac]" section should reappear in the menu and the batch flow should work as in build 56.</li>
+          <li><strong>Persistence:</strong> The toggle state should survive app restarts (stored in UserDefaults via <code>setMultiDeviceConnectEnabled</code>).</li>
+          <li><strong>Unavailable-device panel:</strong> Trigger an unavailable-device panel (e.g. disconnect a peer mid-acquire). Confirm there is no "keep awake" education line and the retry button sits directly under the description with clean spacing.</li>
+          <li><strong>Single-device switching unaffected.</strong> The core acquire/release flow should be unchanged.</li>
+        </ul>
+        <h3>Known risks</h3>
+        <ul>
+          <li><strong>Existing beta testers lose "Connect all" silently.</strong> The toggle ships OFF, so anyone relying on batch connect will see it disappear until they enable it in Settings. This is intentional (the flow was unreliable), but worth noting if anyone reports "Connect all is gone."</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.4 (build 56)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>56</sparkle:version>
