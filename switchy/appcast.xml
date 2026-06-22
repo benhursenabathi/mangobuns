@@ -6,6 +6,51 @@
     <description>Switchy app updates</description>
     <language>en</language>
 
+    <!-- Add new versions above this line -->
+
+    <item>
+      <title>Beta 1.1.4 (build 56)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>56</sparkle:version>
+      <sparkle:shortVersionString>1.1.4</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Mon, 22 Jun 2026 20:43:19 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.4-build56/Switchy-Beta-1.1.4-build56.dmg"
+        sparkle:edSignature="k39AlJyo8kEK+Z8pvsHS9ulvBAFcQFjxqr0Tbq+F+hyEV8+TWQYe0//pvrtZjV/ASLVHdqcYmzIW9Ro83dRbCQ=="
+        length="4955743"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 56 — Sleeping Devices: accurate UI status for asleep peers</h2>
+        <p><strong>For developer testing only.</strong> Fixes the false "Available" status shown for devices on a peer Mac that is asleep with "Wake for network access" enabled (Bonjour Sleep Proxy keeps it visible).</p>
+        <h3>What changed</h3>
+        <ul>
+          <li><strong>New "Sleeping Devices" section.</strong> Devices on a Bonjour-visible-but-unreachable peer now appear under "Sleeping Devices" with a moon icon and "Wake the Mac to connect" guidance — instead of falsely showing as "Available" and then failing with a 60s timeout when clicked.</li>
+          <li><strong>TCP-verified reachability.</strong> A new <code>isPeerReachable</code> predicate replaces Bonjour-only checks in the availability logic. A peer is only considered reachable if: (a) it sent fresh device announcements within 5 min, OR (b) an active reverse TCP channel exists, OR (c) it responded to a keep-alive probe within 30s. Bonjour visibility alone is no longer sufficient.</li>
+          <li><strong><code>confirmedPeers</code> in keep-alive pool.</strong> A peer is only "confirmed" after responding to at least one real pong, not just because pinging started. Closes the 30s "assume alive" window that made freshly-rediscovered Sleep Proxy zombies appear reachable.</li>
+          <li><strong>Immediate first probe.</strong> Keep-alive's first probe now fires on peer discovery (<code>deadline: .now()</code>) instead of waiting 10s. A zombie is detected within ~2s instead of 10s.</li>
+          <li><strong>Batch connect early-exit.</strong> "Connect all from [peer]" aborts immediately with the unavailable panel if the peer is not reachable — no more 2s wait + 60s timeout hang on a sleeping peer.</li>
+          <li><strong>"Connect all" button hidden for sleeping peers.</strong> <code>hasLivePeerData</code> now requires <code>isPeerReachable</code>, so the button won't appear for asleep peers.</li>
+          <li><strong>Stale cleanup fixes.</strong> <code>cleanupStaleDevices</code> now removes entries from unreachable peers (was: only from Bonjour-offline peers). Sleep Proxy zombies no longer accumulate stale entries.</li>
+          <li><strong>Docs cleaned up.</strong> Removed stale WOL/WakeManager claims from <code>Zombie-Peer-Detection.md</code> and <code>Network-Acquire-Speed-Optimizations.md</code>. Marked <code>Wake-on-LAN-Source-of-Truth.md</code> as aspirational/not-implemented.</li>
+        </ul>
+        <h3>What to test</h3>
+        <ul>
+          <li><strong>Sleep Proxy scenario (the reported bug):</strong> On Mac A, enable "Wake for network access", connect 2 devices, put Mac A to sleep (close lid on AC power). Wait 2+ min. On Mac B, open Switchy menu — devices should show under <strong>"Sleeping Devices"</strong> with moon icon, NOT "Available Devices". No "Connect all from Mac A" button should appear.</li>
+          <li><strong>No false "Available" flash:</strong> Right after Mac A sleeps, open the menu on Mac B. Within ~2s the devices should move to "Sleeping" (not linger as "Available" for 30s).</li>
+          <li><strong>Zsceler/asymmetric peers unaffected:</strong> If you have a firewalled peer (TCP-unreachable but Bonjour-visible with a reverse channel), its devices should still show as "Available" — the <code>activePeerConnections.getReady</code> signal protects this path.</li>
+          <li><strong>Normal switching still works:</strong> Devices on an awake, reachable peer should show as "Available" and connect normally. Batch "Connect all" should work as before.</li>
+          <li><strong>Browser restarts unaffected:</strong> If you toggle WiFi or the Bonjour browser restarts, devices should not flash through "Sleeping" — the <code>isPeerOnlineForAvailability</code> grace path is preserved.</li>
+          <li><strong>Peer wakes up:</strong> After Mac A wakes, its devices should move back to "Available" once fresh announcements arrive or a keep-alive pong succeeds.</li>
+        </ul>
+        <h3>Known risks</h3>
+        <ul>
+          <li><strong>First-discovery window (~2s):</strong> A just-discovered peer has no pong and no announcements yet. During this brief window its devices may show as "Sleeping" until the first probe completes. The immediate-first-probe change minimizes this, but if you see a healthy peer flash "Sleeping" on first discovery, report it.</li>
+          <li><strong>No click-to-wake.</strong> Sleeping devices are informational only — clicking does nothing. The user must manually wake the peer Mac. WOL/click-to-wake remains a future feature (the <code>extendedTimeout</code> plumbing is already in NetworkManager but not activated).</li>
+        </ul>
+      ]]></description>
+    </item>
+
     <item>
       <title>Beta 1.1.4 (build 55)</title>
       <sparkle:channel>beta</sparkle:channel>
