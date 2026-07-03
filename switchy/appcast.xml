@@ -9,6 +9,33 @@
     <!-- Add new versions above this line -->
 
     <item>
+      <title>Beta 1.1.4 (build 58)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>58</sparkle:version>
+      <sparkle:shortVersionString>1.1.4</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Fri, 03 Jul 2026 08:48:00 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.4-build58/Switchy-Beta-1.1.4-build58.dmg"
+        sparkle:edSignature="13jWHz1frfoADZVU6uah2gY0yO3lM5Lfz505Xf9beIZt8crwmxSxZPM0uPKyHuIhoLWwVjT//t7tjQRypAHKBQ=="
+        length="4959539"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 58 — Settings copy update</h2>
+        <p><strong>For developer testing only.</strong> Small copy fix in the multi-device settings section. No switching-logic changes since build 57.</p>
+        <h3>What changed</h3>
+        <ul>
+          <li>Updated the multi-device settings menu copy for clarity.</li>
+        </ul>
+        <h3>What to test</h3>
+        <ul>
+          <li>Open Settings → General and confirm the multi-device copy reads correctly.</li>
+          <li>Single-device and batch switching should behave identically to build 57.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.4 (build 57)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>57</sparkle:version>
