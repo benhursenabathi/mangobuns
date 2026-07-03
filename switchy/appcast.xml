@@ -9,6 +9,39 @@
     <!-- Add new versions above this line -->
 
     <item>
+      <title>Version 1.1.4 (build 59)</title>
+      <sparkle:version>59</sparkle:version>
+      <sparkle:shortVersionString>1.1.4</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Fri, 03 Jul 2026 12:32:00 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.4-build59/Switchy-1.1.4.dmg"
+        sparkle:edSignature="44MKh1cH58jM0WvzoxKdquSlw6b0qSfVNcEOJU38sE6W+nUJLL+UYf79c/hDSh9DaQDobPEkSAmyfLz6XfbJCg=="
+        length="4959668"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's New in 1.1.4 (build 59)</h2>
+        <p>This update makes switching more reliable, clearer, and easier to use. Here's what changed since the last update:</p>
+        <h3>Multi-Device Connect is now a Beta feature</h3>
+        <p>Connecting several devices at once ("Connect all from [Mac]") is handy, but it wasn't as reliable as switching one device at a time — the second device would sometimes fail to pair because of Bluetooth hardware limitations outside Switchy's control.</p>
+        <p>To keep things simple and dependable, <strong>Multi-Device Connect is now off by default</strong>. The reliable path — connecting devices one at a time — is what you'll see out of the box.</p>
+        <p>If you relied on connecting multiple devices at once, you can turn it back on: open <strong>Settings → General</strong> and enable <strong>Multi-Device Connect (Beta)</strong>. It's labeled Beta because it can still be hit-and-miss with some Bluetooth controllers.</p>
+        <h3>Smoother switching under the hood</h3>
+        <ul>
+          <li><strong>Fewer "stuck on the wrong Mac" moments.</strong> We fixed a race condition where, during a switch, the device could briefly re-connect to the Mac you're switching <em>away</em> from right as it was supposed to pair with the new one. The two Macs now coordinate so the old one keeps its Bluetooth off until the new Mac is done pairing.</li>
+          <li><strong>Automatic recovery when a second device won't pair.</strong> If a device fails to pair during a multi-device switch, Switchy now does a clean Bluetooth reset and tries again on a fresh connection. This recovers most of the failures that used to need a manual retry.</li>
+        </ul>
+        <h3>Clearer status and errors</h3>
+        <ul>
+          <li><strong>Better status messages</strong> in the menu after a device disconnects or reconnects, so you always know what's happening.</li>
+          <li><strong>Simpler error panel.</strong> When a device can't be reached, the retry button is now right under the message — no extra clutter.</li>
+          <li><strong>Clearer settings copy</strong> for the Multi-Device Connect option.</li>
+        </ul>
+        <p>As always, single-device switching — the core of Switchy — stays rock solid. Thanks for using Switchy!</p>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.4 (build 58)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>58</sparkle:version>
