@@ -9,6 +9,39 @@
     <!-- Add new versions above this line -->
 
     <item>
+      <title>Beta 1.1.4 (build 60)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>60</sparkle:version>
+      <sparkle:shortVersionString>1.1.4</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Mon, 06 Jul 2026 20:09:45 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.4-build60/Switchy-Beta-1.1.4-build60.dmg"
+        sparkle:edSignature="o3GLPgO+SRqzL0z4U3/s7th5CPgyZrWyXQw0acXSaDXIwUrBGrMSo/rwGgxM70Yj5x/2E/w9IUgEgglkUxQCCQ=="
+        length="3568751"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 60</h2>
+        <p>Dev-facing notes — this build only reaches Switchy Beta (channel <code>beta</code>).</p>
+        <h3>First-run onboarding tour</h3>
+        <ul>
+          <li>New onboarding tour shown on first launch and reachable from Settings. Walks through how switching works, the connect-all flow, and the "When connected to power, keep Switchy running" option.</li>
+          <li>Look at: slide order, copy, screenshots, and whether the tour re-shows correctly from Settings.</li>
+        </ul>
+        <h3>Renamed lid / keep-awake setting</h3>
+        <ul>
+          <li>"Keep this Mac available for switching" is now <strong>"When connected to power, keep Switchy running"</strong> with a clearer description of what it does (keeps Switchy running while plugged in, even with the lid closed, so other Macs can switch devices without opening the lid).</li>
+          <li>Look at: the General settings row and the notification / hint copy that mentions the setting by name.</li>
+        </ul>
+        <h3>Known risks</h3>
+        <ul>
+          <li>Onboarding copy and slide order still settling — feedback welcome.</li>
+          <li>Keep-awake behavior is unchanged; only labels and descriptions moved.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.4 (build 59)</title>
       <sparkle:version>59</sparkle:version>
       <sparkle:shortVersionString>1.1.4</sparkle:shortVersionString>
