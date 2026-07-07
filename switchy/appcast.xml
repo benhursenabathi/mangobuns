@@ -9,6 +9,43 @@
     <!-- Add new versions above this line -->
 
     <item>
+      <title>Beta 1.1.4 (build 61)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>61</sparkle:version>
+      <sparkle:shortVersionString>1.1.4</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Tue, 07 Jul 2026 10:32:12 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.4-build61/Switchy-Beta-1.1.4-build61.dmg"
+        sparkle:edSignature="13RedPARcPrQd1767lx3aSfx86E4CHvSWL9a6laRfccMchGty8voqYCC+60bDDLvF7Aaotkaf095xdZANWrgAQ=="
+        length="3537762"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 61 — batch release reliability hardening</h2>
+        <p>Dev-facing notes — this build only reaches Switchy Beta (channel <code>beta</code>).</p>
+        <h3>Peer-side radio-on guard (Phase-9 §15)</h3>
+        <ul>
+          <li><code>handlePeerAcquireRequest</code> now probes the peer's Bluetooth radio and powers it on if it's still down from a previous chained release. This ensures the unpair signal always reaches the device — an unheard unpair leaves stale firmware keys and a durable wedge.</li>
+          <li>Look at: multi-device batch switching where one Mac releases several devices in a chain. Previously the radio could stay off after an earlier release and the next unpair would be silently lost.</li>
+        </ul>
+        <h3>interDeviceReleaseSettle (3s)</h3>
+        <ul>
+          <li>New 3s settle at the start of each per-device loop iteration gives the peer's radio time to come back before the next release request needs it. Replaces the redundant end-of-loop <code>interPairSettle</code>.</li>
+          <li>Look at: timing between consecutive device releases in a batch — should feel no slower overall but more reliable.</li>
+        </ul>
+        <h3>Refactor pass</h3>
+        <ul>
+          <li>Cleanup of <code>AppState.swift</code> and <code>BatchConnectTiming</code> from the review pass (commit 32dab1e). No behavior change intended — watch for regressions in batch acquire/release flows.</li>
+        </ul>
+        <h3>Known risks</h3>
+        <ul>
+          <li>The radio-on guard adds a probe step to every peer acquire request; if it misfires it could power the radio on when we meant to leave it off. Verify single-device switching still powers off cleanly after release.</li>
+          <li><code>interDeviceReleaseSettle</code> replaces <code>interPairSettle</code> — if anything relied on the old end-of-loop timing it may shift.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.4 (build 60)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>60</sparkle:version>
