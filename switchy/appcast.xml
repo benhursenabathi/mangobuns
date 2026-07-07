@@ -9,6 +9,28 @@
     <!-- Add new versions above this line -->
 
     <item>
+      <title>Beta 1.1.4 (build 64)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>64</sparkle:version>
+      <sparkle:shortVersionString>1.1.4</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Tue, 07 Jul 2026 22:48:17 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.4-build64/Switchy-Beta-1.1.4-build64.dmg"
+        sparkle:edSignature="R0FyZYB+wfuOAYWyyGqRacIQwhmRRyu7NjS5bNSL/9pa4zBpwxRKzNfco5Nk78QFHtSndR53sYonT8yKEK6eAQ=="
+        length="3541849"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 64 — progress bar UI polish</h2>
+        <p>Dev-facing notes — this build only reaches Switchy Beta (channel <code>beta</code>).</p>
+        <ul>
+          <li>Improved batch-connect progress bar UI.</li>
+          <li>No functional changes to the batch-connect reliability levers (A–E) shipped in build 63 — this is a UI-only follow-up. Watch that progress reporting still tracks per-device state correctly through a multi-device batch.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.4 (build 63)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>63</sparkle:version>
