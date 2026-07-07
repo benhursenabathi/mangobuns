@@ -9,6 +9,70 @@
     <!-- Add new versions above this line -->
 
     <item>
+      <title>Beta 1.1.4 (build 63)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>63</sparkle:version>
+      <sparkle:shortVersionString>1.1.4</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Tue, 07 Jul 2026 19:16:07 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.4-build63/Switchy-Beta-1.1.4-build63.dmg"
+        sparkle:edSignature="tNn5OazhwtxB9WJIkFCp5SpL0O+u83uJ0gfnpaVSg8bBAliYO+SRmi7e0zEOcMC0EFqNACP+3PtvcfHzJggtDg=="
+        length="3535703"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 63 — batch reliability overhaul (Levers A–E) + review findings</h2>
+        <p>Dev-facing notes — this build only reaches Switchy Beta (channel <code>beta</code>).</p>
+        <h3>Lever A: releaseAgeSeconds backdating (PROTOCOL CHANGE, biggest win)</h3>
+        <ul>
+          <li>The 5s pair floor was measured from the peer's reply, but the peer unpaired the device ~5s <em>before</em> replying (0.5+0.5s waits + 4s auth window). Pairing actually started ~10s after the device was freed — 2× the proven envelope.</li>
+          <li>Protocol change: peer now reports <code>releaseAgeSeconds</code> (time since unpair completed) in the acquire response. Acquirer backdates <code>releaseConfirmedAt</code> by the age, capped at the 4s auth window (<code>maxReleaseAgeCredit</code>) so pairing still starts ≥1s past window end. Old peers → nil → 0 credit → current behavior (backward-compatible).</li>
+          <li>Expected: D0 floor waits ~1s (was 5s); D1 gate ~0.8–1.1s (was ~4.8s).</li>
+        </ul>
+        <h3>Lever B: conditional inter-device settle (0.5s success / 3s failure)</h3>
+        <ul>
+          <li>Since the collateral BT power-off skip (build 62), a mid-batch release with the next device still peer-connected never powers the radio off — the radio is already up and the next device is connected. After a SUCCESS, 0.5s is pacing only (was 3s). After a FAILURE, keeps 3s (pairPhaseComplete → peer power-on ~1–3s must land before the next release request).</li>
+          <li>Also bumps the peer-side radio-on guard sleep 500ms → 2s (controller init takes ~2s before accepting commands reliably).</li>
+        </ul>
+        <h3>Lever C: remove pre-flight power cycle, replace with radio-on guard</h3>
+        <ul>
+          <li>The §13 rationale (clear stale HCI link keys) was disproven by §14's HCI capture (0x02 is device-side). <code>acquireInternal</code> already unpairs locally per device before re-pairing. The power cycle cost ~3.4s and dropped local-fast-path orphans mid-batch. Replaced with a cheap probe + conditional <code>powerOnBluetooth</code> (only if the radio is actually off).</li>
+        </ul>
+        <h3>Lever D: verifyConnection 3→10 attempts (early-exit on first positive)</h3>
+        <ul>
+          <li>July 2026 field run showed a healthy D1 pair+connect succeed but the verification probe take ~2s — exceeding the 3×300ms=0.9s budget and routing the device into ~9s of unnecessary recovery. Layer-1 (<code>verifyConnection</code>) is a bounded fast-fail for genuinely failed <code>--connect</code>; layer-2 (<code>ConnectionQualityVerifier</code>, 5s budget) is the authoritative settle gate. Layer-1 must not throw on merely-slow verification. 10×300ms=3s budget; early-exits on first positive so happy path stays ~0.3–0.6s.</li>
+        </ul>
+        <h3>Lever E: remove release-side BT power-off entirely (always-on radio)</h3>
+        <ul>
+          <li>The power-off's stated purpose (prevents device auto-reconnect) is already fulfilled by unpair-while-connected + the 4s auth-rejection window: the device's pairing record is gone, every reconnect is auth-rejected, and by window end its firmware has cleared keys and is advertising. Build 62's field run proved it (BT stayed on, device auth-rejected, became pairable, peer acquired it).</li>
+          <li>Always keeping BT on eliminates the collateral-drop wedge class at the root — including non-tracked BT devices (AirPods, etc.) that build 62's collateral check didn't cover. Sequential switches stop paying power-off → power-on churn (~3.5s). Recovery finds the peer radio already up.</li>
+          <li>Dormant power-on machinery (<code>scheduleBluetoothPowerOn</code>, <code>triggerEarlyBluetoothPowerOn</code>, <code>reconnectCollateralDevices</code>, radio-on guard, fallback constant + invariant test) kept for now — cleanup in a follow-up after field verify.</li>
+        </ul>
+        <h3>Review findings 1–4 (robustness/coverage/doc-debt)</h3>
+        <ul>
+          <li>Set <code>previousDeviceSucceeded=false</code> on the release-failed continue path (was stale — flag name now matches behavior in all paths).</li>
+          <li>Added NetworkMessage codec round-trip test for <code>releaseAgeSeconds</code> — pins the silent-drop trap (encode/decode with the field + legacy-blob-without-key → nil).</li>
+          <li>Updated stale doc-comments on <code>handlePeerAcquireRequest</code> (no longer powers off BT, no longer uses 45s fallback, returns <code>PeerAcquireOutcome</code>); two other trivial stale comments.</li>
+        </ul>
+        <h3>Look at</h3>
+        <ul>
+          <li><strong>Batch acquire latency.</strong> D0 should feel dramatically faster (~1s floor vs 5s); D1 gate ~0.8–1.1s vs ~4.8s. End-to-end batch of 2 should be noticeably snappier.</li>
+          <li><strong>Sequential switches.</strong> No power-off/power-on churn between devices. Recovery should find peer radio already up.</li>
+          <li><strong>Non-tracked BT devices</strong> (AirPods, etc.): should no longer be dropped as collateral during a release. Verify your AirPods stay connected through a switch.</li>
+          <li><strong>Slow verification path.</strong> A device that takes ~2s to verify should no longer fall into ~9s of recovery — it should settle in the verifier's 5s budget.</li>
+          <li><strong>Protocol compat.</strong> If you mix this beta with an older peer, the old peer reports no <code>releaseAgeSeconds</code> → 0 credit → old 5s floor. Upgrade both Macs to see the full win.</li>
+        </ul>
+        <h3>Known risks</h3>
+        <ul>
+          <li><strong>Lever E is only field-verified for the non-last device (D0).</strong> The last device is theoretically identical but untested. Watch for <code>0x02</code>/<code>719</code> on the last device and on sequential switches.</li>
+          <li><strong>Lever A protocol change</strong> — if a peer reports a bogus <code>releaseAgeSeconds</code> (negative, huge, or wrong), the cap at <code>maxReleaseAgeCredit</code> (4s) bounds the damage, but a too-small age could start pairing before the device is actually pairable. The cap is conservative (4s = full auth window).</li>
+          <li><strong>Lever C radio-on guard</strong> adds a probe to every acquire. If the probe misreads the radio state it could power on when unnecessary (harmless) or fail to power on when needed (wedge). Watch for "radio off" wedges on cold starts.</li>
+          <li><strong>Dormant power-on machinery is still in the code</strong> — not called in the normal path but present. Cleanup pending field verification.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.4 (build 62)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>62</sparkle:version>
