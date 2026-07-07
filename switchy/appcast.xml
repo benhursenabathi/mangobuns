@@ -9,6 +9,46 @@
     <!-- Add new versions above this line -->
 
     <item>
+      <title>Beta 1.1.4 (build 62)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>62</sparkle:version>
+      <sparkle:shortVersionString>1.1.4</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Tue, 07 Jul 2026 10:53:23 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.4-build62/Switchy-Beta-1.1.4-build62.dmg"
+        sparkle:edSignature="X22OnWaf7rxc+UKf8Or6p0oYfl0cwZHkR0q7RTHXlsGiSib8MzceMv1lUUKYHlnnzCJdmJcEpLV6TNsfQ1UdBQ=="
+        length="3545444"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 62 — field fix: skip BT power-off when collateral devices are still connected</h2>
+        <p>Dev-facing notes — this build only reaches Switchy Beta (channel <code>beta</code>).</p>
+        <h3>Root cause of the 100% second-device failure</h3>
+        <ul>
+          <li>The per-device JIT release powered off BT after D0's release, which dropped D1 (the mouse) as a collateral device. When BT came back on, D1 couldn't reconnect because its keychain link key was missing (result 150). The next release request found D1 disconnected, the unpair went out LOCAL-ONLY (firmware never heard it), D1 kept stale keys → 0x02/719 wedge on the peer's pair attempt.</li>
+        </ul>
+        <h3>The fix (Phase-9 §15 field fix)</h3>
+        <ul>
+          <li>After the auth-rejection window, the release now checks whether other tracked devices are still connected. If yes, it keeps BT ON and skips the power-off/power-on cycle.</li>
+          <li>Safe because: the released device's pairing records are gone (it can't reconnect to this Mac — auth-rejected), and its firmware already cleared keys during the 4s window. It becomes pairable with this Mac's radio up. The next device's release then finds it CONNECTED and the unpair signal reaches its firmware.</li>
+          <li>Same collateral check applied to the error fallback path for consistency.</li>
+          <li>Side benefit: non-last releases skip the ~1.3s power-off + ~3s power-on wait, addressing the latency regression reported for the 1st device.</li>
+        </ul>
+        <h3>Look at</h3>
+        <ul>
+          <li><strong>Batch release of 2+ devices from one Mac.</strong> This is the exact scenario that was 100% failing on the 2nd device. Should now release cleanly end-to-end.</li>
+          <li>Single-device release: behavior should be unchanged (no collateral → BT still powers off, then scheduled power-on).</li>
+          <li>Latency: the 1st device in a batch should feel faster (no power-off/power-on cycle until the last device).</li>
+        </ul>
+        <h3>Known risks</h3>
+        <ul>
+          <li>If BT stays on for a non-last release, the released device is pairable <em>and</em> our radio is up. The peer must acquire it before any other device event can grab it. In practice the peer drives the acquire immediately after the release response, so this should be fine — but watch for racing where a third Mac tries to pair the just-released device.</li>
+          <li>The collateral check uses <code>connectionState.isConnected</code> on tracked devices. If a connected device isn't in <code>trackedDevices</code> it won't count as collateral and BT will still power off. Verify tracked-devices list is complete in your test setup.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.4 (build 61)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>61</sparkle:version>
