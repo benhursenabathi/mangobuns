@@ -9,6 +9,33 @@
     <!-- Add new versions above this line -->
 
     <item>
+      <title>Beta 1.1.4 (build 65)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>65</sparkle:version>
+      <sparkle:shortVersionString>1.1.4</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Thu, 09 Jul 2026 07:48:58 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.4-build65/Switchy-Beta-1.1.4-build65.dmg"
+        sparkle:edSignature="ePZyh1sSc2hhpPvssYK1+nMQ9xU3BlkhUXSQwwfTYSNC3jkz34Ipiq9LMv4u1xEh8ZSVz9aFLymk4ubaMzpqBA=="
+        length="3259537"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 65 — onboarding polish + notification icon</h2>
+        <p>Dev-facing notes — this build only reaches Switchy Beta (channel <code>beta</code>).</p>
+        <ul>
+          <li>Visual improvements to onboarding (layout, spacing, copy).</li>
+          <li>Fixed notification icon still using the old asset.</li>
+          <li>Onboarding crop tweaked for the device-illustration frame.</li>
+          <li>Removed the "beta" tag label shown during multi-device connection — Switchy Beta no longer advertises itself as beta in-app.</li>
+          <li>Docs only: corrected a stale power-off comment in <code>handlePeerAcquireRequest</code> (lever E). No behavior change.</li>
+          <li>Test pin: 3-device batch progress series asserted non-decreasing. Regression guard for the lever A–E work from build 63.</li>
+        </ul>
+        <p><strong>What to watch:</strong> onboarding screens on first launch / re-onboarding, and that the multi-device connect flow no longer shows a "beta" label anywhere. Batch-connect progress still tracks per-device state correctly through a 3-device batch.</p>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.4 (build 64)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>64</sparkle:version>
