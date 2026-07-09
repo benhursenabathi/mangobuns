@@ -9,6 +9,28 @@
     <!-- Add new versions above this line -->
 
     <item>
+      <title>Beta 1.1.4 (build 66)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>66</sparkle:version>
+      <sparkle:shortVersionString>1.1.4</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Thu, 09 Jul 2026 08:29:34 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.4-build66/Switchy-Beta-1.1.4-build66.dmg"
+        sparkle:edSignature="meejlBwHYpGLc4ojUVXj0RkGaA2XRGooQ+KC8FKPDmr2N6JHXpo+chPSql8/mdnHOOYUOtVjQj4P+BIRNVLKCg=="
+        length="3259658"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 66 — onboarding copy refinement</h2>
+        <p>Dev-facing notes — this build only reaches Switchy Beta (channel <code>beta</code>).</p>
+        <ul>
+          <li>Refined onboarding step 3 copy: now points users to "Connect All" for switching every device at once, and explains the closed-lid MacBook power tip more clearly (plug in + enable keep-running in Preferences, with the battery trade-off called out).</li>
+        </ul>
+        <p><strong>What to watch:</strong> the third onboarding "how to use" screen — verify the new copy reads well and the "Connect All" guidance matches the actual menu-bar action.</p>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.4 (build 65)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>65</sparkle:version>
