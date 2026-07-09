@@ -9,6 +9,28 @@
     <!-- Add new versions above this line -->
 
     <item>
+      <title>Version 1.1.4 (build 67)</title>
+      <sparkle:version>67</sparkle:version>
+      <sparkle:shortVersionString>1.1.4</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Thu, 09 Jul 2026 08:40:00 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.4-build67/Switchy-1.1.4.dmg"
+        sparkle:edSignature="kjoM3xGX2rcXXRvYGyLjjYQZ6s4yxXJJSDCJjdfg5WH+yueOfknYalURTh+bRilvSBZ2StY2nxyFrd2LPLILBA=="
+        length="3259739"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's New in 1.1.4</h2>
+        <ul>
+          <li>Switching several devices at once is now more reliable and stable.</li>
+          <li>A brand-new onboarding flow to help you get set up.</li>
+          <li>Better overall stability.</li>
+          <li>Bug fixes and faster single-device switching.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.4 (build 66)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>66</sparkle:version>
