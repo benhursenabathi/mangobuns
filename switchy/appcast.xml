@@ -7,6 +7,29 @@
     <language>en</language>
 
     <item>
+      <title>Version 1.1.4 (build 70)</title>
+      <sparkle:version>70</sparkle:version>
+      <sparkle:shortVersionString>1.1.4</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Fri, 10 Jul 2026 20:07:01 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.4-build70/Switchy-1.1.4.dmg"
+        sparkle:edSignature="N6Sp3IcrvKEVJspgODA8UeRcdH5VsS1m1YZRXDWEIXcEYj45Kyjm9rwrk2NhkIqCDL7INpN4Q2CyjRe/KqXGDw=="
+        length="3443982"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's New in 1.1.4 (build 70)</h2>
+        <ul>
+          <li>LaunchGuard: automatically repairs and relaunches the app if terminated due to menu bar host instability.</li>
+          <li>Licensing support with LemonSqueezy integration.</li>
+          <li>New License settings pane.</li>
+          <li>Onboarding refinements.</li>
+          <li>Bug fixes and stability improvements.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.4 (build 69)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>69</sparkle:version>
