@@ -7,6 +7,28 @@
     <language>en</language>
 
     <item>
+      <title>Beta 1.1.4 (build 69)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>69</sparkle:version>
+      <sparkle:shortVersionString>1.1.4</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Fri, 10 Jul 2026 18:46:55 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.4-build69/Switchy-Beta-1.1.4-build69.dmg"
+        sparkle:edSignature="BBK3a7xHElyF1F5oFWlJJ8q28SWid9oRwMSQefutxBGIVT7PvmL8qttSCpd3Sz/98e+J10HGnGoFOPypqSuTBg=="
+        length="3443839"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 69</h2>
+        <ul>
+          <li>License pane and onboarding panel refinements.</li>
+          <li>LaunchGuard: auto-repair and relaunch on menu bar host termination.</li>
+          <li>v1 licensing implementation.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.4 (build 68)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>68</sparkle:version>
