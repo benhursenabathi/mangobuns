@@ -6,6 +6,27 @@
     <description>Switchy app updates</description>
     <language>en</language>
 
+    <item>
+      <title>Beta 1.1.4 (build 68)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>68</sparkle:version>
+      <sparkle:shortVersionString>1.1.4</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Fri, 10 Jul 2026 18:13:36 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.4-build68/Switchy-Beta-1.1.4-build68.dmg"
+        sparkle:edSignature="Lu711xjPnwrdUNMnbpQPI3/pWScrqpel7YrJeJ/GiOS7rWWJf6EX1evHMSHtph/M3/xoFkgNmo3MFeXkXtI+CA=="
+        length="3442710"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 68</h2>
+        <ul>
+          <li>LaunchGuard: automatically repairs and relaunches the app if terminated prematurely due to menu bar host instability.</li>
+          <li>v1 licensing implementation.</li>
+        </ul>
+      ]]></description>
+    </item>
+
     <!-- Add new versions above this line -->
 
     <item>
