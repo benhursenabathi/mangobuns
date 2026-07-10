@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universal Control vs. Switching Devices Between Macs (2026)</title>
+  <meta name="description" content="Universal Control shares your Magic Keyboard across Macs — it doesn't move it. When Apple's built-in feature works, its limitations (different Apple IDs, sleep, distance), and alternatives.">
+  <meta name="keywords" content="Universal Control alternative, Universal Control limitations, Universal Control two Macs, Universal Control different Apple ID, Universal Control not working, switch keyboard between Macs">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://mangobuns.com/switchy/blog/universal-control-vs-switching-devices/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://mangobuns.com/switchy/blog/universal-control-vs-switching-devices/">
+  <meta property="og:title" content="Universal Control vs. Actually Switching Your Devices">
+  <meta property="og:description" content="Universal Control shares your keyboard across Macs — it doesn't move it. When it works, when it doesn't, and what to use instead.">
+  <meta property="og:image" content="https://mangobuns.com/switchy/og-image.png">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/switchy/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Geist', -apple-system, sans-serif;
+      background: #FAF9F6;
+      color: #1a1a1a;
+      line-height: 1.8;
+      padding: 2rem;
+    }
+    .container { max-width: 680px; margin: 0 auto; padding: 4rem 0; }
+    nav { text-align: center; margin-bottom: 3rem; }
+    nav a {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.25rem;
+      color: inherit;
+      text-decoration: none;
+      opacity: 0.5;
+      transition: opacity 0.2s;
+    }
+    nav a:hover { opacity: 1; }
+    h1 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2.25rem;
+      font-style: italic;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+    .meta {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 2.5rem;
+    }
+    h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.4rem;
+      margin: 2.5rem 0 1rem;
+    }
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.5rem;
+    }
+    p { margin-bottom: 1rem; color: #444; font-size: 0.95rem; }
+    a { color: #1a1a1a; }
+    ol, ul {
+      margin: 0 0 1rem 1.5rem;
+      color: #444;
+      font-size: 0.95rem;
+    }
+    li { margin-bottom: 0.5rem; }
+    strong { color: #1a1a1a; }
+    .callout {
+      background: rgba(0,0,0,0.03);
+      border-left: 3px solid #1a1a1a;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      border-radius: 0 0.5rem 0.5rem 0;
+    }
+    .callout p { margin-bottom: 0; }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0 2rem;
+      font-size: 0.9rem;
+    }
+    .comparison-table th,
+    .comparison-table td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .comparison-table th {
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #666;
+      background: rgba(0,0,0,0.02);
+    }
+    .comparison-table td { color: #444; }
+    .cta {
+      display: inline-block;
+      text-decoration: none;
+      background: #1a1a1a;
+      color: #FAF9F6;
+      padding: 0.75rem 2rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: opacity 0.2s;
+      margin-top: 0.5rem;
+    }
+    .cta:hover { opacity: 0.8; }
+    .cta-section { text-align: center; margin: 3rem 0 1rem; }
+    .related {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      font-size: 0.9rem;
+    }
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      font-size: 0.75rem;
+      color: rgba(0,0,0,0.3);
+      text-align: center;
+    }
+    footer a { color: rgba(0,0,0,0.4); }
+    @media (max-width: 640px) {
+      .comparison-table { font-size: 0.8rem; }
+      .comparison-table th, .comparison-table td { padding: 0.5rem; }
+      h1 { font-size: 1.75rem; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Universal Control vs. Actually Switching Your Devices",
+    "description": "Universal Control shares your Magic Keyboard across Macs — it doesn't move it. When Apple's built-in feature works, when it doesn't, and what to use instead.",
+    "url": "https://mangobuns.com/switchy/blog/universal-control-vs-switching-devices/",
+    "datePublished": "2026-07-10",
+    "dateModified": "2026-07-10",
+    "author": { "@type": "Organization", "name": "Mangobuns" },
+    "publisher": { "@type": "Organization", "name": "Mangobuns" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Switchy", "item": "https://mangobuns.com/switchy/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://mangobuns.com/switchy/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "Universal Control vs. Switching Devices", "item": "https://mangobuns.com/switchy/blog/universal-control-vs-switching-devices/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does Universal Control work with two different Apple IDs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Universal Control requires all Macs to be signed in to the same Apple Account with two-factor authentication enabled. If you have a work Mac and a personal Mac on different accounts, Universal Control will not connect them. A device-switching app that works over the local network, like Switchy, works regardless of which Apple ID each Mac uses."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Universal Control move my keyboard to the other Mac?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Universal Control shares your input across Macs while the keyboard stays paired to the original Mac. Both Macs must be awake and near each other. If you want the keyboard to actually connect to the other Mac — so it keeps working when the first Mac is asleep, closed, or in another room — you need to switch the Bluetooth pairing itself."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is Universal Control not working?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The most common causes: the Macs are signed in to different Apple Accounts, Handoff or Bluetooth or Wi-Fi is turned off, one Mac's display is asleep, the devices are too far apart, or one Mac is running a macOS version older than Monterey 12.4."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <nav><a href="/switchy/">Switchy</a></nav>
+
+    <h1>Universal Control vs. Actually Switching Your Devices</h1>
+    <p class="meta">July 2026 &middot; 5 min read</p>
+
+    <p>Apple's Universal Control feels like magic the first time you push your cursor off the edge of one Mac's screen and it appears on the next one. So when people ask "how do I use one Magic Keyboard with two Macs?", the first answer they hear is usually: Universal Control.</p>
+
+    <p>But Universal Control solves a specific problem — and if your setup doesn't match it, the feature ranges from frustrating to useless. Here's the honest breakdown.</p>
+
+    <h2>What Universal Control actually does</h2>
+
+    <p>Universal Control (macOS Monterey 12.4 and later) lets a single keyboard, mouse, or trackpad <strong>control</strong> multiple Macs and iPads. Your devices stay paired to one Mac; macOS forwards your input to the other machine over a local wireless link when your cursor crosses the screen edge.</p>
+
+    <p>That word — <em>forwards</em> — is the key. Your Magic Keyboard never connects to the second Mac. It's a shared remote control, not a handover.</p>
+
+    <h2>Where it shines</h2>
+
+    <ul>
+      <li><strong>Side-by-side desks.</strong> A MacBook next to an iMac, both on the same desk, both awake. Slide the cursor across, type on either. Excellent.</li>
+      <li><strong>Mac + iPad.</strong> Universal Control is the only way to use a Mac's keyboard and trackpad on an iPad this seamlessly.</li>
+      <li><strong>Zero cost.</strong> It's built in. If it fits your workflow, use it.</li>
+    </ul>
+
+    <h2>Where it breaks down</h2>
+
+    <h3>1. Different Apple Accounts</h3>
+    <p>Every Mac must be signed in to the <strong>same Apple Account</strong> with two-factor authentication. A work Mac managed by your company and a personal Mac on your own account? Universal Control won't connect them. This is the single most common dealbreaker.</p>
+
+    <h3>2. Both Macs must be awake and nearby</h3>
+    <p>Universal Control needs Bluetooth, Wi-Fi, and Handoff on, with the Macs within about 10 meters of each other — and both awake. Close your MacBook's lid or let the desktop go to sleep, and your input path is gone.</p>
+
+    <h3>3. The keyboard can't leave the desk</h3>
+    <p>Because the devices stay paired to one Mac, you can't grab your Magic Keyboard and Trackpad and move to the Mac in the other room. Input is forwarded through the host Mac — no host, no typing.</p>
+
+    <h3>4. It shares, it doesn't switch</h3>
+    <p>If what you want is for your keyboard, trackpad, and mouse to <strong>become</strong> the other Mac's devices — full speed, no forwarding, working even when the first Mac is off — Universal Control simply isn't designed for that.</p>
+
+    <h2>Sharing vs. switching, side by side</h2>
+
+    <table class="comparison-table">
+      <tr><th></th><th>Universal Control</th><th>Switching (e.g. Switchy)</th></tr>
+      <tr><td>Price</td><td>Free (built-in)</td><td>$9.99 one-time</td></tr>
+      <tr><td>Different Apple IDs</td><td class="cross">No</td><td class="check">Yes</td></tr>
+      <tr><td>Other Mac asleep or shut down</td><td class="cross">Breaks</td><td class="check">Devices keep working</td></tr>
+      <tr><td>Take devices to another room</td><td class="cross">No</td><td class="check">Yes (same network)</td></tr>
+      <tr><td>Devices actually pair to target Mac</td><td class="cross">No</td><td class="check">Yes</td></tr>
+      <tr><td>Best for</td><td>One desk, side-by-side</td><td>Two setups, one set of devices</td></tr>
+    </table>
+
+    <h2>Which one do you need?</h2>
+
+    <p><strong>Use Universal Control if</strong> your Macs sit on the same desk, share one Apple Account, and you keep both awake while working. It's free and elegant for that case.</p>
+
+    <p><strong>Use a switching app if</strong> your Macs use different Apple IDs (work + personal), live in different rooms, or you want your Magic devices to genuinely connect to whichever Mac you're using. <a href="/switchy/">Switchy</a> moves your Magic Keyboard, Trackpad, and Mouse to the other Mac in one click from the menu bar — over your local network, no cloud, no account.</p>
+
+    <div class="callout">
+      <p><strong>They also combine well:</strong> some people use Universal Control at their desk and Switchy when they move their MacBook elsewhere in the house. The two don't conflict.</p>
+    </div>
+
+    <div class="cta-section">
+      <a class="cta" href="/switchy/">Get Switchy — $9.99</a>
+    </div>
+
+    <div class="related">
+      <strong>Related reading:</strong>
+      <ul>
+        <li><a href="/switchy/blog/how-to-switch-magic-keyboard-between-macs/">How to switch your Magic Keyboard between Macs — every method</a></li>
+        <li><a href="/switchy/blog/kvm-switch-for-two-macs/">Do you need a KVM switch for two Macs?</a></li>
+        <li><a href="/switchy/compare/">Switchy vs Magic Switch vs SwitchMyMagic — full comparison</a></li>
+      </ul>
+    </div>
+
+    <footer>
+      &copy; 2026 Mangobuns. <a href="/switchy/">Switchy</a> &middot; <a href="/switchy/blog/">Blog</a> &middot; <a href="/switchy/privacy/">Privacy</a>
+    </footer>
+  </div>
+</body>
+</html>

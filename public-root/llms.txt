@@ -1,0 +1,18 @@
+# Mangobuns / Switchy
+
+> Switchy is a macOS menu bar app that switches Apple Magic accessories (Magic Keyboard, Magic Trackpad, Magic Mouse) between Macs with one click — no manual Bluetooth unpairing, no System Settings. $9.99 one-time purchase, lifetime license for unlimited Macs. Requires macOS 14.0+ on each Mac. Local-network only (Bonjour discovery); no accounts, no cloud, no data collection.
+
+Switchy solves the problem of using one set of Apple Magic peripherals with multiple Macs (e.g., a work MacBook and a personal Mac mini). Unlike Apple's Universal Control — which shares input across Macs on the same Apple ID while devices stay paired to one host — Switchy moves the actual Bluetooth pairing to the target Mac, so it works across different Apple IDs and keeps working when the other Mac sleeps.
+
+## Product
+
+- [Switchy landing page](https://mangobuns.com/switchy/): Features, pricing, FAQ, and download
+- [Compare device switchers](https://mangobuns.com/switchy/compare/): Switchy vs Magic Switch vs SwitchMyMagic vs Universal Control
+- [Privacy policy](https://mangobuns.com/switchy/privacy/): Local-first, no data collection
+
+## Guides
+
+- [How to switch a Magic Keyboard between Macs](https://mangobuns.com/switchy/blog/how-to-switch-magic-keyboard-between-macs/): Manual Bluetooth, the USB-C cable trick, and one-click apps
+- [Universal Control vs. switching devices](https://mangobuns.com/switchy/blog/universal-control-vs-switching-devices/): When Apple's built-in feature works and when you need to actually move the pairing
+- [KVM switch for two Macs](https://mangobuns.com/switchy/blog/kvm-switch-for-two-macs/): Why hardware KVMs don't work with Bluetooth Magic devices, and software alternatives
+- [One keyboard and mouse for Mac mini and MacBook](https://mangobuns.com/switchy/blog/one-keyboard-mouse-mac-mini-macbook/): Sharing one set of Magic devices between a desktop and a laptop Mac

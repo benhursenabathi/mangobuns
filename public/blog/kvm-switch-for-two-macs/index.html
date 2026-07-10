@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Do You Need a KVM Switch for Two Macs? (2026 Guide)</title>
+  <meta name="description" content="Hardware KVM switches don't work with Bluetooth Magic Keyboards and Magic Mice. What actually works for sharing one keyboard, mouse, and monitor between two Macs — hardware and software options.">
+  <meta name="keywords" content="KVM switch for Mac, KVM switch two Macs, software KVM Mac, share keyboard mouse two Macs, Magic Keyboard KVM, USB-C KVM Mac">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://mangobuns.com/switchy/blog/kvm-switch-for-two-macs/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://mangobuns.com/switchy/blog/kvm-switch-for-two-macs/">
+  <meta property="og:title" content="Do You Need a KVM Switch for Two Macs?">
+  <meta property="og:description" content="Hardware KVMs don't play nicely with Bluetooth Magic devices. What actually works for sharing one keyboard and mouse between two Macs.">
+  <meta property="og:image" content="https://mangobuns.com/switchy/og-image.png">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/switchy/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Geist', -apple-system, sans-serif;
+      background: #FAF9F6;
+      color: #1a1a1a;
+      line-height: 1.8;
+      padding: 2rem;
+    }
+    .container { max-width: 680px; margin: 0 auto; padding: 4rem 0; }
+    nav { text-align: center; margin-bottom: 3rem; }
+    nav a {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.25rem;
+      color: inherit;
+      text-decoration: none;
+      opacity: 0.5;
+      transition: opacity 0.2s;
+    }
+    nav a:hover { opacity: 1; }
+    h1 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2.25rem;
+      font-style: italic;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+    .meta {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 2.5rem;
+    }
+    h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.4rem;
+      margin: 2.5rem 0 1rem;
+    }
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.5rem;
+    }
+    p { margin-bottom: 1rem; color: #444; font-size: 0.95rem; }
+    a { color: #1a1a1a; }
+    ol, ul {
+      margin: 0 0 1rem 1.5rem;
+      color: #444;
+      font-size: 0.95rem;
+    }
+    li { margin-bottom: 0.5rem; }
+    strong { color: #1a1a1a; }
+    .callout {
+      background: rgba(0,0,0,0.03);
+      border-left: 3px solid #1a1a1a;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      border-radius: 0 0.5rem 0.5rem 0;
+    }
+    .callout p { margin-bottom: 0; }
+    .cta {
+      display: inline-block;
+      text-decoration: none;
+      background: #1a1a1a;
+      color: #FAF9F6;
+      padding: 0.75rem 2rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: opacity 0.2s;
+      margin-top: 0.5rem;
+    }
+    .cta:hover { opacity: 0.8; }
+    .cta-section { text-align: center; margin: 3rem 0 1rem; }
+    .related {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      font-size: 0.9rem;
+    }
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      font-size: 0.75rem;
+      color: rgba(0,0,0,0.3);
+      text-align: center;
+    }
+    footer a { color: rgba(0,0,0,0.4); }
+    @media (max-width: 640px) {
+      h1 { font-size: 1.75rem; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Do You Need a KVM Switch for Two Macs?",
+    "description": "Hardware KVM switches don't work with Bluetooth Magic devices. What actually works for sharing one keyboard, mouse, and monitor between two Macs.",
+    "url": "https://mangobuns.com/switchy/blog/kvm-switch-for-two-macs/",
+    "datePublished": "2026-07-10",
+    "dateModified": "2026-07-10",
+    "author": { "@type": "Organization", "name": "Mangobuns" },
+    "publisher": { "@type": "Organization", "name": "Mangobuns" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Switchy", "item": "https://mangobuns.com/switchy/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://mangobuns.com/switchy/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "KVM Switch for Two Macs", "item": "https://mangobuns.com/switchy/blog/kvm-switch-for-two-macs/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does a KVM switch work with a Magic Keyboard and Magic Mouse?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not wirelessly. A KVM switch routes wired USB signals between computers, but Magic devices pair to a Mac over Bluetooth — there is no cable for the KVM to switch. A Magic Keyboard can work through a KVM if you keep it permanently plugged in via USB-C, but a Magic Mouse cannot, since its charging port is on the underside and it cannot be used while plugged in."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a software alternative to a KVM switch for Macs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If both Macs have their own display, you don't need the V (video) part of a KVM — you only need to move the keyboard and mouse. Apple's Universal Control shares input across Macs on the same Apple Account, and apps like Switchy switch the actual Bluetooth pairing of Magic devices between Macs in one click, even across different Apple IDs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When is a hardware KVM switch worth it for Macs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A hardware KVM makes sense when you need to share one monitor between two computers, when one of the machines is a Windows PC or Linux box, or when you use wired peripherals. For two Macs with their own screens and Apple Magic accessories, software is simpler and far cheaper."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <nav><a href="/switchy/">Switchy</a></nav>
+
+    <h1>Do You Need a KVM Switch for Two Macs?</h1>
+    <p class="meta">July 2026 &middot; 5 min read</p>
+
+    <p>You have two Macs and one good set of peripherals. The classic answer from the PC world is a KVM switch — a box that shares one <strong>K</strong>eyboard, <strong>V</strong>ideo (monitor), and <strong>M</strong>ouse between computers at the push of a button.</p>
+
+    <p>For Macs with Apple's Magic accessories, that classic answer mostly doesn't work. Here's why, and what to use instead.</p>
+
+    <h2>The problem: Magic devices are Bluetooth</h2>
+
+    <p>A KVM switch physically routes <strong>wired USB</strong> signals from your keyboard and mouse to whichever computer is selected. Your Magic Keyboard, Magic Trackpad, and Magic Mouse don't have that cable — they pair to a Mac over Bluetooth. There's nothing for the KVM to switch.</p>
+
+    <p>Can you just plug them in? Partially:</p>
+
+    <ul>
+      <li><strong>Magic Keyboard:</strong> works as a wired keyboard while plugged in via USB-C or Lightning — so it <em>can</em> go through a KVM, but you've turned your wireless keyboard into a tethered one.</li>
+      <li><strong>Magic Trackpad:</strong> same story — works wired, but tethered.</li>
+      <li><strong>Magic Mouse:</strong> doesn't work at all. Its charging port is on the underside, so it physically can't be used while plugged in. No KVM can help.</li>
+    </ul>
+
+    <div class="callout">
+      <p><strong>Short version:</strong> a hardware KVM defeats the point of Apple's wireless peripherals — and the Magic Mouse can't participate, period.</p>
+    </div>
+
+    <h2>What a KVM is still good for</h2>
+
+    <p>Hardware KVMs earn their price (decent USB-C/Thunderbolt models run $60–$300+) in three situations:</p>
+
+    <ol>
+      <li><strong>One monitor, two machines.</strong> The "V" in KVM. If both Macs share a single display, a KVM (or just your monitor's input switcher plus a software solution for input) is the way.</li>
+      <li><strong>Mixed platforms.</strong> A Mac and a Windows PC or Linux box — software input-sharing across platforms exists (Input Leap, Synergy) but is fiddlier than a hardware box.</li>
+      <li><strong>Wired peripherals.</strong> If you use a wired mechanical keyboard and a wired mouse anyway, a KVM works exactly as designed.</li>
+    </ol>
+
+    <h2>The software alternatives for two Macs</h2>
+
+    <p>If each Mac has its own screen — the common MacBook + desktop setup — you don't need video switching at all. You just need your input devices to follow you. Three options:</p>
+
+    <h3>1. Universal Control (free, same Apple ID)</h3>
+    <p>Apple's built-in feature forwards your keyboard and cursor to a second Mac or iPad when you push the cursor off the screen edge. Great for side-by-side desks, but both Macs must be awake, nearby, and signed in to the <strong>same Apple Account</strong> — which rules out most work + personal combinations. More in our <a href="/switchy/blog/universal-control-vs-switching-devices/">Universal Control deep-dive</a>.</p>
+
+    <h3>2. Input Leap / Synergy (free–$$, cross-platform)</h3>
+    <p>Open-source (Input Leap) and commercial (Synergy) "software KVMs" that share one keyboard and mouse across computers over the network — including Windows and Linux. Powerful, but they require a server/client setup, both machines awake, and the peripherals stay attached to the host machine.</p>
+
+    <h3>3. Switch the Bluetooth pairing itself (Switchy)</h3>
+    <p><a href="/switchy/">Switchy</a> takes the direct route: one click in the menu bar and your Magic Keyboard, Trackpad, and Mouse disconnect from this Mac and pair to the other one — as if you'd done the System Settings dance, minus the dance. The devices genuinely belong to the target Mac, so everything works at native speed, with different Apple IDs, even when the first Mac goes to sleep. It's $9.99 once, for all your Macs.</p>
+
+    <h2>Bottom line</h2>
+
+    <p><strong>Buy a KVM</strong> if you're sharing one monitor or mixing a Mac with a PC. <strong>Use software</strong> if both Macs have screens and you love your Magic accessories — Universal Control when everything lives on one desk and one Apple ID, Switchy when you want your devices to actually move between Macs.</p>
+
+    <div class="cta-section">
+      <a class="cta" href="/switchy/">Get Switchy — $9.99</a>
+    </div>
+
+    <div class="related">
+      <strong>Related reading:</strong>
+      <ul>
+        <li><a href="/switchy/blog/universal-control-vs-switching-devices/">Universal Control vs. actually switching your devices</a></li>
+        <li><a href="/switchy/blog/how-to-switch-magic-keyboard-between-macs/">How to switch your Magic Keyboard between Macs — every method</a></li>
+        <li><a href="/switchy/compare/">Switchy vs Magic Switch vs SwitchMyMagic — full comparison</a></li>
+      </ul>
+    </div>
+
+    <footer>
+      &copy; 2026 Mangobuns. <a href="/switchy/">Switchy</a> &middot; <a href="/switchy/blog/">Blog</a> &middot; <a href="/switchy/privacy/">Privacy</a>
+    </footer>
+  </div>
+</body>
+</html>

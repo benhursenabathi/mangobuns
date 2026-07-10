@@ -43,9 +43,12 @@ jobs:
           cp public-root/CNAME deploy-dist/
           cp public-root/.nojekyll deploy-dist/
           cp public-root/index.html deploy-dist/
+          cp public-root/404.html deploy-dist/
           cp public-root/robots.txt deploy-dist/
           cp public-root/sitemap.xml deploy-dist/
+          cp public-root/llms.txt deploy-dist/
           cp public-root/google7a8a921fc93f98b8.html deploy-dist/
+          cp public-root/11e6eddaf51420669ed293a8c2ced8d7.txt deploy-dist/
 
           # Move built Vite app to /switchy/ subfolder
           cp -r dist/* deploy-dist/switchy/
@@ -71,3 +74,26 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # Notify Bing/Yandex (and anyone else on IndexNow) that pages changed.
+      # Key file is served at https://mangobuns.com/11e6eddaf51420669ed293a8c2ced8d7.txt
+      - name: Ping IndexNow
+        continue-on-error: true
+        run: |
+          curl -s -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d '{
+              "host": "mangobuns.com",
+              "key": "11e6eddaf51420669ed293a8c2ced8d7",
+              "urlList": [
+                "https://mangobuns.com/",
+                "https://mangobuns.com/switchy/",
+                "https://mangobuns.com/switchy/compare/",
+                "https://mangobuns.com/switchy/blog/",
+                "https://mangobuns.com/switchy/blog/how-to-switch-magic-keyboard-between-macs/",
+                "https://mangobuns.com/switchy/blog/universal-control-vs-switching-devices/",
+                "https://mangobuns.com/switchy/blog/kvm-switch-for-two-macs/",
+                "https://mangobuns.com/switchy/blog/one-keyboard-mouse-mac-mini-macbook/",
+                "https://mangobuns.com/switchy/privacy/"
+              ]
+            }'

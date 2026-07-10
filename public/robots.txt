@@ -1,12 +1,8 @@
-# Switchy Landing Page - Robots.txt
-# https://mangobuns.com/switchy/
+# Switchy Landing Page
+# Note: crawlers only honor robots.txt at the domain root (see public-root/robots.txt).
+# This file is kept for consistency; the canonical sitemap is at https://mangobuns.com/sitemap.xml
 
-# Allow all crawlers to access everything
 User-agent: *
 Allow: /
 
-# Sitemap location
-Sitemap: https://mangobuns.com/switchy/sitemap.xml
-
-# Crawl delay (optional, be nice to servers)
-Crawl-delay: 1
+Sitemap: https://mangobuns.com/sitemap.xml
