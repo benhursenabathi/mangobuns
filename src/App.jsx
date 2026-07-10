@@ -467,23 +467,32 @@ export default function App() {
 
                 <AccordionItem value="item-3">
                   <AccordionTrigger className="text-base md:text-lg font-serif">
-                    Is my data private?
+                    Is there a free trial?
                   </AccordionTrigger>
                   <AccordionContent className="text-muted leading-relaxed">
-                    Absolutely. Switchy is local-first—all communication between your Macs happens directly over your local network. No data ever leaves your devices, and there are no accounts or cloud services involved.
+                    Yes—every new installation includes a 3-day, full-featured free trial. <a href="/switchy/downloads/Switchy.dmg" className="underline underline-offset-2">Download Switchy</a>, install it on your Macs, and start switching right away. After the trial, a one-time $9.99 purchase unlocks it for good.
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="item-4">
                   <AccordionTrigger className="text-base md:text-lg font-serif">
-                    Is it a lifetime license for all my Macs?
+                    Is my data private?
                   </AccordionTrigger>
                   <AccordionContent className="text-muted leading-relaxed">
-                    Yes! One purchase, yours forever. Install Switchy on every Mac you own—now and in the future—with no subscriptions or hidden fees.
+                    Switching is completely local—your Macs talk directly to each other over your local network, and no switching data ever leaves your devices. The only external connections Switchy makes are license activation and periodic validation with Lemon Squeezy (your license key and a device identifier) and software update checks. No analytics, no tracking, no accounts.
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="item-5">
+                  <AccordionTrigger className="text-base md:text-lg font-serif">
+                    Is it a lifetime license for all my Macs?
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted leading-relaxed">
+                    Yes—one purchase, yours forever, with no subscriptions or hidden fees. Each license covers up to 5 Macs at a time, and you can deactivate a Mac whenever you like to free up a slot for a new one.
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="item-6">
                   <AccordionTrigger className="text-base md:text-lg font-serif">
                     Do I need to install Switchy on all my Macs?
                   </AccordionTrigger>
@@ -502,13 +511,16 @@ export default function App() {
                 Ready to simplify your setup?
               </h3>
               <p className="text-cream/60 mb-8 max-w-md mx-auto">
-                One menu bar app. All your Magic accessories. Every Mac you own.
+                One menu bar app. All your Magic accessories. One license for up to 5 Macs.
               </p>
               <div className="flex justify-center">
                 <a href="https://mangobuns.lemonsqueezy.com/checkout/buy/68fb31f9-8ae3-45db-bcc3-b7e49bec2817" className="bg-cream text-ink px-8 py-4 rounded-full font-semibold hover:bg-cream/90 transition-colors duration-200">
                   Get Switchy — $9.99
                 </a>
               </div>
+              <p className="text-cream/60 text-sm mt-4">
+                or <a href="/switchy/downloads/Switchy.dmg" className="underline underline-offset-2 hover:text-cream transition-colors duration-200">download the free 3-day trial</a>
+              </p>
             </div>
           </ScrollFadeSection>
 

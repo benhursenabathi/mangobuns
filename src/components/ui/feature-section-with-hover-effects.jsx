@@ -29,7 +29,7 @@ export function FeaturesSectionWithHoverEffects() {
     {
       title: "Local & Private",
       description:
-        "All communication stays on your local network. No cloud, no accounts, no data leaves your devices.",
+        "Switching happens entirely on your local network. No analytics, no tracking — only license activation talks to our store.",
       icon: <IconShieldLock />,
     },
     {
@@ -41,7 +41,7 @@ export function FeaturesSectionWithHoverEffects() {
     {
       title: "Lifetime License",
       description:
-        "One purchase, yours forever. Install on every Mac you own with no subscriptions or hidden fees.",
+        "One purchase, yours forever. Use Switchy on up to 5 Macs with no subscriptions or hidden fees.",
       icon: <IconInfinity />,
     },
   ];
