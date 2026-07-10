@@ -15,4 +15,6 @@ Switchy solves the problem of using one set of Apple Magic peripherals with mult
 - [How to switch a Magic Keyboard between Macs](https://mangobuns.com/switchy/blog/how-to-switch-magic-keyboard-between-macs/): Manual Bluetooth, the USB-C cable trick, and one-click apps
 - [Universal Control vs. switching devices](https://mangobuns.com/switchy/blog/universal-control-vs-switching-devices/): When Apple's built-in feature works and when you need to actually move the pairing
 - [KVM switch for two Macs](https://mangobuns.com/switchy/blog/kvm-switch-for-two-macs/): Why hardware KVMs don't work with Bluetooth Magic devices, and software alternatives
+- [Magic Keyboard pairing mode](https://mangobuns.com/switchy/blog/magic-keyboard-pairing-mode/): There is no pairing button — how discoverability works and how to pair with any Mac, iPad, or iPhone
+- [Can a Magic Keyboard connect to multiple devices?](https://mangobuns.com/switchy/blog/magic-keyboard-multiple-devices/): No — one pairing at a time; comparison with multi-device keyboards and all workarounds
 - [One keyboard and mouse for Mac mini and MacBook](https://mangobuns.com/switchy/blog/one-keyboard-mouse-mac-mini-macbook/): Sharing one set of Magic devices between a desktop and a laptop Mac

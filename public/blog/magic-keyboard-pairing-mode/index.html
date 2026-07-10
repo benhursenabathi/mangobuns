@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Magic Keyboard Pairing Mode — How to Make It Discoverable (2026)</title>
+  <meta name="description" content="Apple's Magic Keyboard has no pairing button. How to make it discoverable, pair it with a Mac, iPad, or iPhone, and fix a keyboard that won't show up in Bluetooth.">
+  <meta name="keywords" content="magic keyboard pairing mode, make magic keyboard discoverable, magic keyboard not showing up bluetooth, pair magic keyboard, magic keyboard pairing button, connect magic keyboard to mac">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://mangobuns.com/switchy/blog/magic-keyboard-pairing-mode/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://mangobuns.com/switchy/blog/magic-keyboard-pairing-mode/">
+  <meta property="og:title" content="Magic Keyboard Pairing Mode — How to Make It Discoverable">
+  <meta property="og:description" content="Apple's Magic Keyboard has no pairing button. Here's how discoverability actually works, and how to fix a keyboard that won't appear in Bluetooth.">
+  <meta property="og:image" content="https://mangobuns.com/switchy/og-image.png">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/switchy/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Geist', -apple-system, sans-serif;
+      background: #FAF9F6;
+      color: #1a1a1a;
+      line-height: 1.8;
+      padding: 2rem;
+    }
+    .container { max-width: 680px; margin: 0 auto; padding: 4rem 0; }
+    nav { text-align: center; margin-bottom: 3rem; }
+    nav a {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.25rem;
+      color: inherit;
+      text-decoration: none;
+      opacity: 0.5;
+      transition: opacity 0.2s;
+    }
+    nav a:hover { opacity: 1; }
+    h1 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2.25rem;
+      font-style: italic;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+    .meta {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 2.5rem;
+    }
+    h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.4rem;
+      margin: 2.5rem 0 1rem;
+    }
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.5rem;
+    }
+    p { margin-bottom: 1rem; color: #444; font-size: 0.95rem; }
+    a { color: #1a1a1a; }
+    ol, ul {
+      margin: 0 0 1rem 1.5rem;
+      color: #444;
+      font-size: 0.95rem;
+    }
+    li { margin-bottom: 0.5rem; }
+    strong { color: #1a1a1a; }
+    .callout {
+      background: rgba(0,0,0,0.03);
+      border-left: 3px solid #1a1a1a;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      border-radius: 0 0.5rem 0.5rem 0;
+    }
+    .callout p { margin-bottom: 0; }
+    .cta {
+      display: inline-block;
+      text-decoration: none;
+      background: #1a1a1a;
+      color: #FAF9F6;
+      padding: 0.75rem 2rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: opacity 0.2s;
+      margin-top: 0.5rem;
+    }
+    .cta:hover { opacity: 0.8; }
+    .cta-section { text-align: center; margin: 3rem 0 1rem; }
+    .related {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      font-size: 0.9rem;
+    }
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      font-size: 0.75rem;
+      color: rgba(0,0,0,0.3);
+      text-align: center;
+    }
+    footer a { color: rgba(0,0,0,0.4); }
+    @media (max-width: 640px) {
+      h1 { font-size: 1.75rem; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Magic Keyboard Pairing Mode — How to Make It Discoverable",
+    "description": "Apple's Magic Keyboard has no pairing button. How discoverability actually works, how to pair with a Mac, iPad, or iPhone, and how to fix a keyboard that won't show up.",
+    "url": "https://mangobuns.com/switchy/blog/magic-keyboard-pairing-mode/",
+    "datePublished": "2026-07-10",
+    "dateModified": "2026-07-10",
+    "author": { "@type": "Organization", "name": "Mangobuns" },
+    "publisher": { "@type": "Organization", "name": "Mangobuns" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Switchy", "item": "https://mangobuns.com/switchy/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://mangobuns.com/switchy/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "Magic Keyboard Pairing Mode", "item": "https://mangobuns.com/switchy/blog/magic-keyboard-pairing-mode/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Make a Magic Keyboard Discoverable and Pair It",
+    "description": "Make an Apple Magic Keyboard discoverable and pair it with a Mac, without a pairing button.",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Disconnect it from its current device",
+        "text": "A Magic Keyboard is only discoverable when it is not connected to another device. On the Mac it is currently paired with, open System Settings > Bluetooth and choose Forget This Device — or simply turn that Mac's Bluetooth off."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Power-cycle the keyboard",
+        "text": "Slide the power switch on the back edge of the keyboard off, wait a few seconds, and slide it back on (green is visible when on). The keyboard now advertises itself to nearby devices."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Connect from the new device",
+        "text": "On the new Mac, open System Settings > Bluetooth, wait for the keyboard to appear under Nearby Devices, and click Connect. On an iPad or iPhone, use Settings > Bluetooth."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Or skip all of it with a cable",
+        "text": "Plug the keyboard into the Mac with its charging cable (USB-C or Lightning). macOS pairs it automatically within seconds — no discovery needed. Then unplug and use it wirelessly."
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does the Magic Keyboard have a pairing button?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Unlike most third-party Bluetooth keyboards, Apple's Magic Keyboard has no dedicated pairing button or pairing mode. It becomes discoverable automatically whenever it is powered on and not connected to another device. If it doesn't appear in your Bluetooth list, it is almost always still paired to a different device."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is my Magic Keyboard not showing up in Bluetooth?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The most common cause: it is still paired and connected to another device, so it never advertises itself. Forget it on that device or turn that device's Bluetooth off, then power-cycle the keyboard. Also check that the keyboard is charged and the power switch is on. The guaranteed fix is plugging it into the new Mac with a charging cable, which pairs it instantly."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the fastest way to pair a Magic Keyboard with a new Mac?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Plug it in with its charging cable. macOS automatically pairs any Magic accessory connected by cable within a couple of seconds — then you can unplug it and it stays paired wirelessly. If you switch the keyboard between Macs regularly, an app like Switchy can move the pairing with one click instead."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <nav><a href="/switchy/">Switchy</a></nav>
+
+    <h1>Magic Keyboard "Pairing Mode": How It Actually Works</h1>
+    <p class="meta">July 2026 &middot; 4 min read</p>
+
+    <p>If you're hunting for the pairing button on your Magic Keyboard, here's the answer up front: <strong>there isn't one</strong>. Apple's Magic Keyboard, Magic Trackpad, and Magic Mouse don't have a pairing mode you switch on — which is exactly why pairing them with a new device can feel so confusing.</p>
+
+    <p>Here's how discoverability really works on Apple's accessories, and how to fix the classic "my keyboard won't show up in Bluetooth" problem.</p>
+
+    <h2>The rule: discoverable when on, but not connected</h2>
+
+    <p>A Magic Keyboard advertises itself to nearby devices whenever two things are true:</p>
+
+    <ul>
+      <li>The power switch (on the back edge — green visible means on) is <strong>on</strong>, and</li>
+      <li>it is <strong>not currently connected</strong> to any device.</li>
+    </ul>
+
+    <p>That second condition trips everyone up. A Magic Keyboard that's paired to your other Mac — even one sitting asleep in a drawer — stays loyal to it and never appears in the new Mac's Bluetooth list. It's not broken; it's just taken.</p>
+
+    <h2>Making it discoverable, step by step</h2>
+
+    <ol>
+      <li><strong>Break the existing connection.</strong> On the device it's currently paired with: System Settings &gt; Bluetooth &gt; hover the keyboard &gt; <strong>Forget This Device</strong>. (No access to that device? Turning its Bluetooth off also works.)</li>
+      <li><strong>Power-cycle the keyboard.</strong> Slide the switch off, wait a few seconds, slide it on. It now starts advertising.</li>
+      <li><strong>Connect from the new device.</strong> Mac: System Settings &gt; Bluetooth → the keyboard appears under <em>Nearby Devices</em> → <strong>Connect</strong>. iPad/iPhone: Settings &gt; Bluetooth → tap the keyboard.</li>
+    </ol>
+
+    <div class="callout">
+      <p><strong>The shortcut that always works:</strong> plug the keyboard into your Mac with its charging cable (USB-C or Lightning, depending on the model). macOS pairs it automatically in about two seconds — no discovery, no waiting, and it steals the pairing even from another device. Unplug and it keeps working wirelessly. The same trick works for the Magic Trackpad, and for the Magic Mouse via its underside port.</p>
+    </div>
+
+    <h2>Still not showing up? Quick checklist</h2>
+
+    <ul>
+      <li><strong>Charge it.</strong> A dead battery looks exactly like a pairing problem. Plug it in for a few minutes.</li>
+      <li><strong>Confirm the switch is actually on.</strong> Green visible = on.</li>
+      <li><strong>Check the other Macs in your house.</strong> The #1 culprit: it silently reconnected to a previously-paired device the moment you power-cycled it.</li>
+      <li><strong>Toggle Bluetooth on the Mac</strong> (off, wait 10 seconds, on) and try again.</li>
+      <li><strong>Use the cable.</strong> Seriously — it bypasses every discovery problem at once.</li>
+    </ul>
+
+    <h2>Pairing it back and forth constantly? That's a different problem</h2>
+
+    <p>If you're reading this because you move one Magic Keyboard between two Macs — a work laptop and a personal desktop, say — the forget-and-repair dance gets old fast, and doing it three times for a keyboard, trackpad, and mouse is genuinely painful.</p>
+
+    <p>That's the exact problem <a href="/switchy/">Switchy</a> exists for: it sits in the menu bar of both Macs and moves your Magic devices' Bluetooth pairing to the other Mac in one click, over your local network. No forgetting, no cables, no System Settings. $9.99 once, for all your Macs.</p>
+
+    <div class="cta-section">
+      <a class="cta" href="/switchy/">Get Switchy — $9.99</a>
+    </div>
+
+    <div class="related">
+      <strong>Related reading:</strong>
+      <ul>
+        <li><a href="/switchy/blog/magic-keyboard-multiple-devices/">Can a Magic Keyboard connect to multiple devices?</a></li>
+        <li><a href="/switchy/blog/how-to-switch-magic-keyboard-between-macs/">How to switch your Magic Keyboard between Macs — every method</a></li>
+        <li><a href="/switchy/blog/universal-control-vs-switching-devices/">Universal Control vs. actually switching your devices</a></li>
+      </ul>
+    </div>
+
+    <footer>
+      &copy; 2026 Mangobuns. <a href="/switchy/">Switchy</a> &middot; <a href="/switchy/blog/">Blog</a> &middot; <a href="/switchy/privacy/">Privacy</a>
+    </footer>
+  </div>
+</body>
+</html>
