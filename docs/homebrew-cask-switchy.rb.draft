@@ -1,0 +1,27 @@
+cask "switchy" do
+  version "1.1.4,67"
+  sha256 "fd29ace4fe96c11709bab7a7800c6bfcc22cb1c8fa4ade3332383bf78348e4d1"
+
+  url "https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v#{version.csv.first}-build#{version.csv.second}/Switchy-#{version.csv.first}.dmg",
+      verified: "github.com/benhursenabathi/mangobuns/"
+  name "Switchy"
+  desc "Switch Magic Keyboard, Trackpad and Mouse between Macs"
+  homepage "https://mangobuns.com/switchy/"
+
+  livecheck do
+    url "https://mangobuns.com/switchy/appcast.xml"
+    strategy :sparkle do |items|
+      items.find { |item| item.channel.nil? }&.nice_version
+    end
+  end
+
+  auto_updates true
+  depends_on macos: ">= :sonoma"
+
+  app "Switchy.app"
+
+  zap trash: [
+    "~/Library/HTTPStorages/com.mangobuns.Switchy",
+    "~/Library/Preferences/com.mangobuns.Switchy.plist",
+  ]
+end
