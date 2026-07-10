@@ -1,9 +1,8 @@
 cask "switchy" do
-  version "1.1.4,67"
-  sha256 "fd29ace4fe96c11709bab7a7800c6bfcc22cb1c8fa4ade3332383bf78348e4d1"
+  version "1.1.4,70"
+  sha256 "de151649e8c0d3fa52f5f2b31db168b7d67325e3ac40109d25f8db9f5e4089b2"
 
-  url "https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v#{version.csv.first}-build#{version.csv.second}/Switchy-#{version.csv.first}.dmg",
-      verified: "github.com/benhursenabathi/mangobuns/"
+  url "https://mangobuns.com/switchy/downloads/Switchy-#{version.csv.first}.#{version.csv.second}.dmg"
   name "Switchy"
   desc "Switch Magic Keyboard, Trackpad and Mouse between Macs"
   homepage "https://mangobuns.com/switchy/"
@@ -16,7 +15,7 @@ cask "switchy" do
   end
 
   auto_updates true
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "Switchy.app"
 

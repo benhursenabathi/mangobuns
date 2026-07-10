@@ -48,7 +48,7 @@ Cask draft (audit-tested except for the URL change below): `docs/homebrew-cask-s
      (no `verified:` — homepage domain matches)
    - fresh `sha256` of the versioned file
    - keep: Sparkle livecheck with `item.channel.nil?` filter (ignores beta channel),
-     `auto_updates true`, `depends_on macos: ">= :sonoma"`, zap paths
+     `auto_updates true`, `depends_on macos: :sonoma`, zap paths
      (`~/Library/HTTPStorages/com.mangobuns.Switchy`, `~/Library/Preferences/com.mangobuns.Switchy.plist`).
 3. **Local validation** (all must pass before the PR):
    ```bash
