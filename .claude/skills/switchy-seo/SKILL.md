@@ -70,6 +70,17 @@ Apply these rules to the parser output:
   and the IndexNow urlList in `.github/workflows/deploy.yml`.
 - Never add aggregateRating schema without real third-party reviews.
 
+### 4b. Homebrew cask status (until merged, then delete this step)
+
+Check `gh pr view 274395 --repo Homebrew/homebrew-cask --json state,comments`:
+
+- **Merged** → add `brew install --cask switchy` to the site: a small line next to the
+  homepage CTA/download link (App.jsx + index.html prerendered header) and in the trial FAQ
+  answer; mention it in llms.txt; log it; then remove this step from the skill.
+- **Open with new maintainer comments** → summarize them for the user and propose fixes.
+- **Closed unmerged** → tell the user; fallback plan (self-hosted tap) is in
+  `docs/homebrew-cask-plan.md`.
+
 ### 5. Log the week
 
 Append to `docs/seo-log.md` following the existing entry format: date,
