@@ -1,543 +1,389 @@
-import { useState, useEffect, useRef, useCallback } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
+import {
+  IconArrowUpRight as ArrowUpRight,
+  IconCheck as Check,
+  IconCommand as Command,
+  IconDeviceIpadHorizontal as RectangleHorizontal,
+  IconDownload as Download,
+  IconKeyboard as Keyboard,
+  IconLock as Lock,
+  IconMouse as Mouse,
+  IconSparkles as Sparkles,
+  IconWifi as Wifi,
+} from '@tabler/icons-react'
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
-import { TextLoop } from "@/components/ui/text-loop"
-import { FeaturesSectionWithHoverEffects } from "@/components/ui/feature-section-with-hover-effects"
+} from '@/components/ui/accordion'
+import { TextLoop } from '@/components/ui/text-loop'
+import { SwitchingStory } from '@/components/SwitchingStory'
 
-gsap.registerPlugin(ScrollTrigger)
+const CHECKOUT_URL = 'https://mangobuns.lemonsqueezy.com/checkout/buy/68fb31f9-8ae3-45db-bcc3-b7e49bec2817'
+const DOWNLOAD_URL = `${import.meta.env.BASE_URL}downloads/Switchy.dmg`
 
-// Animation defaults - clean, fast fades
-const FADE_DURATION = 0.25 // 250ms
-const FADE_EASE = 'power2.out'
+const HERO_ENTRANCE = {
+  hidden: { opacity: 0, y: 18, filter: 'blur(6px)' },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    filter: 'blur(0px)',
+    transition: { duration: 0.7, delay, ease: [0.2, 0, 0, 1] },
+  }),
+}
 
-// --- Navbar Component ---
-const Navbar = ({ isReady }) => {
+/* ─────────────────────────────────────────────────────────
+ * HERO WORD LOOP
+ *
+ *    0ms   keyboard is visible
+ * 2500ms   mouse slides in, keyboard slides out
+ * 5000ms   trackpad slides in, mouse slides out
+ * 7500ms   sequence returns to keyboard
+ * ───────────────────────────────────────────────────────── */
+const HERO_WORD_LOOP = {
+  interval: 2.5,
+  words: ['keyboard', 'mouse', 'trackpad'],
+}
+
+const FAQS = [
+  {
+    question: 'What is Switchy?',
+    answer: 'Switchy is a menu bar app for macOS that lets you share Magic accessories between your work and personal Macs with a single click. No cables, no unpairing, no digging through System Settings.',
+  },
+  {
+    question: 'How does the handoff work?',
+    answer: 'Switchy runs on both Macs and discovers them over your local network. Choose a Mac from the menu bar and Switchy releases the selected accessories from one Mac, then connects them to the other.',
+  },
+  {
+    question: 'Which accessories are supported?',
+    answer: 'Magic Keyboard, Magic Keyboard with Touch ID, Magic Trackpad, and Magic Mouse are supported. Switchy works with Macs running macOS 14.0 Sonoma or newer.',
+  },
+  {
+    question: 'Does it work with a closed MacBook?',
+    answer: 'Yes. A MacBook connected to power can release its accessories while the lid is closed and the Mac is asleep, so your desk setup can stay exactly as it is.',
+  },
+  {
+    question: 'Is my data private?',
+    answer: 'The handoff happens locally between your Macs. Switchy has no accounts, analytics, or tracking. External connections are limited to license activation and software update checks.',
+  },
+  {
+    question: 'What does one license include?',
+    answer: 'A one-time $9.99 purchase unlocks Switchy for up to five Macs. There is no subscription, and every download starts with a full three-day free trial.',
+  },
+]
+
+const DEVICE_LABELS = [
+  { label: 'KEYBOARD', icon: Keyboard },
+  { label: 'TRACKPAD', icon: RectangleHorizontal },
+  { label: 'MOUSE', icon: Mouse },
+]
+
+function Navbar() {
   const [scrolled, setScrolled] = useState(false)
-  const navRef = useRef(null)
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50)
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
+    const onScroll = () => setScrolled(window.scrollY > 28)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Fade in navbar after hero content is ready
-  useEffect(() => {
-    if (!isReady || !navRef.current) return
-
-    gsap.fromTo(
-      navRef.current,
-      { opacity: 0, y: -20 },
-      { opacity: 1, y: 0, duration: FADE_DURATION, ease: FADE_EASE, delay: 0.15 }
-    )
-  }, [isReady])
-
   return (
-    <nav
-      ref={navRef}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'py-4 bg-cream/80 backdrop-blur-md' : 'py-8'}`}
-      style={{ opacity: 0 }}
-    >
-      <div className="max-w-screen-xl mx-auto px-6 flex justify-between items-center">
-        <div className="font-serif text-2xl tracking-tight">Switchy</div>
-        <a href="https://mangobuns.lemonsqueezy.com/checkout/buy/68fb31f9-8ae3-45db-bcc3-b7e49bec2817" className="text-sm font-medium px-5 py-2.5 bg-ink text-cream rounded-full hover:bg-ink/80 transition-colors duration-200">
-          Get Switchy — $9.99
-        </a>
-      </div>
-    </nav>
+    <header className={`site-nav ${scrolled ? 'site-nav--scrolled' : ''}`}>
+      <a className="brand" href="#top" aria-label="Switchy home">
+        <img src={`${import.meta.env.BASE_URL}icon_512x512.png`} alt="" />
+        <span>Switchy</span>
+      </a>
+
+      <nav className="site-nav__links" aria-label="Main navigation">
+        <a href="#how-it-works">How it works</a>
+        <a href={`${import.meta.env.BASE_URL}compare/`}>Compare</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <motion.a className="nav-cta" href={DOWNLOAD_URL} whileTap={{ scale: 0.96 }}>
+        Try free <Download size={15} strokeWidth={2} />
+      </motion.a>
+    </header>
   )
 }
 
-// --- Parallax Hero Images Component ---
-const ParallaxHeroImages = ({ onDevicesReady }) => {
-  const containerRef = useRef(null)
-  const keyboardRef = useRef(null)
-  const trackpadRef = useRef(null)
-  const mouseRef = useRef(null)
-  const hasAnimatedRef = useRef(false) // Prevent double animation
-
-  useEffect(() => {
-    // Prevent re-running the animation
-    if (hasAnimatedRef.current) return
-    hasAnimatedRef.current = true
-
-    const ctx = gsap.context(() => {
-      const devices = [keyboardRef.current, trackpadRef.current, mouseRef.current]
-
-      // Timeline for sequenced load animation
-      const loadTimeline = gsap.timeline({
-        onComplete: () => onDevicesReady && onDevicesReady()
-      })
-
-      // Devices fade in first with stagger
-      loadTimeline.fromTo(
-        devices,
-        {
-          opacity: 0,
-          y: 60,
-          scale: 0.9
-        },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.4,
-          stagger: 0.12,
-          ease: 'power2.out',
-        }
-      )
-
-      // Slow parallax for keyboard (moves slowest)
-      gsap.to(keyboardRef.current, {
-        y: -80,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: 2,
-        }
-      })
-
-      // Medium parallax for trackpad
-      gsap.to(trackpadRef.current, {
-        y: -120,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: 1.5,
-        }
-      })
-
-      // Faster parallax for mouse (moves most)
-      gsap.to(mouseRef.current, {
-        y: -150,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: 1.2,
-        }
-      })
-
-      // Fade out/in all images - REVERSIBLE on scroll back
-      devices.forEach(device => {
-        gsap.fromTo(device,
-          { opacity: 1 }, // Explicit start value for proper reverse
-          {
-            opacity: 0,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: containerRef.current,
-              start: '40% top',
-              end: '75% top',
-              scrub: 0.3,
-            }
-          }
-        )
-      })
-    }, containerRef)
-
-    return () => {
-      ctx.revert()
-      hasAnimatedRef.current = false // Reset for StrictMode remount
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []) // Run only once on mount - callback is stable via ref guard
-
+function Hero() {
   return (
-    <div ref={containerRef} className="absolute inset-0 overflow-hidden pointer-events-none">
-      {/* Keyboard - Top left, angled elegantly */}
-      <div
-        ref={keyboardRef}
-        className="absolute will-change-transform"
-        style={{
-          top: '6%',
-          left: '2%',
-          width: 'clamp(280px, 36vw, 480px)',
-          transform: 'rotate(-6deg)',
-          opacity: 0,
-        }}
-      >
-        <img
-          src={`${import.meta.env.BASE_URL}Keyboard_transparent.png`}
-          alt="Magic Keyboard"
-          className="w-full h-auto"
-          style={{
-            filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.08))',
-          }}
-        />
-      </div>
-
-      {/* Trackpad - Right side, upper area */}
-      <div
-        ref={trackpadRef}
-        className="absolute will-change-transform"
-        style={{
-          top: '12%',
-          right: '3%',
-          width: 'clamp(200px, 26vw, 340px)',
-          transform: 'rotate(5deg)',
-          opacity: 0,
-        }}
-      >
-        <img
-          src={`${import.meta.env.BASE_URL}Trackpad_transparent.png`}
-          alt="Magic Trackpad"
-          className="w-full h-auto"
-          style={{
-            filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.08))',
-          }}
-        />
-      </div>
-
-      {/* Mouse - Bottom right, BIGGER on desktop */}
-      <div
-        ref={mouseRef}
-        className="absolute will-change-transform"
-        style={{
-          bottom: '10%',
-          right: '10%',
-          width: 'clamp(160px, 22vw, 320px)', // Increased size
-          transform: 'rotate(-8deg)',
-          opacity: 0,
-        }}
-      >
-        <img
-          src={`${import.meta.env.BASE_URL}Mouse_transparent.png`}
-          alt="Magic Mouse"
-          className="w-full h-auto"
-          style={{
-            filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.08))',
-          }}
-        />
-      </div>
-    </div>
-  )
-}
-
-// --- Scroll Fade Section Wrapper ---
-const ScrollFadeSection = ({ children, className = '', delay = 0 }) => {
-  const sectionRef = useRef(null)
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        sectionRef.current,
-        {
-          opacity: 0,
-          y: 30,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: FADE_DURATION,
-          ease: FADE_EASE,
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 85%',
-            end: 'top 60%',
-            toggleActions: 'play none none reverse',
-          },
-          delay,
-        }
-      )
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [delay])
-
-  return (
-    <div ref={sectionRef} className={className} style={{ opacity: 0 }}>
-      {children}
-    </div>
-  )
-}
-
-
-// --- Hero Content Component with sequenced animation ---
-const HeroContent = ({ isReady }) => {
-  const contentRef = useRef(null)
-  const badgeRef = useRef(null)
-  const headingRef = useRef(null)
-  const subheadingRef = useRef(null)
-  const scrollIndicatorRef = useRef(null)
-
-  useEffect(() => {
-    if (!isReady) return
-
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline()
-
-      // Sequenced hero content animation after devices are ready
-      tl.fromTo(badgeRef.current,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: FADE_DURATION, ease: FADE_EASE }
-      )
-        .fromTo(headingRef.current,
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 0.3, ease: FADE_EASE },
-          '-=0.1'
-        )
-        .fromTo(subheadingRef.current,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: FADE_DURATION, ease: FADE_EASE },
-          '-=0.15'
-        )
-        .fromTo(scrollIndicatorRef.current,
-          { opacity: 0, y: 10 },
-          { opacity: 1, y: 0, duration: FADE_DURATION, ease: FADE_EASE },
-          '-=0.1'
-        )
-    }, contentRef)
-
-    return () => ctx.revert()
-  }, [isReady])
-
-  return (
-    <div ref={contentRef} className="relative z-10 text-center">
-      <div className="flex justify-center mb-8">
-        <div
-          ref={badgeRef}
-          className="inline-block px-4 py-2 rounded-full border border-ink/10 bg-cream/90 backdrop-blur-sm text-sm font-medium tracking-wide"
-          style={{ opacity: 0 }}
+    <section className="hero" id="top">
+      <div className="hero__aurora" aria-hidden="true" />
+      <div className="hero__grid" aria-hidden="true" />
+      <div className="hero__copy">
+        <motion.div
+          className="hero__eyebrow"
+          custom={0.08}
+          initial="hidden"
+          animate="visible"
+          variants={HERO_ENTRANCE}
         >
-          For Mac power users
-        </div>
+          <i /> Built for multi-Mac desks
+        </motion.div>
+        <motion.h1
+          aria-label="One keyboard, mouse, or trackpad. For every Mac."
+          custom={0.16}
+          initial="hidden"
+          animate="visible"
+          variants={HERO_ENTRANCE}
+        >
+          <span className="hero__headline-first" aria-hidden="true">
+            <span>One</span>
+            <TextLoop className="hero__headline-loop" interval={HERO_WORD_LOOP.interval}>
+              {HERO_WORD_LOOP.words.map((word) => <span key={word}>{word}.</span>)}
+            </TextLoop>
+          </span>
+          <span className="hero__headline-second" aria-hidden="true">For every Mac.</span>
+        </motion.h1>
+        <motion.p custom={0.25} initial="hidden" animate="visible" variants={HERO_ENTRANCE}>
+          Switch your Magic Keyboard, Trackpad, and Mouse between Macs without touching Bluetooth settings.
+        </motion.p>
+        <motion.div
+          className="hero__actions"
+          custom={0.34}
+          initial="hidden"
+          animate="visible"
+          variants={HERO_ENTRANCE}
+        >
+          <motion.a className="button button--primary" href={DOWNLOAD_URL} whileTap={{ scale: 0.96 }}>
+            Download free trial <Download size={17} strokeWidth={2.1} />
+          </motion.a>
+          <motion.a className="button button--ghost" href={CHECKOUT_URL} whileTap={{ scale: 0.96 }}>
+            Buy once — $9.99
+          </motion.a>
+        </motion.div>
+        <motion.div
+          className="hero__meta"
+          custom={0.42}
+          initial="hidden"
+          animate="visible"
+          variants={HERO_ENTRANCE}
+        >
+          <span><Check size={13} /> 3-day trial</span>
+          <span><Check size={13} /> Up to 5 Macs</span>
+          <span><Check size={13} /> macOS 14+</span>
+        </motion.div>
       </div>
-      <h1 ref={headingRef} className="text-manifesto mb-6" style={{ opacity: 0 }}>
-        One{' '}
-        <TextLoop interval={2.5} className="inline-block">
-          <span>keyboard</span>
-          <span>mouse</span>
-          <span>trackpad</span>
-        </TextLoop>
-        .<br />
-        <span className="italic">For every</span> Mac.
-      </h1>
-      <p
-        ref={subheadingRef}
-        className="text-lg md:text-xl text-muted max-w-md text-center font-light mx-auto mb-12"
-        style={{ opacity: 0 }}
-      >
-        One click to switch your keyboard, trackpad, and mouse between Macs that are in the same network.
-      </p>
 
-      {/* Scroll indicator */}
-      <div ref={scrollIndicatorRef} className="animate-bounce mt-8" style={{ opacity: 0 }}>
-        <svg className="w-6 h-6 mx-auto text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
-      </div>
-    </div>
+    </section>
   )
 }
 
-// --- Main App Component ---
-export default function App() {
-  const [devicesReady, setDevicesReady] = useState(false)
-
-  // Memoize the callback to prevent unnecessary re-renders
-  const handleDevicesReady = useCallback(() => {
-    setDevicesReady(true)
-  }, [])
-
+function Reveal({ children, className = '', delay = 0 }) {
   return (
-    <div className="relative bg-cream text-ink font-sans noise-overlay">
-      <Navbar isReady={devicesReady} />
+    <motion.div
+      className={className}
+      initial={{ opacity: 0, y: 24, filter: 'blur(5px)' }}
+      whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+      viewport={{ once: true, margin: '-10% 0px' }}
+      transition={{ duration: 0.65, delay, ease: [0.2, 0, 0, 1] }}
+    >
+      {children}
+    </motion.div>
+  )
+}
 
-      {/* ============================================
-          SECTION 1: HERO WITH PARALLAX ACCESSORIES
-          ============================================ */}
-      <section className="min-h-screen flex flex-col justify-center items-center px-6 relative overflow-hidden">
-
-        {/* Parallax Background Images */}
-        <ParallaxHeroImages onDevicesReady={handleDevicesReady} />
-
-        {/* Hero Content - Animates after devices */}
-        <HeroContent isReady={devicesReady} />
-      </section>
-
-      {/* ============================================
-          SECTION 2: HOW IT WORKS
-          ============================================ */}
-      <section className="py-24 md:py-32 px-6">
-        <div className="max-w-5xl mx-auto">
-          {/* Section Header */}
-          <ScrollFadeSection className="text-center mb-12 md:mb-16">
-            <div className="text-[10px] font-mono tracking-[0.25em] text-muted mb-4 uppercase">
-              See it in action
-            </div>
-            <h2 className="font-serif text-3xl md:text-5xl italic">
-              How it works
-            </h2>
-          </ScrollFadeSection>
-
-          {/* Video Container */}
-          <ScrollFadeSection delay={0.05}>
-            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden bg-[#f5f4f1] shadow-[0_8px_30px_rgb(0,0,0,0.08)]">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-auto"
-              >
-                <source src={`${import.meta.env.BASE_URL}Macbook A.mp4`} type="video/mp4" />
-              </video>
-            </div>
-          </ScrollFadeSection>
-        </div>
-      </section>
-
-      {/* ============================================
-          SECTION 2.5: FEATURES
-          ============================================ */}
-      <section className="py-24 md:py-32 px-6 bg-cream">
-        <div className="max-w-5xl mx-auto">
-          {/* Section Header */}
-          <ScrollFadeSection className="text-center mb-8 md:mb-12">
-            <div className="text-[10px] font-mono tracking-[0.25em] text-muted mb-4 uppercase">
-              Why Switchy
-            </div>
-            <h2 className="font-serif text-3xl md:text-5xl italic">
-              Built for simplicity
-            </h2>
-          </ScrollFadeSection>
-
-          {/* Features Grid - has its own staggered scroll animations */}
-          <FeaturesSectionWithHoverEffects />
-        </div>
-      </section>
-
-      {/* ============================================
-          SECTION 3: FAQ
-          ============================================ */}
-      <section className="relative bg-cream py-24 md:py-32 px-6">
-        <div className="max-w-4xl mx-auto w-full">
-
-          {/* FAQ Section */}
-          <div className="mb-16 md:mb-24">
-            <ScrollFadeSection className="text-center mb-12">
-              <div className="text-[10px] font-mono tracking-[0.25em] text-muted mb-4 uppercase">
-                Common Questions
-              </div>
-              <h2 className="font-serif text-3xl md:text-4xl italic">
-                Frequently Asked
-              </h2>
-            </ScrollFadeSection>
-
-            <ScrollFadeSection className="max-w-2xl mx-auto" delay={0.05}>
-              <Accordion type="single" collapsible className="w-full">
-                <AccordionItem value="item-0">
-                  <AccordionTrigger className="text-base md:text-lg font-serif">
-                    What is Switchy?
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted leading-relaxed">
-                    Switchy is a menu bar app for macOS that lets you share Magic accessories between your Macs—work and personal—with a single click. No cables, no unpairing, no digging through System Settings.
-                  </AccordionContent>
-                </AccordionItem>
-
-                <AccordionItem value="item-1">
-                  <AccordionTrigger className="text-base md:text-lg font-serif">
-                    How does Switchy work?
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted leading-relaxed">
-                    Switchy sits in your menu bar and detects Magic Keyboards, Trackpads, and Mice connected to your Mac. When you click to switch a device, it seamlessly hands it over to your other Mac—no System Settings required.
-                  </AccordionContent>
-                </AccordionItem>
-
-                <AccordionItem value="item-2">
-                  <AccordionTrigger className="text-base md:text-lg font-serif">
-                    What devices are supported?
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted leading-relaxed">
-                    Switchy supports all Apple Magic accessories: Magic Keyboard, Magic Keyboard with Touch ID, Magic Trackpad, and Magic Mouse. Compatible with all Macs running macOS 14.0 (Sonoma) and above.
-                  </AccordionContent>
-                </AccordionItem>
-
-                <AccordionItem value="item-3">
-                  <AccordionTrigger className="text-base md:text-lg font-serif">
-                    Is there a free trial?
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted leading-relaxed">
-                    Yes—every new installation includes a 3-day, full-featured free trial. <a href="/switchy/downloads/Switchy.dmg" className="underline underline-offset-2">Download Switchy</a>, install it on your Macs, and start switching right away. After the trial, a one-time $9.99 purchase unlocks it for good.
-                  </AccordionContent>
-                </AccordionItem>
-
-                <AccordionItem value="item-4">
-                  <AccordionTrigger className="text-base md:text-lg font-serif">
-                    Is my data private?
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted leading-relaxed">
-                    Switching is completely local—your Macs talk directly to each other over your local network, and no switching data ever leaves your devices. The only external connections Switchy makes are license activation and periodic validation with Lemon Squeezy (your license key and a device identifier) and software update checks. No analytics, no tracking, no accounts.
-                  </AccordionContent>
-                </AccordionItem>
-
-                <AccordionItem value="item-5">
-                  <AccordionTrigger className="text-base md:text-lg font-serif">
-                    Is it a lifetime license for all my Macs?
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted leading-relaxed">
-                    Yes—one purchase, yours forever, with no subscriptions or hidden fees. Each license covers up to 5 Macs at a time, and you can deactivate a Mac whenever you like to free up a slot for a new one.
-                  </AccordionContent>
-                </AccordionItem>
-
-                <AccordionItem value="item-6">
-                  <AccordionTrigger className="text-base md:text-lg font-serif">
-                    Do I need to install Switchy on all my Macs?
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted leading-relaxed">
-                    Yes, Switchy needs to be installed on each Mac you want to switch devices between. The app automatically discovers other Macs running Switchy on your local network.
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-            </ScrollFadeSection>
+function DemoSection() {
+  return (
+    <section className="demo-section" id="how-it-works">
+      <div className="section-shell">
+        <Reveal className="section-heading section-heading--split">
+          <div>
+            <h2>Click once.<br />Start Working.</h2>
           </div>
+        </Reveal>
 
-          {/* CTA Card */}
-          <ScrollFadeSection>
-            <div className="bg-ink text-cream rounded-3xl p-8 md:p-12 text-center">
-              <h3 className="font-serif text-2xl md:text-3xl mb-4">
-                Ready to simplify your setup?
-              </h3>
-              <p className="text-cream/60 mb-8 max-w-md mx-auto">
-                One menu bar app. All your Magic accessories. One license for up to 5 Macs.
-              </p>
-              <div className="flex justify-center">
-                <a href="https://mangobuns.lemonsqueezy.com/checkout/buy/68fb31f9-8ae3-45db-bcc3-b7e49bec2817" className="bg-cream text-ink px-8 py-4 rounded-full font-semibold hover:bg-cream/90 transition-colors duration-200">
-                  Get Switchy — $9.99
-                </a>
-              </div>
-              <p className="text-cream/60 text-sm mt-4">
-                or <a href="/switchy/downloads/Switchy.dmg" className="underline underline-offset-2 hover:text-cream transition-colors duration-200">download the free 3-day trial</a>
-              </p>
-            </div>
-          </ScrollFadeSection>
-
-          {/* Footer — no scroll animation, always visible */}
-          <div className="mt-12 text-center">
-            <div className="flex justify-center gap-4 mb-3 text-xs">
-              <a href="/switchy/compare/" className="text-muted/50 hover:text-muted/80 transition-colors duration-200 underline underline-offset-2">Compare</a>
-              <a href="/switchy/blog/" className="text-muted/50 hover:text-muted/80 transition-colors duration-200 underline underline-offset-2">Blog</a>
-              <a href="/switchy/privacy/" className="text-muted/50 hover:text-muted/80 transition-colors duration-200 underline underline-offset-2">Privacy</a>
-            </div>
-            <p className="text-muted/60 text-xs">
-              © 2026 Mangobuns.
-            </p>
+        <Reveal className="demo-frame" delay={0.08}>
+          <div className="demo-frame__chrome">
+            <span><i /><i /><i /></span>
+            <strong>SWITCHY / LIVE DEMO</strong>
+            <span>00:08</span>
           </div>
+          <video autoPlay loop muted playsInline poster={`${import.meta.env.BASE_URL}how-it-works.gif`}>
+            {/* Add public/switching-demo.mp4 later; the browser falls back to the current film. */}
+            <source src={`${import.meta.env.BASE_URL}switching-demo.mp4`} type="video/mp4" />
+            <source src={`${import.meta.env.BASE_URL}Macbook A.mp4`} type="video/mp4" />
+          </video>
+        </Reveal>
+      </div>
+    </section>
+  )
+}
 
+function SwitchAllCard() {
+  return (
+    <article className="bento-card bento-card--wide bento-card--orange">
+      <div className="bento-card__header">
+        <h3>Switch everything at once.</h3>
+        <p>Move a keyboard, trackpad, and mouse together—or choose only what you need.</p>
+      </div>
+      <div className="switch-command">
+        <div className="switch-command__top">
+          <span className="switch-command__app"><Command size={14} /> Switchy</span>
+          <span className="switch-command__online"><i /> 2 Macs online</span>
         </div>
-      </section>
+        <div className="switch-command__target">
+          <span className="switch-command__mac-icon">M</span>
+          <div><small>SWITCH TO</small><strong>Studio Mac</strong></div>
+          <ArrowUpRight size={17} />
+        </div>
+        <div className="switch-command__devices">
+          {DEVICE_LABELS.map(({ label, icon: Icon }) => (
+            <div key={label}><Icon size={15} /><span>{label}</span><i /></div>
+          ))}
+        </div>
+        <button type="button">Switch all devices <span>⌘↵</span></button>
+      </div>
+    </article>
+  )
+}
+
+function Features() {
+  return (
+    <section className="features" id="features">
+      <div className="section-shell">
+        <Reveal className="section-heading section-heading--features">
+          <div>
+            <h2>No cables needed</h2>
+          </div>
+          <p>A tiny menu bar utility with an unusually large effect on a two-Mac desk.</p>
+        </Reveal>
+
+        <div className="bento-grid">
+          <Reveal className="bento-reveal bento-reveal--wide"><SwitchAllCard /></Reveal>
+
+          <Reveal className="bento-reveal" delay={0.05}>
+            <article className="bento-card bento-card--night">
+              <div className="bento-card__header">
+                <h3>Asleep, not out.</h3>
+                <p>A powered MacBook can release its accessories without opening the lid.</p>
+              </div>
+              <div className="sleep-visual" aria-hidden="true">
+                <img
+                  className="sleep-visual__image"
+                  src={`${import.meta.env.BASE_URL}images/macbook-closed-night.jpg`}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  draggable="false"
+                />
+              </div>
+            </article>
+          </Reveal>
+
+          <Reveal className="bento-reveal" delay={0.1}>
+            <article className="bento-card bento-card--local">
+              <div className="bento-card__header">
+                <h3>Your desk stays private.</h3>
+                <p>No account, tracking, or cloud relay. Your Macs speak directly.</p>
+              </div>
+              <div className="local-visual" aria-hidden="true">
+                <span><Wifi size={18} /></span>
+                <i /><i /><i />
+                <span><Lock size={18} /></span>
+              </div>
+            </article>
+          </Reveal>
+
+          <Reveal className="bento-reveal bento-reveal--wide" delay={0.08}>
+            <article className="bento-card bento-card--wide bento-card--license">
+              <div className="license-copy">
+                <h3>$9.99 once.<br />Five Macs forever.</h3>
+                <p>Try every feature free for three days. Keep it with a single lifetime purchase.</p>
+                <motion.a href={DOWNLOAD_URL} whileTap={{ scale: 0.96 }}>Try free <Download size={16} /></motion.a>
+              </div>
+              <div className="license-orbit" aria-hidden="true">
+                <span className="license-orbit__center"><Sparkles size={24} /></span>
+                {[1, 2, 3, 4, 5].map((index) => <i key={index} style={{ '--index': index }}>M{index}</i>)}
+              </div>
+            </article>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function FAQ() {
+  return (
+    <section className="faq" id="faq">
+      <div className="section-shell faq__grid">
+        <Reveal className="faq__intro">
+          <h2>FAQ</h2>
+          <p>Still wondering if Switchy fits your setup? These are the questions most multi-Mac users ask first.</p>
+        </Reveal>
+
+        <Reveal className="faq__list" delay={0.08}>
+          <Accordion type="single" collapsible>
+            {FAQS.map((item, index) => (
+              <AccordionItem value={`faq-${index}`} key={item.question}>
+                <AccordionTrigger>
+                  <span className="faq__question">{item.question}</span>
+                </AccordionTrigger>
+                <AccordionContent>{item.answer}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </Reveal>
+      </div>
+    </section>
+  )
+}
+
+function FinalCTA() {
+  return (
+    <section className="final-cta">
+      <div className="final-cta__glow" aria-hidden="true" />
+      <h2>Switch your magic accessories<br />between Macs</h2>
+      <p>Start with a full three-day trial. No account required.</p>
+      <div className="final-cta__actions">
+        <motion.a className="button button--light" href={DOWNLOAD_URL} whileTap={{ scale: 0.96 }}>
+          Download Switchy <Download size={17} />
+        </motion.a>
+        <motion.a className="button button--outline" href={CHECKOUT_URL} whileTap={{ scale: 0.96 }}>
+          Buy for $9.99 <ArrowUpRight size={17} />
+        </motion.a>
+      </div>
+    </section>
+  )
+}
+
+function Footer() {
+  return (
+    <footer className="site-footer">
+      <div className="brand">
+        <img src={`${import.meta.env.BASE_URL}icon_512x512.png`} alt="" />
+        <span>Switchy</span>
+      </div>
+      <p>One setup. Every Mac.</p>
+      <nav aria-label="Footer navigation">
+        <a href={`${import.meta.env.BASE_URL}compare/`}>Compare</a>
+        <a href={`${import.meta.env.BASE_URL}blog/`}>Blog</a>
+        <a href={`${import.meta.env.BASE_URL}privacy/`}>Privacy</a>
+      </nav>
+      <span>© 2026 Mangobuns</span>
+    </footer>
+  )
+}
+
+export default function App() {
+  return (
+    <div className="site">
+      <Navbar />
+      <main>
+        <Hero />
+        <SwitchingStory />
+        <DemoSection />
+        <Features />
+        <FAQ />
+        <FinalCTA />
+      </main>
+      <Footer />
     </div>
   )
 }

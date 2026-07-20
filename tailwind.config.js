@@ -7,8 +7,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'serif': ['Instrument Serif', 'Georgia', 'serif'],
-        'sans': ['Geist', 'system-ui', 'sans-serif'],
+        'serif': ['Space Grotesk', 'system-ui', 'sans-serif'],
+        'sans': ['Inter', 'system-ui', 'sans-serif'],
+        'mono': ['IBM Plex Mono', 'ui-monospace', 'monospace'],
       },
       colors: {
         'cream': '#FFFFFF',
