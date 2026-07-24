@@ -217,9 +217,16 @@ so far. The real signal is first impressions in the 2026-07-31 export.
    already promises, plus trackpad/mouse specifics to target "magic trackpad multiple devices"
    (pos 10.0). Both posts are also the shortest on the site (547/570 words) and could stand to grow.
    Revisit once there's impression data showing which queries each page actually attracts.
-2. Sitemap drift: `public/sitemap.xml` has 10 URLs, `public-root/sitemap.xml` has 11 — the root
-   `https://mangobuns.com/` is missing from the former. Production serves the 11-URL version so
-   nothing is broken today, but editing the wrong file will bite later.
+2. ~~Sitemap drift~~ **DONE 2026-07-24.** Investigation showed this wasn't drift between two copies
+   of one file — the repo was publishing **two live sitemaps**: `mangobuns.com/sitemap.xml` (11 URLs,
+   canonical, referenced by both robots.txt files) and `mangobuns.com/switchy/sitemap.xml` (10 URLs,
+   stale, referenced by nothing). `public/` is Vite's public dir, so `public/sitemap.xml` shipped
+   into `/switchy/`. Deleted `public/sitemap.xml` rather than syncing it — syncing maintains two
+   copies forever and the drift recurs. `public-root/sitemap.xml` is now the single source of truth.
+   Also updated `.claude/skills/switchy-seo/SKILL.md`, which instructed future runs to edit the
+   now-deleted file, and added the in-prose-link lesson from this week to its new-post checklist.
+   **Check in GSC** that only `https://mangobuns.com/sitemap.xml` is submitted — if the `/switchy/`
+   one was ever submitted it will now report a fetch error and should be removed there.
 
 **Watch next week:** **first impressions on the two newly-indexed posts** (they're in the index but
 have never had one — if they're still at 0 impr on 2026-07-31, indexing wasn't the real ceiling and

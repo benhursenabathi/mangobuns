@@ -66,8 +66,13 @@ Apply these rules to the parser output:
   post. Pattern: copy the structure of an existing post in `public/blog/`
   (Article + FAQPage + BreadcrumbList JSON-LD, related-links section, same
   inline CSS), then wire it into ALL of: `public/blog/index.html` (hub card),
-  `public/sitemap.xml`, `public-root/sitemap.xml`, `public-root/llms.txt`,
+  `public-root/sitemap.xml` (the ONLY sitemap — `public/sitemap.xml` was
+  deleted 2026-07-24; it published a stale orphan duplicate to
+  `/switchy/sitemap.xml` that nothing referenced), `public-root/llms.txt`,
   and the IndexNow urlList in `.github/workflows/deploy.yml`.
+  Also add at least one **in-prose contextual link** from an existing
+  high-impression page — links in the "Related reading" block alone do not
+  register as referring pages (see the 2026-07-24 log entry).
 - Never add aggregateRating schema without real third-party reviews.
 
 ### 4b. Homebrew cask status (until merged, then delete this step)
