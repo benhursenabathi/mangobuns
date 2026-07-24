@@ -10,8 +10,8 @@ Weekly entries appended by the `/switchy-seo` skill. Newest at the bottom.
 | /switchy/blog/universal-control-vs-switching-devices/ | 2026-07-10 | Yes — 2026-07-20 (has impressions) |
 | /switchy/blog/kvm-switch-for-two-macs/ | 2026-07-10 | Yes — 2026-07-20 (has impressions) |
 | /switchy/blog/one-keyboard-mouse-mac-mini-macbook/ | 2026-07-10 | Yes — 2026-07-20 (has impressions) |
-| /switchy/blog/magic-keyboard-pairing-mode/ | 2026-07-10 | **No — "Crawled – currently not indexed"** (GSC, 2026-07-24). Referring page: None detected. Not a technical fault. Fixed the cause 2026-07-24 (3 in-prose inbound links added); re-request indexing after deploy |
-| /switchy/blog/magic-keyboard-multiple-devices/ | 2026-07-10 | **No — "Crawled – currently not indexed"** (GSC, 2026-07-24). Referring page: None detected; Google-selected canonical N/A (so *not* a duplicate verdict). Fixed the cause 2026-07-24 (3 in-prose inbound links added); re-request indexing after deploy. Content differentiation still pending |
+| /switchy/blog/magic-keyboard-pairing-mode/ | 2026-07-10 | **Yes — 2026-07-24.** "URL is on Google / Page is indexed". Was "Crawled – currently not indexed" earlier the same day; resolved after Request Indexing + in-prose inbound links shipped. Now watch for first impressions |
+| /switchy/blog/magic-keyboard-multiple-devices/ | 2026-07-10 | **Yes — 2026-07-24.** "URL is on Google / Page is indexed". Same story. Content differentiation no longer needed for *indexing*, but still open as a *ranking* concern (query overlap with the how-to page) |
 | /switchy/ (homepage) | 2026-07-10 | Yes — 2026-07-20 (18 impr, pos 2.6) |
 
 ---
@@ -194,17 +194,38 @@ of data before touching the title.
 linking shipped). Re-request after this deploy so Google re-crawls with the new referring links in
 place — that is the change we actually want it to re-evaluate.
 
+**RESOLVED same day — both posts indexed.** Deployed the internal links to main (`3da794f`, GH
+Actions run 30121654712 green, IndexNow pinged, all 7 links verified live in-body). GSC URL
+Inspection then returned **"URL is on Google / Page is indexed"** for *both* URLs on 2026-07-24 —
+14 days after publication and hours after the "Crawled – currently not indexed" verdict.
+
+*Attribution is genuinely ambiguous — do not over-learn from this.* Request Indexing was submitted
+around 20:28 local; the deploy completed 19:47 UTC. Depending on timezone offset the indexing crawl
+may predate the links going live, so credit belongs to the re-request, the links, or both. Also
+worth recording: the 2026-07-24 prediction that multiple-devices would *not* index without content
+differentiation was **wrong** — it indexed with the same content. Treat "Crawled – currently not
+indexed" as a softer, more recoverable state than assumed, especially on a young site.
+
+Indexed is the floor, not the goal: both pages are now *eligible* to appear, with zero impressions
+so far. The real signal is first impressions in the 2026-07-31 export.
+
 **Still open (proposed 2026-07-24, not done):**
-1. Differentiate magic-keyboard-multiple-devices so it stops re-running the how-to page's four
-   methods in the same order — add the Logitech multi-device comparison its own meta description
+1. Differentiate magic-keyboard-multiple-devices. **Priority downgraded** — no longer needed to get
+   indexed. Still worth doing as a *ranking* concern: it and the how-to page target overlapping
+   queries with the same four methods in the same order, so they risk splitting relevance rather
+   than one page ranking well. Add the Logitech multi-device comparison its own meta description
    already promises, plus trackpad/mouse specifics to target "magic trackpad multiple devices"
    (pos 10.0). Both posts are also the shortest on the site (547/570 words) and could stand to grow.
+   Revisit once there's impression data showing which queries each page actually attracts.
 2. Sitemap drift: `public/sitemap.xml` has 10 URLs, `public-root/sitemap.xml` has 11 — the root
    `https://mangobuns.com/` is missing from the former. Production serves the 11-URL version so
    nothing is broken today, but editing the wrong file will bite later.
 
-**Watch next week:** whether the impression decline continues or flattens; compare/ CTR over a full
-clean week; whether the two posts index after the re-request; universal-control breaking into page 1.
+**Watch next week:** **first impressions on the two newly-indexed posts** (they're in the index but
+have never had one — if they're still at 0 impr on 2026-07-31, indexing wasn't the real ceiling and
+the content/differentiation work moves back up the list); whether the impression decline continues
+or flattens; compare/ CTR over a full clean week; universal-control breaking into page 1; whether
+the "discoverable" cluster (pos 29–34) shifts to the pairing-mode post now that it can rank.
 Next export: tick **"compare to previous period"** and keep the window aligned to avoid overlap.
 
 **Homebrew cask PR #274395:** still OPEN, all 12 CI checks green (test switchy passes on Intel +
