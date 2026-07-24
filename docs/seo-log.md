@@ -199,9 +199,14 @@ Actions run 30121654712 green, IndexNow pinged, all 7 links verified live in-bod
 Inspection then returned **"URL is on Google / Page is indexed"** for *both* URLs on 2026-07-24 —
 14 days after publication and hours after the "Crawled – currently not indexed" verdict.
 
-*Attribution is genuinely ambiguous — do not over-learn from this.* Request Indexing was submitted
-around 20:28 local; the deploy completed 19:47 UTC. Depending on timezone offset the indexing crawl
-may predate the links going live, so credit belongs to the re-request, the links, or both. Also
+*Attribution now leans to the Request Indexing, not the links.* Local timezone is **+0100**
+(confirmed independently from an appcast `pubDate` stamped the same evening), so GSC's "Last crawl
+24 Jul 2026, 20:28:25" = **19:28 UTC** — roughly 19 minutes *before* the deploy completed at 19:47
+UTC. The crawl on record when Google flipped these to indexed therefore predates the internal links
+going live. Ordering is corroborated by the session itself: the Live Test screenshot stamped 20:29
+local was taken before the deploy. Google may have re-crawled after the IndexNow ping, so this
+isn't airtight, but the honest read is that **Request Indexing did the work here** and the links
+were a real fix for a real defect that probably didn't cause *this* indexing event. Also
 worth recording: the 2026-07-24 prediction that multiple-devices would *not* index without content
 differentiation was **wrong** — it indexed with the same content. Treat "Crawled – currently not
 indexed" as a softer, more recoverable state than assumed, especially on a young site.
