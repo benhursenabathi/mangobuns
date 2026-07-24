@@ -7,6 +7,30 @@
     <language>en</language>
 
     <item>
+      <title>Beta 1.1.4 (build 71)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>71</sparkle:version>
+      <sparkle:shortVersionString>1.1.4</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Fri, 24 Jul 2026 21:14:18 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.4-build71/Switchy-Beta-1.1.4-build71.dmg"
+        sparkle:edSignature="ElkDPpPR4zhqs8UW2UqA4ObYfa2v9C0lUEe05WGxiFS4MtKWXmItpis/Z/AxL0gIT0koa4ScpYIjSKBvMSEaBA=="
+        length="3494047"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 71</h2>
+        <ul>
+          <li>Adds connection outcome toasts after connect operations.</li>
+          <li>Single-device success toasts include the connected device name.</li>
+          <li>Batch success toasts summarize the number of connected devices instead of listing names.</li>
+          <li>Includes related state-handling and interaction-lock test coverage.</li>
+        </ul>
+        <p><strong>What to watch:</strong> verify single-connect naming, 2+ device batch count messaging, clean truncation for long device names, and no stale/stacked toasts across repeated connect attempts.</p>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.4 (build 70)</title>
       <sparkle:version>70</sparkle:version>
       <sparkle:shortVersionString>1.1.4</sparkle:shortVersionString>
