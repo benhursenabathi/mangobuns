@@ -7,6 +7,27 @@
     <language>en</language>
 
     <item>
+      <title>Version 1.1.5 (build 72)</title>
+      <sparkle:version>72</sparkle:version>
+      <sparkle:shortVersionString>1.1.5</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Tue, 28 Jul 2026 22:44:56 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.5-build72/Switchy-1.1.5.dmg"
+        sparkle:edSignature="KwuSiV8fQmpdDPiuK9WTrfxysCeWItgIGmioRSIfKf36UtIdeycz7Tf/mAUODpOsBr8ECaExalfc2IJS0UwCCA=="
+        length="3491534"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's New in 1.1.5 (build 72)</h2>
+        <ul>
+          <li>Added toast notifications when devices are switched using Switchy.</li>
+          <li>Improved speed on older machines.</li>
+          <li>Bug fixes.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.4 (build 71)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>71</sparkle:version>
