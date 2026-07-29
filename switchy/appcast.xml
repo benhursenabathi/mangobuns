@@ -7,6 +7,29 @@
     <language>en</language>
 
     <item>
+      <title>Beta 1.1.5 (build 73)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>73</sparkle:version>
+      <sparkle:shortVersionString>1.1.5</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Wed, 29 Jul 2026 11:33:18 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.5-build73/Switchy-Beta-1.1.5-build73.dmg"
+        sparkle:edSignature="ajdGaJ60HhI1T0vYUwBby7E61qDDIbSFl0+YHKNgt9q4SxGbHzdWnOyeMNsAHFQNxARmYIZ5tPifpOhPmSzPAQ=="
+        length="3528496"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 73</h2>
+        <ul>
+          <li>Menu bar icon shows an animated searching orb while Switchy is looking for other Macs — at launch, after wake, through post-wake verification, and on network changes.</li>
+          <li>Dropdown: the four network status rows collapse into one "Looking for your Macs…" row, which resolves in place instead of disappearing.</li>
+          <li>Settings: custom keyboard, mouse and trackpad icons for peer devices.</li>
+          <li>To check: orb legibility on light and dark menu bars, that the dropdown does not change width when a search finishes, and that the orb stays up through wake verification.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.5 (build 72)</title>
       <sparkle:version>72</sparkle:version>
       <sparkle:shortVersionString>1.1.5</sparkle:shortVersionString>
