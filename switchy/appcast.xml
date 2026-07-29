@@ -7,6 +7,29 @@
     <language>en</language>
 
     <item>
+      <title>Beta 1.1.5 (build 75)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>75</sparkle:version>
+      <sparkle:shortVersionString>1.1.5</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Wed, 29 Jul 2026 22:36:28 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.5-build75/Switchy-Beta-1.1.5-build75.dmg"
+        sparkle:edSignature="wpFQuRcxRPZrVKHrvRnBpDduzG9lUGxKuR+n99gPIsfPBetzT2TSXJZxPJhRfEE5sLpdpoYdYJTzQAhJE2QmCg=="
+        length="3537595"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 75</h2>
+        <ul>
+          <li>Fixes the beta 74 menu row that could remain visibly stuck on “Looking for your Macs…” after discovery had completed.</li>
+          <li>The native menu now changes the actual status text and icon from the searching orb to “Device list updated” and the refresh arrow, while preserving its opened geometry.</li>
+          <li>Rapid menu close/reopen cycles cannot let an earlier refresh completion overwrite the current state.</li>
+          <li>To check: keep the dropdown open through a refresh. It should transition from “Looking for your Macs…” to “Device list updated” with no width or height jump.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.5 (build 74)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>74</sparkle:version>
