@@ -10,8 +10,8 @@ Weekly entries appended by the `/switchy-seo` skill. Newest at the bottom.
 | /switchy/blog/universal-control-vs-switching-devices/ | 2026-07-10 | Yes — 2026-07-20 (has impressions) |
 | /switchy/blog/kvm-switch-for-two-macs/ | 2026-07-10 | Yes — 2026-07-20 (has impressions) |
 | /switchy/blog/one-keyboard-mouse-mac-mini-macbook/ | 2026-07-10 | Yes — 2026-07-20 (has impressions) |
-| /switchy/blog/magic-keyboard-pairing-mode/ | 2026-07-10 | **Yes — 2026-07-24.** "URL is on Google / Page is indexed". Was "Crawled – currently not indexed" earlier the same day; resolved after Request Indexing + in-prose inbound links shipped. Now watch for first impressions |
-| /switchy/blog/magic-keyboard-multiple-devices/ | 2026-07-10 | **Yes — 2026-07-24.** "URL is on Google / Page is indexed". Same story. Content differentiation no longer needed for *indexing*, but still open as a *ranking* concern (query overlap with the how-to page) |
+| /switchy/blog/magic-keyboard-pairing-mode/ | 2026-07-10 | **Yes — 2026-07-24.** Confirmed serving 2026-08-01: 128 impr, pos 30.7 |
+| /switchy/blog/magic-keyboard-multiple-devices/ | 2026-07-10 | **Yes — 2026-07-24.** Confirmed serving 2026-08-01: 160 impr, pos 18.4. Ranking concern remains (interleaved with the how-to page at the same position) |
 | /switchy/ (homepage) | 2026-07-10 | Yes — 2026-07-20 (18 impr, pos 2.6) |
 
 ---
@@ -244,3 +244,147 @@ Next export: tick **"compare to previous period"** and keep the window aligned t
 ARM), label `new cask`, not draft, reviewDecision REVIEW_REQUIRED, no new comments since the
 auto-resolved template bot on 2026-07-10 (last update 2026-07-11). Two weeks in the new-cask review
 queue. No action available; wait.
+
+---
+
+## 2026-08-01 — Indexing was the ceiling: impressions +154% in one week
+
+**Window:** 2026-07-23 → 2026-07-29, vs 2026-07-16 → 2026-07-22. **No overlap** — first clean
+week-over-week read since the log started. (Export still had "compare to previous period" unticked,
+so deltas below are computed by stitching the two exports, not read from the file.)
+
+**Site-wide:** impressions **323 → 820 (+154%)**, clicks **10 → 17 (+70%)**, weighted avg position
+**11.5 → 17.1**.
+
+The position number looks like a demotion and isn't. It is arithmetic: two pages that had *never*
+had an impression entered the index on 2026-07-24 and immediately pulled 288 impressions at pos
+18.4 and 30.7, dragging the site-wide mean down. Excluding those two pages, position moved
+11.5 → 13.6, and essentially all of that residual is the how-to page (below).
+
+### Per page (impressions / clicks / position)
+
+| Page | Last wk | This wk | Pos |
+|---|---|---|---|
+| blog/how-to-switch-magic-keyboard-between-macs/ | 200 / 5 | **294 / 2** | 14.29 → **18.36** |
+| blog/magic-keyboard-multiple-devices/ | 0 / 0 | **160 / 1** | — → 18.37 |
+| compare/ | 72 / 3 | **132 / 9** | 6.26 → 6.77 |
+| blog/magic-keyboard-pairing-mode/ | 0 / 0 | **128 / 0** | — → 30.70 |
+| blog/universal-control-vs-switching-devices/ | 29 / 0 | 56 / 0 | 12.48 → **10.50** |
+| blog/one-keyboard-mouse-mac-mini-macbook/ | 2 / 0 | 42 / 0 | 12.00 → **10.38** |
+| blog/kvm-switch-for-two-macs/ | 26 / 0 | **18 / 0** | 6.73 → **8.17** |
+| switchy/ (homepage) | 8 / 0 | 12 / 5 | 2.00 → 1.50 |
+| blog/ (hub) | 5 / 1 | 5 / 0 | 5.40 → 19.00 |
+| / (root) | 6 / 1 | 5 / 0 | 13.67 → 23.00 |
+
+**Last week's open question is answered.** The 2026-07-24 entry set the test explicitly: "if they're
+still at 0 impr on 2026-07-31, indexing wasn't the real ceiling." They went **0 → 288 impressions**.
+Indexing *was* the ceiling. The two-week block on those posts was the single largest constraint on
+the site, and clearing it roughly doubled site-wide impressions on its own.
+
+**compare/ CTR rewrite is confirmed.** Third data point on the 2026-07-20 title/meta change, now
+with a full clean week: CTR 1.2% → 4.2% → **6.8%**, clicks 3 → **9**. This page produces 53% of all
+site clicks from 15% of impressions. Do not touch its title again without a strong reason.
+
+### Notable queries
+
+- **"Apple keyboard" phrasing gap (actionable).** The pairing-mode post ranks pos **9–29** for
+  *"magic keyboard"* phrasings of an intent and pos **34–55** for the *"apple keyboard" /
+  "apple wireless keyboard" / "apple bluetooth keyboard"* phrasings of the *same* intent —
+  17 such queries, ~25 impressions, e.g. "how to make apple wireless keyboard discoverable" (50.7),
+  "how to pair apple bluetooth keyboard" (54.5), "apple keyboard pairing" (34.5), "pair apple
+  keyboard" (41.0). Cause is direct: the string "Apple keyboard"/"Apple wireless keyboard" appears
+  **zero times** in the page body, title, description, or keywords. Same intent, ~20-position gap,
+  purely vocabulary. This cluster was first flagged 2026-07-20, faded 2026-07-24, and is back larger.
+- **Competitor-brand cluster converts at 0%.** "magic switch mac" 25 impr / pos 7.3 / **0 clicks**
+  (fires the automated CTR flag), plus "magic device switch" 11 @ 7.5, "magic switch app" 8 @ 9.4,
+  "magic switch" 7 @ 7.9, "switchmymagic" 6 @ 3.7, "magicswitch" 2 @ 12.5 — **~59 impressions,
+  0 clicks**, all page 1. Inferred to land on compare/ (only competitor-targeting page; its 6.77
+  average matches the cluster). Backing that out, compare/'s remaining ~73 impressions produced all
+  9 clicks — a **12% CTR** on its intended queries.
+- **Magic Trackpad cluster, unclaimed.** "magic trackpad multiple devices" (14.5), "apple magic
+  trackpad connect to multiple devices" (11.0), "magic trackpad connect to multiple devices" (1.0),
+  "magic trackpad pairing mode" / "magic trackpad pairing" / "apple magic trackpad pairing mode"
+  (all 19.0), "how to pair magic trackpad" (37.0). ~8 impressions — too thin for its own post,
+  but exactly the differentiation angle already queued for multiple-devices and pairing-mode.
+- "how to make magic keyboard discoverable" pos 15.2 (4 impr) — the pairing-mode post's head term,
+  now clearly attached to the right page but still page 2.
+
+**Site health:** all 11 sitemap URLs return 200. Single canonical sitemap confirmed still in place
+after last week's `public/sitemap.xml` deletion.
+
+**Indexing:** Watching table is now **fully green** — every listed URL is indexed. The two
+2026-07-24 additions are confirmed not just indexed but *serving*, which is a stronger signal than
+`site:` search. No URLs currently pending.
+
+**Actions taken:** rewrote and roughly tripled the two thinnest posts — the same two that just
+proved their demand. Neither was touched on 2026-07-24, so this doesn't disturb any measurement in
+flight.
+
+**1. `magic-keyboard-pairing-mode` — 550 → 1,359 words.** Closes the vocabulary gap that was
+costing ~20 positions. Changes:
+- Title `Magic Keyboard Pairing Mode…` → **`Apple Magic Keyboard Pairing Mode — How to Make It
+  Discoverable (2026)`**; meta description, og tags, and keywords now carry "Apple Wireless
+  Keyboard" / "pair apple bluetooth keyboard" / "make apple keyboard discoverable".
+- New section on the **pre-2015 Apple Wireless Keyboard (A1314)** — press-and-hold power button,
+  blinking green LED, AA batteries, and crucially *no charging port*, so the cable shortcut this
+  site recommends everywhere doesn't apply to it. Real content gap, not keyword insertion: the
+  advice on the rest of the page was actively wrong for that model.
+- New section on **Magic Trackpad and Magic Mouse** switch/port locations, targeting the pos-19
+  trackpad pairing cluster.
+- Intro now explains the Apple Wireless Keyboard → Magic Keyboard rename (2015), which is *why*
+  the two vocabularies exist and why searchers use them interchangeably.
+- Added a **visible FAQ** (6 questions). The FAQPage schema previously had no on-page counterpart,
+  which is a structured-data guideline violation — now fixed, and it absorbs the "apple keyboard"
+  question phrasings directly.
+
+**2. `magic-keyboard-multiple-devices` — 533 → 1,442 words, restructured to stop competing with the
+how-to page.** The near-identical positions (18.37 vs 18.36) and the identical four-methods-in-the-
+same-order structure were the problem. Fix was *subtraction as much as addition*: the four
+workarounds are now a compressed four-bullet summary that defers to the how-to guide for steps,
+freeing the page to own what only it can:
+- **Full Logitech Easy-Switch comparison** — the one its meta description has been promising since
+  July. Seven-row table (MX Keys / MX Keys Mini / K380), plus Logitech Flow as the cross-account
+  answer to Universal Control, and an honest "Easy-Switch is genuinely better at this" paragraph.
+- **Dedicated Trackpad/Mouse/Touch-ID section** claiming the unowned trackpad cluster.
+- **New cross-platform section** (iPad, Apple TV, Windows, Android) covering modifier remapping and
+  the fact that multi-touch gestures don't survive off macOS — targets "can an apple magic keyboard
+  connect to android" (pos 49).
+- Corrected a factual point the old version implied: one-pairing-at-a-time is **not** a Bluetooth
+  limitation. The protocol supports multiple bonded hosts — competing keyboards use that. It's an
+  Apple firmware decision. Being right about this is also what makes the Logitech comparison land.
+- Added a **visible FAQ** (5 questions), same schema-compliance fix as above.
+
+Blog hub cards updated for both. HTML validated, all JSON-LD parses, all internal links resolve,
+build clean. IndexNow already lists both URLs, so deploy pings automatically.
+
+**Deliberately NOT touched: the how-to page.** Impressions +47% but position 14.29 → 18.36 and
+clicks 5 → 2 (CTR 2.5% → 0.68%). Two readings fit: benign long-tail expansion (more queries, worse
+average) or genuine cannibalization by the two siblings that indexed *inside this window*. Site-wide
+daily position degraded from 11.7 to ~18 immediately after 2026-07-24, consistent with either. It
+cannot be separated from a site-wide export — needs a **page-filtered query export** for the how-to
+page across both windows. Editing it blind risks breaking the site's biggest page. Note that this
+week's restructure of multiple-devices is itself a partial treatment: if the two *were* cannibalizing,
+pushing them onto different queries should show up as the how-to page recovering.
+
+**Deliberately NOT doing:**
+- **compare/ title/meta — no change, despite the CTR flag firing on "magic switch mac."** The flag
+  is a false positive here. The page's overall CTR *rose* (4.2% → 6.8%) and clicks tripled in the
+  same week. The 0-click cluster is competitor-brand navigational intent — someone searching
+  "magic switch mac" wants Magic Switch, and a "Switchy vs …" result is correctly ignored. Rewriting
+  the snippet to chase those ~59 impressions would risk the 12% CTR on the queries that actually
+  convert. Revisit only if non-brand CTR falls.
+- **universal-control-vs-switching-devices/** — 12.48 → 10.50 with impressions nearly doubled.
+  Second consecutive week the "improving → leave alone" rule applies. Knocking on page 1.
+- **one-keyboard-mouse-mac-mini-macbook/** — 2 → 42 impressions, 12.0 → 10.38. Climbing; leave.
+- **New posts** — no query cluster is yet large enough to justify one. The trackpad cluster (~8
+  impr) belongs inside existing posts, not in a thin new page.
+
+**Watch next week:** whether the how-to page's position recovers once the two new siblings settle
+(if it stays ~18 while they hold ~18, that's cannibalization, and consolidation becomes the play);
+first clicks on pairing-mode; kvm-switch, the only decliner (26 → 18 impr, 6.73 → 8.17) — small
+numbers, but the only page moving the wrong way on both axes; whether compare/'s non-brand CTR holds
+near 12%. Next export: **tick "compare to previous period"** (missed again this week).
+
+**Homebrew cask PR #274395:** still OPEN, not draft, reviewDecision REVIEW_REQUIRED, no new comments
+since the auto-resolved template bot on 2026-07-10; last update 2026-07-11 — **three weeks** with no
+maintainer movement. Unchanged from last week. No action available; wait.
