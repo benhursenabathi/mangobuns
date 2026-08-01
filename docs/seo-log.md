@@ -230,8 +230,11 @@ so far. The real signal is first impressions in the 2026-07-31 export.
    copies forever and the drift recurs. `public-root/sitemap.xml` is now the single source of truth.
    Also updated `.claude/skills/switchy-seo/SKILL.md`, which instructed future runs to edit the
    now-deleted file, and added the in-prose-link lesson from this week to its new-post checklist.
-   **Check in GSC** that only `https://mangobuns.com/sitemap.xml` is submitted — if the `/switchy/`
-   one was ever submitted it will now report a fetch error and should be removed there.
+   **GSC check completed 2026-08-01 — clean, nothing to remove.** Sitemaps report shows exactly one
+   row: `https://mangobuns.com/sitemap.xml`, submitted 10 Jul 2026, last read 30 Jul 2026, status
+   **Success**, 11 discovered pages. The `/switchy/` duplicate was never submitted to GSC, so
+   deleting the file was the entire fix. This also resolves the "Temporary processing error" seen
+   on 2026-07-24 — transient GSC noise, as diagnosed at the time, cleared without intervention.
 
 **Watch next week:** **first impressions on the two newly-indexed posts** (they're in the index but
 have never had one — if they're still at 0 impr on 2026-07-31, indexing wasn't the real ceiling and
