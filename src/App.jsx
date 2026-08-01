@@ -390,9 +390,10 @@ export default function App() {
                 loop
                 muted
                 playsInline
+                preload="metadata"
                 className="w-full h-auto"
               >
-                <source src={`${import.meta.env.BASE_URL}Macbook A.mp4`} type="video/mp4" />
+                <source src={`${import.meta.env.BASE_URL}switchy-demo.mp4`} type="video/mp4" />
               </video>
             </div>
           </ScrollFadeSection>
