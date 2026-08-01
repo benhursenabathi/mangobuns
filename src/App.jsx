@@ -202,12 +202,10 @@ function DemoSection() {
           <div className="demo-frame__chrome">
             <span><i /><i /><i /></span>
             <strong>SWITCHY / LIVE DEMO</strong>
-            <span>00:08</span>
+            <span>00:24</span>
           </div>
-          <video autoPlay loop muted playsInline poster={`${import.meta.env.BASE_URL}how-it-works.gif`}>
-            {/* Add public/switching-demo.mp4 later; the browser falls back to the current film. */}
-            <source src={`${import.meta.env.BASE_URL}switching-demo.mp4`} type="video/mp4" />
-            <source src={`${import.meta.env.BASE_URL}Macbook A.mp4`} type="video/mp4" />
+          <video autoPlay loop muted playsInline preload="metadata" poster={`${import.meta.env.BASE_URL}how-it-works.gif`}>
+            <source src={`${import.meta.env.BASE_URL}switchy-demo.mp4`} type="video/mp4" />
           </video>
         </Reveal>
       </div>
