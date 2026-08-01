@@ -7,6 +7,30 @@
     <language>en</language>
 
     <item>
+      <title>Beta 1.1.5 (build 77)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>77</sparkle:version>
+      <sparkle:shortVersionString>1.1.5</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Sat, 01 Aug 2026 13:19:28 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.5-build77/Switchy-Beta-1.1.5-build77.dmg"
+        sparkle:edSignature="rBmAqvuy3MHMTXokcPbESiBL5Y/LPwcjTn1GVFjqweTkuyPNNKYNoLZqVqp8DKNKKxyyTvnOGMm97iMsXHfiBQ=="
+        length="3616782"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 77</h2>
+        <ul>
+          <li>Fixes a startup crash on macOS 26.6 caused by an invalid Foundation file-write option combination, so the menu bar item can be created normally.</li>
+          <li>Adds regression coverage for safely creating Switchy's shared Mac identity without replacing an existing identity.</li>
+          <li>When Switchy runs directly from a read-only DMG or App Translocation, Start at Login and in-app updating are intentionally unavailable, preventing transient mounted copies from becoming persistent launch targets. Normal installed and writable copies keep their existing behavior.</li>
+          <li>Beta DMGs now use a versioned volume name, making multiple mounted beta images easier to distinguish.</li>
+          <li>To check on the affected work Mac: quit Switchy, eject older Switchy DMGs, mount build 77, launch Switchy Beta directly, and confirm its menu bar icon appears and remains usable.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.5 (build 76)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>76</sparkle:version>
