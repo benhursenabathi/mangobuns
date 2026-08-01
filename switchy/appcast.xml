@@ -7,6 +7,28 @@
     <language>en</language>
 
     <item>
+      <title>Version 1.1.5 (build 78)</title>
+      <sparkle:version>78</sparkle:version>
+      <sparkle:shortVersionString>1.1.5</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Sat, 01 Aug 2026 21:53:30 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.5-build78/Switchy-1.1.5.dmg"
+        sparkle:edSignature="4oKjIFq9YAGZn9evEpq3vozveBXMtmcZwVCQo2eOgVOtTKskFPvdUo9w6RuS7lznO0uYgyol7WqFvBgHSNjIDQ=="
+        length="3616779"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's New in Version 1.1.5</h2>
+        <ul>
+          <li>Switchy is better at knowing when your other Mac is asleep or unavailable.</li>
+          <li>Clearer messages make it easier to see what Switchy is doing.</li>
+          <li>Switching is more reliable when Macs wake up or change networks.</li>
+          <li>Fixed an issue that could prevent Switchy from opening correctly from its downloaded installer.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.5 (build 77)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>77</sparkle:version>
