@@ -7,6 +7,30 @@
     <language>en</language>
 
     <item>
+      <title>Beta 1.1.5 (build 76)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>76</sparkle:version>
+      <sparkle:shortVersionString>1.1.5</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Sat, 01 Aug 2026 12:09:57 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.5-build76/Switchy-Beta-1.1.5-build76.dmg"
+        sparkle:edSignature="n4NaLkZe9UoLJpEeQXTP4BbKYQCq2TEgqh1LDUSS5AfKUO8XfwJMS5hq8M4+QEzNEpBNDnKoGuQ47UMhqwSECg=="
+        length="3606273"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 76</h2>
+        <ul>
+          <li>Fixes stale Available devices when the remembered Mac is asleep, lid-closed, offline, or no longer reachable: Switchy now verifies a live peer response before presenting a device as available.</li>
+          <li>Refresh results now distinguish checking, unavailable, disconnected, and verified available devices, and the menu cannot launch a stale connection while verification is in progress.</li>
+          <li>Unavailable devices offer Retry after waking the other Mac, plus an explicit Connect After Power Cycle path when the device was physically reset.</li>
+          <li>Improves peer lifecycle cleanup, TCP reachability probing, empty device-list responses, and stable/Beta self-discovery filtering.</li>
+          <li>To check: with MacBook 2 lid-closed/asleep, refresh MacBook 1 and confirm its devices are unavailable and not clickable; wake MacBook 2, refresh again, and confirm each device reflects its verified state.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.5 (build 75)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>75</sparkle:version>
