@@ -1,0 +1,78 @@
+- generic [ref=f13e3]:
+  - banner [ref=f13e4]:
+    - link "Switchy home" [ref=f13e5] [cursor=pointer]:
+      - /url: "#top"
+      - generic [ref=f13e6]: Switchy
+    - link "Get Switchy" [ref=f13e7] [cursor=pointer]:
+      - /url: https://mangobuns.lemonsqueezy.com/checkout/buy/68fb31f9-8ae3-45db-bcc3-b7e49bec2817
+  - main [ref=f13e9]:
+    - generic [ref=f13e13]:
+      - generic [ref=f13e14]: Built for multi-Mac desks
+      - heading "One keyboard, mouse, or trackpad. For every Mac." [level=1] [ref=f13e16]:
+        - generic [ref=f13e17]:
+          - generic [ref=f13e18]: One
+          - generic [ref=f13e19]: keyboard.
+        - generic [ref=f13e22]: For every Mac.
+      - paragraph [ref=f13e23]: Switch your Magic Keyboard, Trackpad, and Mouse between Macs without touching Bluetooth settings.
+      - link "Get Switchy" [ref=f13e25] [cursor=pointer]:
+        - /url: https://mangobuns.lemonsqueezy.com/checkout/buy/68fb31f9-8ae3-45db-bcc3-b7e49bec2817
+    - generic [ref=f13e27]:
+      - heading "Let go." [level=2] [ref=f13e29]
+      - generic [ref=f13e30]:
+        - img "Two MacBooks ready to receive a shared keyboard, trackpad, and mouse"
+    - generic [ref=f13e44]:
+      - heading "Click once. Start Working." [level=2] [ref=f13e47]: Click once.Start Working.
+      - generic [ref=f13e48]: 00:24
+    - generic [ref=f13e57]:
+      - generic [ref=f13e58]:
+        - heading "No cables needed" [level=2] [ref=f13e60]
+        - paragraph [ref=f13e61]: A tiny menu bar utility with an unusually large effect on a two-Mac desk.
+      - generic [ref=f13e62]:
+        - article [ref=f13e64]:
+          - generic [ref=f13e65]:
+            - heading "Switch everything at once." [level=3] [ref=f13e66]
+            - paragraph [ref=f13e67]: Keyboard, trackpad, and mouse — move them all with a single click.
+          - img "Switch Everything at Once" [ref=f13e71]
+        - article [ref=f13e74]:
+          - generic [ref=f13e75]:
+            - heading "Switch with lid closed" [level=3] [ref=f13e76]
+            - paragraph [ref=f13e77]: A powered MacBook can release its accessories without opening the lid.
+        - article [ref=f13e79]:
+          - generic [ref=f13e80]:
+            - heading "Your desk stays private." [level=3] [ref=f13e81]
+            - paragraph [ref=f13e82]: No account, tracking, or cloud relay. Your Macs speak directly.
+    - generic [ref=f13e90]:
+      - generic [ref=f13e91]:
+        - heading "FAQ" [level=2] [ref=f13e92]
+        - paragraph [ref=f13e93]: Still wondering if Switchy fits your setup? These are the questions most multi-Mac users ask first.
+      - generic [ref=f13e95]:
+        - heading [level=3] [ref=f13e97]:
+          - button "What is Switchy?" [ref=f13e98] [cursor=pointer]
+        - heading [level=3] [ref=f13e103]:
+          - button "How does the handoff work?" [ref=f13e104] [cursor=pointer]
+        - heading [level=3] [ref=f13e109]:
+          - button "Which accessories are supported?" [ref=f13e110] [cursor=pointer]
+        - heading [level=3] [ref=f13e115]:
+          - button "Does it work with a closed MacBook?" [ref=f13e116] [cursor=pointer]
+        - heading [level=3] [ref=f13e121]:
+          - button "Is my data private?" [ref=f13e122] [cursor=pointer]
+        - heading [level=3] [ref=f13e127]:
+          - button "What does one license include?" [ref=f13e128] [cursor=pointer]
+    - generic [ref=f13e132]:
+      - heading "Switch your magic accessories between Macs" [level=2] [ref=f13e134]: Switch your magic accessoriesbetween Macs
+      - paragraph [ref=f13e135]: Start with a full three-day trial. No account required.
+      - generic [ref=f13e136]:
+        - link "Get Switchy" [ref=f13e137] [cursor=pointer]:
+          - /url: https://mangobuns.lemonsqueezy.com/checkout/buy/68fb31f9-8ae3-45db-bcc3-b7e49bec2817
+        - link "Try free for 3 days" [ref=f13e138] [cursor=pointer]:
+          - /url: /switchy/downloads/Switchy.dmg
+  - contentinfo [ref=f13e142]:
+    - generic [ref=f13e143]: Switchy
+    - navigation "Footer navigation" [ref=f13e145]:
+      - link "Compare" [ref=f13e146] [cursor=pointer]:
+        - /url: /switchy/compare/
+      - link "Blog" [ref=f13e147] [cursor=pointer]:
+        - /url: /switchy/blog/
+      - link "Privacy" [ref=f13e148] [cursor=pointer]:
+        - /url: /switchy/privacy/
+    - generic [ref=f13e149]: © 2026 Mangobuns

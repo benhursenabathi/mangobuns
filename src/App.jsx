@@ -1,16 +1,8 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import {
-  IconArrowUpRight as ArrowUpRight,
-  IconCheck as Check,
-  IconCommand as Command,
-  IconDeviceIpadHorizontal as RectangleHorizontal,
   IconDownload as Download,
-  IconKeyboard as Keyboard,
   IconLock as Lock,
-  IconMouse as Mouse,
-  IconSparkles as Sparkles,
-  IconWifi as Wifi,
 } from '@tabler/icons-react'
 import {
   Accordion,
@@ -18,11 +10,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
+import { LiquidButton } from '@/components/ui/liquid-glass-button'
 import { TextLoop } from '@/components/ui/text-loop'
 import { SwitchingStory } from '@/components/SwitchingStory'
 
 const CHECKOUT_URL = 'https://mangobuns.lemonsqueezy.com/checkout/buy/68fb31f9-8ae3-45db-bcc3-b7e49bec2817'
 const DOWNLOAD_URL = `${import.meta.env.BASE_URL}downloads/Switchy.dmg`
+const PURCHASE_CTA = 'Get Switchy'
+const TRIAL_CTA = 'Try free for 3 days'
 
 const HERO_ENTRANCE = {
   hidden: { opacity: 0, y: 18, filter: 'blur(6px)' },
@@ -49,36 +44,39 @@ const HERO_WORD_LOOP = {
 
 const FAQS = [
   {
+    question: 'Is there a free trial?',
+    answer: 'Yes — every new installation includes a 3-day, full-featured free trial. Download Switchy, install it on your Macs, and start switching right away. After the trial, a one-time $12.99 purchase unlocks it for good.',
+  },
+  {
     question: 'What is Switchy?',
-    answer: 'Switchy is a menu bar app for macOS that lets you share Magic accessories between your work and personal Macs with a single click. No cables, no unpairing, no digging through System Settings.',
+    answer: 'Switchy is a menu bar app for macOS that lets you share Magic accessories between your Macs — work and personal — with a single click. No cables, no unpairing, no digging through System Settings.',
   },
   {
-    question: 'How does the handoff work?',
-    answer: 'Switchy runs on both Macs and discovers them over your local network. Choose a Mac from the menu bar and Switchy releases the selected accessories from one Mac, then connects them to the other.',
+    question: 'How does Switchy work?',
+    answer: 'Switchy sits in your menu bar and detects Magic Keyboards, Trackpads, and Mice connected to your Mac. When you click to switch a device, it seamlessly hands it over to your other Mac — no System Settings required.',
   },
   {
-    question: 'Which accessories are supported?',
-    answer: 'Magic Keyboard, Magic Keyboard with Touch ID, Magic Trackpad, and Magic Mouse are supported. Switchy works with Macs running macOS 14.0 Sonoma or newer.',
-  },
-  {
-    question: 'Does it work with a closed MacBook?',
-    answer: 'Yes. A MacBook connected to power can release its accessories while the lid is closed and the Mac is asleep, so your desk setup can stay exactly as it is.',
+    question: 'What devices are supported?',
+    answer: 'Switchy supports all Apple Magic accessories: Magic Keyboard, Magic Keyboard with Touch ID, Magic Trackpad, and Magic Mouse. Compatible with all Macs running macOS 14.0 (Sonoma) and above.',
   },
   {
     question: 'Is my data private?',
-    answer: 'The handoff happens locally between your Macs. Switchy has no accounts, analytics, or tracking. External connections are limited to license activation and software update checks.',
+    answer: 'Switching is completely local — your Macs talk directly to each other over your local network, and no switching data ever leaves your devices. The only external connections Switchy makes are license activation and periodic validation with Lemon Squeezy (your license key and a device identifier) and software update checks. No analytics, no tracking, no accounts.',
   },
   {
-    question: 'What does one license include?',
-    answer: 'A one-time $9.99 purchase unlocks Switchy for up to five Macs. There is no subscription, and every download starts with a full three-day free trial.',
+    question: 'Is it a lifetime license for all my Macs?',
+    answer: 'Yes — one purchase, yours forever, with no subscriptions or hidden fees. Each license covers up to 5 Macs at a time, and you can deactivate a Mac whenever you like to free up a slot for a new one.',
+  },
+  {
+    question: 'Do I need to install Switchy on all my Macs?',
+    answer: 'Yes, Switchy needs to be installed on each Mac you want to switch devices between. The app automatically discovers other Macs running Switchy on your local network.',
   },
 ]
 
-const DEVICE_LABELS = [
-  { label: 'KEYBOARD', icon: Keyboard },
-  { label: 'TRACKPAD', icon: RectangleHorizontal },
-  { label: 'MOUSE', icon: Mouse },
-]
+const ONBOARDING_HERO_STEP = {
+  title: 'Switch Everything at Once',
+  image: 'Onboarding5.jpg',
+}
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -103,9 +101,9 @@ function Navbar() {
         <a href="#faq">FAQ</a>
       </nav>
 
-      <motion.a className="nav-cta" href={DOWNLOAD_URL} whileTap={{ scale: 0.96 }}>
-        Try free <Download size={15} strokeWidth={2} />
-      </motion.a>
+      <LiquidButton className="nav-cta" href={CHECKOUT_URL}>
+        {PURCHASE_CTA}
+      </LiquidButton>
     </header>
   )
 }
@@ -150,23 +148,9 @@ function Hero() {
           animate="visible"
           variants={HERO_ENTRANCE}
         >
-          <motion.a className="button button--primary" href={DOWNLOAD_URL} whileTap={{ scale: 0.96 }}>
-            Download free trial <Download size={17} strokeWidth={2.1} />
+          <motion.a className="button button--primary" href={CHECKOUT_URL} whileTap={{ scale: 0.96 }}>
+            {PURCHASE_CTA}
           </motion.a>
-          <motion.a className="button button--ghost" href={CHECKOUT_URL} whileTap={{ scale: 0.96 }}>
-            Buy once — $9.99
-          </motion.a>
-        </motion.div>
-        <motion.div
-          className="hero__meta"
-          custom={0.42}
-          initial="hidden"
-          animate="visible"
-          variants={HERO_ENTRANCE}
-        >
-          <span><Check size={13} /> 3-day trial</span>
-          <span><Check size={13} /> Up to 5 Macs</span>
-          <span><Check size={13} /> macOS 14+</span>
         </motion.div>
       </div>
 
@@ -215,27 +199,24 @@ function DemoSection() {
 
 function SwitchAllCard() {
   return (
-    <article className="bento-card bento-card--wide bento-card--orange">
+    <article className="bento-card bento-card--wide bento-card--onboarding">
       <div className="bento-card__header">
         <h3>Switch everything at once.</h3>
-        <p>Move a keyboard, trackpad, and mouse together—or choose only what you need.</p>
+        <p>Keyboard, trackpad, and mouse — move them all with a single click.</p>
       </div>
-      <div className="switch-command">
-        <div className="switch-command__top">
-          <span className="switch-command__app"><Command size={14} /> Switchy</span>
-          <span className="switch-command__online"><i /> 2 Macs online</span>
+      <div className="onboarding-demo">
+        <div className="onboarding-demo__frame">
+          <div className="onboarding-demo__screen onboarding-demo__screen--menu-focus">
+            <img
+              src={`${import.meta.env.BASE_URL}images/onboarding/${ONBOARDING_HERO_STEP.image}`}
+              alt={ONBOARDING_HERO_STEP.title}
+              loading="lazy"
+              decoding="async"
+              draggable="false"
+            />
+          </div>
+          <span className="onboarding-demo__chin" aria-hidden="true" />
         </div>
-        <div className="switch-command__target">
-          <span className="switch-command__mac-icon">M</span>
-          <div><small>SWITCH TO</small><strong>Studio Mac</strong></div>
-          <ArrowUpRight size={17} />
-        </div>
-        <div className="switch-command__devices">
-          {DEVICE_LABELS.map(({ label, icon: Icon }) => (
-            <div key={label}><Icon size={15} /><span>{label}</span><i /></div>
-          ))}
-        </div>
-        <button type="button">Switch all devices <span>⌘↵</span></button>
       </div>
     </article>
   )
@@ -258,7 +239,7 @@ function Features() {
           <Reveal className="bento-reveal" delay={0.05}>
             <article className="bento-card bento-card--night">
               <div className="bento-card__header">
-                <h3>Asleep, not out.</h3>
+                <h3>Switch with lid closed</h3>
                 <p>A powered MacBook can release its accessories without opening the lid.</p>
               </div>
               <div className="sleep-visual" aria-hidden="true">
@@ -281,23 +262,7 @@ function Features() {
                 <p>No account, tracking, or cloud relay. Your Macs speak directly.</p>
               </div>
               <div className="local-visual" aria-hidden="true">
-                <span><Wifi size={18} /></span>
-                <i /><i /><i />
-                <span><Lock size={18} /></span>
-              </div>
-            </article>
-          </Reveal>
-
-          <Reveal className="bento-reveal bento-reveal--wide" delay={0.08}>
-            <article className="bento-card bento-card--wide bento-card--license">
-              <div className="license-copy">
-                <h3>$9.99 once.<br />Five Macs forever.</h3>
-                <p>Try every feature free for three days. Keep it with a single lifetime purchase.</p>
-                <motion.a href={DOWNLOAD_URL} whileTap={{ scale: 0.96 }}>Try free <Download size={16} /></motion.a>
-              </div>
-              <div className="license-orbit" aria-hidden="true">
-                <span className="license-orbit__center"><Sparkles size={24} /></span>
-                {[1, 2, 3, 4, 5].map((index) => <i key={index} style={{ '--index': index }}>M{index}</i>)}
+                <span className="local-visual__lock"><Lock size={52} strokeWidth={1.5} /></span>
               </div>
             </article>
           </Reveal>
@@ -340,11 +305,11 @@ function FinalCTA() {
       <h2>Switch your magic accessories<br />between Macs</h2>
       <p>Start with a full three-day trial. No account required.</p>
       <div className="final-cta__actions">
-        <motion.a className="button button--light" href={DOWNLOAD_URL} whileTap={{ scale: 0.96 }}>
-          Download Switchy <Download size={17} />
+        <motion.a className="button button--light" href={CHECKOUT_URL} whileTap={{ scale: 0.96 }}>
+          {PURCHASE_CTA}
         </motion.a>
-        <motion.a className="button button--outline" href={CHECKOUT_URL} whileTap={{ scale: 0.96 }}>
-          Buy for $9.99 <ArrowUpRight size={17} />
+        <motion.a className="button button--outline" href={DOWNLOAD_URL} whileTap={{ scale: 0.96 }}>
+          {TRIAL_CTA} <Download size={17} />
         </motion.a>
       </div>
     </section>
