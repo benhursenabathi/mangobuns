@@ -18,7 +18,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/switchy/favicon-32x32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -113,7 +113,6 @@
       margin-top: 0.5rem;
     }
     .cta:hover { opacity: 0.8; }
-    .cta-section { text-align: center; margin: 3rem 0 1rem; }
     .related {
       margin-top: 2.5rem;
       padding-top: 1.5rem;
@@ -135,6 +134,7 @@
       h1 { font-size: 1.75rem; }
     }
   </style>
+  <link rel="stylesheet" href="/switchy/switchy-pages.css">
 
   <script type="application/ld+json">
   {
@@ -218,9 +218,19 @@
   </script>
 </head>
 <body>
+  <header class="content-nav">
+    <a class="content-brand" href="/switchy/" aria-label="Switchy home">
+      <img src="/switchy/icon_512x512.png" alt="">
+      <span>Switchy</span>
+    </a>
+    <nav class="content-nav__links" aria-label="Main navigation">
+      <a href="/switchy/#how-it-works">How it works</a>
+      <a href="/switchy/compare/">Compare</a>
+      <a href="/switchy/blog/">Blog</a>
+    </nav>
+    <a class="content-nav__cta" href="https://mangobuns.lemonsqueezy.com/checkout/buy/68fb31f9-8ae3-45db-bcc3-b7e49bec2817">Get Switchy</a>
+  </header>
   <div class="container">
-    <nav><a href="/switchy/">Switchy</a></nav>
-
     <h1>Can a Magic Keyboard Connect to Multiple Devices?</h1>
     <p class="meta">July 2026 &middot; Updated August 2026 &middot; 6 min read</p>
 
@@ -307,8 +317,23 @@
     <h3>Why did Apple design it this way?</h3>
     <p>It's a firmware decision, not a Bluetooth constraint — the protocol allows multiple bonded hosts, and competing keyboards use that. Apple's bet was that Universal Control and Handoff would cover multi-machine work, which holds up well when every device is on one Apple Account and much less well when they aren't.</p>
 
-    <div class="cta-section">
-      <a class="cta" href="/switchy/">Try Switchy Free — 3 Days</a>
+    <div class="blog-purchase">
+      <a class="blog-purchase__button" href="https://mangobuns.lemonsqueezy.com/checkout/buy/68fb31f9-8ae3-45db-bcc3-b7e49bec2817" aria-label="Get Switchy for $12.99">
+        <span class="liquid-button__surface" aria-hidden="true"></span>
+        <span class="liquid-button__backdrop" aria-hidden="true"></span>
+        <span class="liquid-button__content">Get Switchy — $12.99</span>
+        <svg class="liquid-button__filter" aria-hidden="true" focusable="false">
+          <defs>
+            <filter id="switchy-liquid-glass" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+              <feTurbulence type="fractalNoise" baseFrequency="0.05 0.05" numOctaves="1" seed="1" result="turbulence"></feTurbulence>
+              <feGaussianBlur in="turbulence" stdDeviation="2" result="blurredNoise"></feGaussianBlur>
+              <feDisplacementMap in="SourceGraphic" in2="blurredNoise" scale="70" xChannelSelector="R" yChannelSelector="B" result="displaced"></feDisplacementMap>
+              <feGaussianBlur in="displaced" stdDeviation="4" result="finalBlur"></feGaussianBlur>
+              <feComposite in="finalBlur" in2="finalBlur" operator="over"></feComposite>
+            </filter>
+          </defs>
+        </svg>
+      </a>
     </div>
 
     <div class="related">

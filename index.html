@@ -144,6 +144,24 @@
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
     rel="stylesheet" />
+
+  <!-- Keep the crawlable React fallback from flashing before the app mounts. -->
+  <style>
+    html,
+    body {
+      background: #070707;
+    }
+
+    body {
+      min-width: 320px;
+      margin: 0;
+      color: #f3f1ec;
+    }
+
+    html:not(.app-ready) #root {
+      visibility: hidden;
+    }
+  </style>
 </head>
 
 <body>
