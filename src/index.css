@@ -85,6 +85,7 @@ h3 {
 .hero h1,
 .switch-story__copy h2,
 .section-heading h2,
+.cable-story__heading h2,
 .faq__intro h2,
 .bento-card__header h3,
 .final-cta h2 {
@@ -326,6 +327,27 @@ li {
   opacity: 0.45;
 }
 
+.hero__devices {
+  position: absolute;
+  z-index: 1;
+  top: 96px;
+  right: 0;
+  bottom: 24px;
+  left: 0;
+  width: min(100%, 1320px);
+  margin: 0 auto;
+  pointer-events: none;
+}
+
+.hero__devices::before {
+  position: absolute;
+  z-index: 0;
+  inset: 13% 15% 5%;
+  background: radial-gradient(ellipse at center, rgba(7, 7, 7, 0.62) 0%, rgba(7, 7, 7, 0.22) 46%, transparent 76%);
+  filter: blur(22px);
+  content: '';
+}
+
 .hero__ticker {
   position: absolute;
   top: 112px;
@@ -529,65 +551,67 @@ li {
 
 .hero-device {
   position: absolute;
-  z-index: 5;
-  filter: drop-shadow(0 32px 34px rgba(0, 0, 0, 0.42));
+  z-index: 1;
+  display: block;
+  opacity: 0.1;
+  filter:
+    drop-shadow(0 10px 14px rgba(0, 0, 0, 0.22))
+    drop-shadow(0 26px 34px rgba(0, 0, 0, 0.24));
+  transition-property: opacity, filter;
+  transition-duration: 420ms;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+  will-change: transform;
 }
 
-.hero-device > span {
-  position: absolute;
-  color: rgba(255, 255, 255, 0.42);
-  font-family: 'IBM Plex Mono', ui-monospace, monospace;
-  font-size: 8px;
-  letter-spacing: 0.12em;
-  white-space: nowrap;
+.hero-device .device-asset {
+  opacity: 0.76;
+  transition-property: opacity;
+  transition-duration: 420ms;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
+.hero-device[data-active='true'] {
+  opacity: 0.48;
+  filter:
+    drop-shadow(0 10px 14px rgba(0, 0, 0, 0.28))
+    drop-shadow(0 26px 34px rgba(0, 0, 0, 0.3));
+}
+
+.hero-device[data-active='true'] .device-asset {
+  opacity: 1;
 }
 
 .hero-device--keyboard {
-  top: 30px;
-  left: -5%;
-  width: clamp(260px, 30vw, 390px);
-  animation: hero-float-a 7s ease-in-out infinite;
+  top: 17%;
+  left: clamp(-82px, calc((100% - 1120px) / 2 - 10px), 110px);
+  width: clamp(230px, 27vw, 360px);
+  animation: hero-device-float-keyboard 11s ease-in-out infinite;
 }
 
 .hero-device--keyboard .device-asset {
-  transform: rotate(-7deg);
-}
-
-.hero-device--keyboard > span {
-  bottom: 8%;
-  left: 13%;
+  transform: rotate(-14deg);
 }
 
 .hero-device--trackpad {
-  top: 12px;
-  right: 2%;
-  width: clamp(150px, 17vw, 218px);
-  animation: hero-float-b 8s 0.5s ease-in-out infinite;
+  top: 11%;
+  right: clamp(-42px, calc((100% - 1120px) / 2 - 4px), 104px);
+  width: clamp(150px, 16vw, 214px);
+  animation: hero-device-float-trackpad 13s 0.35s ease-in-out infinite;
 }
 
 .hero-device--trackpad .device-asset {
-  transform: rotate(8deg);
-}
-
-.hero-device--trackpad > span {
-  right: 4%;
-  bottom: 7%;
+  transform: rotate(11deg);
 }
 
 .hero-device--mouse {
-  right: -2%;
-  bottom: 20px;
-  width: clamp(135px, 15vw, 190px);
-  animation: hero-float-c 7.5s 0.8s ease-in-out infinite;
+  right: clamp(24px, calc((100% - 1060px) / 2), 164px);
+  bottom: 9%;
+  width: clamp(120px, 13vw, 174px);
+  animation: hero-device-float-mouse 12s 0.7s ease-in-out infinite;
 }
 
 .hero-device--mouse .device-asset {
-  transform: rotate(12deg);
-}
-
-.hero-device--mouse > span {
-  right: 11%;
-  bottom: 1%;
+  transform: rotate(16deg);
 }
 
 .hero__scroll {
@@ -612,19 +636,19 @@ li {
   color: var(--ink);
 }
 
-@keyframes hero-float-a {
+@keyframes hero-device-float-keyboard {
   0%, 100% { transform: translate3d(0, 0, 0); }
-  50% { transform: translate3d(0, -14px, 0); }
+  50% { transform: translate3d(8px, -12px, 0); }
 }
 
-@keyframes hero-float-b {
+@keyframes hero-device-float-trackpad {
   0%, 100% { transform: translate3d(0, 0, 0); }
-  50% { transform: translate3d(-5px, -18px, 0); }
+  50% { transform: translate3d(-7px, -14px, 0); }
 }
 
-@keyframes hero-float-c {
+@keyframes hero-device-float-mouse {
   0%, 100% { transform: translate3d(0, 0, 0); }
-  50% { transform: translate3d(7px, -12px, 0); }
+  50% { transform: translate3d(8px, -10px, 0); }
 }
 
 /* MacBook translated from the SwiftUI onboarding bezel */
@@ -941,7 +965,7 @@ li {
 .switch-story__copy {
   position: absolute;
   z-index: 20;
-  top: 104px;
+  top: 148px;
   left: 50%;
   width: min(560px, calc(100% - 48px));
   text-align: center;
@@ -1024,7 +1048,12 @@ li {
   z-index: 10;
   top: 0;
   left: 0;
-  filter: drop-shadow(0 8px 14px rgba(35, 34, 42, 0.14));
+  /* A soft contact shadow plus a wider lift shadow keeps the white hardware
+     legible against the high-exposure photograph while it travels. */
+  filter:
+    drop-shadow(0 4px 6px rgba(18, 22, 31, 0.2))
+    drop-shadow(0 16px 20px rgba(18, 22, 31, 0.24))
+    drop-shadow(0 0 1.5px rgba(18, 22, 31, 0.28));
   opacity: 0;
   will-change: transform, opacity;
 }
@@ -1064,8 +1093,7 @@ li {
   margin-bottom: 58px;
 }
 
-.section-heading--split,
-.section-heading--features {
+.section-heading--split {
   display: grid;
   grid-template-columns: 1fr 0.52fr;
   align-items: end;
@@ -1156,18 +1184,164 @@ li {
 /* Bento features */
 
 .features {
-  padding: 150px 0;
+  padding: 0 0 150px;
   background: #0b0b0b;
 }
 
-.section-heading--features {
-  margin-bottom: 64px;
+.cable-story {
+  position: relative;
+  z-index: 1;
+  height: 185svh;
+  margin-inline: calc((100vw - 100%) / -2);
+}
+
+.cable-story__sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  min-height: 660px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.cable-story__heading {
+  position: absolute;
+  z-index: 4;
+  top: clamp(96px, 11svh, 144px);
+  left: max(24px, calc((100% - var(--max)) / 2));
+  width: min(calc(100% - 48px), 820px);
+  pointer-events: none;
+  will-change: transform, opacity, filter;
+}
+
+.cable-story__heading h2 {
+  font-size: clamp(52px, 7.5vw, 108px);
+  font-weight: 480;
+  letter-spacing: -0.07em;
+  line-height: var(--leading-heading);
+}
+
+.cable-story__sticky::before,
+.cable-story__sticky::after {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  content: '';
+}
+
+.cable-story__sticky::before {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.045), transparent 39%),
+    linear-gradient(180deg, #0b0b0b 0%, rgba(11, 11, 11, 0.62) 75%, rgba(11, 11, 11, 0) 100%);
+}
+
+.cable-story__sticky::after {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at 50% 50%, black, transparent 66%);
+  opacity: 0.45;
+}
+
+.cable-story__glow {
+  position: absolute;
+  z-index: -1;
+  top: 48%;
+  left: 50%;
+  width: min(76vw, 1000px);
+  height: min(56vw, 700px);
+  background:
+    radial-gradient(circle at 42% 50%, rgba(84, 107, 255, 0.11), transparent 46%),
+    radial-gradient(circle at 64% 58%, rgba(255, 91, 54, 0.09), transparent 45%);
+  filter: blur(74px);
+  transform: translate(-50%, -50%);
+}
+
+.cable-story__canvas,
+.cable-story__fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.cable-story__canvas {
+  z-index: 2;
+  pointer-events: none;
+}
+
+.cable-story__fallback {
+  z-index: 1;
+  width: min(90vw, 1140px);
+  height: auto;
+  margin: auto;
+  object-fit: contain;
+  border-radius: 28px;
+  box-shadow: 0 34px 100px rgba(0, 0, 0, 0.28);
+  outline: 1px solid oklch(1 0 0 / 0.1);
+  outline-offset: -1px;
+  opacity: 1;
+  transition-property: opacity;
+  transition-duration: 260ms;
+  transition-timing-function: ease-out;
+}
+
+.cable-story[data-ready='true'] .cable-story__fallback {
+  opacity: 0;
+}
+
+.cable-story__prompt {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.cable-story__prompt {
+  bottom: max(52px, 8svh);
+  flex-direction: column;
+  color: rgba(255, 255, 255, 0.42);
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.cable-story__prompt span {
+  font-size: 9px;
+  letter-spacing: 0.16em;
+}
+
+.cable-story__prompt strong {
+  color: rgba(255, 255, 255, 0.76);
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 13px;
+  font-weight: 520;
+  letter-spacing: -0.015em;
+  text-transform: none;
+}
+
+.cable-story__prompt i {
+  width: 1px;
+  height: 24px;
+  margin: 9px 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.42), transparent);
 }
 
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
+}
+
+.bento-grid--after-cable {
+  position: relative;
+  z-index: 3;
+  margin-top: -44svh;
 }
 
 .bento-reveal {
@@ -1590,11 +1764,11 @@ li {
   }
 
   .hero-device--keyboard {
-    left: -9%;
+    left: clamp(-72px, calc((100% - 1020px) / 2), 72px);
   }
 
   .hero-device--trackpad {
-    right: -3%;
+    right: clamp(-34px, calc((100% - 1020px) / 2), 72px);
   }
 
   .bento-card--wide {
@@ -1646,6 +1820,24 @@ li {
     padding: 120px 14px 80px;
   }
 
+  .hero__devices {
+    top: 84px;
+    bottom: 18px;
+  }
+
+  .hero__devices::before {
+    inset: 8% 5% 0;
+    opacity: 0.75;
+  }
+
+  .hero-device {
+    opacity: 0.08;
+  }
+
+  .hero-device[data-active='true'] {
+    opacity: 0.34;
+  }
+
   .hero__ticker {
     top: 82px;
     width: calc(100% - 30px);
@@ -1692,21 +1884,21 @@ li {
   }
 
   .hero-device--keyboard {
-    top: -20px;
-    left: -18%;
-    width: 210px;
+    top: 13%;
+    left: -22%;
+    width: 230px;
   }
 
   .hero-device--trackpad {
-    top: -16px;
-    right: -10%;
-    width: 118px;
+    top: 11%;
+    right: -14%;
+    width: 128px;
   }
 
   .hero-device--mouse {
-    right: -7%;
-    bottom: 0;
-    width: 100px;
+    right: -5%;
+    bottom: 10%;
+    width: 110px;
   }
 
   .hero-device > span,
@@ -1752,7 +1944,7 @@ li {
   }
 
   .switch-story__copy {
-    top: 82px;
+    top: 116px;
   }
 
   .switch-story__copy h2 {
@@ -1785,18 +1977,46 @@ li {
     padding: 96px 0;
   }
 
+  .features {
+    padding: 0 0 96px;
+  }
+
   .section-heading--split,
-  .section-heading--features,
   .faq__grid,
   .bento-card--wide {
     grid-template-columns: 1fr;
   }
 
-  .section-heading--split,
-  .section-heading--features {
+  .section-heading--split {
     align-items: start;
     gap: 28px;
     margin-bottom: 38px;
+  }
+
+  .cable-story {
+    height: 172svh;
+  }
+
+  .cable-story__sticky {
+    min-height: 570px;
+  }
+
+  .cable-story__heading {
+    top: 96px;
+    left: 14px;
+    width: calc(100% - 28px);
+  }
+
+  .cable-story__fallback {
+    width: 104vw;
+  }
+
+  .cable-story__prompt {
+    bottom: max(36px, 6svh);
+  }
+
+  .bento-grid--after-cable {
+    margin-top: -35svh;
   }
 
   .section-heading h2,
@@ -1937,6 +2157,39 @@ li {
 
   .switch-story {
     height: 100vh;
+  }
+
+  .cable-story {
+    height: auto;
+    min-height: 72svh;
+    margin-inline: 0;
+  }
+
+  .cable-story__sticky {
+    position: relative;
+    height: 72svh;
+    min-height: 520px;
+  }
+
+  .cable-story__canvas,
+  .cable-story__prompt {
+    display: none;
+  }
+
+  .hero-device {
+    animation: none;
+    will-change: auto;
+  }
+
+  .cable-story__fallback,
+  .cable-story[data-ready='true'] .cable-story__fallback {
+    width: min(100%, 980px);
+    opacity: 1;
+    transition-duration: 0.01ms;
+  }
+
+  .bento-grid--after-cable {
+    margin-top: 0;
   }
 
   .sleep-visual__image,

@@ -5,6 +5,7 @@ import {
   IconMouse as Mouse,
   IconWifi as Wifi,
 } from '@tabler/icons-react'
+import mouseNewUrl from '../../Assets/Mouse-new.png'
 
 const DEVICES = [
   { name: 'Magic Keyboard', icon: Keyboard },
@@ -78,13 +79,14 @@ export function DeviceAsset({ type, className = '', style }) {
   const assets = {
     keyboard: ['Keyboard_transparent.png', 'Magic Keyboard'],
     trackpad: ['Trackpad_transparent.png', 'Magic Trackpad'],
-    mouse: ['Mouse_transparent.png', 'Magic Mouse'],
+    mouse: [mouseNewUrl, 'Magic Mouse'],
   }
   const [file, alt] = assets[type]
+  const src = file === mouseNewUrl ? file : `${import.meta.env.BASE_URL}${file}`
 
   return (
     <div className={`device-asset device-asset--${type} ${className}`} style={style}>
-      <img src={`${import.meta.env.BASE_URL}${file}`} alt={alt} />
+      <img src={src} alt={alt} />
     </div>
   )
 }

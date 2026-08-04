@@ -12,7 +12,9 @@ import {
 } from '@/components/ui/accordion'
 import { LiquidButton } from '@/components/ui/liquid-glass-button'
 import { TextLoop } from '@/components/ui/text-loop'
+import { DeviceAsset } from '@/components/MacBook'
 import { SwitchingStory } from '@/components/SwitchingStory'
+import { CableDissolve } from '@/components/CableDissolve'
 
 const CHECKOUT_URL = 'https://mangobuns.lemonsqueezy.com/checkout/buy/68fb31f9-8ae3-45db-bcc3-b7e49bec2817'
 const DOWNLOAD_URL = `${import.meta.env.BASE_URL}downloads/Switchy.dmg`
@@ -109,10 +111,23 @@ function Navbar() {
 }
 
 function Hero() {
+  const [activeHeroDevice, setActiveHeroDevice] = useState(0)
+
   return (
     <section className="hero" id="top">
       <div className="hero__aurora" aria-hidden="true" />
       <div className="hero__grid" aria-hidden="true" />
+      <div className="hero__devices" aria-hidden="true">
+        <div className="hero-device hero-device--keyboard" data-active={activeHeroDevice === 0}>
+          <DeviceAsset type="keyboard" />
+        </div>
+        <div className="hero-device hero-device--trackpad" data-active={activeHeroDevice === 2}>
+          <DeviceAsset type="trackpad" />
+        </div>
+        <div className="hero-device hero-device--mouse" data-active={activeHeroDevice === 1}>
+          <DeviceAsset type="mouse" />
+        </div>
+      </div>
       <div className="hero__copy">
         <motion.div
           className="hero__eyebrow"
@@ -132,7 +147,11 @@ function Hero() {
         >
           <span className="hero__headline-first" aria-hidden="true">
             <span>One</span>
-            <TextLoop className="hero__headline-loop" interval={HERO_WORD_LOOP.interval}>
+            <TextLoop
+              className="hero__headline-loop"
+              interval={HERO_WORD_LOOP.interval}
+              onIndexChange={setActiveHeroDevice}
+            >
               {HERO_WORD_LOOP.words.map((word) => <span key={word}>{word}.</span>)}
             </TextLoop>
           </span>
@@ -226,14 +245,9 @@ function Features() {
   return (
     <section className="features" id="features">
       <div className="section-shell">
-        <Reveal className="section-heading section-heading--features">
-          <div>
-            <h2>No cables needed</h2>
-          </div>
-          <p>A tiny menu bar utility with an unusually large effect on a two-Mac desk.</p>
-        </Reveal>
+        <CableDissolve />
 
-        <div className="bento-grid">
+        <div className="bento-grid bento-grid--after-cable">
           <Reveal className="bento-reveal bento-reveal--wide"><SwitchAllCard /></Reveal>
 
           <Reveal className="bento-reveal" delay={0.05}>
