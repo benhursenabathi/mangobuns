@@ -7,6 +7,190 @@
     <language>en</language>
 
     <item>
+      <title>Version 1.1.5 (build 78)</title>
+      <sparkle:version>78</sparkle:version>
+      <sparkle:shortVersionString>1.1.5</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Sat, 01 Aug 2026 21:53:30 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.5-build78/Switchy-1.1.5.dmg"
+        sparkle:edSignature="4oKjIFq9YAGZn9evEpq3vozveBXMtmcZwVCQo2eOgVOtTKskFPvdUo9w6RuS7lznO0uYgyol7WqFvBgHSNjIDQ=="
+        length="3616779"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's New in Version 1.1.5</h2>
+        <ul>
+          <li>Switchy is better at knowing when your other Mac is asleep or unavailable.</li>
+          <li>Clearer messages make it easier to see what Switchy is doing.</li>
+          <li>Switching is more reliable when Macs wake up or change networks.</li>
+          <li>Fixed an issue that could prevent Switchy from opening correctly from its downloaded installer.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
+      <title>Beta 1.1.5 (build 77)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>77</sparkle:version>
+      <sparkle:shortVersionString>1.1.5</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Sat, 01 Aug 2026 13:19:28 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.5-build77/Switchy-Beta-1.1.5-build77.dmg"
+        sparkle:edSignature="rBmAqvuy3MHMTXokcPbESiBL5Y/LPwcjTn1GVFjqweTkuyPNNKYNoLZqVqp8DKNKKxyyTvnOGMm97iMsXHfiBQ=="
+        length="3616782"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 77</h2>
+        <ul>
+          <li>Fixes a startup crash on macOS 26.6 caused by an invalid Foundation file-write option combination, so the menu bar item can be created normally.</li>
+          <li>Adds regression coverage for safely creating Switchy's shared Mac identity without replacing an existing identity.</li>
+          <li>When Switchy runs directly from a read-only DMG or App Translocation, Start at Login and in-app updating are intentionally unavailable, preventing transient mounted copies from becoming persistent launch targets. Normal installed and writable copies keep their existing behavior.</li>
+          <li>Beta DMGs now use a versioned volume name, making multiple mounted beta images easier to distinguish.</li>
+          <li>To check on the affected work Mac: quit Switchy, eject older Switchy DMGs, mount build 77, launch Switchy Beta directly, and confirm its menu bar icon appears and remains usable.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
+      <title>Beta 1.1.5 (build 76)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>76</sparkle:version>
+      <sparkle:shortVersionString>1.1.5</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Sat, 01 Aug 2026 12:09:57 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.5-build76/Switchy-Beta-1.1.5-build76.dmg"
+        sparkle:edSignature="n4NaLkZe9UoLJpEeQXTP4BbKYQCq2TEgqh1LDUSS5AfKUO8XfwJMS5hq8M4+QEzNEpBNDnKoGuQ47UMhqwSECg=="
+        length="3606273"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 76</h2>
+        <ul>
+          <li>Fixes stale Available devices when the remembered Mac is asleep, lid-closed, offline, or no longer reachable: Switchy now verifies a live peer response before presenting a device as available.</li>
+          <li>Refresh results now distinguish checking, unavailable, disconnected, and verified available devices, and the menu cannot launch a stale connection while verification is in progress.</li>
+          <li>Unavailable devices offer Retry after waking the other Mac, plus an explicit Connect After Power Cycle path when the device was physically reset.</li>
+          <li>Improves peer lifecycle cleanup, TCP reachability probing, empty device-list responses, and stable/Beta self-discovery filtering.</li>
+          <li>To check: with MacBook 2 lid-closed/asleep, refresh MacBook 1 and confirm its devices are unavailable and not clickable; wake MacBook 2, refresh again, and confirm each device reflects its verified state.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
+      <title>Beta 1.1.5 (build 75)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>75</sparkle:version>
+      <sparkle:shortVersionString>1.1.5</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Wed, 29 Jul 2026 22:36:28 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.5-build75/Switchy-Beta-1.1.5-build75.dmg"
+        sparkle:edSignature="wpFQuRcxRPZrVKHrvRnBpDduzG9lUGxKuR+n99gPIsfPBetzT2TSXJZxPJhRfEE5sLpdpoYdYJTzQAhJE2QmCg=="
+        length="3537595"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 75</h2>
+        <ul>
+          <li>Fixes the beta 74 menu row that could remain visibly stuck on “Looking for your Macs…” after discovery had completed.</li>
+          <li>The native menu now changes the actual status text and icon from the searching orb to “Device list updated” and the refresh arrow, while preserving its opened geometry.</li>
+          <li>Rapid menu close/reopen cycles cannot let an earlier refresh completion overwrite the current state.</li>
+          <li>To check: keep the dropdown open through a refresh. It should transition from “Looking for your Macs…” to “Device list updated” with no width or height jump.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
+      <title>Beta 1.1.5 (build 74)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>74</sparkle:version>
+      <sparkle:shortVersionString>1.1.5</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Wed, 29 Jul 2026 12:37:55 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.5-build74/Switchy-Beta-1.1.5-build74.dmg"
+        sparkle:edSignature="pRCa+Lp2MXiKnwUt1XB5DfkyqGGcINUPxQIvg10Rfhcb3tiNn88dK2flKeTRywdblupnvutRHfHfE5yxoVXWAA=="
+        length="3535992"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 74</h2>
+        <ul>
+          <li>Fixes the menu resizing while Switchy discovers Macs and updates device availability.</li>
+          <li>The discovery row now appears as the menu opens, removing the delayed height jump.</li>
+          <li>The native menu keeps its largest width until it closes, so resolving to "Device list updated" no longer narrows the menu or middle-truncates device names.</li>
+          <li>To check: open the dropdown and hold it open through the full refresh; its geometry should remain stable from "Looking for your Macs…" through "Device list updated", including with long device and Mac names.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
+      <title>Beta 1.1.5 (build 73)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>73</sparkle:version>
+      <sparkle:shortVersionString>1.1.5</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Wed, 29 Jul 2026 11:33:18 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.5-build73/Switchy-Beta-1.1.5-build73.dmg"
+        sparkle:edSignature="ajdGaJ60HhI1T0vYUwBby7E61qDDIbSFl0+YHKNgt9q4SxGbHzdWnOyeMNsAHFQNxARmYIZ5tPifpOhPmSzPAQ=="
+        length="3528496"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 73</h2>
+        <ul>
+          <li>Menu bar icon shows an animated searching orb while Switchy is looking for other Macs — at launch, after wake, through post-wake verification, and on network changes.</li>
+          <li>Dropdown: the four network status rows collapse into one "Looking for your Macs…" row, which resolves in place instead of disappearing.</li>
+          <li>Settings: custom keyboard, mouse and trackpad icons for peer devices.</li>
+          <li>To check: orb legibility on light and dark menu bars, that the dropdown does not change width when a search finishes, and that the orb stays up through wake verification.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
+      <title>Version 1.1.5 (build 72)</title>
+      <sparkle:version>72</sparkle:version>
+      <sparkle:shortVersionString>1.1.5</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Tue, 28 Jul 2026 22:44:56 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.5-build72/Switchy-1.1.5.dmg"
+        sparkle:edSignature="KwuSiV8fQmpdDPiuK9WTrfxysCeWItgIGmioRSIfKf36UtIdeycz7Tf/mAUODpOsBr8ECaExalfc2IJS0UwCCA=="
+        length="3491534"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's New in 1.1.5 (build 72)</h2>
+        <ul>
+          <li>Added toast notifications when devices are switched using Switchy.</li>
+          <li>Improved speed on older machines.</li>
+          <li>Bug fixes.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
+      <title>Beta 1.1.4 (build 71)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>71</sparkle:version>
+      <sparkle:shortVersionString>1.1.4</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Fri, 24 Jul 2026 21:14:18 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.4-build71/Switchy-Beta-1.1.4-build71.dmg"
+        sparkle:edSignature="ElkDPpPR4zhqs8UW2UqA4ObYfa2v9C0lUEe05WGxiFS4MtKWXmItpis/Z/AxL0gIT0koa4ScpYIjSKBvMSEaBA=="
+        length="3494047"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 71</h2>
+        <ul>
+          <li>Adds connection outcome toasts after connect operations.</li>
+          <li>Single-device success toasts include the connected device name.</li>
+          <li>Batch success toasts summarize the number of connected devices instead of listing names.</li>
+          <li>Includes related state-handling and interaction-lock test coverage.</li>
+        </ul>
+        <p><strong>What to watch:</strong> verify single-connect naming, 2+ device batch count messaging, clean truncation for long device names, and no stale/stacked toasts across repeated connect attempts.</p>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.4 (build 70)</title>
       <sparkle:version>70</sparkle:version>
       <sparkle:shortVersionString>1.1.4</sparkle:shortVersionString>
