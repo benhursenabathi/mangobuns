@@ -1705,7 +1705,8 @@ li {
   position: relative;
   display: flex;
   align-items: center;
-  width: min(420px, 100%);
+  width: fit-content;
+  max-width: 100%;
   min-height: 52px;
   margin-top: 18px;
   padding: 6px 6px 6px 16px;
