@@ -1701,21 +1701,124 @@ li {
   font-size: 17px;
 }
 
-.final-cta__install {
-  margin-top: 18px !important;
-  font-size: 14px !important;
+.homebrew-snippet {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: min(420px, 100%);
+  min-height: 52px;
+  margin-top: 18px;
+  padding: 6px 6px 6px 16px;
+  color: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 12px 30px rgba(0, 0, 0, 0.16);
 }
 
-.final-cta__install code {
-  display: inline-block;
-  margin-left: 4px;
-  padding: 4px 8px;
+.homebrew-snippet__command {
+  min-width: 0;
+  overflow: hidden;
   color: var(--ink);
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 13px;
+  line-height: 1.4;
+  letter-spacing: -0.025em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.homebrew-snippet__prompt {
+  margin-right: 9px;
+  color: rgba(255, 255, 255, 0.4);
+  user-select: none;
+}
+
+.homebrew-snippet__copy {
+  position: relative;
+  display: grid;
+  flex: 0 0 40px;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+  padding: 0;
+  color: rgba(255, 255, 255, 0.72);
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 6px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.9em;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  cursor: pointer;
+  transition-property: background-color, color, scale;
+  transition-duration: 160ms;
+  transition-timing-function: ease-out;
+}
+
+.homebrew-snippet__copy:hover {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.homebrew-snippet__copy:active {
+  scale: 0.96;
+}
+
+.homebrew-snippet__copy:focus-visible {
+  outline: 2px solid #4aa3ff;
+  outline-offset: 3px;
+}
+
+.homebrew-snippet--copied .homebrew-snippet__copy {
+  color: var(--acid);
+  background: rgba(217, 255, 67, 0.1);
+  border-color: rgba(217, 255, 67, 0.24);
+}
+
+.homebrew-snippet__icon {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  inset: 0;
+  opacity: 0;
+  transform: scale(0.25);
+  filter: blur(4px);
+}
+
+.homebrew-snippet__icon--copy {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+}
+
+.homebrew-snippet--copied .homebrew-snippet__icon--copy {
+  opacity: 0;
+  transform: scale(0.25);
+  filter: blur(4px);
+}
+
+.homebrew-snippet--copied .homebrew-snippet__icon--check {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+}
+
+.homebrew-snippet__status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .homebrew-snippet__icon {
+    transition-property: opacity, transform, filter;
+    transition-duration: 180ms;
+    transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+  }
 }
 
 .button--light {

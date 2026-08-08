@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import {
+  IconCheck as Check,
+  IconCopy as Copy,
   IconDownload as Download,
   IconLock as Lock,
 } from '@tabler/icons-react'
@@ -313,6 +315,57 @@ function FAQ() {
   )
 }
 
+function HomebrewSnippet() {
+  const [copied, setCopied] = useState(false)
+  const resetTimeout = useRef(null)
+
+  useEffect(() => () => {
+    if (resetTimeout.current) {
+      window.clearTimeout(resetTimeout.current)
+    }
+  }, [])
+
+  const handleCopy = async () => {
+    if (!navigator.clipboard) return
+
+    try {
+      await navigator.clipboard.writeText(HOMEBREW_INSTALL)
+      setCopied(true)
+      if (resetTimeout.current) {
+        window.clearTimeout(resetTimeout.current)
+      }
+      resetTimeout.current = window.setTimeout(() => setCopied(false), 2000)
+    } catch {
+      setCopied(false)
+    }
+  }
+
+  return (
+    <div className={`homebrew-snippet${copied ? ' homebrew-snippet--copied' : ''}`}>
+      <code className="homebrew-snippet__command">
+        <span className="homebrew-snippet__prompt" aria-hidden="true">$</span>
+        {HOMEBREW_INSTALL}
+      </code>
+      <button
+        className="homebrew-snippet__copy"
+        type="button"
+        aria-label={copied ? 'Homebrew command copied' : 'Copy Homebrew command'}
+        onClick={handleCopy}
+      >
+        <span className="homebrew-snippet__icon homebrew-snippet__icon--copy" aria-hidden="true">
+          <Copy size={17} strokeWidth={1.8} />
+        </span>
+        <span className="homebrew-snippet__icon homebrew-snippet__icon--check" aria-hidden="true">
+          <Check size={17} strokeWidth={1.8} />
+        </span>
+      </button>
+      <span className="homebrew-snippet__status" role="status" aria-live="polite">
+        {copied ? 'Copied' : ''}
+      </span>
+    </div>
+  )
+}
+
 function FinalCTA() {
   return (
     <section className="final-cta">
@@ -327,7 +380,7 @@ function FinalCTA() {
           {TRIAL_CTA} <Download size={17} />
         </motion.a>
       </div>
-      <p className="final-cta__install">Install with Homebrew: <code>{HOMEBREW_INSTALL}</code></p>
+      <HomebrewSnippet />
     </section>
   )
 }

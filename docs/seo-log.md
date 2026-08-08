@@ -438,8 +438,8 @@ snippet test rather than a content rewrite. Applied 2026-08-08:
 - New description: `Learn how to switch an Apple Magic Keyboard, Trackpad, or Mouse between two Macs. Compare Bluetooth re-pairing, Universal Control, and one-click switching with practical steps.`
 
 The title accurately reflects the article's three methods and front-loads the existing head term;
-the description adds the Apple/device vocabulary visible in the filtered queries. No URL or body
-content was changed.
+the description adds the Apple/device vocabulary visible in the filtered queries. The visible H1
+was aligned to the new title; no URL or substantive body content was changed.
 
 **Notable queries:** the current competitor-name cluster is small and mostly non-converting:
 `magic switch` (13 impressions, position 8.5, 0 clicks), `magic switch mac` (10, 6.8, 1),
