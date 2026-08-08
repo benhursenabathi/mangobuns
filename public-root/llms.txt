@@ -7,6 +7,7 @@ Switchy solves the problem of using one set of Apple Magic peripherals with mult
 ## Product
 
 - [Switchy landing page](https://mangobuns.com/switchy/): Features, pricing, FAQ, and download
+- Homebrew install: `brew install --cask switchy` (the cask installs the app; the trial and licensing work in-app)
 - [Compare device switchers](https://mangobuns.com/switchy/compare/): Switchy vs Magic Switch vs SwitchMyMagic vs Universal Control
 - [Privacy policy](https://mangobuns.com/switchy/privacy/): Local-first switching, no analytics; license activation via Lemon Squeezy
 

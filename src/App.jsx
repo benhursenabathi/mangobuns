@@ -20,6 +20,7 @@ const CHECKOUT_URL = 'https://mangobuns.lemonsqueezy.com/checkout/buy/68fb31f9-8
 const DOWNLOAD_URL = `${import.meta.env.BASE_URL}downloads/Switchy.dmg`
 const PURCHASE_CTA = 'Get Switchy'
 const TRIAL_CTA = 'Try free for 3 days'
+const HOMEBREW_INSTALL = 'brew install --cask switchy'
 
 const HERO_ENTRANCE = {
   hidden: { opacity: 0, y: 18, filter: 'blur(6px)' },
@@ -47,7 +48,7 @@ const HERO_WORD_LOOP = {
 const FAQS = [
   {
     question: 'Is there a free trial?',
-    answer: 'Yes — every new installation includes a 3-day, full-featured free trial. Download Switchy, install it on your Macs, and start switching right away. After the trial, a one-time $12.99 purchase unlocks it for good.',
+    answer: `Yes — every new installation includes a 3-day, full-featured free trial. Download Switchy, install it on your Macs, and start switching right away. After the trial, a one-time $12.99 purchase unlocks it for good. Homebrew users can also install it with ${HOMEBREW_INSTALL}.`,
   },
   {
     question: 'What is Switchy?',
@@ -326,6 +327,7 @@ function FinalCTA() {
           {TRIAL_CTA} <Download size={17} />
         </motion.a>
       </div>
+      <p className="final-cta__install">Install with Homebrew: <code>{HOMEBREW_INSTALL}</code></p>
     </section>
   )
 }

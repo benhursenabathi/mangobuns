@@ -391,3 +391,75 @@ near 12%. Next export: **tick "compare to previous period"** (missed again this 
 **Homebrew cask PR #274395:** still OPEN, not draft, reviewDecision REVIEW_REQUIRED, no new comments
 since the auto-resolved template bot on 2026-07-10; last update 2026-07-11 — **three weeks** with no
 maintainer movement. Unchanged from last week. No action available; wait.
+
+---
+
+## 2026-08-08 — Clicks nearly doubled as impressions normalize
+
+**Data:** GSC export `mangobuns.com-Performance-on-Search-2026-08-08.xlsx`, 2026-07-31 →
+2026-08-06, compared with the previous export's clean window 2026-07-23 → 2026-07-29. The
+windows do not overlap. Site-wide totals below use the Search Console Chart sheet; its daily
+average position is not the same measure as a weighted page average.
+
+**Site-wide:** impressions **820 → 575 (-30%)**, clicks **17 → 32 (+88%)**, and CTR roughly
+**2.1% → 5.6%**. Daily chart average position was broadly flat/slightly better at about
+**16.6 → 15.8**. This looks like the post-indexing spike settling while qualified traffic
+improves, not a broad ranking collapse.
+
+### Per page (impressions / clicks / position)
+
+| Page | Previous | Current |
+|---|---:|---:|
+| /switchy/compare/ | 132 / 9 / 6.77 | **150 / 13 / 6.1** |
+| /switchy/ | 12 / 5 / 1.50 | **51 / 13 / 3.2** |
+| /switchy/blog/how-to-switch-magic-keyboard-between-macs/ | 294 / 2 / 18.36 | **320 / 4 / 18.4** |
+| /switchy/blog/magic-keyboard-multiple-devices/ | 160 / 1 / 18.37 | **38 / 1 / 16.7** |
+| /switchy/blog/magic-keyboard-pairing-mode/ | 128 / 0 / 30.70 | **37 / 0 / 33.5** |
+| /switchy/blog/universal-control-vs-switching-devices/ | 56 / 0 / 10.50 | **11 / 0 / 12.3** |
+| /switchy/blog/one-keyboard-mouse-mac-mini-macbook/ | 42 / 0 / 10.38 | **13 / 0 / 9.6** |
+| /switchy/blog/kvm-switch-for-two-macs/ | 18 / 0 / 8.17 | **5 / 0 / 9.2** |
+| /switchy/blog/ | 5 / 0 / 19.00 | **3 / 0 / 2.7** |
+| / | 5 / 0 / 23.00 | **21 / 0 / 9.8** |
+| /switchy/privacy/ | 0 / 0 / — | **2 / 1 / 5.0** |
+
+**What is working:** compare/ generated 13 clicks at position 6.1, up from 9 clicks at 6.77;
+the homepage grew from 12 to 51 impressions and from 5 to 13 clicks while remaining in the
+top three. Leave both pages alone. The one-keyboard page also improved to position 9.6, despite
+lower volume.
+
+**Main opportunity:** the how-to page remains the largest page-2 opportunity at **320
+impressions, 4 clicks, position 18.4**. Its page-filtered export confirmed related intent around
+switching a Magic Keyboard between devices, multiple Macs, and Apple devices. The visible query
+rows are sparse (18 listed impressions versus 320 page impressions), so this is a conservative
+snippet test rather than a content rewrite. Applied 2026-08-08:
+
+- Before title: `How to Switch Magic Keyboard Between Macs (2026 Guide)`
+- New title: `How to Switch Magic Keyboard Between Macs: 3 Methods (2026)`
+- New description: `Learn how to switch an Apple Magic Keyboard, Trackpad, or Mouse between two Macs. Compare Bluetooth re-pairing, Universal Control, and one-click switching with practical steps.`
+
+The title accurately reflects the article's three methods and front-loads the existing head term;
+the description adds the Apple/device vocabulary visible in the filtered queries. No URL or body
+content was changed.
+
+**Notable queries:** the current competitor-name cluster is small and mostly non-converting:
+`magic switch` (13 impressions, position 8.5, 0 clicks), `magic switch mac` (10, 6.8, 1),
+`switchmymagic` (9, 2.7, 0), `magic device switch` (7, 8.7, 1), and `magic switch app` (4, 8.8,
+0). No individual query met the parser's CTR-flag threshold. Long-tail terms around switching a
+Magic Keyboard between devices are present but thin (1–2 impressions each), so they do not yet
+justify a new post.
+
+**Indexing:** all watched URLs remain indexed and are serving impressions. Direct `site:` searches
+found the established pages; the pairing-mode and multiple-devices pages are also confirmed
+serving by current GSC data. No URL Inspection requests are needed.
+
+**Site health:** all 11 URLs in `https://mangobuns.com/sitemap.xml` returned HTTP 200.
+
+**Actions taken:** Homebrew cask PR **#274395 is MERGED**. Added `brew install --cask switchy`
+to the homepage CTA area and prerendered header, the trial FAQ (visible text and FAQ schema),
+and `public-root/llms.txt`. Updated the cask plan status and removed the temporary Homebrew
+check from the SEO skill. Applied the how-to page's title/meta update; no new post was added.
+
+**Watch next week:** whether the updated snippet improves the how-to page's CTR and position;
+whether pairing-mode stabilizes after its 128 → 37 impression drop; and whether compare/ maintains
+its improved click volume. Keep the next export comparison enabled and aligned to the prior clean
+window.

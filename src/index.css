@@ -1701,6 +1701,23 @@ li {
   font-size: 17px;
 }
 
+.final-cta__install {
+  margin-top: 18px !important;
+  font-size: 14px !important;
+}
+
+.final-cta__install code {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 4px 8px;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 6px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+
 .button--light {
   color: #0b0b0b;
   background: var(--ink);

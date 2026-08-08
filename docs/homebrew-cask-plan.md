@@ -1,6 +1,6 @@
 # Homebrew Cask Plan — Switchy
 
-Status: ready to execute (licensing shipped in v1.1.4 build 70 on 2026-07-10 made this viable).
+Status: merged — Homebrew cask PR #274395 merged on 2026-08-08; the site follow-up is recorded in the SEO log.
 Cask draft (audit-tested except for the URL change below): `docs/homebrew-cask-switchy.rb.draft`.
 
 ## Why this is worth doing
