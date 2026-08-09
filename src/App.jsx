@@ -80,7 +80,7 @@ const FAQS = [
 
 const ONBOARDING_HERO_STEP = {
   title: 'Switch Everything at Once',
-  image: 'Onboarding5.jpg',
+  image: 'Onboarding5-new.jpeg',
 }
 
 function Navbar() {
@@ -132,15 +132,6 @@ function Hero() {
         </div>
       </div>
       <div className="hero__copy">
-        <motion.div
-          className="hero__eyebrow"
-          custom={0.08}
-          initial="hidden"
-          animate="visible"
-          variants={HERO_ENTRANCE}
-        >
-          <i /> Built for multi-Mac desks
-        </motion.div>
         <motion.h1
           aria-label="One keyboard, mouse, or trackpad. For every Mac."
           custom={0.16}
@@ -211,7 +202,7 @@ function DemoSection() {
             <span>00:24</span>
           </div>
           <video autoPlay loop muted playsInline preload="metadata" poster={`${import.meta.env.BASE_URL}how-it-works.gif`}>
-            <source src={`${import.meta.env.BASE_URL}switchy-demo.mp4`} type="video/mp4" />
+            <source src={`${import.meta.env.BASE_URL}Switchy for mac - demo(ob).mp4`} type="video/mp4" />
           </video>
         </Reveal>
       </div>
