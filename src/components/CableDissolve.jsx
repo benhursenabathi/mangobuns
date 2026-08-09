@@ -5,6 +5,11 @@ import cableImageUrl from '../../Assets/Cable image.png'
 
 gsap.registerPlugin(ScrollTrigger)
 
+const MOBILE_BREAKPOINT = 767
+const isCompactViewport = (width, height) => (
+  width <= MOBILE_BREAKPOINT || (width <= 920 && height <= 540)
+)
+
 const clamp = (value, min = 0, max = 1) => Math.min(Math.max(value, min), max)
 const ramp = (value, start, end) => clamp((value - start) / (end - start))
 const smoothstep = (edge0, edge1, value) => {
@@ -118,9 +123,10 @@ export function CableDissolve() {
       progress = clamp(nextProgress)
       const surface = sizeCanvas()
       const { width, height, dpr } = surface
+      const compactViewport = isCompactViewport(width, height)
       const imageScale = Math.min(
-        (width * (width <= 760 ? 0.98 : 0.9)) / field.width,
-        (height * (width <= 760 ? 0.62 : 0.72)) / field.height,
+        (width * (compactViewport ? 0.98 : 0.9)) / field.width,
+        (height * (compactViewport ? 0.62 : 0.72)) / field.height,
       )
       const imageWidth = field.width * imageScale
       const imageHeight = field.height * imageScale
@@ -205,8 +211,8 @@ export function CableDissolve() {
       }
 
       const headingProgress = 1 - smoothstep(
-        window.innerWidth <= 760 ? 0.52 : 0.72,
-        window.innerWidth <= 760 ? 0.75 : 0.9,
+        isCompactViewport(window.innerWidth, window.innerHeight) ? 0.52 : 0.72,
+        isCompactViewport(window.innerWidth, window.innerHeight) ? 0.75 : 0.9,
         progress,
       )
       if (headingRef.current) {
@@ -225,7 +231,10 @@ export function CableDissolve() {
         await image.decode()
         if (disposed) return
 
-        field = createCableField(image, window.innerWidth <= 760)
+        field = createCableField(
+          image,
+          isCompactViewport(window.innerWidth, window.innerHeight),
+        )
         section.dataset.ready = 'true'
         resizeObserver = new ResizeObserver(() => render(progress))
         resizeObserver.observe(sticky)

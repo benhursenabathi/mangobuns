@@ -5,6 +5,16 @@ import { DeviceAsset } from './MacBook'
 
 gsap.registerPlugin(ScrollTrigger)
 
+const MOBILE_BREAKPOINT = 767
+const COMPACT_LANDSCAPE_MAX_WIDTH = 920
+const COMPACT_LANDSCAPE_MAX_HEIGHT = 540
+const isCompactLandscape = () => (
+  window.innerWidth > MOBILE_BREAKPOINT
+  && window.innerWidth <= COMPACT_LANDSCAPE_MAX_WIDTH
+  && window.innerHeight <= COMPACT_LANDSCAPE_MAX_HEIGHT
+)
+const isMobileLayout = () => window.innerWidth <= MOBILE_BREAKPOINT || isCompactLandscape()
+
 /* ─────────────────────────────────────────────────────────
  * SCROLL STORYBOARD
  *
@@ -141,11 +151,25 @@ export function SwitchingStory() {
 
       const syncStageLayout = () => {
         const sceneRect = scene.getBoundingClientRect()
-        const isMobile = window.innerWidth <= 760
+        const isMobile = isMobileLayout()
+        const compactLandscape = isCompactLandscape()
         // Reserve the headline's full measured height before placing the photo. This
         // keeps the stage and its orbit legible on short laptop viewports without
         // relying on a brittle, device-specific breakpoint.
         const copyBottom = getCopyBottom(sceneRect)
+        if (compactLandscape) {
+          const stageHeight = Math.min(
+            window.innerHeight - 76,
+            (window.innerWidth * 0.64) / PHOTO.aspectRatio,
+            330,
+          )
+          const stageWidth = stageHeight * PHOTO.aspectRatio
+
+          photoStage.style.width = `${stageWidth}px`
+          photoStage.style.top = `${76 + stageHeight / 2}px`
+          return
+        }
+
         const copyGap = isMobile ? 30 : 46
         const bottomGap = isMobile
           ? 26
@@ -157,7 +181,7 @@ export function SwitchingStory() {
           window.innerHeight - safeTop - bottomGap,
         )
         const widthLimit = isMobile
-          ? window.innerWidth * 1.18
+          ? Math.min(window.innerWidth * 1.48, 720)
           : window.innerWidth
         const stageHeight = Math.min(
           availableHeight,
@@ -181,13 +205,16 @@ export function SwitchingStory() {
           x: stageRect.left - sceneRect.left + stageRect.width * control.x,
           y: stageRect.top - sceneRect.top + stageRect.height * control.y,
         }
-        const isMobile = window.innerWidth <= 760
+        const isMobile = isMobileLayout()
+        const compactLandscape = isCompactLandscape()
         const largestDeviceHalf = Math.max(
           ...deviceElements.map((element) => parseFloat(getComputedStyle(element).width) / 2),
           isMobile ? 78 : 155,
         )
-        const clearance = isMobile ? 26 : 46
-        const minimumApexY = getCopyBottom(sceneRect) + clearance + largestDeviceHalf
+        const clearance = compactLandscape ? 10 : (isMobile ? 26 : 46)
+        const minimumApexY = compactLandscape
+          ? 72 + largestDeviceHalf
+          : getCopyBottom(sceneRect) + clearance + largestDeviceHalf
         const endpointMidpointY = (startPoint.y + endPoint.y) / 2
         const minimumControlY = 2 * minimumApexY - endpointMidpointY
         const controlPoint = {
@@ -295,10 +322,10 @@ export function SwitchingStory() {
       syncStageLayout()
       window.addEventListener('resize', handleResize, { passive: true })
 
-      media.add('(min-width: 761px) and (prefers-reduced-motion: no-preference)', () =>
+      media.add('(min-width: 921px) and (prefers-reduced-motion: no-preference), (min-width: 768px) and (min-height: 541px) and (prefers-reduced-motion: no-preference)', () =>
         buildTimeline(ARC.desktopControl),
       )
-      media.add('(max-width: 760px) and (prefers-reduced-motion: no-preference)', () =>
+      media.add('(max-width: 767px) and (prefers-reduced-motion: no-preference), (max-width: 920px) and (max-height: 540px) and (prefers-reduced-motion: no-preference)', () =>
         buildTimeline(ARC.mobileControl),
       )
       media.add('(prefers-reduced-motion: reduce)', () => {

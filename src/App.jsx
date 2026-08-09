@@ -5,6 +5,8 @@ import {
   IconCopy as Copy,
   IconDownload as Download,
   IconLock as Lock,
+  IconMenu2 as Menu,
+  IconX as Close,
 } from '@tabler/icons-react'
 import {
   Accordion,
@@ -85,6 +87,7 @@ const ONBOARDING_HERO_STEP = {
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 28)
@@ -93,8 +96,26 @@ function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    const closeOnDesktop = () => {
+      if (window.innerWidth >= 768) setMobileMenuOpen(false)
+    }
+    const closeOnEscape = (event) => {
+      if (event.key === 'Escape') setMobileMenuOpen(false)
+    }
+
+    window.addEventListener('resize', closeOnDesktop, { passive: true })
+    window.addEventListener('keydown', closeOnEscape)
+    return () => {
+      window.removeEventListener('resize', closeOnDesktop)
+      window.removeEventListener('keydown', closeOnEscape)
+    }
+  }, [])
+
+  const closeMobileMenu = () => setMobileMenuOpen(false)
+
   return (
-    <header className={`site-nav ${scrolled ? 'site-nav--scrolled' : ''}`}>
+    <header className={`site-nav ${scrolled ? 'site-nav--scrolled' : ''} ${mobileMenuOpen ? 'site-nav--menu-open' : ''}`}>
       <a className="brand" href="#top" aria-label="Switchy home">
         <img src={`${import.meta.env.BASE_URL}icon_512x512.png`} alt="" />
         <span>Switchy</span>
@@ -106,9 +127,31 @@ function Navbar() {
         <a href="#faq">FAQ</a>
       </nav>
 
+      <button
+        className="mobile-menu__toggle"
+        type="button"
+        aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+        aria-expanded={mobileMenuOpen}
+        aria-controls="mobile-navigation"
+        onClick={() => setMobileMenuOpen((open) => !open)}
+      >
+        {mobileMenuOpen ? <Close size={21} /> : <Menu size={21} />}
+      </button>
+
       <LiquidButton className="nav-cta" href={CHECKOUT_URL}>
         {PURCHASE_CTA}
       </LiquidButton>
+
+      <nav
+        className="mobile-menu"
+        id="mobile-navigation"
+        aria-label="Mobile navigation"
+        hidden={!mobileMenuOpen}
+      >
+        <a href="#how-it-works" onClick={closeMobileMenu}>How it works</a>
+        <a href={`${import.meta.env.BASE_URL}compare/`} onClick={closeMobileMenu}>Compare</a>
+        <a href="#faq" onClick={closeMobileMenu}>FAQ</a>
+      </nav>
     </header>
   )
 }
