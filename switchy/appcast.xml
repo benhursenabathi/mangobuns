@@ -6,6 +6,27 @@
     <description>Switchy app updates</description>
     <language>en</language>
 
+    <!-- Add new versions above this line -->
+
+    <item>
+      <title>Version 1.1.5 (build 79)</title>
+      <sparkle:version>79</sparkle:version>
+      <sparkle:shortVersionString>1.1.5</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Sun, 09 Aug 2026 11:02:14 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.5-build79/Switchy-1.1.5.dmg"
+        sparkle:edSignature="j2Rs/pN5PYZMasooyVc3dLmWNG3rUvA2sAFxB8LX/YnlOBAqgdjOFcv2R/XOVQPINrOqLjl1jEkk4GuL9jBLBA=="
+        length="3669500"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's New in 1.1.5 (build 79)</h2>
+        <ul>
+          <li>Updated onboarding imagery to obscure device-identifying information.</li>
+        </ul>
+      ]]></description>
+    </item>
+
     <item>
       <title>Version 1.1.5 (build 78)</title>
       <sparkle:version>78</sparkle:version>
@@ -255,8 +276,6 @@
         </ul>
       ]]></description>
     </item>
-
-    <!-- Add new versions above this line -->
 
     <item>
       <title>Version 1.1.4 (build 67)</title>
