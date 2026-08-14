@@ -74,6 +74,6 @@ Known, not yet done (deliberately left out of the autonomous SEO pass to avoid d
 - 3 new content pages (Universal Control, KVM, Mac mini) with Article/FAQ/Breadcrumb JSON-LD, interlinked with the existing post + compare page.
 - Unified both sitemaps (root = canonical, 9 URLs); refreshed `lastmod`.
 - SoftwareApplication schema: version 1.0 → 1.1.4, added offer URL, real screenshot.
-- New `og-image.png` (1200×630) used by all pages' OG/Twitter cards (was a square icon).
+- New `og-image-v3.png` (1200×630) used by all pages' OG/Twitter cards (was a square icon).
 - `public-root/404.html` (custom 404), `public-root/llms.txt` (AI-crawler summary).
 - Deploy workflow now copies the new root files and pings IndexNow (key `11e6eddaf51420669ed293a8c2ced8d7.txt` served at domain root) after every deploy.
