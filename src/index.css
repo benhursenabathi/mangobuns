@@ -1357,6 +1357,11 @@ li {
   min-width: 0;
 }
 
+/* Keep these feature cards in the source while they are temporarily off-site. */
+.bento-reveal--temporarily-hidden {
+  display: none;
+}
+
 .bento-reveal--wide {
   grid-column: 1 / -1;
 }

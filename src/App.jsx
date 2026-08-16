@@ -287,7 +287,7 @@ function Features() {
         <div className="bento-grid bento-grid--after-cable">
           <Reveal className="bento-reveal bento-reveal--wide"><SwitchAllCard /></Reveal>
 
-          <Reveal className="bento-reveal" delay={0.05}>
+          <Reveal className="bento-reveal bento-reveal--temporarily-hidden" delay={0.05}>
             <article className="bento-card bento-card--night">
               <div className="bento-card__header">
                 <h3>Switch with lid closed</h3>
@@ -306,7 +306,7 @@ function Features() {
             </article>
           </Reveal>
 
-          <Reveal className="bento-reveal" delay={0.1}>
+          <Reveal className="bento-reveal bento-reveal--temporarily-hidden" delay={0.1}>
             <article className="bento-card bento-card--local">
               <div className="bento-card__header">
                 <h3>Your desk stays private.</h3>
