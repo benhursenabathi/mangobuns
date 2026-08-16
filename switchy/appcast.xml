@@ -9,6 +9,25 @@
     <!-- Add new versions above this line -->
 
     <item>
+      <title>Version 1.1.5 (build 81)</title>
+      <sparkle:version>81</sparkle:version>
+      <sparkle:shortVersionString>1.1.5</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Sun, 16 Aug 2026 21:46:00 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v1.1.5-build81/Switchy-1.1.5.dmg"
+        sparkle:edSignature="2hCUTymgYZ7aR2B1P5XObS6LziBmjgqD3VV1npYX/YfhzODxjpKyTDMRNjPeUEf+VBqzfU+DYkZDbd0BZasRCQ=="
+        length="3526238"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's New in 1.1.5 (build 81)</h2>
+        <ul>
+          <li>Improved desktop reliability by removing closed-lid switching, which could create an extra display and move windows off-screen.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.5 (build 80)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>80</sparkle:version>
