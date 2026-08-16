@@ -358,7 +358,7 @@
         <h2>Beta build 66 — onboarding copy refinement</h2>
         <p>Dev-facing notes — this build only reaches Switchy Beta (channel <code>beta</code>).</p>
         <ul>
-          <li>Refined onboarding step 3 copy: now points users to "Connect All" for switching every device at once, and explains the closed-lid MacBook power tip more clearly (plug in + enable keep-running in Preferences, with the battery trade-off called out).</li>
+          <li>Refined onboarding step 3 copy: now points users to "Connect All" for switching every device at once, and documented the then-available closed-lid MacBook experiment. That experiment was later retired in Beta build 80.</li>
         </ul>
         <p><strong>What to watch:</strong> the third onboarding "how to use" screen — verify the new copy reads well and the "Connect All" guidance matches the actual menu-bar action.</p>
       ]]></description>
@@ -576,7 +576,7 @@
         </ul>
         <h3>Renamed lid / keep-awake setting</h3>
         <ul>
-          <li>"Keep this Mac available for switching" is now <strong>"When connected to power, keep Switchy running"</strong> with a clearer description of what it does (keeps Switchy running while plugged in, even with the lid closed, so other Macs can switch devices without opening the lid).</li>
+          <li>Renamed the then-available closed-lid availability experiment to <strong>"When connected to power, keep Switchy running"</strong>. The experiment was later retired in Beta build 80 and is no longer supported.</li>
           <li>Look at: the General settings row and the notification / hint copy that mentions the setting by name.</li>
         </ul>
         <h3>Known risks</h3>
@@ -1042,8 +1042,8 @@
       <description><![CDATA[
         <h2>Build 44</h2>
         <ul>
-          <li>Reframed the keep-awake setting around what it actually does for you: keeps this Mac available for switching while plugged in, including with the lid closed.</li>
-          <li>Settings now shows a live status — active on power, paused on battery, or degraded when closed-lid support isn't available — so you can tell at a glance whether this Mac is reachable.</li>
+          <li>Introduced the keep-awake setting for the closed-lid availability experiment. The experiment was later retired in Beta build 80 and is no longer supported.</li>
+          <li>Added live status for the then-available closed-lid experiment. That experiment was later retired in Beta build 80 and is no longer supported.</li>
           <li>When a device can't be reached because the host Mac is asleep, Switchy now points you to the relevant setting instead of leaving you guessing.</li>
         </ul>
       ]]></description>
