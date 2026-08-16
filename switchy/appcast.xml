@@ -9,6 +9,30 @@
     <!-- Add new versions above this line -->
 
     <item>
+      <title>Beta 1.1.5 (build 80)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>80</sparkle:version>
+      <sparkle:shortVersionString>1.1.5</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Sun, 16 Aug 2026 21:34:44 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.5-build80/Switchy-Beta-1.1.5-build80.dmg"
+        sparkle:edSignature="gLkUPap1onSHXYnRTxdYOWTbmnLvHZw2COhph/933J7jjQfIbYEdmHT1oV4Qg9z4s566rKKoIT+97ZWOa1OxAQ=="
+        length="3526152"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 80</h2>
+        <ul>
+          <li>Retires the closed-lid availability experiment and removes Switchy's virtual-display creation, sleep assertions, power monitoring, and clamshell-specific wake behavior.</li>
+          <li>Removes the Beta setting and its claims from Settings, onboarding, troubleshooting guidance, product documentation, and assets.</li>
+          <li>On every launch, Switchy removes the legacy <code>preventSleepEnabled</code> preference before app state starts and records retirement migration version 1, so an update or restored preference cannot silently recreate the behavior.</li>
+          <li>To check: update or launch Switchy Beta and confirm no Switchy display appears in System Settings, the cursor and windows stay on your real displays, General Settings has no closed-lid toggle, and the welcome tour contains four slides.</li>
+          <li>Expected limitation: a peer Mac that is asleep or closed must now be woken before it can release devices.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.5 (build 79)</title>
       <sparkle:version>79</sparkle:version>
       <sparkle:shortVersionString>1.1.5</sparkle:shortVersionString>
