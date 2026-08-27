@@ -25,6 +25,7 @@ const DOWNLOAD_URL = `${import.meta.env.BASE_URL}downloads/Switchy.dmg`
 const PURCHASE_CTA = 'Get Switchy'
 const TRIAL_CTA = 'Try free for 3 days'
 const HOMEBREW_INSTALL = 'brew install --cask switchy'
+const COMPATIBILITY_COPY = 'Supports Intel and Apple silicon Macs · macOS 14+.'
 
 const HERO_ENTRANCE = {
   hidden: { opacity: 0, y: 18, filter: 'blur(6px)' },
@@ -64,7 +65,11 @@ const FAQS = [
   },
   {
     question: 'What devices are supported?',
-    answer: 'Switchy supports all Apple Magic accessories: Magic Keyboard, Magic Keyboard with Touch ID, Magic Trackpad, and Magic Mouse. Compatible with all Macs running macOS 14.0 (Sonoma) and above.',
+    answer: 'Switchy supports all Apple Magic accessories: Magic Keyboard, Magic Keyboard with Touch ID, Magic Trackpad, and Magic Mouse. It runs on Intel and Apple silicon Macs running macOS 14.0 (Sonoma) or later.',
+  },
+  {
+    question: 'Will Switchy work on my Intel Mac?',
+    answer: 'Yes. Switchy 1.1.6 is a Universal build that runs natively on Intel and Apple silicon Macs. It requires macOS 14.0 (Sonoma) or later on each Mac.',
   },
   {
     question: 'Is my data private?',
@@ -83,6 +88,14 @@ const FAQS = [
 const ONBOARDING_HERO_STEP = {
   title: 'Switch Everything at Once',
   image: 'Onboarding5-new.jpeg',
+}
+
+function CompatibilityNote({ className = '' }) {
+  return (
+    <p className={`compatibility-note${className ? ` ${className}` : ''}`}>
+      {COMPATIBILITY_COPY}
+    </p>
+  )
 }
 
 function Navbar() {
@@ -194,7 +207,7 @@ function Hero() {
           </span>
           <span className="hero__headline-second" aria-hidden="true">For every Mac.</span>
         </motion.h1>
-        <motion.p custom={0.25} initial="hidden" animate="visible" variants={HERO_ENTRANCE}>
+        <motion.p className="hero__description" custom={0.25} initial="hidden" animate="visible" variants={HERO_ENTRANCE}>
           Switch your Magic Keyboard, Trackpad, and Mouse between Macs without touching Bluetooth settings.
         </motion.p>
         <motion.div
@@ -208,6 +221,7 @@ function Hero() {
             {PURCHASE_CTA}
           </motion.a>
         </motion.div>
+        <CompatibilityNote />
       </div>
 
     </section>
@@ -405,7 +419,7 @@ function FinalCTA() {
     <section className="final-cta">
       <div className="final-cta__glow" aria-hidden="true" />
       <h2>Switch your magic accessories<br />between Macs</h2>
-      <p>Start with a full three-day trial. No account required.</p>
+      <p className="final-cta__description">Start with a full three-day trial. No account required.</p>
       <div className="final-cta__actions">
         <motion.a className="button button--light" href={CHECKOUT_URL} whileTap={{ scale: 0.96 }}>
           {PURCHASE_CTA}
@@ -414,6 +428,7 @@ function FinalCTA() {
           {TRIAL_CTA} <Download size={17} />
         </motion.a>
       </div>
+      <CompatibilityNote className="compatibility-note--final" />
       <HomebrewSnippet />
     </section>
   )

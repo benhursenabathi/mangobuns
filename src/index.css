@@ -444,7 +444,7 @@ li {
   background-clip: text;
 }
 
-.hero__copy > p {
+.hero__description {
   width: min(570px, 100%);
   margin: 34px auto 0;
   color: var(--muted);
@@ -460,6 +460,25 @@ li {
   justify-content: center;
   gap: 10px;
   margin-top: 34px;
+}
+
+.hero__actions .button--primary {
+  min-width: clamp(180px, 15vw, 224px);
+}
+
+.compatibility-note {
+  display: block;
+  width: min(560px, 100%);
+  margin: 14px auto 0;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: -0.01em;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.compatibility-note--final {
+  margin-top: 16px;
 }
 
 .button {
@@ -1709,7 +1728,7 @@ li {
   line-height: var(--leading-display);
 }
 
-.final-cta > p {
+.final-cta__description {
   margin-top: 30px;
   color: var(--muted);
   font-size: 17px;
@@ -2055,7 +2074,7 @@ li {
     font-size: clamp(48px, 13.2vw, 64px);
   }
 
-  .hero__copy > p {
+  .hero__description {
     margin-top: 26px;
     font-size: 16px;
   }
@@ -2065,6 +2084,17 @@ li {
     align-items: stretch;
     width: min(330px, 100%);
     margin: 28px auto 0;
+  }
+
+  .hero__actions .button--primary {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .compatibility-note {
+    width: min(330px, 100%);
+    margin-top: 12px;
+    font-size: 12px;
   }
 
   .hero-stage {

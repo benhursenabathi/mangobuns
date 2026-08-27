@@ -427,9 +427,22 @@ a:focus-visible {
   text-align: left;
 }
 
+.container .compatibility-note {
+  display: block;
+  width: min(560px, 100%);
+  margin: 14px auto 0;
+  color: var(--page-muted);
+  font-size: 12px;
+  letter-spacing: -0.01em;
+  line-height: 1.5;
+  text-align: center;
+}
+
 /* Homepage liquid-glass purchase CTA for blog pages. */
 .blog-purchase {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   margin: 88px 0 24px;
 }
