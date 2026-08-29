@@ -463,3 +463,63 @@ check from the SEO skill. Applied the how-to page's title/meta update; no new po
 whether pairing-mode stabilizes after its 128 → 37 impression drop; and whether compare/ maintains
 its improved click volume. Keep the next export comparison enabled and aligned to the prior clean
 window.
+
+---
+
+## 2026-08-16 — Referral-parameter canonical is healthy; visibility expands sharply
+
+**Data:** GSC Performance export
+`https___mangobuns.com_switchy_-Performance-on-Search-2026-08-16.xlsx`, covering 2026-08-08 →
+2026-08-14, plus Coverage Drilldown export
+`https___mangobuns.com_switchy_-Coverage-Drilldown-2026-08-16.xlsx`. The performance window follows
+the previous export's 2026-07-31 → 2026-08-06 window without overlap; 7 Aug is not represented.
+
+**Site-wide:** impressions **575 → 1,361 (+137%)**, clicks **32 → 26 (-19%)**, CTR **5.6% →
+1.9%**, and the impression-weighted daily position improved from roughly **15.8 → 11.6**. The CTR
+drop is visibility mix, not an indexing loss: the multiple-devices and pairing-mode pages alone
+added 603 impressions week over week at positions 11.3 and 17.0, but only one click. Nearly half of
+this week's impressions now come from those two rapidly expanding, not-yet-top-result pages.
+
+### Per page (impressions / clicks / position)
+
+| Page | Previous | Current |
+|---|---:|---:|
+| /switchy/blog/how-to-switch-magic-keyboard-between-macs/ | 320 / 4 / 18.4 | **484 / 8 / 12.1** |
+| /switchy/blog/magic-keyboard-multiple-devices/ | 38 / 1 / 16.7 | **383 / 1 / 11.3** |
+| /switchy/blog/magic-keyboard-pairing-mode/ | 37 / 0 / 33.5 | **258 / 0 / 17.0** |
+| /switchy/compare/ | 150 / 13 / 6.1 | **149 / 10 / 6.3** |
+| /switchy/blog/one-keyboard-mouse-mac-mini-macbook/ | 13 / 0 / 9.6 | **66 / 0 / 8.9** |
+| /switchy/ | 51 / 13 / 3.2 | **46 / 7 / 3.5** |
+| /switchy/blog/universal-control-vs-switching-devices/ | 11 / 0 / 12.3 | **40 / 0 / 8.7** |
+| /switchy/blog/kvm-switch-for-two-macs/ | 5 / 0 / 9.2 | **25 / 0 / 8.8** |
+| /switchy/blog/ | 3 / 0 / 2.7 | **3 / 1 / 2.7** |
+| /switchy/privacy/ | 2 / 1 / 5.0 | **4 / 0 / 6.5** |
+
+**The 2026-08-08 how-to snippet test is working.** Impressions rose 51%, clicks doubled, and
+position improved by 6.3 places (18.4 → 12.1) in its first full measured week. Leave it alone.
+Multiple-devices and pairing-mode also improved by 5.4 and 16.5 places respectively while their
+visibility surged; under the "improving → leave alone" rule, do not churn either snippet yet.
+
+**Coverage alert diagnosed — no defect.** The sole excluded URL is
+`https://mangobuns.com/switchy/?ref=producthunt`, first appearing in the report on 8 Aug and last
+crawled on 11 Aug. It returns HTTP 200 with `index, follow` and correctly declares
+`https://mangobuns.com/switchy/` as canonical. The clean homepage is indexed, is the only version
+in the sitemap, and generated 46 impressions / 7 clicks this week. The parameterized URL is an
+external referral variant, not a separate page that should enter the index; GSC's "Alternative
+page with proper canonical tag" exclusion is the intended outcome. Validation was started, but
+there is nothing to fix and a failed validation would not indicate damage.
+
+**Site health:** all 11 canonical sitemap URLs return HTTP 200. No internal link contains
+`ref=producthunt`; the live parameter URL's canonical matches the source `index.html` canonical.
+
+**Notable queries:** `magic switch` is the only automated CTR flag (22 impressions, position 8.7,
+0 clicks), but it remains competitor-brand navigational intent and the compare page's overall CTR
+is still healthy at 6.7%. Do not rewrite its snippet. `magic keyboard pairing mode` is now position
+12.1 on 14 impressions; the page is already climbing quickly after the 1 Aug rewrite, so wait.
+
+**Actions taken:** recorded the diagnosis only. No production code or SEO content change is
+warranted; no deploy or indexing request is needed.
+
+**Watch next week:** whether multiple-devices converts as it crosses page 1, whether pairing-mode
+continues toward the top 10, and whether the how-to improvement holds. For the next performance
+export, enable **Compare → Previous period** so page/query deltas are present in the workbook.
