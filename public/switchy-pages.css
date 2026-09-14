@@ -438,6 +438,88 @@ a:focus-visible {
   text-align: center;
 }
 
+/* Optional demo beside an article's explanation of Switchy. */
+.article-demo {
+  margin: 36px 0;
+  overflow: hidden;
+  border: 1px solid var(--page-line);
+  border-radius: var(--page-radius);
+  background: var(--page-panel);
+}
+
+.article-demo__intro {
+  padding: 26px 26px 22px;
+}
+
+.container .article-demo__eyebrow {
+  margin: 0 0 12px;
+  color: var(--page-orange-hot);
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.container .article-demo h3 {
+  margin: 0;
+  font-size: clamp(26px, 4vw, 34px);
+  line-height: 1.1;
+}
+
+.article-demo figure {
+  margin: 0;
+}
+
+.article-demo video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1106 / 720;
+  background: var(--page-black);
+}
+
+.article-demo video:focus-visible {
+  outline: 2px solid var(--page-orange-hot);
+  outline-offset: -3px;
+}
+
+.article-demo figcaption {
+  padding: 18px 26px 0;
+  color: var(--page-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.article-demo__actions {
+  padding: 22px 26px 26px;
+}
+
+.article-demo__trial {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: var(--page-acid);
+  color: var(--page-black);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+}
+
+.article-demo__trial:hover {
+  background: var(--page-ink);
+}
+
+.container .article-demo__actions p {
+  margin: 14px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
 /* Homepage liquid-glass purchase CTA for blog pages. */
 .blog-purchase {
   display: flex;

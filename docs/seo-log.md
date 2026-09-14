@@ -6,13 +6,13 @@ Weekly entries appended by the `/switchy-seo` skill. Newest at the bottom.
 
 | URL | Added | Indexed? |
 |---|---|---|
-| /switchy/blog/ | 2026-07-10 | Yes — 2026-07-20 (has impressions) |
-| /switchy/blog/universal-control-vs-switching-devices/ | 2026-07-10 | Yes — 2026-07-20 (has impressions) |
-| /switchy/blog/kvm-switch-for-two-macs/ | 2026-07-10 | Yes — 2026-07-20 (has impressions) |
-| /switchy/blog/one-keyboard-mouse-mac-mini-macbook/ | 2026-07-10 | Yes — 2026-07-20 (has impressions) |
-| /switchy/blog/magic-keyboard-pairing-mode/ | 2026-07-10 | **Yes — 2026-07-24.** Confirmed serving 2026-08-01: 128 impr, pos 30.7 |
-| /switchy/blog/magic-keyboard-multiple-devices/ | 2026-07-10 | **Yes — 2026-07-24.** Confirmed serving 2026-08-01: 160 impr, pos 18.4. Ranking concern remains (interleaved with the how-to page at the same position) |
-| /switchy/ (homepage) | 2026-07-10 | Yes — 2026-07-20 (18 impr, pos 2.6) |
+| /switchy/blog/ | 2026-07-10 | Yes — 2026-07-20. Still surfaced by `site:` search on 2026-09-13; absent from the current GSC Pages export |
+| /switchy/blog/universal-control-vs-switching-devices/ | 2026-07-10 | Yes — 2026-07-20. Confirmed serving in the 2026-09-13 export: 53 impr, pos 7.40 |
+| /switchy/blog/kvm-switch-for-two-macs/ | 2026-07-10 | Yes — 2026-07-20. Confirmed serving in the 2026-09-13 export: 20 impr, pos 8.70 |
+| /switchy/blog/one-keyboard-mouse-mac-mini-macbook/ | 2026-07-10 | Yes — 2026-07-20. Confirmed serving in the 2026-09-13 export: 83 impr, pos 8.10 |
+| /switchy/blog/magic-keyboard-pairing-mode/ | 2026-07-10 | **Yes — 2026-07-24.** Confirmed serving in the 2026-09-13 export: 217 impr, pos 9.22 |
+| /switchy/blog/magic-keyboard-multiple-devices/ | 2026-07-10 | **Yes — 2026-07-24.** Confirmed serving in the 2026-09-13 export: 752 impr, pos 7.90. Main concern is CTR (0.13%); query overlap with how-to needs filtered data |
+| /switchy/ (homepage) | 2026-07-10 | Yes — 2026-07-20. Confirmed serving in the 2026-09-13 export: 39 impr, pos 3.31 |
 
 ---
 
@@ -523,3 +523,208 @@ warranted; no deploy or indexing request is needed.
 **Watch next week:** whether multiple-devices converts as it crosses page 1, whether pairing-mode
 continues toward the top 10, and whether the how-to improvement holds. For the next performance
 export, enable **Compare → Previous period** so page/query deltas are present in the workbook.
+
+---
+
+## 2026-09-13 — Visibility grows 25%; clicks fall as compare loses seven clicks
+
+**Data:** fresh GSC Performance export `mangobuns.com-Performance-on-Search-2026-09-13.xlsx`,
+covering **2026-09-05 → 2026-09-11**, with Web search, Last 7 days, no page filter, and no comparison
+columns. Prior available export: `mangobuns.com-Performance-on-Search-2026-08-29.xlsx`, covering
+**2026-08-21 → 2026-08-27**. The eight days from 28 Aug through 4 Sep are unrepresented. These are
+equal-length, non-consecutive windows with different weekday alignment, not a clean week-over-week
+comparison. The file dates are export dates; the reporting dates were checked against Chart rows.
+
+**Site-wide:** impressions **1,470 → 1,841 (+25.2%)**, clicks **33 → 28 (-15.2%)**, CTR
+**2.24% → 1.52%**, and approximate impression-weighted daily position **8.24 → 7.71**.
+Totals come from Chart, not the Pages or Queries sums. The Pages sheet totals 1,919 impressions
+and 28 clicks; the visible Queries sheet totals only 277 impressions and 6 clicks. Page and site
+aggregation differ, and the listed queries are incomplete, so neither sum replaces the site total.
+Average position is reconstructed from rounded daily values and can also change with query mix.
+
+### Per page (impressions / clicks / position)
+
+| Page | Prior available (21–27 Aug) | Current (5–11 Sep) |
+|---|---:|---:|
+| /switchy/blog/magic-keyboard-multiple-devices/ | 608 / 1 / 8.35 | **752 / 1 / 7.90** |
+| /switchy/blog/how-to-switch-magic-keyboard-between-macs/ | 345 / 8 / 8.79 | **497 / 11 / 7.51** |
+| /switchy/compare/ | 245 / 13 / 6.99 | **247 / 6 / 7.26** |
+| /switchy/blog/magic-keyboard-pairing-mode/ | 153 / 2 / 10.30 | **217 / 2 / 9.22** |
+| /switchy/blog/one-keyboard-mouse-mac-mini-macbook/ | 69 / 0 / 8.26 | **83 / 1 / 8.10** |
+| /switchy/blog/universal-control-vs-switching-devices/ | 58 / 1 / 8.64 | **53 / 0 / 7.40** |
+| /switchy/ | 29 / 5 / 3.76 | **39 / 6 / 3.31** |
+| /switchy/blog/kvm-switch-for-two-macs/ | 27 / 1 / 6.93 | **20 / 0 / 8.70** |
+| / | 10 / 2 / 1.50 | **10 / 1 / 7.60** |
+| /switchy/privacy/ | 7 / 0 / 6.29 | **1 / 0 / 6.00** |
+| /switchy/blog/ | 5 / 0 / 3.80 | Not listed |
+
+**The click decline is concentrated in compare/.** Its impressions are effectively flat
+(245 → 247), but clicks fall 13 → 6 and CTR **5.31% → 2.43%**, with only a small change in average
+position (6.99 → 7.26). The other pages together gain a net two clicks, leaving the site down five.
+This identifies where the decline occurs, not why: the export does not establish snippet failure,
+a changed query mix, or a durable trend. Desktop accounts for the device-level decline
+(27 → 21 clicks, 1,083 → 1,381 impressions); mobile clicks rise 6 → 7. Device and page tables cannot
+be joined to attribute compare's lost clicks specifically to desktop.
+
+**Multiple-devices remains the largest CTR opportunity:** 752 impressions, one click,
+**0.13% CTR**, after 608 impressions and one click in the prior window. Its average position still
+improves (8.35 → 7.90), so leave its live content and snippet alone while collecting a clean
+comparison. This is the first page to investigate for a future CTR test, not a reason to chase
+additional ranking or publish a competing switching guide. The current page-to-query mapping is
+ambiguous because the how-to guide also covers the switching cluster.
+
+**Provisional snippet draft for multiple-devices — not applied, not yet approved.** This revises
+the 29 Aug draft to preserve this page's limits/options intent. It avoids advertising Universal
+Control as a fourth way to move the Bluetooth connection and keeps some distance from the how-to
+page's three-method title. The live metadata was verified on 13 Sep.
+
+| Field | Current | Candidate for a later test |
+|---|---|---|
+| Title | `Can a Magic Keyboard Connect to Multiple Devices? (Trackpad & Mouse Too)` | `Magic Keyboard on Multiple Devices: What Works (2026)` |
+| Description | `No — Apple's Magic Keyboard, Trackpad, and Mouse pair with one device at a time. Why Apple designed it that way, how it compares to Logitech Easy-Switch, and what to do instead.` | `Use a Magic Keyboard with two Macs? Compare manual pairing, cables, Universal Control and switching apps, plus the limits for Trackpad and Mouse.` |
+
+The candidate front-loads the topic and gives readers concrete options to compare. It is a
+hypothesis, not a promised CTR increase. Confirm relevant queries with a page-filtered export
+before proposing implementation. Keep the improving page untouched in this review; applying a
+future title/meta test requires user approval under the SEO skill.
+
+**Notable queries and gaps:**
+- `magic switch`: 82 impressions, 1 click, position 9.7 (previous 65, 1, 9.5).
+  `magic switch mac`: 24 impressions, 2 clicks, position 5.9. `switchmymagic`: 10 impressions,
+  no clicks, position 2.3. These are competitor names; do not assume a broad informational snippet
+  will win those clicks. The global query rows do not prove which page served each impression.
+- `magic keyboard switch between devices`: 15 impressions, no clicks, position 8.9;
+  `can magic keyboard connect to multiple devices`: 12, no clicks, position 9.2;
+  `magic keyboard multiple macs`: 7, no clicks, position 8.4;
+  `share magic keyboard between two macs`: 7, no clicks, position 10.4.
+  Existing pages cover these topics; get filtered data to separate their intent before editing.
+- `switch magic keyboard between macs`: 9 impressions, no clicks, position 6.7. The how-to page
+  overall gains three clicks and improves position, so retain its existing snippet.
+- `how to switch magic mouse between macs`: 4 impressions, position 10.0;
+  `switch magic mouse between macs`: 2, position 15.0;
+  `magic trackpad switch between devices`: 4, position 9.2;
+  `magic trackpad multiple devices`: 3, position 10.0. These remain small and are covered by
+  existing guides. No separate Mouse/Trackpad article is justified by this export alone.
+- The Android question has 6 impressions at position 14.8 and is not a strong fit for Switchy's
+  Mac-to-Mac switching use case. No new post proposed.
+
+**Parser caveat:** no individual query meets its zero-click CTR threshold. The current script
+only emits query-level CTR flags despite its docstring mentioning pages. Manual page review finds
+Universal Control (53 impressions, position 7.40, zero clicks) and KVM (20, 8.70, zero clicks).
+Universal Control is still improving; KVM's sample is small and its query mix is unconfirmed.
+Neither warrants an immediate rewrite. Multiple-devices has one click, so it also evades the
+literal zero-click rule despite the persistent low CTR. Parser code was not changed.
+
+**Keep the gains:** how-to improves to position 7.51 with 11 clicks; pairing-mode crosses into the
+top 10 at 9.22 with 217 impressions; Mac mini earns one click at position 8.10; the homepage
+generates six clicks at position 3.31. The data do not establish that earlier snippet edits caused
+these gains. No changes recommended to these pages this review.
+
+**Site health and indexing, checked 13 Sep:** the live canonical sitemap returns HTTP 200 and
+contains 11 URLs. All 11 return HTTP 200, declare matching self-canonicals, and include
+`index, follow`. Root robots.txt allows general search crawling and references
+`https://mangobuns.com/sitemap.xml`; the compatibility robots.txt under `/switchy/` also returns 200.
+The sitemap still uses 10 Jul `lastmod` dates for pages whose source metadata records August
+updates. Carry forward the maintenance item to use accurate content dates in the next approved
+content deployment; do not label untouched pages as freshly modified.
+
+Six watched URLs surfaced in `site:` search, including the blog hub, which is absent from this
+week's Pages export. The multiple-devices URL did not surface directly in the search results
+returned by this check, but its current GSC row confirms 752 impressions. A missing `site:` result
+is not evidence of deindexing; no Request Indexing action is warranted. The other six watched
+content/homepage URLs have current GSC impressions. Watching table refreshed, preserving original
+indexing dates. This is not a fresh GSC URL Inspection of all seven URLs.
+
+**Prioritized next actions:**
+1. Get a clean site-wide comparison export: **Last 7 days → Compare → Previous period**, with no
+   page or query filter. This supplies the missing consecutive baseline before acting on changes.
+2. Export the same comparison with an exact page filter for
+   `https://mangobuns.com/switchy/blog/magic-keyboard-multiple-devices/`. Inspect the Queries table
+   before proceeding with the provisional CTR test. If a particular query still overlaps how-to,
+   filter that query and inspect Pages to confirm which URLs actually rank.
+3. Export the same comparison for `https://mangobuns.com/switchy/compare/` to examine the lost
+   clicks by query. If low CTR persists on relevant queries, prepare one concrete snippet test;
+   avoid rewriting around competitor-name traffic solely from this global export.
+
+**Actions taken:** analyzed the exports, completed live health/indexing checks, refreshed Watching,
+and appended this review while preserving the existing uncommitted 29 Aug entry. Only the SEO log
+changed. No production edits, build, commit, push, or deployment were needed for this review.
+
+### 2026-09-13 follow-up — Multiple-devices update prepared for deployment approval
+
+**Status: prepared locally; awaiting the user's approval to deploy.** The user requested that the
+multiple-devices improvement be completed and presented for approval before deployment, and supplied
+a demo video to reuse if useful. This authorizes preparation of the earlier provisional change;
+it is not evidence that the query attribution uncertainty has been resolved.
+
+**Prepared changes:**
+- Title/H1: `Magic Keyboard on Multiple Devices: What Works (2026)` (53 characters).
+- Description: `Use a Magic Keyboard with two Macs? Compare manual pairing, cables, Universal
+  Control and switching apps, plus the limits for Trackpad and Mouse.` (145 characters).
+- Opening paragraphs retain the one-device-at-a-time answer and explain the available workarounds.
+  An in-prose link points readers to the existing how-to guide for setup instructions.
+- Open Graph and Article metadata match the new title and description. Original publication date
+  remains 10 Jul; modification date is 13 Sep. The blog card and llms.txt entry are aligned, and
+  sitemap lastmod is updated for this article and the changed blog hub only. Both URLs already
+  appear in the deployment workflow's IndexNow list.
+- Added a video demonstration after the switching-app explanation, with a direct free-three-day-
+  trial download link and the Mac/network requirements.
+- Removed the existing "Rule of thumb" callout at the user's request. The video/trial section now
+  leads directly into Common questions. Rebuilt and verified the removal in the approval preview.
+
+**Video:** the supplied `Switchy for mac - demo(ob).mp4` is byte-for-byte identical to the existing
+homepage asset (SHA-256 `0b4d1aa9dc6216e4e43e7efba3a0c8e68b85e1d0cf806ea9ea4af4d3d97c02c5`).
+Reuse that URL without another video copy. The 1,035,513-byte clip is 23.97 seconds at 1106×720;
+its decoded audio samples are all zero. The visible demo shows a Magic Trackpad connecting, so the
+caption describes that specific action and does not claim the clip demonstrates all three devices
+switching together. A 60,622-byte JPEG poster was extracted from the menu-open frame. Native
+playback controls, a text description, explicit dimensions, and `preload="none"` are included.
+There is no autoplay, including when reduced motion is enabled.
+
+**Validation:** production build passed. Checked the built preview at widths 320, 390, 768, and
+1440 pixels with no page-level horizontal overflow. Reviewed desktop and mobile screenshots.
+Video plays and pauses from the keyboard without media errors. No video request is made before
+playback; the poster loads. The article, blog hub, stylesheet, poster, video, and trial download
+all return HTTP 200 with appropriate content types in the built preview. Article, FAQPage, and
+BreadcrumbList JSON-LD parse; title/description consistency, original publication date, matching
+built files, and the unchanged 11-URL sitemap were checked. `git diff --check` passes.
+
+**Measurement after approval/deployment:** record the actual deployment date, request indexing for
+the retitled article, and compare complete post-recrawl windows with consistent query/device
+filters. Baseline: 752 impressions, one click, position 7.90, CTR 0.13% for 5–11 Sep. The video and
+trial link affect the on-page experience; GSC alone cannot establish trial or purchase conversion.
+No new analytics were added, and combined changes are not a controlled attribution experiment.
+
+### 2026-09-14 — Trackpad and Mouse article assessment
+
+Reviewed device-specific Queries rows in five available exports (1, 8, 16, and 29 Aug; 13 Sep).
+Trackpad intent recurs in all five. The 8–14 Aug window includes one click from
+`magic trackpad switch between devices` (4 impressions, position 9.5). In 5–11 Sep, the six
+non-brand Trackpad switching/multiple-device queries total **11 listed impressions, zero clicks**;
+the three Magic Mouse switching queries total **7 listed impressions, zero clicks**. These are
+small observed query samples, not estimates of total search demand. Global rows do not establish
+which existing page ranked, and the exports do not cover consecutive weeks throughout.
+
+**Recommendation:** a focused Trackpad article is a reasonable first content experiment, with a
+Mouse article a lower-priority follow-up. This refines the earlier conservative recommendation:
+the latest export alone did not warrant new pages, but repeated Trackpad intent and the available
+original demo make one useful, differentiated guide worth considering. Suggested title:
+`How to Switch a Magic Trackpad Between Two Macs`. Give it model-specific setup steps, the
+existing Trackpad demo, troubleshooting for reconnecting to the wrong Mac, and clear distinctions
+between moving a Bluetooth connection and sharing input. Use original screenshots and verify
+instructions on the supported hardware before claiming first-hand testing. A Mouse guide would
+need its own useful detail about pairing, using another input device during the handoff, and
+charging-port limitations. Link each new guide contextually from existing articles if commissioned.
+
+**Final decision:** prioritize improvements to existing pages. Defer both Trackpad and Mouse
+articles; the small query samples do not make new content necessary. Measure the revised
+multiple-devices page after recrawl, and investigate the comparison page's query-level CTR before
+proposing another change. Leave the improving how-to and pairing titles unchanged.
+
+### 2026-09-14 — Approved deployment
+
+The user approved publishing the prepared multiple-devices update with "okay go for it" after
+confirming the scope was improvements to the existing article. No new articles are included.
+Production build and responsive/video checks passed before approval. The remote main branch
+matches the local base commit, and the pre-existing uncommitted 29 Aug SEO log entry will be
+preserved separately from this deployment. Live verification will follow the Pages deployment.
