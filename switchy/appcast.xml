@@ -9,6 +9,31 @@
     <!-- Add new versions above this line -->
 
     <item>
+      <title>Beta 1.1.6 (build 83)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>83</sparkle:version>
+      <sparkle:shortVersionString>1.1.6</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Wed, 23 Sep 2026 19:25:03 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.6-build83/Switchy-Beta-1.1.6-build83.dmg"
+        sparkle:edSignature="zkVnd7VggvcxGEw8UM6hwwAlIymOptRXR0LCXpY5B/glEgjC4fnSq00lepPAcp0sdzDQn2RtpHydmGedcMJWBg=="
+        length="6457838"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 83</h2>
+        <ul>
+          <li>Adds individual Send and Send All so a MacBook can return a shared keyboard and mouse to a desktop Mac without input on the destination.</li>
+          <li>Adds receiver readiness checks, protected operation identity, duplicate-request handling, ownership verification, bounded recovery, and visible results on both Macs.</li>
+          <li>Send All moves devices sequentially and stops on the first failure; a failed device is returned once only when both Macs establish that it is safe.</li>
+          <li>Install this build on both participating Macs. Older builds do not advertise the safe Send protocol.</li>
+          <li>To test: Connect All from the desktop, then Send All back without operating the desktop. Also test individual Send, missing setup, offline/busy receiver, and partial failure.</li>
+          <li>Internal beta: physical multi-Mac qualification is still pending. Do not promote or distribute to customers yet.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 1.1.6 (build 82)</title>
       <sparkle:version>82</sparkle:version>
       <sparkle:shortVersionString>1.1.6</sparkle:shortVersionString>
