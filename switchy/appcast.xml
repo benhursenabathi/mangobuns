@@ -9,6 +9,31 @@
     <!-- Add new versions above this line -->
 
     <item>
+      <title>Beta 1.1.6 (build 86)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>86</sparkle:version>
+      <sparkle:shortVersionString>1.1.6</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Sun, 27 Sep 2026 21:43:24 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.6-build86/Switchy-Beta-1.1.6-build86.dmg"
+        sparkle:edSignature="jIyXN+RnmY224rridwUCrO3RefDLOkDGfu+RV5yiyGaOJt3iL60YfAxlZ+pq80oFotGEh/yK7MuhA+/MDivIAw=="
+        length="6620159"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 86 — Send reliability and one progress ring</h2>
+        <ul>
+          <li>The sending Mac no longer refuses to release a device just because Send already marked it as switching. A single false "not connected" Bluetooth reading used to make Send fail while the device kept working on the sender.</li>
+          <li>Send and Send All now show one progress ring per Mac for the whole batch. The receiving Mac no longer shows a checkmark between devices, and a partial batch never shows the final checkmark.</li>
+          <li>The warning triangle left after a failed Send now clears on its own. The 180-second handoff safety block is unchanged.</li>
+          <li>A Send blocked by an earlier unresolved handoff now shows a toast, and the Mac in the Send menu reads "Previous handoff is still being checked" instead of doing nothing.</li>
+          <li>New [REMOTE SEND] log lines record release refusals, unconfirmed releases, and the receiver's final result.</li>
+        </ul>
+        <p><b>Test on both Macs:</b> run a two-device Send All and watch both menu bars. Each should show one ring and one final checkmark. Then repeat single Sends. If a Send fails, capture both Macs' logs before using Connect All to recover.</p>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.6 (build 85)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>85</sparkle:version>
