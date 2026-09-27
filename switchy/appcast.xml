@@ -9,6 +9,31 @@
     <!-- Add new versions above this line -->
 
     <item>
+      <title>Beta 1.1.6 (build 85)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>85</sparkle:version>
+      <sparkle:shortVersionString>1.1.6</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Sun, 27 Sep 2026 15:58:04 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.6-build85/Switchy-Beta-1.1.6-build85.dmg"
+        sparkle:edSignature="HZwQQdwH3AGgqjl1nnzkQm3BKs23OJUX4Q/gsnzX5gORPHUySxqnN0Acw1uqR4F2EmVgmAbTiNZ5uopYjzwlCw=="
+        length="6480192"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 85 — Send readiness after wake</h2>
+        <ul>
+          <li>Send readiness is now re-checked continuously while the menu is open, so a destination no longer sits on "Checking…" after login, a lid open, or late peer discovery.</li>
+          <li>A readiness hint survives the whole serial query pass, so a slow peer can no longer expire an earlier successful result mid-session.</li>
+          <li>Sleeping during wake recovery now cancels that recovery instead of stranding the searching state and the interaction lock.</li>
+          <li>Wake cycles carry an ID: an abandoned probe, cleanup block, or recovery timer can no longer unlock a newer wake.</li>
+          <li>Click-time admission, release evidence, pairing and ownership checks are unchanged.</li>
+        </ul>
+        <p><b>Test on both Macs:</b> open a connected device's Send submenu immediately after login or a lid open, leave it open 30+ seconds through two renewal cycles, and check both single Send and Send All. Then open a lid, close it immediately, wake again, and confirm the new wake finishes its own verification before Send becomes ready.</p>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.6 (build 83)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>83</sparkle:version>
