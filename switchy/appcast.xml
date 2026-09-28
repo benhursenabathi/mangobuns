@@ -9,6 +9,31 @@
     <!-- Add new versions above this line -->
 
     <item>
+      <title>Beta 1.1.6 (build 88)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>88</sparkle:version>
+      <sparkle:shortVersionString>1.1.6</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Mon, 28 Sep 2026 21:23:10 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.6-build88/Switchy-Beta-1.1.6-build88.dmg"
+        sparkle:edSignature="iTs3FIjW9gftltuDIxUXf1mXUczToVVD92WRNssiXd7/TbeppsuZw/smBDc1T33xBsjEKokMcPm5xbTFOC7kAQ=="
+        length="6664861"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 88 — Clearer error panels</h2>
+        <ul>
+          <li>Error panels now name one cause and give one instruction: the other Mac is asleep, isn't responding, couldn't release the device, the connection didn't finish, or the device isn't connected. No more "wake the Mac" when that Mac just answered.</li>
+          <li>One primary button per panel. For a single device, "Can't wake it?" / "Still not working?" opens a second step: turn the device off and on, then Connect (same power-cycle recovery as before).</li>
+          <li>Connect All panels no longer mention a Connect After Power Cycle button they don't have.</li>
+          <li>Connect All Retry can now recover devices the other Mac reports as disconnected. Previously Retry reopened the same panel. The first Connect All attempt is unchanged.</li>
+          <li>Help (?) text matches each panel.</li>
+        </ul>
+        <p><b>Test:</b> put the other Mac to sleep and click an unavailable device — check the "asleep" panel, then "Can't wake it?" → Connect after power cycling. Try Connect All with the other Mac asleep, then wake it and Retry. Normal Connect, Connect All and Send should behave exactly as in build 87.</p>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.6 (build 87)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>87</sparkle:version>
