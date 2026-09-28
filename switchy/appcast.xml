@@ -9,6 +9,31 @@
     <!-- Add new versions above this line -->
 
     <item>
+      <title>Beta 1.1.6 (build 87)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>87</sparkle:version>
+      <sparkle:shortVersionString>1.1.6</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Mon, 28 Sep 2026 20:31:21 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.6-build87/Switchy-Beta-1.1.6-build87.dmg"
+        sparkle:edSignature="pz9km8T+Tz7Q2kjgRzgT7traY7xkbZ+Jdux3j9YPlnNcko/1qWKLVoqIe8+quw2GtMfAI/Ydrp7X9LGzrgsoCQ=="
+        length="6639818"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 87 — One progress ring for Connect All</h2>
+        <ul>
+          <li>Connect All now keeps one progress ring for the whole batch on the Mac where you started it, including the gap between owner Macs and final verification. A partial or cancelled batch never shows the final checkmark.</li>
+          <li>While a recovery prompt is waiting for your choice, the menu bar shows a warning instead of a moving ring.</li>
+          <li>Retry keeps devices that are already connected counted as done, and restarts progress only for the rest.</li>
+          <li>The "Available Devices" section is now "Available to connect".</li>
+          <li>Correction to build 86's notes: build 86 also added time-based progress estimates, so the ring keeps advancing during long pairing waits without reaching 100% until the switch is verified.</li>
+        </ul>
+        <p><b>Test:</b> run a single Connect, Connect All from one Mac, and Connect All across two Macs. Each should show one ring and one final checkmark. Trigger a recovery prompt, choose Retry, and confirm progress resumes for the unfinished devices only.</p>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.6 (build 86)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>86</sparkle:version>
