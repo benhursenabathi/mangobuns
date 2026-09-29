@@ -9,6 +9,30 @@
     <!-- Add new versions above this line -->
 
     <item>
+      <title>Beta 1.1.6 (build 90)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>90</sparkle:version>
+      <sparkle:shortVersionString>1.1.6</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Tue, 29 Sep 2026 18:33:31 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.6-build90/Switchy-Beta-1.1.6-build90.dmg"
+        sparkle:edSignature="sGK0LPySMyelbWUVU0b3su84XDR0Er0De3trN0rfdKTh0HhEUqOpMMIdwd03bVBQlWwntpUFfuTYa6r4ttW4CQ=="
+        length="6720656"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 90 — Send finds the sending Mac when Bonjour is flaky</h2>
+        <ul>
+          <li>Send and Send All: build 89 showed that the receiving Mac couldn't find the sending Mac in its Bonjour list (<code>attempts=3 responses=[]</code>), even though that Mac had just sent the request over a live connection. Connect and Connect All weren't affected because they don't need an exact identity match.</li>
+          <li>The receiving Mac now finds the sending Mac by exact identity; failing that, by its single matching name while Bonjour's identity details are missing; failing that, over the live connection. Replies are still checked against the sending Mac's identity and the operation ID. A different Mac, a different Switchy copy, or two Macs with the same name never match.</li>
+          <li>Live connections are stored under the identity the other Mac proves when it replies. Send releases can use the relay after recent contact, even when Bonjour has lost the other Mac.</li>
+          <li>If a Send still fails, the diagnostic now includes <code>route=…</code>, showing how the receiving Mac tried to reach the sending Mac.</li>
+        </ul>
+        <p><b>Test:</b> install on both Macs. Try Send All and single Send several times. If one fails, search the sending Mac's logs for <code>[REMOTE SEND] Destination</code>. Connect and Connect All should work exactly as before.</p>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.6 (build 89)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>89</sparkle:version>
