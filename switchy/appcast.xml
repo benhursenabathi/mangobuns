@@ -9,6 +9,29 @@
     <!-- Add new versions above this line -->
 
     <item>
+      <title>Beta 1.1.6 (build 89)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>89</sparkle:version>
+      <sparkle:shortVersionString>1.1.6</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Tue, 29 Sep 2026 15:04:54 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.6-build89/Switchy-Beta-1.1.6-build89.dmg"
+        sparkle:edSignature="ikXAw8MCc8cOfiRQ9yMZqauNH6zkqwJe0YbifkQhVnF6Cy0ds1ehbiDvooHDEp7ScVDWSYvOJRRUm3y8G9eBBQ=="
+        length="6707142"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 89 — Send retries missed release replies</h2>
+        <ul>
+          <li>Send and Send All: if the sending Mac doesn't answer the release request at all, the receiving Mac now tries again after 0.75s and 1.5s, using the same operation, so the device can't be released twice. Previously it failed within ~150ms and stopped at the first device ("1 failed · 1 not attempted").</li>
+          <li>A clear refusal (busy, refused, not connected) is still final and is never retried.</li>
+          <li>A failed Send now reports the receiving Mac's reason back to the sending Mac, which logs it as a warning (<code>[REMOTE SEND] Destination failed … diagnostic=…</code>). The next failure can be diagnosed from the sending Mac's logs alone.</li>
+        </ul>
+        <p><b>Test:</b> install on both Macs. Send All and single Send several times, including right after opening the menu. If one still fails, search the sending Mac's logs for <code>[REMOTE SEND] Destination</code>.</p>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.6 (build 88)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>88</sparkle:version>
