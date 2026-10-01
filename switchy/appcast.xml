@@ -9,6 +9,40 @@
     <!-- Add new versions above this line -->
 
     <item>
+      <title>Version 2.0 (build 93)</title>
+      <sparkle:version>93</sparkle:version>
+      <sparkle:shortVersionString>2.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Thu, 01 Oct 2026 16:35:28 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-v2.0-build93/Switchy-2.0.dmg"
+        sparkle:edSignature="TUuOb6onuc31Gs4f3oALjaboEl9MLWvEo1Du99xkYDkJfkFtXLCrsFTAbD8ZwGnEXgwcgOu4L/PWHONDzk8qAg=="
+        length="7418088"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>What's new in Switchy 2.0</h2>
+        <h3>Send your devices to another Mac</h3>
+        <p>You can now send your keyboard, mouse or trackpad to another Mac with one click, straight from the Mac you're using. This is perfect for giving your keyboard and mouse back to your desktop Mac when it has none of its own.</p>
+        <ul>
+          <li><b>Send one device:</b> open the Switchy menu, choose a device, and pick the Mac to send it to.</li>
+          <li><b>Send everything:</b> choose <b>Send all devices</b> to move them all at once.</li>
+          <li>Both Macs need Switchy 2.0.</li>
+        </ul>
+        <h3>Connect</h3>
+        <ul>
+          <li>Connecting is more reliable and faster.</li>
+          <li>If something still doesn't work, Switchy walks you through turning the device off and on again.</li>
+        </ul>
+        <h3>More reliable</h3>
+        <ul>
+          <li>Switching works more reliably, even on busy or patchy Wi-Fi.</li>
+          <li>Lots of bug fixes.</li>
+        </ul>
+        <p>Love,<br>mangobuns</p>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.6 (build 92)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>92</sparkle:version>
