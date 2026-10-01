@@ -5,6 +5,19 @@ import cableImageUrl from '../../Assets/Cable image.png'
 
 gsap.registerPlugin(ScrollTrigger)
 
+/* SCROLL STORYBOARD (220svh section, 120svh of pinned travel)
+ *   0–30%  hold the complete cable for 36svh of reading room
+ *  30–85%  dissolve; the next card enters over the departing scene
+ *  85–100% finish the handover with the next card already on screen
+ * The following card overlaps by one viewport in CSS, without its own reveal timer.
+ */
+const CABLE_STORY = {
+  dissolveStart: 0.3,
+  dissolveEnd: 0.85,
+  headingExitStart: 0.64,
+  headingExitEnd: 0.8,
+}
+
 const MOBILE_BREAKPOINT = 767
 const isCompactViewport = (width, height) => (
   width <= MOBILE_BREAKPOINT || (width <= 920 && height <= 540)
@@ -48,11 +61,26 @@ const createCableField = (image, isMobile) => {
 
   for (let y = 0; y < height; y += step) {
     for (let x = 0; x < width; x += step) {
-      const pixelIndex = (y * width + x) * 4
-      // The supplied asset is already beautifully cut out. Its native alpha is
-      // the most accurate possible particle mask and preserves every soft edge.
-      const alpha = rawPixels.data[pixelIndex + 3] / 255
-      if (alpha < 0.035) continue
+      // Include the whole tile, including antialiased edge pixels. Sampling only
+      // its top-left pixel left untracked pieces of the cable outline behind.
+      let alphaSum = 0
+      let redSum = 0
+      let greenSum = 0
+      let blueSum = 0
+      const cellWidth = Math.min(step, width - x)
+      const cellHeight = Math.min(step, height - y)
+      for (let dy = 0; dy < cellHeight; dy += 1) {
+        for (let dx = 0; dx < cellWidth; dx += 1) {
+          const index = ((y + dy) * width + x + dx) * 4
+          const alpha = rawPixels.data[index + 3] / 255
+          alphaSum += alpha
+          redSum += rawPixels.data[index] * alpha
+          greenSum += rawPixels.data[index + 1] * alpha
+          blueSum += rawPixels.data[index + 2] * alpha
+        }
+      }
+      if (alphaSum === 0) continue
+      const alpha = alphaSum / (cellWidth * cellHeight)
 
       const bottomToTop = 1 - y / height
       const start = clamp(0.045 + bottomToTop * 0.51 + (random() - 0.5) * 0.1, 0.02, 0.62)
@@ -63,29 +91,34 @@ const createCableField = (image, isMobile) => {
         y: y + step / 2,
         cellX: x,
         cellY: y,
-        red: rawPixels.data[pixelIndex],
-        green: rawPixels.data[pixelIndex + 1],
-        blue: rawPixels.data[pixelIndex + 2],
+        cellWidth,
+        cellHeight,
+        red: Math.round(redSum / alphaSum),
+        green: Math.round(greenSum / alphaSum),
+        blue: Math.round(blueSum / alphaSum),
         alpha,
         size: step * (0.8 + random() * 0.55),
         start,
         duration: 0.25 + random() * 0.12,
         velocityX: sideForce + (random() - 0.5) * 155,
         velocityY: random() < 0.18 ? -25 - random() * 65 : 35 + random() * 150,
-        growth: 0.15 + random() * 0.95,
+        shrink: 0.35 + random() * 0.35,
         flutter: (random() - 0.5) * 18,
       })
     }
   }
 
-  return { source: raw, particles, width, height, step }
+  const remaining = document.createElement('canvas')
+  remaining.width = width
+  remaining.height = height
+  const remainingContext = remaining.getContext('2d')
+  return { source: raw, remaining, remainingContext, particles, width, height }
 }
 
 export function CableDissolve() {
   const sectionRef = useRef(null)
   const stickyRef = useRef(null)
   const canvasRef = useRef(null)
-  const promptRef = useRef(null)
   const headingRef = useRef(null)
 
   useLayoutEffect(() => {
@@ -99,9 +132,9 @@ export function CableDissolve() {
 
     let field
     let resizeObserver
-    let scrollTrigger
+    let scrollTween
     let disposed = false
-    let progress = 0
+    let storyProgress = 0
     const context = canvas.getContext('2d')
     const image = new Image()
     image.decoding = 'async'
@@ -120,7 +153,8 @@ export function CableDissolve() {
 
     const render = (nextProgress) => {
       if (!field || disposed) return
-      progress = clamp(nextProgress)
+      storyProgress = clamp(nextProgress)
+      const progress = ramp(storyProgress, CABLE_STORY.dissolveStart, CABLE_STORY.dissolveEnd)
       const surface = sizeCanvas()
       const { width, height, dpr } = surface
       const compactViewport = isCompactViewport(width, height)
@@ -135,6 +169,7 @@ export function CableDissolve() {
       // Clear the last silhouette as the upper edge dissolves so the product
       // cards can take over without a lingering end-state frame.
       const sceneFade = 1 - smoothstep(0.74, 0.9, progress)
+      sticky.style.setProperty('--cable-ambience', String(sceneFade))
       const cornerRadius = 28 / imageScale
 
       context.setTransform(1, 0, 0, 1, 0, 0)
@@ -147,35 +182,33 @@ export function CableDissolve() {
         dpr * originX,
         dpr * originY,
       )
+      // Erase at native resolution before scaling. Integer tile boundaries
+      // remove every source pixel without subpixel destination-out seams.
+      const remaining = field.remainingContext
+      remaining.clearRect(0, 0, field.width, field.height)
+      remaining.drawImage(field.source, 0, 0)
+      for (const particle of field.particles) {
+        if (progress <= particle.start) continue
+        remaining.clearRect(particle.cellX, particle.cellY, particle.cellWidth, particle.cellHeight)
+      }
       context.save()
       context.beginPath()
       context.roundRect(0, 0, field.width, field.height, cornerRadius)
       context.clip()
       context.globalAlpha = sceneFade
-      context.drawImage(field.source, 0, 0)
+      context.drawImage(field.remaining, 0, 0)
       context.restore()
-
-      context.globalCompositeOperation = 'destination-out'
-      for (const particle of field.particles) {
-        if (progress <= particle.start) continue
-        context.fillRect(
-          particle.cellX - 0.6,
-          particle.cellY - 0.6,
-          field.step + 1.2,
-          field.step + 1.2,
-        )
-      }
 
       context.globalCompositeOperation = 'source-over'
       for (const particle of field.particles) {
         const localProgress = clamp((progress - particle.start) / particle.duration)
         if (localProgress <= 0 || localProgress >= 1) continue
 
-        const eased = 1 - (1 - localProgress) ** 3
+        const eased = 1 - (1 - localProgress) ** 2
         const opacity = particle.alpha * (1 - smoothstep(0.34, 1, localProgress)) * sceneFade
         const x = particle.x + particle.velocityX * eased + Math.sin(eased * Math.PI * 3) * particle.flutter
         const y = particle.y + particle.velocityY * eased + 78 * eased * eased
-        const size = particle.size * (1 + particle.growth * eased)
+        const size = particle.size * (1 - particle.shrink * smoothstep(0.15, 1, localProgress))
 
         context.globalAlpha = opacity
         context.fillStyle = `rgb(${particle.red} ${particle.green} ${particle.blue})`
@@ -184,7 +217,8 @@ export function CableDissolve() {
 
       context.globalAlpha = 1
       context.globalCompositeOperation = 'source-over'
-      if (sceneFade > 0) {
+      const frameFade = 1 - smoothstep(0.02, 0.2, progress)
+      if (frameFade > 0) {
         const outlineInset = 0.5 / imageScale
         context.beginPath()
         context.roundRect(
@@ -194,7 +228,7 @@ export function CableDissolve() {
           field.height - outlineInset * 2,
           cornerRadius,
         )
-        context.globalAlpha = sceneFade
+        context.globalAlpha = frameFade
         context.lineWidth = 1 / imageScale
         context.strokeStyle = 'rgba(255, 255, 255, 0.1)'
         context.stroke()
@@ -202,18 +236,10 @@ export function CableDissolve() {
       }
       context.setTransform(1, 0, 0, 1, 0, 0)
 
-      const promptProgress = 1 - smoothstep(0.09, 0.31, progress)
-      if (promptRef.current) {
-        gsap.set(promptRef.current, {
-          opacity: promptProgress,
-          y: -8 * (1 - promptProgress),
-        })
-      }
-
       const headingProgress = 1 - smoothstep(
-        isCompactViewport(window.innerWidth, window.innerHeight) ? 0.52 : 0.72,
-        isCompactViewport(window.innerWidth, window.innerHeight) ? 0.75 : 0.9,
-        progress,
+        CABLE_STORY.headingExitStart,
+        CABLE_STORY.headingExitEnd,
+        storyProgress,
       )
       if (headingRef.current) {
         const headingExit = 1 - headingProgress
@@ -236,18 +262,26 @@ export function CableDissolve() {
           isCompactViewport(window.innerWidth, window.innerHeight),
         )
         section.dataset.ready = 'true'
-        resizeObserver = new ResizeObserver(() => render(progress))
+        resizeObserver = new ResizeObserver(() => render(storyProgress))
         resizeObserver.observe(sticky)
-        scrollTrigger = ScrollTrigger.create({
-          trigger: section,
-          start: 'top top',
-          end: 'bottom bottom',
-          scrub: 0.8,
-          invalidateOnRefresh: true,
-          onUpdate: ({ progress: nextProgress }) => render(nextProgress),
-          onRefresh: ({ progress: nextProgress }) => render(nextProgress),
+        const playhead = { progress: 0 }
+        scrollTween = gsap.to(playhead, {
+          progress: 1,
+          ease: 'none',
+          onUpdate: () => render(playhead.progress),
+          scrollTrigger: {
+            trigger: section,
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: 0.6,
+            invalidateOnRefresh: true,
+            onRefresh: ({ progress: nextProgress }) => {
+              playhead.progress = nextProgress
+              render(nextProgress)
+            },
+          },
         })
-        render(scrollTrigger.progress)
+        render(scrollTween.scrollTrigger.progress)
         ScrollTrigger.refresh()
       } catch {
         // The original image remains visible if canvas preparation is unavailable.
@@ -258,8 +292,10 @@ export function CableDissolve() {
 
     return () => {
       disposed = true
+      sticky.style.removeProperty('--cable-ambience')
       resizeObserver?.disconnect()
-      scrollTrigger?.kill()
+      scrollTween?.scrollTrigger?.kill()
+      scrollTween?.kill()
     }
   }, [])
 
@@ -278,11 +314,7 @@ export function CableDissolve() {
         />
         <canvas className="cable-story__canvas" ref={canvasRef} aria-hidden="true" />
 
-        <div className="cable-story__prompt" ref={promptRef} aria-hidden="true">
-          <span>Keep scrolling</span>
-          <i />
-          <strong>Let the cable go</strong>
-        </div>
+
 
       </div>
     </section>

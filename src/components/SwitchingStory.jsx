@@ -2,6 +2,7 @@ import { useLayoutEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { DeviceAsset } from './MacBook'
+import { createHandoffSpring, getHandoffScale, HANDOFF_SEQUENCE } from '../animation/deviceHandoff'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -19,19 +20,18 @@ const isMobileLayout = () => window.innerWidth <= MOBILE_BREAKPOINT || isCompact
  * SCROLL STORYBOARD
  *
  *   0%   the two-Mac photograph settles in
- *   18%  keyboard releases into a high quadratic Bézier arc
- *   27%  trackpad follows the same arc
- *   36%  mouse follows; each device banks with the curve
- *   66%  the receiving Mac accepts the accessories
+ *   18%  keyboard scales from zero into a high quadratic Bézier arc
+ *   38%  keyboard finishes scaling into the receiving Mac
+ *   40%  trackpad begins; arrives at 60%
+ *   62%  mouse begins; arrives at 82%
  *   84%  the handoff resolves
  *  100%  settled handoff — one setup, now on the other Mac
  * ───────────────────────────────────────────────────────── */
 
 const STORY = {
   open: 0,
-  release: 0.18,
-  travel: 0.38,
-  receive: 0.66,
+  release: HANDOFF_SEQUENCE.release,
+  receive: HANDOFF_SEQUENCE.receive,
   settle: 0.84,
   end: 1,
 }
@@ -43,17 +43,11 @@ const PHOTO = {
 }
 
 const ARC = {
-  travelDuration: 0.42,
-  deviceStagger: 0.09,
+  travelDuration: HANDOFF_SEQUENCE.travel,
+  deviceStagger: HANDOFF_SEQUENCE.stagger,
   bankFactor: 0.18,
   desktopControl: { x: 0.505, y: -0.1 },
   mobileControl: { x: 0.505, y: -0.04 },
-  deviceScaleAtLid: 0.68,
-  deviceScaleAtApex: 1,
-  bubbleInEnd: 0.12,
-  bubbleOutStart: 0.86,
-  bubbleRestScale: 0.92,
-  bubblePeakScale: 1.04,
   devices: [
     { key: 'keyboard', tilt: -5 },
     { key: 'trackpad', tilt: 6 },
@@ -64,7 +58,6 @@ const ARC = {
 const COPY = {
   exit: { autoAlpha: 0, y: -10, filter: 'blur(3px)', duration: 0.018 },
   enter: { autoAlpha: 1, y: 0, filter: 'blur(0px)', duration: 0.028 },
-  releaseExitLead: 0.02,
   deviceExitLead: 0.018,
   receiveExitLead: 0.015,
   receiveEnterLag: 0.018,
@@ -88,27 +81,6 @@ const getAnchorPoint = (anchor, sceneRect) => {
   }
 }
 
-const getBubbleState = (progress) => {
-  if (progress <= ARC.bubbleInEnd) {
-    const local = ramp(progress, 0, ARC.bubbleInEnd)
-    const scale = local < 0.6
-      ? ARC.bubbleRestScale + (ARC.bubblePeakScale - ARC.bubbleRestScale) * ramp(local, 0, 0.6)
-      : ARC.bubblePeakScale - (ARC.bubblePeakScale - 1) * ramp(local, 0.6, 1)
-
-    return { opacity: local, scale }
-  }
-
-  if (progress >= ARC.bubbleOutStart) {
-    const local = ramp(progress, ARC.bubbleOutStart, 1)
-    return {
-      opacity: 1 - local,
-      scale: 1 - (1 - ARC.bubbleRestScale) * local,
-    }
-  }
-
-  return { opacity: 1, scale: 1 }
-}
-
 export function SwitchingStory() {
   const sectionRef = useRef(null)
   const sceneRef = useRef(null)
@@ -119,10 +91,6 @@ export function SwitchingStory() {
   const keyboardRef = useRef(null)
   const trackpadRef = useRef(null)
   const mouseRef = useRef(null)
-  const keyboardBubbleRef = useRef(null)
-  const trackpadBubbleRef = useRef(null)
-  const mouseBubbleRef = useRef(null)
-  const releaseCopyRef = useRef(null)
   const keyboardCopyRef = useRef(null)
   const trackpadCopyRef = useRef(null)
   const mouseCopyRef = useRef(null)
@@ -138,7 +106,6 @@ export function SwitchingStory() {
     const context = gsap.context(() => {
       const media = gsap.matchMedia()
       const deviceElements = [keyboardRef.current, trackpadRef.current, mouseRef.current]
-      const bubbleElements = [keyboardBubbleRef.current, trackpadBubbleRef.current, mouseBubbleRef.current]
       const deviceCopyElements = [keyboardCopyRef.current, trackpadCopyRef.current, mouseCopyRef.current]
 
       const getCopyBottom = (sceneRect) => {
@@ -224,8 +191,7 @@ export function SwitchingStory() {
 
         ARC.devices.forEach((device, index) => {
           const element = deviceElements[index]
-          const bubble = bubbleElements[index]
-          if (!element || !bubble) return
+          if (!element) return
 
           const start = STORY.release + index * ARC.deviceStagger
           const progressOnArc = ramp(progress, start, start + ARC.travelDuration)
@@ -250,13 +216,6 @@ export function SwitchingStory() {
             + 2 * easedProgress * (endPoint.y - controlPoint.y)
           )
           const bank = Math.atan2(tangentY, tangentX) * 180 / Math.PI * ARC.bankFactor
-          const travelScale = (
-            ARC.deviceScaleAtLid
-            + (ARC.deviceScaleAtApex - ARC.deviceScaleAtLid) * Math.sin(Math.PI * easedProgress)
-          )
-          const outerFadeIn = ramp(progressOnArc, 0.015, 0.08)
-          const outerFadeOut = 1 - ramp(progressOnArc, 0.9, 1)
-          const bubbleState = getBubbleState(progressOnArc)
 
           gsap.set(element, {
             x,
@@ -264,40 +223,23 @@ export function SwitchingStory() {
             xPercent: -50,
             yPercent: -50,
             rotation: device.tilt + bank,
-            scale: travelScale,
-            opacity: outerFadeIn * outerFadeOut,
+            scale: getHandoffScale(progressOnArc),
+            transformOrigin: '50% 50%',
           })
-          gsap.set(bubble, {
-            scale: bubbleState.scale,
-            opacity: bubbleState.opacity,
-          })
+
         })
       }
 
       const buildTimeline = (control) => {
-        const timeline = gsap.timeline({
-          defaults: { ease: 'none' },
-          scrollTrigger: {
-            trigger: section,
-            start: 'top top',
-            end: 'bottom bottom',
-            scrub: 0.65,
-            invalidateOnRefresh: true,
-            onUpdate: ({ progress }) => updateDevicesAlongArc(progress, control),
-            onRefresh: ({ progress }) => updateDevicesAlongArc(progress, control),
-          },
-        })
-
-        updateDevicesAlongArc(STORY.open, control)
+        const timeline = gsap.timeline({ paused: true, defaults: { ease: 'none' } })
 
         timeline
-          .to(releaseCopyRef.current, COPY.exit, STORY.release - COPY.releaseExitLead)
           .to(deviceCopyElements[deviceCopyElements.length - 1], COPY.exit, STORY.receive - COPY.receiveExitLead)
           .to(receiveCopyRef.current, COPY.enter, STORY.receive + COPY.receiveEnterLag)
 
         deviceCopyElements.forEach((element, index) => {
           const start = STORY.release + index * ARC.deviceStagger
-          timeline.to(element, COPY.enter, start)
+          if (index > 0) timeline.to(element, COPY.enter, start)
 
           if (index < deviceCopyElements.length - 1) {
             timeline.to(
@@ -308,8 +250,24 @@ export function SwitchingStory() {
           }
         })
 
+        const spring = createHandoffSpring((progress) => {
+          // Timeline positions use the same 0–1 scroll units as the devices.
+          timeline.time(progress)
+          updateDevicesAlongArc(progress, control)
+        })
+        const trigger = ScrollTrigger.create({
+          trigger: section,
+          start: 'top top',
+          end: 'bottom bottom',
+          invalidateOnRefresh: true,
+          onUpdate: (self) => spring.set(self.progress),
+          onRefresh: (self) => spring.snap(self.progress),
+        })
+        spring.snap(trigger.progress)
+
         return () => {
-          timeline.scrollTrigger?.kill()
+          trigger.kill()
+          spring.destroy()
           timeline.kill()
         }
       }
@@ -330,9 +288,8 @@ export function SwitchingStory() {
       )
       media.add('(prefers-reduced-motion: reduce)', () => {
         gsap.set(deviceElements, { clearProps: 'transform,opacity' })
-        gsap.set(bubbleElements, { clearProps: 'transform,opacity' })
-        gsap.set(deviceElements, { opacity: 0 })
-        gsap.set([releaseCopyRef.current, ...deviceCopyElements], { autoAlpha: 0 })
+        gsap.set(deviceElements, { scale: 0 })
+        gsap.set(deviceCopyElements, { autoAlpha: 0 })
         gsap.set(receiveCopyRef.current, { autoAlpha: 1, y: 0, filter: 'blur(0px)' })
       })
 
@@ -353,10 +310,7 @@ export function SwitchingStory() {
     <section className="switch-story" id="switching-story" ref={sectionRef}>
       <div className="switch-story__sticky" ref={sceneRef}>
         <div className="switch-story__copy">
-          <div className="switch-story__copy-frame" ref={releaseCopyRef}>
-            <h2>Let go.</h2>
-          </div>
-          <div className="switch-story__copy-frame switch-story__copy-frame--device switch-story__copy-frame--hidden" ref={keyboardCopyRef}>
+          <div className="switch-story__copy-frame switch-story__copy-frame--device" ref={keyboardCopyRef}>
             <h2>
               <span>Magic Keyboard.</span>
               <span className="switch-story__copy-check">Check.</span>
@@ -403,17 +357,17 @@ export function SwitchingStory() {
         </div>
 
         <div className="switch-story__device switch-story__device--keyboard" ref={keyboardRef} aria-hidden="true">
-          <div className="switch-story__device-bubble" ref={keyboardBubbleRef}>
+          <div className="switch-story__device-bubble">
             <DeviceAsset type="keyboard" />
           </div>
         </div>
         <div className="switch-story__device switch-story__device--trackpad" ref={trackpadRef} aria-hidden="true">
-          <div className="switch-story__device-bubble" ref={trackpadBubbleRef}>
+          <div className="switch-story__device-bubble">
             <DeviceAsset type="trackpad" />
           </div>
         </div>
         <div className="switch-story__device switch-story__device--mouse" ref={mouseRef} aria-hidden="true">
-          <div className="switch-story__device-bubble" ref={mouseBubbleRef}>
+          <div className="switch-story__device-bubble">
             <DeviceAsset type="mouse" />
           </div>
         </div>

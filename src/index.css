@@ -973,9 +973,13 @@ li {
 
 /* Scroll story */
 
+/* Only the scroll travel grows: 72% movement per scroll pixel (0.9 × 0.8). */
+.switch-story,
+.desktop-send { --handoff-scroll-rate: 0.72; }
+
 .switch-story {
   position: relative;
-  height: 360vh;
+  height: calc(100vh + 260vh / var(--handoff-scroll-rate));
   background: #fff;
   color: #121212;
 }
@@ -1082,8 +1086,9 @@ li {
     drop-shadow(0 4px 6px rgba(18, 22, 31, 0.2))
     drop-shadow(0 16px 20px rgba(18, 22, 31, 0.24))
     drop-shadow(0 0 1.5px rgba(18, 22, 31, 0.28));
-  opacity: 0;
-  will-change: transform, opacity;
+  transform: scale(0);
+  transform-origin: 50% 50%;
+  will-change: transform;
 }
 
 .switch-story__device--keyboard {
@@ -1102,7 +1107,6 @@ li {
   display: block;
   width: 100%;
   padding: 0;
-  will-change: transform, opacity;
 }
 
 .switch-story__device-bubble .device-asset {
@@ -1212,14 +1216,19 @@ li {
 /* Bento features */
 
 .features {
+  position: relative;
+  isolation: isolate;
+  /* Clip the overlapping sticky scene without creating a scroll container. */
+  overflow: clip;
   padding: 0 0 150px;
   background: #0b0b0b;
 }
 
 .cable-story {
+  pointer-events: none;
   position: relative;
   z-index: 1;
-  height: 185svh;
+  height: 220svh;
   margin-inline: calc((100vw - 100%) / -2);
 }
 
@@ -1259,6 +1268,7 @@ li {
 }
 
 .cable-story__sticky::before {
+  opacity: var(--cable-ambience, 1);
   background:
     radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.045), transparent 39%),
     linear-gradient(180deg, #0b0b0b 0%, rgba(11, 11, 11, 0.62) 75%, rgba(11, 11, 11, 0) 100%);
@@ -1270,10 +1280,11 @@ li {
     linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
   background-size: 72px 72px;
   mask-image: radial-gradient(circle at 50% 50%, black, transparent 66%);
-  opacity: 0.45;
+  opacity: calc(0.45 * var(--cable-ambience, 1));
 }
 
 .cable-story__glow {
+  opacity: var(--cable-ambience, 1);
   position: absolute;
   z-index: -1;
   top: 48%;
@@ -1320,46 +1331,6 @@ li {
   opacity: 0;
 }
 
-.cable-story__prompt {
-  position: absolute;
-  z-index: 4;
-  left: 50%;
-  display: flex;
-  align-items: center;
-  transform: translateX(-50%);
-  pointer-events: none;
-}
-
-.cable-story__prompt {
-  bottom: max(52px, 8svh);
-  flex-direction: column;
-  color: rgba(255, 255, 255, 0.42);
-  font-family: 'IBM Plex Mono', ui-monospace, monospace;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.cable-story__prompt span {
-  font-size: 9px;
-  letter-spacing: 0.16em;
-}
-
-.cable-story__prompt strong {
-  color: rgba(255, 255, 255, 0.76);
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 13px;
-  font-weight: 520;
-  letter-spacing: -0.015em;
-  text-transform: none;
-}
-
-.cable-story__prompt i {
-  width: 1px;
-  height: 24px;
-  margin: 9px 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.42), transparent);
-}
-
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1369,7 +1340,8 @@ li {
 .bento-grid--after-cable {
   position: relative;
   z-index: 3;
-  margin-top: -44svh;
+  /* Bring the next card over the departing cable while its fragments clear. */
+  margin-top: -100svh;
 }
 
 .bento-reveal {
@@ -1415,7 +1387,12 @@ li {
   min-height: 520px;
   color: var(--ink);
   background: #050506;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 25px 80px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.bento-card--onboarding:hover {
+  transform: none;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
 .bento-card--onboarding .bento-card__header p {
@@ -1458,14 +1435,14 @@ li {
   border: 1px solid rgba(255, 255, 255, 0.34);
   border-radius: 23px 23px 15px 15px;
   background: linear-gradient(145deg, #36363c 0%, #111114 45%, #27272b 100%);
-  box-shadow: 0 22px 45px rgba(65, 8, 0, 0.27), 0 0 0 1px rgba(0, 0, 0, 0.55) inset;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.55) inset;
   transform: rotate(1.3deg);
   transition: transform 300ms cubic-bezier(0.2, 0, 0, 1), box-shadow 300ms ease;
 }
 
 .onboarding-demo:hover .onboarding-demo__frame {
-  box-shadow: 0 30px 56px rgba(65, 8, 0, 0.33), 0 0 0 1px rgba(0, 0, 0, 0.55) inset;
-  transform: rotate(0deg) translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.55) inset;
+  transform: rotate(0deg);
 }
 
 .onboarding-demo__screen {
@@ -2170,7 +2147,7 @@ li {
   }
 
   .switch-story {
-    height: 300svh;
+    height: calc(100svh + 200svh / var(--handoff-scroll-rate));
   }
 
   .switch-story__sticky {
@@ -2240,10 +2217,6 @@ li {
     margin-bottom: 38px;
   }
 
-  .cable-story {
-    height: 172svh;
-  }
-
   .cable-story__sticky {
     min-height: 570px;
   }
@@ -2258,13 +2231,6 @@ li {
     width: 104vw;
   }
 
-  .cable-story__prompt {
-    bottom: max(36px, 6svh);
-  }
-
-  .bento-grid--after-cable {
-    margin-top: -35svh;
-  }
 
   .section-heading h2,
   .faq h2 {
@@ -2397,7 +2363,7 @@ li {
 
 @media (max-width: 920px) and (max-height: 540px) {
   .switch-story {
-    height: 300svh;
+    height: calc(100svh + 200svh / var(--handoff-scroll-rate));
   }
 
   .switch-story__sticky {
@@ -2446,10 +2412,6 @@ li {
     width: 66px;
   }
 
-  .cable-story {
-    height: 172svh;
-  }
-
   .cable-story__sticky {
     height: 100svh;
     min-height: 0;
@@ -2459,13 +2421,6 @@ li {
     top: 82px;
   }
 
-  .cable-story__prompt {
-    bottom: 20px;
-  }
-
-  .bento-grid--after-cable {
-    margin-top: -35svh;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2495,11 +2450,6 @@ li {
     position: relative;
     height: 72svh;
     min-height: 520px;
-  }
-
-  .cable-story__canvas,
-  .cable-story__prompt {
-    display: none;
   }
 
   .hero-device {

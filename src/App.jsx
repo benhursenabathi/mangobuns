@@ -18,6 +18,7 @@ import { LiquidButton } from '@/components/ui/liquid-glass-button'
 import { TextLoop } from '@/components/ui/text-loop'
 import { DeviceAsset } from '@/components/MacBook'
 import { SwitchingStory } from '@/components/SwitchingStory'
+import { DesktopSendSection } from '@/components/DesktopSendSection'
 import { CableDissolve } from '@/components/CableDissolve'
 
 const CHECKOUT_URL = 'https://mangobuns.lemonsqueezy.com/checkout/buy/68fb31f9-8ae3-45db-bcc3-b7e49bec2817'
@@ -299,7 +300,7 @@ function Features() {
         <CableDissolve />
 
         <div className="bento-grid bento-grid--after-cable">
-          <Reveal className="bento-reveal bento-reveal--wide"><SwitchAllCard /></Reveal>
+          <div className="bento-reveal bento-reveal--wide"><SwitchAllCard /></div>
 
           <Reveal className="bento-reveal bento-reveal--temporarily-hidden" delay={0.05}>
             <article className="bento-card bento-card--night">
@@ -459,6 +460,7 @@ export default function App() {
       <main>
         <Hero />
         <SwitchingStory />
+        <DesktopSendSection />
         <DemoSection />
         <Features />
         <FAQ />
