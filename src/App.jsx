@@ -65,12 +65,16 @@ const FAQS = [
     answer: 'Switchy sits in your menu bar and detects Magic Keyboards, Trackpads, and Mice connected to your Mac. When you click to switch a device, it seamlessly hands it over to your other Mac — no System Settings required.',
   },
   {
+    question: 'Can I send devices to a Mac that has no keyboard or mouse?',
+    answer: "Yes. Switchy 2.0 can send your keyboard, mouse, or trackpad from the Mac you're using to another Mac, one device or all at once. It's ideal for giving devices back to a desktop Mac that has no input devices of its own. Both Macs need Switchy 2.0.",
+  },
+  {
     question: 'What devices are supported?',
     answer: 'Switchy supports all Apple Magic accessories: Magic Keyboard, Magic Keyboard with Touch ID, Magic Trackpad, and Magic Mouse. It runs on Intel and Apple silicon Macs running macOS 14.0 (Sonoma) or later.',
   },
   {
     question: 'Will Switchy work on my Intel Mac?',
-    answer: 'Yes. Switchy 1.1.6 is a Universal build that runs natively on Intel and Apple silicon Macs. It requires macOS 14.0 (Sonoma) or later on each Mac.',
+    answer: 'Yes. Switchy is a Universal build that runs natively on Intel and Apple silicon Macs. It requires macOS 14.0 (Sonoma) or later on each Mac.',
   },
   {
     question: 'Is my data private?',

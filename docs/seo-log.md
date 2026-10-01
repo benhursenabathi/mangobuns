@@ -6,13 +6,14 @@ Weekly entries appended by the `/switchy-seo` skill. Newest at the bottom.
 
 | URL | Added | Indexed? |
 |---|---|---|
-| /switchy/blog/ | 2026-07-10 | Yes — 2026-07-20. Still surfaced by `site:` search on 2026-09-13; absent from the current GSC Pages export |
-| /switchy/blog/universal-control-vs-switching-devices/ | 2026-07-10 | Yes — 2026-07-20. Confirmed serving in the 2026-09-13 export: 53 impr, pos 7.40 |
-| /switchy/blog/kvm-switch-for-two-macs/ | 2026-07-10 | Yes — 2026-07-20. Confirmed serving in the 2026-09-13 export: 20 impr, pos 8.70 |
-| /switchy/blog/one-keyboard-mouse-mac-mini-macbook/ | 2026-07-10 | Yes — 2026-07-20. Confirmed serving in the 2026-09-13 export: 83 impr, pos 8.10 |
-| /switchy/blog/magic-keyboard-pairing-mode/ | 2026-07-10 | **Yes — 2026-07-24.** Confirmed serving in the 2026-09-13 export: 217 impr, pos 9.22 |
-| /switchy/blog/magic-keyboard-multiple-devices/ | 2026-07-10 | **Yes — 2026-07-24.** Confirmed serving in the 2026-09-13 export: 752 impr, pos 7.90. Main concern is CTR (0.13%); query overlap with how-to needs filtered data |
-| /switchy/ (homepage) | 2026-07-10 | Yes — 2026-07-20. Confirmed serving in the 2026-09-13 export: 39 impr, pos 3.31 |
+| /switchy/blog/ | 2026-07-10 | Yes — 2026-07-20. Surfaced by `site:` search on 2026-09-26; current GSC export: 1 impr, pos 3.00 |
+| /switchy/blog/universal-control-vs-switching-devices/ | 2026-07-10 | Yes — 2026-07-20. Surfaced by `site:` search on 2026-09-26; current GSC export: 49 impr, 4 clicks, pos 7.35 |
+| /switchy/blog/kvm-switch-for-two-macs/ | 2026-07-10 | Yes — 2026-07-20. Surfaced by `site:` search on 2026-09-26; current GSC export: 29 impr, 2 clicks, pos 8.79 |
+| /switchy/blog/one-keyboard-mouse-mac-mini-macbook/ | 2026-07-10 | Yes — 2026-07-20. Surfaced by `site:` search on 2026-09-26; current GSC export: 383 impr, 1 click, pos 8.73, CTR 0.26% |
+| /switchy/blog/magic-keyboard-pairing-mode/ | 2026-07-10 | **Yes — 2026-07-24.** Surfaced by `site:` search on 2026-09-26; current GSC export: 197 impr, 1 click, pos 8.48 |
+| /switchy/blog/magic-keyboard-multiple-devices/ | 2026-07-10 | **Yes — 2026-07-24.** Current GSC export: 637 impr, 3 clicks, pos 7.33, CTR 0.47%. Retitled 2026-09-14; Google recrawl date is unverified |
+| /switchy/ (homepage) | 2026-07-10 | Yes — 2026-07-20. Surfaced by `site:` search on 2026-09-26; current GSC export: 31 impr, 7 clicks, pos 4.16 |
+| /switchy/blog/mac-mini-without-keyboard-mouse/ | 2026-10-01 | No — new. Request Indexing after deploy; re-check ~2026-10-15 |
 
 ---
 
@@ -526,6 +527,85 @@ export, enable **Compare → Previous period** so page/query deltas are present 
 
 ---
 
+## 2026-08-29 — Page-one visibility broadens; multiple-devices is the CTR bottleneck
+
+**Data:** GSC Performance export `mangobuns.com-Performance-on-Search-2026-08-29.xlsx`, covering
+2026-08-21 → 2026-08-27. The workbook was exported as **Last 7 days** without comparison columns.
+The nearest prior window is 2026-08-08 → 2026-08-14, leaving 15–20 Aug unrepresented, so the
+changes below are directional rather than a clean week-over-week comparison.
+
+**Site-wide:** impressions **1,361 → 1,470 (+8%)**, clicks **26 → 33 (+27%)**, CTR **1.9% →
+2.2%**, and impression-weighted daily position improved from roughly **11.6 → 8.2**. The site is
+now broadly on page one: compare, how-to, multiple-devices, Universal Control, KVM, Mac mini, and
+the homepage all average positions 3.8–8.8; pairing-mode is just outside at 10.3.
+
+### Per page (impressions / clicks / position)
+
+| Page | Prior available (8–14 Aug) | Current (21–27 Aug) |
+|---|---:|---:|
+| /switchy/blog/magic-keyboard-multiple-devices/ | 383 / 1 / 11.3 | **608 / 1 / 8.3** |
+| /switchy/blog/how-to-switch-magic-keyboard-between-macs/ | 484 / 8 / 12.1 | **345 / 8 / 8.8** |
+| /switchy/compare/ | 149 / 10 / 6.3 | **245 / 13 / 7.0** |
+| /switchy/blog/magic-keyboard-pairing-mode/ | 258 / 0 / 17.0 | **153 / 2 / 10.3** |
+| /switchy/blog/one-keyboard-mouse-mac-mini-macbook/ | 66 / 0 / 8.9 | **69 / 0 / 8.3** |
+| /switchy/blog/universal-control-vs-switching-devices/ | 40 / 0 / 8.7 | **58 / 1 / 8.6** |
+| /switchy/blog/kvm-switch-for-two-macs/ | 25 / 0 / 8.8 | **27 / 1 / 6.9** |
+| /switchy/ | 46 / 7 / 3.5 | **29 / 5 / 3.8** |
+| /switchy/blog/ | 3 / 1 / 2.7 | **5 / 0 / 3.8** |
+| /switchy/privacy/ | 4 / 0 / 6.5 | **7 / 0 / 6.3** |
+
+**Primary SEO opportunity: multiple-devices is now a snippet/CTR problem, not a ranking
+problem.** It produced the most page impressions on the site (**608**) at position **8.35**, but
+only one click (**0.16% CTR**). Its visible query cluster is also on page one: “can magic keyboard
+connect to multiple devices” (8 impressions, position 8.2), “magic keyboard multiple macs” (5,
+9.2), and related variants at positions 5.5–11. The page's answer-first copy is useful, but the
+current snippet gives little reason to click beyond the yes/no answer.
+
+**Proposed title/meta test — pending user approval; not applied:**
+
+- Before title: `Can a Magic Keyboard Connect to Multiple Devices? (Trackpad & Mouse Too)`
+- Proposed title: `Magic Keyboard on Multiple Devices: 4 Ways to Switch Macs (2026)`
+- Proposed description: `A Magic Keyboard pairs with one Mac at a time—but four methods let you use it across Macs. Compare cables, Universal Control and one-click switching.`
+
+This front-loads the demonstrated query phrasing, adds a concrete four-method reason to click, and
+qualifies the result around Macs rather than chasing the 15-impression Android query, which is less
+likely to convert for a macOS-only product.
+
+**Primary conversion opportunity:** multiple-devices and how-to generated **953 page impressions**
+between them and are now both on page one. Proposed first rollout: add one trial-first contextual
+CTA to each, immediately after the reader recognizes the repeated-pairing cost. On
+multiple-devices, place it after the paragraph explaining that three accessories mean three trips
+through Bluetooth settings; on how-to, place it after the paragraph explaining that manual
+switching means three rounds of the process. Keep the instructional answer before the CTA, link the
+primary action directly to the free three-day trial, and retain purchase as a secondary/end action.
+No CTA was added this week because the request was analysis/brainstorming, not implementation.
+
+**Leave the climbing pages alone:** how-to improved from 12.1 to 8.8 and held eight clicks despite
+lower impressions; pairing-mode improved from 17.0 to 10.3 and earned its first two clicks;
+Universal Control and KVM earned their first clicks while holding/improving page-one positions.
+Compare remains healthy at 13 clicks and 5.3% CTR. The “magic switch” query (65 impressions,
+position 9.5, one click) is still competitor-brand navigational intent, so do not rewrite compare's
+successful snippet to chase it.
+
+**Mac mini page:** 69 impressions, position 8.3, zero clicks is a second CTR concern, but the global
+query export does not identify its query mix. Get a page-filtered query export before changing its
+already-specific title. **No new post proposed this week:** the Android query is product-misaligned,
+while the visible Magic Trackpad and Magic Mouse clusters remain too small to justify dedicated
+pages yet.
+
+**Site health and indexing:** all 11 canonical sitemap URLs return HTTP 200. Every URL in the
+Watching table is confirmed serving by current GSC impressions; no indexing requests are needed.
+
+**Actions taken:** logged the fresh baseline and proposals only. No production code, title, meta,
+or content change was made. The sitemap's article `lastmod` values remain at 2026-07-10 despite
+August edits; refresh them accurately with the next approved content deploy.
+
+**Watch next week:** multiple-devices CTR, how-to holding page one, pairing-mode crossing into the
+top 10, and the Mac mini page's query mix. Export **Last 7 days → Compare → Previous period** next
+time so deltas are clean and included directly in the workbook.
+
+---
+
 ## 2026-09-13 — Visibility grows 25%; clicks fall as compare loses seven clicks
 
 **Data:** fresh GSC Performance export `mangobuns.com-Performance-on-Search-2026-09-13.xlsx`,
@@ -728,3 +808,335 @@ confirming the scope was improvements to the existing article. No new articles a
 Production build and responsive/video checks passed before approval. The remote main branch
 matches the local base commit, and the pre-existing uncommitted 29 Aug SEO log entry will be
 preserved separately from this deployment. Live verification will follow the Pages deployment.
+
+**Deployed and verified, 14 Sep:** commit `982b0ebbad856f7d3a18e91d300cb9fa17ea0050` was
+pushed to main. [GitHub Pages run 34820891774](https://github.com/benhursenabathi/mangobuns/actions/runs/34820891774)
+completed successfully, including the build, deployment, and IndexNow step. The live article,
+blog hub, stylesheet, sitemap, llms.txt, and poster match the approved local files byte-for-byte.
+The demo video and trial DMG return HTTP 200 with the correct content types. All 11 sitemap URLs
+return HTTP 200, matching self-canonicals, and `index, follow`; both robots.txt URLs also return
+200. The removed callout is absent from the deployed article. Request Indexing for the retitled
+article in GSC, then compare complete windows after Google recrawls it; no SEO uplift is claimed
+at deployment time. The pre-existing 29 Aug log entry remains intact and uncommitted.
+
+---
+
+## 2026-09-22 — Clicks hold steady; early improvement on the updated guide
+
+**Data:** `mangobuns.com-Performance-on-Search-2026-09-22.xlsx`, Web / Last 7 days, no
+page or query filter. Chart dates are **14–20 Sep 2026**. Previous export (13 Sep) covers
+**5–11 Sep**, leaving 12–13 Sep unrepresented. These are equal-length, nonconsecutive windows
+with different weekday alignment. Deltas below compare exports, not a clean week-over-week test.
+The newest export is fresh; the existing skill parser completed successfully.
+
+**Site-wide, calculated from Chart!A2:E8:** impressions **1,841 → 1,698 (−7.8%)**;
+clicks **28 → 28**; CTR **1.52% → 1.65% (+0.13 percentage points)**; approximate average
+position **7.71 → 7.59** (lower is better). Position is weighted by daily impressions and is
+approximate because exported daily positions are rounded. Pages totals are 1,919 and 1,754
+impressions, respectively, and must not replace the site-wide Chart totals. Google's
+[aggregation documentation](https://support.google.com/webmasters/answer/17011364?hl=en)
+explains the property-versus-page distinction.
+
+**Pages — previous → current:**
+
+| Page | Impressions | Clicks | CTR | Average position |
+|---|---:|---:|---:|---:|
+| Multiple devices | 752 → 683 | 1 → 4 | 0.13% → 0.59% | 7.90 → 7.53 |
+| How-to switching | 497 → 363 | 11 → 6 | 2.21% → 1.65% | 7.51 → 7.09 |
+| Comparison | 247 → 206 | 6 → 4 | 2.43% → 1.94% | 7.26 → 6.88 |
+| Mac mini + MacBook | 83 → 218 | 1 → 0 | 1.20% → 0% | 8.10 → 8.87 |
+| Pairing mode | 217 → 170 | 2 → 0 | 0.92% → 0% | 9.22 → 8.79 |
+| Universal Control | 53 → 63 | 0 → 2 | 0% → 3.17% | 7.40 → 8.24 |
+| KVM | 20 → 13 | 0 → 2 | 0% → 15.38% | 8.70 → 8.31 |
+| Switchy homepage | 39 → 28 | 6 → 9 | 15.38% → 32.14% | 3.31 → 2.39 |
+| Mangobuns root | 10 → 6 | 1 → 1 | 10% → 16.67% | 7.60 → 8.50 |
+| Privacy | 1 → 1 | 0 → 0 | 0% → 0% | 6.00 → 4.00 |
+
+The blog hub has one impression and zero clicks (position 2.00); it was absent from the prior
+Pages table, so no previous value is inferred. Two unexpected how-to URL variants each have
+one impression, zero clicks and position 1.00; live findings are recorded below.
+
+**The 14 Sep multiple-devices update:** clicks increased by three despite 9.2% fewer impressions,
+and CTR improved by 0.45 percentage points. This is an encouraging early observation, not proof
+that the rewrite or video caused an uplift. There are only four clicks in the current window;
+it includes deployment day, and Google's actual recrawl date/new-snippet adoption is unverified.
+It is not yet a confirmed full post-recrawl window. Keep the new title, intro and demo unchanged
+for at least another complete week, with a matched comparison and page-filtered query data.
+GSC alone does not establish trial-download or purchase conversion.
+
+**Next existing-page opportunity — Mac mini/MacBook:** impressions grew **163%** to 218,
+with zero clicks and position 8.87. This is the strongest new CTR investigation candidate.
+No Mac mini/MacBook-specific query appears among the 50 listed global queries, so the searches
+responsible for this page's impressions remain unknown. Obtain an exact-page-filtered comparison
+and inspect Queries before finalizing a snippet test. A provisional candidate, not applied:
+
+- Current title: `One Keyboard & Mouse for Mac mini and MacBook (2026)`.
+- Proposed title: `One Keyboard & Mouse for Mac mini and MacBook: 3 Ways` (53 characters).
+- Current description: `Bought a Mac mini to go with your MacBook? You don't need a second
+  Magic Keyboard and Mouse. Every way to share one set of Magic devices between both Macs, compared.`
+- Proposed description: `Share a Magic Keyboard and Mouse between Mac mini and MacBook. Compare
+  three methods, including options for Macs with different Apple Accounts.` (143 characters).
+- Rationale: make the three-method comparison explicit and surface the different-account use
+  case already covered by the article. Confirm relevance to the page's actual queries first.
+
+**Retain other improving titles:** how-to, comparison, pairing-mode, KVM and the homepage all
+improve average position. How-to and comparison lose clicks while impressions also fall; this
+export does not establish a snippet failure. Pairing-mode's 170 impressions and zero clicks
+deserve monitoring, but its position improves from 9.22 to 8.79. Avoid a simultaneous rewrite.
+Universal Control earns two clicks, and KVM earns two from a very small impression sample.
+
+**Queries and device mix:**
+- `magic switch`: 62 impressions, zero clicks, position 9.74 (previous 82, one, 9.70).
+  `magic switch mac`: 17, zero, 7.35 (previous 24, two, 5.92). These competitor-name searches
+  explain the parser's main query-level flag; their serving pages are not established by this
+  global export. Get filtered query/page data before changing the comparison page.
+- `can magic keyboard connect to multiple devices`: 14 impressions, zero clicks, position
+  8.36 (previous 12, zero, 9.25); `can a magic keyboard connect to multiple devices`: ten,
+  zero, 6.70; `magic keyboard multiple devices`: six, zero, 7.17. No attribution to the
+  retitled page is asserted without a page filter.
+- `switch magic keyboard between macs`: four impressions, zero clicks, position 8.25
+  (previous nine, zero, 6.67). This differs from the how-to page's improving aggregate rank;
+  a single small query row should not drive a whole-page rewrite.
+- `switchy mac`: four impressions, three clicks, position 1.00; `what is switchy`: one
+  impression and one click. Only four of the site's 28 clicks appear in the exported Queries
+  table (204 listed impressions versus 1,698 site-wide). Do not treat the query table as a
+  complete demand or branded/non-branded breakdown.
+- Desktop clicks: 21 → 25; mobile: seven → three. Desktop CTR: 1.52% → 1.94%; mobile:
+  1.60% → 0.79%. Counts are too small, and page/device attribution is missing, to diagnose a
+  mobile regression. Both device categories' average positions improve slightly.
+- Trackpad-specific queries total **seven listed impressions, zero clicks**; Magic Mouse
+  switching/multiple-device queries total **nine listed impressions, zero clicks**. One further
+  generic mouse-sharing query has one impression. Continue deferring new Trackpad and Mouse
+  articles in line with the user's preference to improve existing pages.
+
+**Health and indexing, checked 22 Sep:** the canonical sitemap contains 11 URLs; all return
+HTTP 200, matching self-canonicals, and `index, follow`. Root and compatibility robots.txt return
+200; the root file allows crawling and references the canonical sitemap. The deployed guide
+still has the approved title and video section, and the removed callout remains absent.
+
+Six watched pages surfaced in `site:` searches. The multiple-devices URL again did not appear
+directly in the returned search results, but its 683 GSC impressions and four clicks confirm it
+served during the reporting window. All seven watched URLs now have GSC impressions. Google's
+[site-operator documentation](https://developers.google.com/search/docs/monitor-debug/search-operators/all-search-site)
+says the returned list is not exhaustive; do not diagnose deindexing from this omission.
+Watching refreshed while preserving original indexed dates. No authenticated URL Inspection
+was performed, so the last Google crawl date remains unknown. If the 14 Sep indexing request
+was not made, inspect the retitled URL and request indexing for that content update.
+
+**Unexpected URLs:**
+- `/switchy/blog/how-to-switch-magic-keyboard-between-mac-devices-3-methods`
+- `/switchy/blog/how-to-switch-magic-keyboard-between-macs-3-methods-2026-/`
+
+Both return a real HTTP 404 and the site's `noindex` error page. Neither is in the sitemap,
+and neither string occurs in the current public, public-root, src, docs or workflow files
+(checked before this log entry was added). The real how-to URL returns 200. Their origin is
+unknown; one impression each is insufficient evidence of a duplicate-content problem. Monitor
+recurrence and inspect referring URLs in GSC before adding redirects or creating any new pages.
+
+**Actions taken:** completed the export comparison, live health checks and watched-URL searches;
+updated Watching and this log. Preserved the previous uncommitted log entries. No site content,
+workbook, parser, build, commit, push or deployment changed during this review.
+
+**Priorities:**
+1. Keep the multiple-devices experiment stable; confirm its crawl date and compare complete
+   post-recrawl windows before judging the result.
+2. Investigate the Mac mini/MacBook page's Queries using an exact-page filter and comparison
+   dates. Finalize the provisional three-method snippet only if it matches those searches.
+3. Keep new articles deferred. For the next export, select **Last 7 days → Compare → Previous
+   period**, with no page/query filter for site totals; additionally export exact-page
+   comparisons for multiple-devices and Mac mini/MacBook. Preserve device filters across windows.
+
+---
+
+## 2026-09-26 — Visibility grows; preserve the experiment and investigate Mac mini queries
+
+**Data:** `mangobuns.com-Performance-on-Search-2026-09-26.xlsx`, Web / Last 7 days, no
+page/query filters or comparison columns. Chart dates are **18–24 Sep**. The 22 Sep export
+covers **14–20 Sep**, so the reports share **18–20 Sep**. The three shared daily rows match
+exactly across exports. Do not describe the overlapping seven-day totals as independent weeks,
+add their clicks together, or interpret repeated URL rows as necessarily new events.
+
+**Latest seven-day snapshot:** 1,802 impressions, 27 clicks, CTR 1.50%, approximate average
+position 7.61. The preceding overlapping snapshot had 1,698 impressions, 28 clicks, CTR 1.65%,
+position 7.59. Site-wide totals come from Chart, not a sum of Pages or Queries.
+
+**Clean comparison from the daily sheets:** compare **14–17 Sep** with **21–24 Sep**.
+Both are Monday–Thursday, seven days apart, with no shared dates. These are four-day samples,
+not complete weeks or a controlled test. Sources: 22 Sep workbook Chart!A2:E5 and 26 Sep
+workbook Chart!A5:E8.
+
+| Metric | 14–17 Sep | 21–24 Sep | Change |
+|---|---:|---:|---:|
+| Impressions | 1,088 | 1,192 | +9.6% |
+| Clicks | 18 | 17 | −1 (−5.6%) |
+| CTR | 1.65% | 1.43% | −0.23 percentage points |
+| Approximate average position | 7.60 | 7.63 | Essentially unchanged |
+
+Positions are impression-weighted from rounded daily exports. More visibility has not yet
+produced more clicks, but there is no evidence here of a broad ranking decline. A one-click
+difference is too small to diagnose a significant performance change.
+
+**Pages — overlapping snapshots, 14–20 Sep → 18–24 Sep:**
+
+| Page | Impressions | Clicks | CTR | Average position |
+|---|---:|---:|---:|---:|
+| Multiple devices | 683 → 637 | 4 → 3 | 0.59% → 0.47% | 7.53 → 7.33 |
+| How-to switching | 363 → 393 | 6 → 4 | 1.65% → 1.02% | 7.09 → 7.10 |
+| Comparison | 206 → 122 | 4 → 5 | 1.94% → 4.10% | 6.88 → 6.96 |
+| Mac mini + MacBook | 218 → 383 | 0 → 1 | 0% → 0.26% | 8.87 → 8.73 |
+| Pairing mode | 170 → 197 | 0 → 1 | 0% → 0.51% | 8.79 → 8.48 |
+| Universal Control | 63 → 49 | 2 → 4 | 3.17% → 8.16% | 8.24 → 7.35 |
+| KVM | 13 → 29 | 2 → 2 | 15.38% → 6.90% | 8.31 → 8.79 |
+| Switchy homepage | 28 → 31 | 9 → 7 | 32.14% → 22.58% | 2.39 → 4.16 |
+| Mangobuns root | 6 → 6 | 1 → 0 | 16.67% → 0% | 8.50 → 5.83 |
+| Blog hub | 1 → 1 | 0 → 0 | 0% → 0% | 2.00 → 3.00 |
+
+The privacy URL is absent from the latest Pages table; no zero or indexing failure is inferred.
+Three unexpected URLs each have one impression and zero clicks; see the health findings below.
+Page-level daily breakdowns are not present, so the clean four-day comparison above cannot be
+reconstructed for individual pages from these exports.
+
+**Recommendation remains: keep current content stable; obtain targeted data now.**
+- Multiple-devices still improves average position, with three clicks and CTR 0.47%. The
+  pre-update 5–11 Sep snapshot was one click and CTR 0.13%, but query mix, dates, and Google's
+  recrawl timing are not controlled. The latest three versus four clicks is not evidence that
+  the update stopped working. Keep the title, intro, and demo unchanged through the planned
+  29 Sep review. Confirm Google's last crawl before claiming a post-recrawl result.
+- Mac mini/MacBook remains the first page to investigate: 383 impressions, one click, position
+  8.73. Visibility and position are improving while CTR remains low. There are no explicit
+  `mac mini` or `macbook` queries in the global Queries sheet. Request an exact-page-filtered
+  export and inspect Queries before changing the snippet. The provisional 22 Sep proposal
+  remains available: title `One Keyboard & Mouse for Mac mini and MacBook: 3 Ways`, with the
+  three-method/different-Apple-Accounts description. It is not applied or treated as confirmed
+  query targeting.
+- Comparison and Universal Control earn more clicks without edits. Leave them alone. Pairing
+  gains a click and improves position; leave its title alone too. How-to CTR falls to 1.02%
+  while average position stays around 7.1. Watch its page-filtered query/device mix if this
+  persists; do not rewrite on a two-click difference in overlapping windows. The homepage's
+  rank moves from 2.39 to 4.16 on only 31 impressions, with seven clicks and CTR 22.58%; monitor
+  before interpreting this as a sustained loss.
+
+**Notable queries:**
+- `can magic keyboard connect to multiple devices`: 16 impressions, zero clicks, position 8.19;
+  `can a magic keyboard connect to multiple devices`: ten, zero, 6.30. Existing content covers
+  this intent; these global rows do not prove which URL served it.
+- `magic keyboard switch between devices`: eight impressions, zero clicks, position 8.38;
+  `magic device switch`: eight, zero, 8.62. Map the query to Pages before proposing another title.
+- `magic switch`: 17 impressions, zero clicks, position 10.59 (previous rolling snapshot:
+  62, zero, 9.74). `magic switch mac`: 11, one click, position 8.18. Competitor-name visibility
+  changes may be part of the mix, but cannot be attributed to the comparison page here.
+- `switchy mac`: three impressions, two clicks, position 1.00. The 59 listed query rows account
+  for only 173 impressions and four clicks versus 1,802 impressions and 27 site-wide clicks.
+  Treat listed queries as a partial sample, not a complete demand breakdown.
+- Trackpad switching/multiple-device queries total 14 listed impressions and no clicks; another
+  broad keyboard/trackpad query has one impression. Magic Mouse switching/multiple-device queries
+  total nine impressions and no clicks; another generic mouse-sharing query has two. These
+  small, overlapping samples do not justify new articles. Keep the user's existing-page focus.
+- The parser emits no zero-click CTR flag this time because no zero-click query meets its
+  20-impression threshold. This does not mean all pages have healthy CTR: manual page review
+  still identifies Mac mini and multiple-devices as low-CTR pages with hundreds of impressions.
+
+**Health and indexing, checked 26 Sep:** all 11 canonical sitemap pages return HTTP 200,
+matching self-canonicals, and `index, follow`. Both robots.txt files return 200. The approved
+multiple-devices title/demo remain live and the removed callout is absent. Six watched pages
+surface in `site:` search; multiple-devices does not surface directly, but its 637 impressions
+and three clicks confirm serving during the reporting window. All seven watched URLs have
+GSC impressions. As recorded in the 22 Sep review, `site:` results are not exhaustive.
+Watching refreshed while retaining original indexed dates. No authenticated URL Inspection
+was performed, and no claim is made about Google's current indexed title or last crawl date.
+
+**Unexpected URL follow-up:** a new export row is
+`https://mangobuns.com/blog/how-to-switch-magic-keyboard-between-macs/` (missing `/switchy/`).
+It and both variants recorded on 22 Sep return proper HTTP 404 responses with `noindex`.
+None appears in the sitemap or current public, public-root, src or workflow links. The real
+how-to guide remains healthy. The two repeated rows may be the same impressions within the
+shared dates; these exports do not establish recurring new hits. The new missing-prefix URL
+has one impression and zero clicks. Keep these on the watch list; inspect referring URLs if
+they recur in a non-overlapping window before introducing redirects.
+
+**Actions:** ran the existing parser, reconciled overlapping daily data, checked all sitemap
+URLs plus the three unexpected URLs, refreshed Watching, and appended this review. Preserved
+all earlier uncommitted log history. No website content, source workbook, parser, build,
+commit, push or deployment changed.
+
+**Next actions:**
+1. Obtain Mac mini/MacBook's exact-page-filtered Queries export with **Last 7 days → Compare →
+   Previous period**; this is the immediate information needed before a useful snippet change.
+2. Keep the 14 Sep multiple-devices update stable; inspect its Google crawl date if available.
+3. Review around 29 Sep using a site-wide comparison export and the two page-filtered exports
+   (multiple-devices and Mac mini/MacBook). Add no new articles on this evidence.
+
+---
+
+## 2026-10-01 — Switchy 2.0 (Send) shipped; a new-content case finally exists
+
+**Data:** `mangobuns.com-Performance-on-Search-2026-10-01.xlsx`, Web / Last 7 days, no filter.
+Chart dates **22–28 Sep 2026** (single window, no compare). Cleanest non-overlapping baseline
+is the 22 Sep export (14–20 Sep); 21 Sep is unrepresented.
+
+**Site-wide (Chart):** impressions **1,698 → 1,918 (+13%)**; clicks **28 → 34 (+21%)**;
+CTR **1.65% → 1.77%**; impression-weighted position **7.59 → 7.75** (slightly worse).
+Devices: desktop 1,390 imp / 28 clicks (pos 7.62); mobile 501 / 6 (8.10); tablet 27 / 0.
+
+**Pages (current window; 26 Sep export values in brackets, overlapping windows):**
+
+| Page | Impr | Clicks | Pos |
+|---|---:|---:|---:|
+| Multiple devices | 672 [637] | 6 [3] | 7.7 [7.33] |
+| How-to switching | 442 | 7 | 7.2 |
+| Mac mini + MacBook | 422 [383] | 2 [1] | 8.6 [8.73] |
+| Pairing mode | 202 [197] | 2 [1] | 8.8 [8.48] |
+| Comparison | 127 | 4 | 6.5 |
+| Switchy homepage | 49 [31] | 10 [7] | 4.6 [4.16] |
+| Universal Control | 40 [49] | 3 [4] | 7.8 [7.35] |
+| KVM | 22 [29] | 0 [2] | 9.0 [8.79] |
+
+Multiple-devices doubled clicks with stable position — the 14 Sep update is holding; keep it
+unchanged. Homepage clicks keep climbing (10 at pos 4.6).
+
+**Queries:** parser CTR flag: `can magic keyboard connect to multiple devices` 20 imp, 0 clicks,
+pos 7.5 (existing content covers it). Competitor-name cluster (`magic switch*`) 39 imp combined,
+pos 8.3–9.8, 0 clicks. Still no `mac mini` / `macbook` query in the global sheet despite the
+Mac mini page's 422 impressions — its queries remain anonymised long tail.
+
+**2.0 launch content assessment:** Switchy 2.0 (build 93) adds **Send / Send all devices** —
+push devices from the Mac you're on to another Mac, solving the "desktop Mac has no input device
+left" problem. Commit b88f557 added the desktop Send section to the landing page. No blog post,
+llms.txt or schema mentions Send yet; homepage JSON-LD still says `softwareVersion: 1.1.6`.
+SERP spot-check for "Mac mini without keyboard and mouse" / "use MacBook as keyboard for Mac mini"
+returns Apple Support, MacPaw and forum threads (Apple Discussions, MacRumors) — no dedicated,
+current guide. This is the first evidence-backed new-article case since July.
+Caveat recorded: the app repo's `Docs/Architecture/Remote-Send-Reliability.md` and
+`Docs/Qualification/Three-or-More-Mac-Qualification.md` say physical Mac mini qualification is
+still pending and advise not naming Mac mini publicly; the release notes say "desktop Mac".
+Needs the user's call before any Mac-mini-specific copy ships.
+
+**Proposed (not applied):**
+1. Update `/switchy/blog/one-keyboard-mouse-mac-mini-macbook/` with a Send section (the page
+   already earns 422 imp/wk for this exact setup) + the pending 22 Sep title/description test +
+   `dateModified`.
+2. New post targeting "Mac mini without keyboard and mouse" / headless-desk intent (setup cable
+   trick, wired fallback, Universal Control, Screen Sharing, Switchy Send), wired into hub,
+   sitemap, llms.txt, IndexNow list, plus an in-prose link from the Mac mini + multiple-devices
+   posts.
+3. Bump homepage `softwareVersion` to 2.0 and add Send to llms.txt.
+Not recommended: a "Switchy 2.0 released" announcement post — no search demand for it.
+
+**Health:** all 11 sitemap URLs return 200. `site:mangobuns.com` via the web-search tool returned
+unrelated results (tool limitation, not de-indexing): every watched URL has GSC impressions this
+window, which is the stronger serving signal. Watching table unchanged.
+
+**Applied 2026-10-01 (user approved: say "desktop Mac", Mac mini only as the example; make no
+claims about sleeping/locked Macs):**
+- New post `/switchy/blog/mac-mini-without-keyboard-mouse/` — title `Use a Mac mini Without a
+  Keyboard or Mouse: 4 Ways (2026)`; Article + FAQPage (5 Q) + BreadcrumbList; wired into the hub,
+  sitemap, llms.txt and the IndexNow list.
+- Mac mini + MacBook post: title → `One Keyboard & Mouse for Mac mini and MacBook: 3 Ways`;
+  description → "Share one Magic Keyboard and Mouse between a Mac mini and MacBook. Three methods
+  compared, including sending devices back to a mini with no keyboard."; Send paragraph under
+  Option 3; in-prose link to the new post; dateModified 2026-10-01. **Baseline for the snippet
+  test:** 422 imp, 2 clicks, pos 8.6 (22–28 Sep).
+- How-to post: in-prose link to the new post (Method 1) + Send mention in the Switchy bullet.
+- Homepage: `softwareVersion` 1.1.6 → 2.0; Intel FAQ no longer pins a version; new FAQ "Can I
+  send devices to a Mac that has no keyboard or mouse?" in App.jsx, static fallback and JSON-LD.
+- Multiple-devices post deliberately untouched (its 14 Sep snippet test is still running).

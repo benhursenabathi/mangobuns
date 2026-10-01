@@ -2,7 +2,7 @@
 
 > Switchy is a macOS menu bar app that switches Apple Magic accessories (Magic Keyboard, Magic Trackpad, Magic Mouse) between Macs with one click — no manual Bluetooth unpairing, no System Settings. It ships as one Universal build for Intel and Apple silicon Macs. Free 3-day full-featured trial, then a $12.99 one-time purchase; the lifetime license covers up to 5 Macs (deactivate a Mac anytime to free a slot). Requires macOS 14.0 (Sonoma) or later on each Mac. Switching is local-network only (Bonjour discovery) with no accounts or analytics; license activation and validation use the Lemon Squeezy License API.
 
-Switchy solves the problem of using one set of Apple Magic peripherals with multiple Macs (e.g., a work MacBook and a personal Mac mini). Unlike Apple's Universal Control — which shares input across Macs on the same Apple ID while devices stay paired to one host — Switchy moves the actual Bluetooth pairing to the target Mac, so it works across different Apple IDs when both Macs are awake and reachable.
+Switchy solves the problem of using one set of Apple Magic peripherals with multiple Macs (e.g., a work MacBook and a personal Mac mini). Unlike Apple's Universal Control — which shares input across Macs on the same Apple ID while devices stay paired to one host — Switchy moves the actual Bluetooth pairing to the target Mac, so it works across different Apple IDs when both Macs are awake and reachable. Since Switchy 2.0, devices can also be sent from the Mac you are using to another Mac (one device or "Send all devices"), which lets a laptop hand the keyboard and mouse back to a desktop Mac that has no input devices of its own.
 
 ## Product
 
@@ -18,4 +18,5 @@ Switchy solves the problem of using one set of Apple Magic peripherals with mult
 - [KVM switch for two Macs](https://mangobuns.com/switchy/blog/kvm-switch-for-two-macs/): Why hardware KVMs don't work with Bluetooth Magic devices, and software alternatives
 - [Magic Keyboard pairing mode](https://mangobuns.com/switchy/blog/magic-keyboard-pairing-mode/): There is no pairing button — how discoverability works and how to pair with any Mac, iPad, or iPhone
 - [Magic Keyboard on Multiple Devices: What Works (2026)](https://mangobuns.com/switchy/blog/magic-keyboard-multiple-devices/): Compare Bluetooth pairing, cables, Universal Control, and switching apps for two Macs; includes Trackpad and Mouse limits, a Logitech comparison, and a Switchy demo
-- [One keyboard and mouse for Mac mini and MacBook](https://mangobuns.com/switchy/blog/one-keyboard-mouse-mac-mini-macbook/): Sharing one set of Magic devices between a desktop and a laptop Mac
+- [One keyboard and mouse for Mac mini and MacBook](https://mangobuns.com/switchy/blog/one-keyboard-mouse-mac-mini-macbook/): Sharing one set of Magic devices between a desktop and a laptop Mac, including sending them back to the desktop
+- [Use a Mac mini without a keyboard or mouse](https://mangobuns.com/switchy/blog/mac-mini-without-keyboard-mouse/): Setup with no keyboard, then Universal Control, Screen Sharing, the cable trick, or sending devices from a MacBook
