@@ -5,7 +5,9 @@ Replaces the manual xlsx export. Standard library only; JWTs are signed with the
 `openssl` CLI so it runs on macOS and in cloud containers without pip installs.
 
 Credentials (service account JSON), first match wins:
-  GSC_KEY_JSON   env var holding the JSON itself (cloud routines)
+  GSC_KEY_B64    env var holding the JSON, base64-encoded on one line (cloud
+                 routine environment: pastes cleanly into the .env-format field)
+  GSC_KEY_JSON   env var holding the JSON itself
   GSC_KEY_FILE   env var holding a path to the JSON
   ~/Documents/2026/Get Rich/SEO/Switchy Data/*.json (local default)
 
@@ -43,6 +45,8 @@ INSPECT_API = "https://searchconsole.googleapis.com/v1/urlInspection/index:inspe
 
 
 def load_key():
+    if os.environ.get("GSC_KEY_B64"):
+        return json.loads(base64.b64decode(os.environ["GSC_KEY_B64"].strip()))
     if os.environ.get("GSC_KEY_JSON"):
         return json.loads(os.environ["GSC_KEY_JSON"])
     if os.environ.get("GSC_KEY_FILE"):
@@ -51,7 +55,7 @@ def load_key():
         d = json.loads(p.read_text())
         if d.get("type") == "service_account":
             return d
-    sys.exit("No service account key found (set GSC_KEY_JSON or GSC_KEY_FILE).")
+    sys.exit("No service account key found (set GSC_KEY_B64, GSC_KEY_JSON or GSC_KEY_FILE).")
 
 
 def b64url(data):

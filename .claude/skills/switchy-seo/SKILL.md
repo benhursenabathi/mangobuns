@@ -25,7 +25,8 @@ python3 .claude/skills/switchy-seo/scripts/fetch_gsc.py --inspect URL ...   # in
 python3 .claude/skills/switchy-seo/scripts/fetch_gsc.py --submit-sitemap    # needs a root/domain property
 ```
 
-Credentials: `GSC_KEY_JSON` (cloud routine env var) or `GSC_KEY_FILE`, else the
+Credentials: `GSC_KEY_B64` (cloud routine env var, base64 of the key JSON),
+`GSC_KEY_JSON` or `GSC_KEY_FILE`, else the
 key JSON in `~/Documents/2026/Get Rich/SEO/Switchy Data/` (local). The key is
 secret and the repo is public: never print it, copy it into the repo, or
 commit it. The report includes site-wide totals, per-page metrics with
