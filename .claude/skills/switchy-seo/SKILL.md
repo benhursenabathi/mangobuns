@@ -128,7 +128,7 @@ pages, confirm internal links resolve in `dist/`, and validate the sitemap XML.
   Apply changes only after user approval; commit and push only with the user's
   go-ahead; after deploy, remind them to Request Indexing for new/retitled URLs.
 - **Unattended (cloud routine):** do NOT push to main. Commit to a branch
-  `seo/weekly-YYYY-MM-DD` and open a PR against main. The PR body leads with
+  `claude/seo-weekly-YYYY-MM-DD` (cloud runs may only push `claude/` branches) and open a PR against main. The PR body leads with
   the trend, lists every change with before/after and the evidence behind it,
   and ends with a "Manual steps after merge" checklist (exact URLs to Request
   Indexing). If no site change is warranted, the PR contains only the log
