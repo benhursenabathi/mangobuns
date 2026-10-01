@@ -17,8 +17,6 @@ import sys
 import time
 from pathlib import Path
 
-import openpyxl
-
 DEFAULT_DIR = Path.home() / "Documents/2026/Get Rich/SEO/Switchy Data"
 STALE_DAYS = 7
 
@@ -51,6 +49,8 @@ def num(v):
 
 
 def parse_performance(path):
+    import openpyxl  # lazy: fetch_gsc.py reuses report() without openpyxl installed
+
     wb = openpyxl.load_workbook(path, read_only=True)
     out = {}
     for sheet in ("Queries", "Pages"):
