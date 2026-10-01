@@ -9,6 +9,31 @@
     <!-- Add new versions above this line -->
 
     <item>
+      <title>Beta 1.1.6 (build 91)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>91</sparkle:version>
+      <sparkle:shortVersionString>1.1.6</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Thu, 01 Oct 2026 13:27:43 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.6-build91/Switchy-Beta-1.1.6-build91.dmg"
+        sparkle:edSignature="KgDc6lnHBaG7UckXWquaTP2gicb2ODBG9g49G5oGzAF/otG0sUpr50aXovj4cyoozpEGF6rgmiB4Q1x5zQOLCQ=="
+        length="6798493"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 91 — Bonjour identity continuity</h2>
+        <ul>
+          <li>Connect, Connect All and Send no longer fail when Bonjour briefly reports the other Mac without some or all of its identity details. Previously the other Mac's genuine replies were rejected as "identity-mismatched". In one Connect All, the Mouse had actually been released but was reported as failed, and it took two recovery panels before a retry worked.</li>
+          <li>Switchy keeps the Mac's last complete identity only while it stays continuously listed, for at most 20 seconds, and only when nothing that did arrive contradicts it. After the Mac disappears or discovery restarts, complete details are required again, so a different Mac that takes the same name never inherits the identity.</li>
+          <li>Reply checks are unchanged. Every carry-forward is logged as <code>[DISCOVERY] Identity continuity …</code>.</li>
+          <li>Send: "Could not verify where the device connected" no longer turns into "disconnected" after 3 seconds without evidence. Switchy checks Bluetooth first, and waits until a whole Send All has finished.</li>
+          <li>Stale Bonjour updates are ignored after a sleep or discovery restart.</li>
+        </ul>
+        <p><b>Test on both Macs:</b> Connect All, Send All, Connect and Send in both directions, plus sleep/wake, a Wi-Fi change and a Switchy restart on the other Mac. In the logs, look for <code>[DISCOVERY] Identity continuity</code> lines with no <code>identity-mismatched</code> failures or unexpected recovery panels.</p>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.6 (build 90)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>90</sparkle:version>
