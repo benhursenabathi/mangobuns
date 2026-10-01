@@ -33,3 +33,6 @@ lerna-debug.log*
 
 # Local agent configs
 .codex
+
+# Python bytecode (SEO skill scripts)
+__pycache__/
