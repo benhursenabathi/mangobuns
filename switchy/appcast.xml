@@ -9,6 +9,29 @@
     <!-- Add new versions above this line -->
 
     <item>
+      <title>Beta 1.1.6 (build 92)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>92</sparkle:version>
+      <sparkle:shortVersionString>1.1.6</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Thu, 01 Oct 2026 15:44:41 +0100</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v1.1.6-build92/Switchy-Beta-1.1.6-build92.dmg"
+        sparkle:edSignature="8TVj2tnJ+kI330noqbJmQJEJKmrfGLhoSbSRoZmiqVnUjjBIgG1DTD8oGt4yzvYByX10IhCnDN+EWEkC2A28Cg=="
+        length="7418031"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 92 — Send in the onboarding tour</h2>
+        <ul>
+          <li>New 5th tour slide, "Send to Your Other Mac", showing the Send menu.</li>
+          <li>Existing users see a one-time "What's new" panel with just the Send slide and a Got It button. It does not open Settings afterwards. New users see the full five-slide tour instead.</li>
+          <li>Switching, Send and discovery behaviour is unchanged from build 91.</li>
+        </ul>
+        <p><b>Test:</b> after updating, the "What's new" panel should appear once on launch. Click Got It, quit and relaunch: it should not appear again. Settings → Show Welcome Tour should show all five slides.</p>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Beta 1.1.6 (build 91)</title>
       <sparkle:channel>beta</sparkle:channel>
       <sparkle:version>91</sparkle:version>
