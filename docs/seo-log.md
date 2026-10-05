@@ -9,11 +9,11 @@ Weekly entries appended by the `/switchy-seo` skill. Newest at the bottom.
 | /switchy/blog/ | 2026-07-10 | Yes — 2026-07-20. URL Inspection 2026-10-01: Submitted and indexed, last crawl 2026-08-30; 3 impr, pos 3.0 (22–28 Sep) |
 | /switchy/blog/universal-control-vs-switching-devices/ | 2026-07-10 | Yes — 2026-07-20. URL Inspection 2026-10-01: indexed, last crawl 2026-09-06; 40 impr, 3 clicks, pos 7.8 |
 | /switchy/blog/kvm-switch-for-two-macs/ | 2026-07-10 | Yes — 2026-07-20. URL Inspection 2026-10-01: indexed, last crawl 2026-09-25; 22 impr, 0 clicks, pos 9.0 |
-| /switchy/blog/one-keyboard-mouse-mac-mini-macbook/ | 2026-07-10 | Yes — 2026-07-20. URL Inspection 2026-10-01: indexed, last crawl **2026-08-29** (predates the 2026-10-01 retitle + Send section); 422 impr, 2 clicks, pos 8.6. Snippet test runs to 2026-10-15 |
+| /switchy/blog/one-keyboard-mouse-mac-mini-macbook/ | 2026-07-10 | Yes — 2026-07-20. URL Inspection 2026-10-05: indexed, **recrawled 2026-10-01 20:40 UTC** (post-retitle crawl confirmed); 345 impr, 0 clicks, pos 8.9 (26 Sep–2 Oct). Snippet test runs to 2026-10-15 |
 | /switchy/blog/magic-keyboard-pairing-mode/ | 2026-07-10 | **Yes — 2026-07-24.** URL Inspection 2026-10-01: indexed, last crawl 2026-09-26; 202 impr, 2 clicks, pos 8.8 |
-| /switchy/blog/magic-keyboard-multiple-devices/ | 2026-07-10 | **Yes — 2026-07-24.** Retitled 2026-09-14; URL Inspection 2026-10-01: indexed, **recrawled 2026-09-25** (first post-update crawl confirmed); 672 impr, 6 clicks, pos 7.7 |
-| /switchy/ (homepage) | 2026-07-10 | Yes — 2026-07-20. URL Inspection 2026-10-01: indexed, last crawl 2026-09-26 (predates the 2026-10-01 softwareVersion/FAQ edit); 49 impr, 10 clicks, pos 4.6 |
-| /switchy/blog/mac-mini-without-keyboard-mouse/ | 2026-10-01 | No — URL Inspection 2026-10-01: **Crawled - currently not indexed**, crawled 2026-10-01 20:40 UTC (same day as publish; normal). Request Indexing; re-check ~2026-10-15 |
+| /switchy/blog/magic-keyboard-multiple-devices/ | 2026-07-10 | **Yes — 2026-07-24.** Retitled 2026-09-14; recrawled 2026-09-25 and again 2026-10-02 (URL Inspection 2026-10-05); 568 impr, 4 clicks, pos 7.6 (26 Sep–2 Oct) |
+| /switchy/ (homepage) | 2026-07-10 | Yes — 2026-07-20. URL Inspection 2026-10-05: indexed, **recrawled 2026-10-03** (after the 2026-10-01 softwareVersion/FAQ edit); 27 impr, 4 clicks, pos 4.3 |
+| /switchy/blog/mac-mini-without-keyboard-mouse/ | 2026-10-01 | **Yes — 2026-10-05.** URL Inspection 2026-10-05: Submitted and indexed (last crawl 2026-10-01 20:40 UTC); already 50 impr, 1 click, pos 8.4 in its first days |
 
 ---
 
@@ -1217,3 +1217,94 @@ property is the URL-prefix `https://mangobuns.com/switchy/`, which cannot own th
 **Next (8 Oct):** first look at the new post's indexing and impressions; multiple-devices
 question-cluster CTR with a full post-recrawl week; whether Google has recrawled the Mac mini
 page; homepage position.
+
+---
+
+## 2026-10-05 (cloud routine, API) — Softer week; new Mac mini post indexed in 4 days; log only
+
+**Data:** Search Console API (`fetch_gsc.py`), now resolving to the **domain property
+`sc-domain:mangobuns.com`** (last run used the URL-prefix `https://mangobuns.com/switchy/`, so
+totals now include the root page's handful of impressions). Web. Current **26 Sep–2 Oct**,
+previous **19–25 Sep**. Note: the current window overlaps the 2026-10-01 entry's window by three
+days (26–28 Sep) because of GSC's ~3-day data lag.
+
+**Site-wide:** impressions **1,863 → 1,736 (−7%)**; clicks **34 → 22 (−35%)**; CTR
+**1.83% → 1.27%**; impression-weighted position **7.65 → 7.73** (flat). Daily: 208/3, 224/4,
+279/4, 260/5, 252/2, 219/0, 294/4. Devices: desktop 1,253 / 17 (7.59), mobile 442 / 5 (8.17),
+tablet 41 / 0 (7.44). The click loss is spread across the compare page (−4), homepage (−5),
+Universal Control (−4), Mac mini + MacBook (−3) and KVM (−2), partly offset by pairing mode (+4);
+no page lost position meaningfully, so this reads as small-sample CTR noise plus a softer
+impression week, not a ranking problem.
+
+**Pages (prev → current):**
+
+| Page | Impr | Clicks | Pos |
+|---|---:|---:|---:|
+| Multiple devices | 655 → 568 | 4 → 4 | 7.5 → 7.6 |
+| How-to switching | 427 → 433 | 5 → 6 | 7.1 → 7.2 |
+| Mac mini + MacBook | 391 → 345 | 3 → 0 | 8.7 → 8.9 |
+| Pairing mode | 196 → 196 | 1 → 5 | 8.5 → 8.8 |
+| Comparison | 118 → 110 | 6 → 2 | 6.8 → 6.9 |
+| Mac mini without keyboard/mouse (new) | 0 → 50 | 0 → 1 | — → 8.4 |
+| Universal Control | 48 → 44 | 4 → 0 | 7.6 → 6.8 |
+| Switchy homepage | 40 → 27 | 9 → 4 | 4.3 → 4.3 |
+| KVM | 30 → 15 | 2 → 0 | 8.7 → 8.0 |
+| mangobuns.com/ (root) | 8 → 5 | 0 → 0 | 4.8 → 10.0 |
+| Blog hub | 1 → 3 | 0 → 0 | 3.0 → 2.7 |
+| Privacy | 1 → 3 | 0 → 0 | 5.0 → 1.0 |
+
+**Notable queries (page ← query):**
+- Multiple devices ← `can magic keyboard connect to multiple devices` 23 / 0 / 8.0 (only CTR
+  flag), `can a magic keyboard…` 8 / 0 / 7.2, plus ~10 more question variants at 1–3 imp each
+  (≈45 imp combined, 0 clicks, pos 7–9). `magic trackpad multiple devices` 4 / 0 / 11.0.
+- Comparison ← `magic switch app` 14 / 0 / 10.1, `magic switch mac` 13 / 0 / 9.6,
+  `magic switch` 10 / 0 / 10.4, `switchmymagic` 8 / 0 / 3.4, `magic switch macos` 3 / 0 / 8.3.
+  The `magic switch*` cluster slipped from ~8.5–9.8 to ~9.6–10.4 (page-1/page-2 boundary).
+- New Mac mini post ← `how to set up mac mini without mouse` 2 / 0 / 5.0,
+  `how to setup mac mini without mouse or keyboard` 2 / 0 / 7.5,
+  `set up mac mini without keyboard and mouse` 2 / 0 / 6.5, `mac mini setup without keyboard`
+  2 / 0 / 13.0 — the post is already matching the intended headless-setup intent.
+- How-to ← `switch magic keyboard between macs` 6 / 0 / 8.5, `how to switch magic keyboard between
+  devices` 5 / 0 / 7.0, `how to connect track pad between two macs` 4 / 0 / 11.0.
+- Mac mini + MacBook ← `how to use one mouse two mac` 3 / 0 / 13.3, `mac share mouse and
+  keyboard` 2 / 0 / 14.0.
+- Homepage ← `switchy mac` 5 / 1 / 1.2.
+
+**Indexing (URL Inspection API, 2026-10-05):**
+- `mac-mini-without-keyboard-mouse`: **Submitted and indexed** (was "Crawled - currently not
+  indexed" on 1 Oct). Watching row closed.
+- Mac mini + MacBook: recrawled **1 Oct 20:40 UTC** — Google has the new title/Send section, so
+  its snippet test effectively started 2 Oct; keep it to at least 15 Oct.
+- Homepage recrawled 3 Oct (after the 2.0 softwareVersion/FAQ edit); how-to recrawled 2 Oct;
+  multiple devices recrawled 2 Oct. All own-URL canonical.
+
+**Health:** all 12 sitemap URLs return HTTP 200. `--submit-sitemap` **succeeded** this week
+(`Submitted https://mangobuns.com/sitemap.xml to sc-domain:mangobuns.com`) now that the service
+account resolves to the domain property. `npm run build` clean; JSON-LD in every built page parses;
+internal `/switchy/` links resolve in `dist/`; `public-root/sitemap.xml` is valid XML.
+
+**Decision: log only — no site changes this week.**
+- **Multiple devices (CTR flag):** considered a snippet rewrite that echoes the question form
+  ("Can a Magic Keyboard Connect to Multiple Devices?") for the ≈45-impression question cluster.
+  Rejected for now: the pre-14-Sep title *was* that question form and ran at **0.13% CTR**
+  (5–11 Sep); the current "What Works (2026)" snippet has run at 0.89% (22–28 Sep) and 0.70% (26
+  Sep–2 Oct, first full week after the 25 Sep recrawl) — roughly 5× better, with position flat at
+  7.5–7.6. Question-form yes/no searches are likely satisfied on the SERP itself. Revisit only if
+  page CTR drops below 0.5% for two consecutive weeks. Baseline: 568 imp / 4 clicks / pos 7.6 /
+  CTR 0.70%.
+- **Mac mini + MacBook (0 clicks on 345 imp):** inside its snippet-test window (changed 1 Oct,
+  recrawled 1 Oct); judge on/after 15 Oct against the 422 / 2 / 8.6 baseline.
+- **Comparison (6 → 2 clicks):** rejected a retitle again. The title already front-loads
+  "Switchy vs Magic Switch vs SwitchMyMagic"; the lost clicks sit in competitor-navigational
+  queries whose own site holds #1, and overall page position is flat (6.8 → 6.9). Watch whether
+  `magic switch*` stays above position 10 next week.
+- **Pairing mode (1 → 5 clicks), how-to (5 → 6), Universal Control (pos 7.6 → 6.8):** improving —
+  leave alone.
+- **Homepage (9 → 4 clicks), KVM (2 → 0):** small samples at stable position; noise.
+- **New post:** none. The only uncovered cluster is `can an apple magic keyboard connect to
+  android` (3 imp, pos 18–40) and trackpad-specific switching (`how to connect track pad between
+  two macs` 4 imp, `magic trackpad multiple devices` 4 imp) — too thin, and both are already
+  served by existing pages. The 1 Oct post is still in its first fortnight.
+
+**Next (12 Oct):** new Mac mini post's first full week; Mac mini + MacBook snippet test (decide
+15 Oct+); comparison `magic switch*` positions; whether site clicks recover toward ~30/wk.
