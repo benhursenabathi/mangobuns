@@ -9,6 +9,28 @@
     <!-- Add new versions above this line -->
 
     <item>
+      <title>Beta 2.0 (build 94)</title>
+      <sparkle:channel>beta</sparkle:channel>
+      <sparkle:version>94</sparkle:version>
+      <sparkle:shortVersionString>2.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Wed, 11 Nov 2026 08:35:09 +0000</pubDate>
+      <enclosure
+        url="https://github.com/benhursenabathi/mangobuns/releases/download/switchy-beta-v2.0-build94/Switchy-Beta-2.0-build94.dmg"
+        sparkle:edSignature="kNXBj1I5UkC3rbHlVAs7QDyASsc4Es+1jrkRkx6qvk8cBw9IBC7JrmdOj3sZL3q4NwTipkkf77INFMR7nq2hDw=="
+        length="7558766"
+        type="application/octet-stream"/>
+      <description><![CDATA[
+        <h2>Beta build 94</h2>
+        <ul>
+          <li>Fix "Device connection did not settle" after a successful pair: blueutil --pair can drop its own link on exit; the post-connect gate now detects a sustained drop after 1s and reconnects once with the fresh keys (single, local, and batch-JIT flows).</li>
+          <li>Acquire is refused with "&lt;Mac&gt; is still connecting &lt;device&gt;" while another Mac's quiet window shows it mid-pair, instead of colliding with its handshake.</li>
+          <li>To verify: repeat single and batch switches; watch for [CONNECT GATE] "dropped after connecting … reconnecting" logs and confirm the device ends up connected.</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Version 2.0 (build 93)</title>
       <sparkle:version>93</sparkle:version>
       <sparkle:shortVersionString>2.0</sparkle:shortVersionString>
