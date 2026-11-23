@@ -7,10 +7,10 @@ Weekly entries appended by the `/switchy-seo` skill. Newest at the bottom.
 | URL | Added | Indexed? |
 |---|---|---|
 | /switchy/blog/ | 2026-07-10 | Yes — 2026-07-20. URL Inspection 2026-11-02: indexed, last crawl 2026-10-22; 4 impr, pos 5.0 (25–31 Oct) |
-| /switchy/blog/universal-control-vs-switching-devices/ | 2026-07-10 | Yes — 2026-07-20. **Retitled 2026-11-16** (question-style title + visible FAQ, PR). URL Inspection 2026-11-16: indexed, last crawl 2026-10-22. Baseline 87 imp, 1 click, pos 7.2 (7–13 Nov). Snippet test runs to 2026-11-30 at the earliest (needs a recrawl after deploy) |
+| /switchy/blog/universal-control-vs-switching-devices/ | 2026-07-10 | Yes — 2026-07-20. **Retitled 2026-11-16** (question-style title + visible FAQ, PR). URL Inspection 2026-11-16: indexed, last crawl 2026-10-22. Baseline 87 imp, 1 click, pos 7.2 (7–13 Nov). Snippet test runs to 2026-11-30 at the earliest (needs a recrawl after deploy). **URL Inspection 2026-11-23: still last crawled 2026-10-22, so Google has not seen the new title yet. Request Indexing.** |
 | /switchy/blog/kvm-switch-for-two-macs/ | 2026-07-10 | Yes — 2026-07-20. URL Inspection 2026-11-02: indexed, last crawl 2026-10-22; 16 impr, 0 clicks, pos 7.0 (25–31 Oct) |
 | /switchy/blog/one-keyboard-mouse-mac-mini-macbook/ | 2026-07-10 | Yes — 2026-07-20. Retitled 2026-10-01; recrawled 2026-10-01 and again 2026-11-13. Test closed 2026-11-16: flat (422 / 2 / 8.6 → 366 / 1 / 8.0), title kept |
-| /switchy/blog/magic-keyboard-pairing-mode/ | 2026-07-10 | **Yes — 2026-07-24.** URL Inspection 2026-11-02: indexed, last crawl 2026-10-22; 154 impr, 1 click, pos 8.4 (25–31 Oct) |
+| /switchy/blog/magic-keyboard-pairing-mode/ | 2026-07-10 | **Yes — 2026-07-24.** URL Inspection 2026-11-23: indexed, last crawl 2026-11-12. **Meta description test 2026-11-23** (PR). Baseline 1,108 imp / 4 clicks / pos 6.4 / CTR 0.36% (15–21 Nov). Evaluate no earlier than 2026-12-07 (needs a recrawl after deploy) |
 | /switchy/blog/magic-keyboard-multiple-devices/ | 2026-07-10 | **Yes — 2026-07-24.** Retitled 2026-09-14 and 2026-10-12 (question-style title). URL Inspection 2026-11-16: indexed, last crawl 2026-11-11. **Test #2 closed 2026-11-16: kept** — 689 / 6 / 8.4 → 797 / 9 / 6.5 (7–13 Nov) |
 | /switchy/ (homepage) | 2026-07-10 | Yes — 2026-07-20. URL Inspection 2026-11-02: indexed, last crawl 2026-10-30; 17 impr, 5 clicks, pos 3.2 (25–31 Oct) |
 | /switchy/blog/mac-mini-without-keyboard-mouse/ | 2026-10-01 | **Yes — confirmed 2026-10-12.** URL Inspection 2026-11-02: indexed, last crawl 2026-10-26. Impressions rebounded 182 → 601 (25–31 Oct), pos 7.3, 4 clicks; candidate box-contents answer on 2026-11-09 |
@@ -1765,3 +1765,100 @@ Google canonical = own URL. Most recrawled 11–15 Nov; Universal Control and KV
 **Next (23 Nov):** check Universal Control recrawl after deploy; Mac mini without keyboard/mouse
 trend (decide on the FAQ addition); pairing-mode momentum; keep the weekly run cadence (four weeks
 were missed).
+
+---
+
+## 2026-11-23 (cloud routine, API) — Impressions +40%, clicks 43 → 78, position 6.76 → 5.44; meta description test on pairing mode
+
+**Data:** Search Console API (`fetch_gsc.py`), `sc-domain:mangobuns.com`, Web. Current
+**15–21 Nov**, previous **8–14 Nov**. The previous window is shifted one day from last entry's
+7–13 Nov, so its per-page "prev" values below differ a little from the 2026-11-16 table.
+
+**Site-wide:** impressions **3,669 → 5,141 (+40%)**; clicks **43 → 78 (+81%)**; CTR
+**1.17% → 1.52%**; impression-weighted position **6.76 → 5.44** (better). Best week so far on every
+metric. Daily: 592/9, 836/12, 808/11, 781/10, 778/18, 729/8, 617/10. Devices: desktop 3,473 / 62
+(4.71), mobile 1,592 / 16 (6.98), tablet 76 / 0 (7.01).
+
+**Pages (prev → current):**
+
+| Page | Impr | Clicks | Pos |
+|---|---:|---:|---:|
+| Mac mini without keyboard/mouse | 1,100 → 1,245 | 9 → 16 | 6.2 → 5.5 |
+| Pairing mode | 589 → 1,108 | 5 → 4 | 7.4 → 6.4 |
+| Multiple devices | 793 → 1,065 | 8 → 18 | 6.6 → 4.2 |
+| How-to switching | 612 → 998 | 12 → 21 | 7.2 → 4.9 |
+| Mac mini + MacBook | 391 → 654 | 1 → 7 | 7.7 → 6.4 |
+| Comparison | 110 → 131 | 1 → 5 | 7.8 → 7.3 |
+| Universal Control | 92 → 61 | 1 → 1 | 7.2 → 7.9 |
+| Switchy homepage | 39 → 30 | 6 → 4 | 4.0 → 2.6 |
+| KVM | 21 → 17 | 0 → 2 | 8.5 → 6.9 |
+| mangobuns.com/ | 20 → 11 | 0 → 0 | 1.0 → 1.5 |
+| Blog hub | 15 → 11 | 0 → 0 | 2.9 → 4.9 |
+| Privacy | 12 → 4 | 0 → 0 | 4.6 → 4.0 |
+
+**Notable queries (page ← query):**
+- Pairing mode: **3 of the 5 CTR flags.** `magic keyboard pairing mode` 30 imp / 0 clicks / pos 6.4,
+  `how to make apple keyboard discoverable` 21 / 0 / 7.2, `how to put magic keyboard in pairing
+  mode` 21 / 0 / 8.4, `apple keyboard pairing mode` 12 / 0 / 5.2, `put magic keyboard in pairing
+  mode` 12 / 0 / 6.4, plus a long tail of pair / discoverable variants at pos 5–12. The page nearly
+  doubled its impressions but CTR fell 0.85% → 0.36% (clicks 5 → 4).
+- Multiple devices ← `can magic keyboard connect to multiple devices` 31 / 0 / **2.9** (CTR flag at a
+  top-3 position; likely answered in the SERP). The page still doubled its clicks (8 → 18), mostly
+  via `apple magic keyboard multiple devices` 9 / 3 / 3.9.
+- Mac mini without keyboard/mouse ← `how to setup mac mini without mouse or keyboard` 21 / 0 / 4.7
+  (CTR flag), `does the mac mini come with a keyboard and mouse?` 10 / 0 / 6.6 (was 42 imp last
+  week), `does mac mini come with keyboard and mouse` 7 / 0 / 11.6.
+- Universal Control ← `does universal control work between imac and macbook?` 10 / 0 / 8.4 (was 26).
+- Comparison ← `magic switch mac` 15 / 0 / 8.5, `magic switch` 11 / 0 / 12.2 (navigational, as before).
+- Small new signals: `use macbook as keyboard for mac mini` 5 / 0 / 2.8, `how to set up mac studio
+  without keyboard` 4 / 0 / 9.5, `can an apple magic keyboard connect to android` 4 / 0 / 5.2.
+
+**Experiments running:**
+- Universal Control (question title + visible FAQ, merged 2026-11-16): the new title is live, but
+  URL Inspection still shows **last crawl 2026-10-22**, so this week's numbers (61 / 1 / 7.9) are
+  for the old snippet. Window can't close until Google recrawls; Request Indexing is needed.
+
+**Indexing (URL Inspection API, 2026-11-23):** all 12 sitemap URLs `Submitted and indexed`, Google
+canonical = own URL. Last crawls 11–19 Nov except Universal Control and KVM (both 22 Oct). No URL
+has been unindexed for 14+ days.
+
+**Health:** all 12 sitemap URLs return HTTP 200. `--submit-sitemap` succeeded
+(`sc-domain:mangobuns.com`).
+
+**Applied (PR, not yet deployed):**
+- Pairing mode: meta description test (the snippet hasn't changed since the 2026-07-24 rewrite).
+  Rationale: biggest click gap on the site (1,108 imp, 4 clicks) and the source of 3 of 5 CTR flags.
+  The title already matches the queries and its position is improving, so the **title, H1, body
+  and JSON-LD are unchanged**. Only the snippet changes. The old description gave away the answer
+  ("has no pairing button") without saying why to click. The new one keeps that answer and adds
+  numbers and a concrete payoff, all taken from the page (the 3-step list, "about two seconds" for
+  cable pairing, the "Still not showing up?" checklist).
+  - Description and og:description: "Apple's Magic Keyboard has no pairing button. How to make a
+    Magic or older Apple Wireless Keyboard discoverable, pair it over Bluetooth, and fix one that
+    won't show up." / og: "No Apple keyboard has a pairing button. How discoverability actually
+    works on the Magic Keyboard, Trackpad, Mouse, and older Apple Wireless Keyboard." → "Magic
+    Keyboard pairing mode has no button. Make it discoverable in 3 steps or pair it by cable in
+    about 2 seconds, plus fixes if it won't show up." (146 characters)
+  - Sitemap lastmod 2026-07-10 → 2026-11-23 (it was stale, since dateModified was already
+    2026-08-01). dateModified and the visible "Updated" line are unchanged, because the article
+    content didn't change.
+  - **Baseline:** 1,108 imp / 4 clicks / pos 6.4 / CTR 0.36% (15–21 Nov). Evaluate no earlier than
+    7 Dec (needs a recrawl after deploy). If position drops by more than 1, revert.
+
+**Considered, rejected:**
+- Mac mini without keyboard/mouse "Does the Mac mini come with a keyboard and mouse?" FAQ: the
+  candidate named last week, held "if the improvement stalls". It didn't stall (clicks 9 → 16,
+  pos 6.2 → 5.5), and the query fell 42 → 10 imp. Leave the page alone.
+- Multiple devices `can magic keyboard connect…` at pos 2.9 with 0 clicks: the page's clicks more
+  than doubled and its test just closed as a keep. Leave it.
+- Universal Control: inside its test window and not yet recrawled.
+- Second snippet change (for example Mac mini + MacBook, now 654 / 7 / 6.4): every other page is
+  improving. One test this week keeps the pairing result readable.
+- New post: no uncovered cluster with volume. The new signals above are 4–5 imp each, and Mac
+  Studio / MacBook-as-keyboard are adjacent to existing Mac mini posts. Playbook troubleshooting
+  ideas still lack query evidence.
+- Comparison `magic switch*`: navigational competitor queries, same call as before.
+
+**Next (30 Nov):** confirm Universal Control was recrawled and start its 14-day clock; confirm the
+pairing-mode description deployed and was recrawled; watch whether the +40% week holds or was a
+spike (daily impressions peaked 16 Nov and eased to 617 by 21 Nov).
